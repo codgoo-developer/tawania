@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* Local Fonts from public/Font */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/NotoKufiArabic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  src: url('/Font/static/NotoKufiArabic-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-arabic: 'Noto Kufi Arabic', system-ui, sans-serif;
+    --font-english: 'Inter', system-ui, sans-serif;
+    --primary: #0B6B4F;
+    --primary-dark: #12332B;
+    --primary-light: #EBF4F0;
+    --accent: #C9A45C;
+    --accent-light: #FBF7EE;
+    --bg-base: #F7F8F6;
+    --text-main: #17211E;
+    --text-muted: #68736F;
+  }
+
+  html[lang="ar"] {
+    font-family: var(--font-arabic);
+  }
+
+  html[lang="en"] {
+    font-family: var(--font-english);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F0F2EE;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5CE;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0B6B4F;
+  }
+}
+
+/* Institutional subtle pattern overlay */
+.bg-geo-pattern {
+  background-image: radial-gradient(rgba(11, 107, 79, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-geo-dark {
+  background-image: radial-gradient(rgba(201, 164, 92, 0.12) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glass & Card effects compliant with design system */
+.rda-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(18, 51, 43, 0.08);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rda-card:hover {
+  border-color: rgba(11, 107, 79, 0.25);
+  box-shadow: 0 12px 30px -10px rgba(18, 51, 43, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid #0B6B4F;
+  outline-offset: 2px;
+}
+/* Clean Google Form Input Focus - completely removes browser native rectangle */
+.google-form-input {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid #D1D5DB !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  -webkit-appearance: none !important;
+}
+
+.google-form-input:focus,
+.google-form-input:focus-visible {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid #095B42 !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
