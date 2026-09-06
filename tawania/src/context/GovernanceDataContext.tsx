@@ -714,13 +714,39 @@ export const downloadDocumentFile = (
   fileUrl?: string,
   fileName?: string
 ) => {
-  const url = getDocumentPdfUrl(title, codeOrNum, fileUrl);
-  const element = document.createElement('a');
-  element.href = url;
-  element.download = fileName || `AlShamel-${codeOrNum || 'Document'}.pdf`;
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
+  try {
+    const finalFileName = fileName || `AlShamel-${(codeOrNum || 'Document').replace(/[^a-zA-Z0-9-_]/g, '_')}.pdf`;
+
+    if (fileUrl && fileUrl.startsWith('data:application/pdf')) {
+      const parts = fileUrl.split(',');
+      const mime = parts[0].match(/:(.*?);/)?.[1] || 'application/pdf';
+      const byteCharacters = atob(parts[1]);
+      const byteNumbers = new Uint8Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const blob = new Blob([byteNumbers], { type: mime });
+      const objUrl = URL.createObjectURL(blob);
+      const element = document.createElement('a');
+      element.href = objUrl;
+      element.download = finalFileName;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      setTimeout(() => URL.revokeObjectURL(objUrl), 3000);
+      return;
+    }
+
+    const url = getDocumentPdfUrl(title, codeOrNum, fileUrl);
+    const element = document.createElement('a');
+    element.href = url;
+    element.download = finalFileName;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  } catch (err) {
+    console.error('Error downloading document:', err);
+  }
 };
 
 export interface FinancialItem {

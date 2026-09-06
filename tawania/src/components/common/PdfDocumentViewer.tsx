@@ -192,19 +192,159 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
   const zoomOut = () => setScale((prev) => Math.max(prev - 0.2, 0.6));
   const rotateRight = () => setRotation((prev) => (prev + 90) % 360);
 
-  // Actions
+    // Bulletproof Download implementation
   const handleDownload = () => {
-    downloadDocumentFile(title, codeOrNum, fileUrl, fileName);
+    try {
+      const finalFileName = fileName || `AlShamel-${(codeOrNum || 'Document').replace(/[^a-zA-Z0-9-_]/g, '_')}.pdf`;
+      
+      if (activePdfUrl && activePdfUrl.startsWith('data:application/pdf')) {
+        const parts = activePdfUrl.split(',');
+        const mime = parts[0].match(/:(.*?);/)?.[1] || 'application/pdf';
+        const byteCharacters = atob(parts[1]);
+        const byteNumbers = new Uint8Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const blob = new Blob([byteNumbers], { type: mime });
+        const objUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = objUrl;
+        link.download = finalFileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(objUrl), 3000);
+        return;
+      }
+
+      if (activePdfUrl && (activePdfUrl.startsWith('blob:') || activePdfUrl.startsWith('/') || activePdfUrl.startsWith('http'))) {
+        const link = document.createElement('a');
+        link.href = activePdfUrl;
+        link.download = finalFileName;
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        return;
+      }
+
+      downloadDocumentFile(title, codeOrNum, fileUrl, fileName);
+    } catch (err) {
+      console.error('Download error:', err);
+      downloadDocumentFile(title, codeOrNum, fileUrl, fileName);
+    }
   };
 
+  // Bulletproof Print implementation
   const handlePrint = () => {
-    if (activePdfUrl) {
-      const printWindow = window.open(activePdfUrl, '_blank');
-      if (printWindow) {
-        printWindow.focus();
-        printWindow.print();
+    try {
+      // If we have an active rendered canvas, print it crisply
+      if (canvasRef.current) {
+        const canvasDataUrl = canvasRef.current.toDataURL('image/png');
+        const printWindow = window.open('', '_blank');
+        if (printWindow) {
+          printWindow.document.write(`
+            <!DOCTYPE html>
+            <html dir="${isAr ? 'rtl' : 'ltr'}">
+              <head>
+                <meta charset="utf-8">
+                <title>${title} - ${codeOrNum}</title>
+                <style>
+                  @page {
+                    size: A4 portrait;
+                    margin: 8mm;
+                  }
+                  body {
+                    margin: 0;
+                    padding: 0;
+                    background: #ffffff;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    font-family: system-ui, -apple-system, sans-serif;
+                  }
+                  .print-header {
+                    width: 100%;
+                    max-width: 800px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 2px solid #0B6B4F;
+                    padding-bottom: 8px;
+                    margin-bottom: 12px;
+                  }
+                  .print-header h1 {
+                    font-size: 16px;
+                    color: #0B6B4F;
+                    margin: 0;
+                  }
+                  .print-header p {
+                    font-size: 11px;
+                    color: #666;
+                    margin: 2px 0 0 0;
+                  }
+                  .canvas-img {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    box-shadow: none;
+                  }
+                </style>
+              </head>
+              <body>
+                <div class="print-header">
+                  <div>
+                    <h1>${title}</h1>
+                    <p>جمعية الشامل التعاونية • رمز الوثيقة: ${codeOrNum}</p>
+                  </div>
+                  <img src="/logo.png" alt="Logo" style="height: 48px; width: auto;" />
+                </div>
+                <img src="${canvasDataUrl}" class="canvas-img" />
+                <script>
+                  window.onload = function() {
+                    setTimeout(function() {
+                      window.focus();
+                      window.print();
+                    }, 250);
+                  };
+                </script>
+              </body>
+            </html>
+          `);
+          printWindow.document.close();
+          return;
+        }
       }
-    } else {
+
+      // Fallback: create hidden print iframe
+      if (activePdfUrl && !activePdfUrl.startsWith('data:')) {
+        const iframe = document.createElement('iframe');
+        iframe.style.position = 'fixed';
+        iframe.style.right = '0';
+        iframe.style.bottom = '0';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = '0';
+        iframe.src = activePdfUrl;
+        document.body.appendChild(iframe);
+        iframe.onload = () => {
+          setTimeout(() => {
+            iframe.contentWindow?.focus();
+            iframe.contentWindow?.print();
+            setTimeout(() => {
+              if (document.body.contains(iframe)) {
+                document.body.removeChild(iframe);
+              }
+            }, 3000);
+          }, 300);
+        };
+        return;
+      }
+
+      window.print();
+    } catch (err) {
+      console.error('Print error:', err);
       window.print();
     }
   };
