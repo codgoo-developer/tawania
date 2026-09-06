@@ -19,8 +19,9 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { useI18n } from '../../i18n';
 import { downloadDocumentFile, getDocumentPdfUrl } from '../../context/GovernanceDataContext';
 
-// Configure PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version || '3.11.174'}/pdf.worker.min.js`;
+// Configure PDF.js worker & standard fonts
+const PDFJS_VERSION = pdfjsLib.version || '3.11.174';
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/pdf.worker.min.js`;
 
 interface PdfDocumentViewerProps {
   title: string;
@@ -45,7 +46,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
   const [pdfDoc, setPdfDoc] = useState<pdfjsLib.PDFDocumentProxy | null>(null);
   const [pageNum, setPageNum] = useState<number>(1);
   const [numPages, setNumPages] = useState<number>(1);
-  const [scale, setScale] = useState<number>(1.2);
+  const [scale, setScale] = useState<number>(1.15);
   const [rotation, setRotation] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -73,7 +74,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
     }
   }, [fileUrl, title, codeOrNum]);
 
-  // Load PDF Document safely by fetching ArrayBuffer first
+  // Load PDF Document safely by fetching ArrayBuffer and configuring CMaps & Standard Fonts
   useEffect(() => {
     if (!activePdfUrl) return;
 
@@ -94,7 +95,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
           }
           pdfData = new Uint8Array(byteNumbers);
         } else {
-          // Standard HTTP/relative fetch (handles 200 OK cleanly)
+          // Standard HTTP / relative fetch
           const response = await fetch(activePdfUrl);
           if (!response.ok) {
             throw new Error(`HTTP error ${response.status}`);
@@ -107,8 +108,12 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
 
         const loadingTask = pdfjsLib.getDocument({
           data: pdfData,
-          cMapUrl: `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version || '3.11.174'}/cmaps/`,
+          cMapUrl: `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/cmaps/`,
           cMapPacked: true,
+          standardFontDataUrl: `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${PDFJS_VERSION}/standard_fonts/`,
+          enableXfa: true,
+          disableFontFace: false,
+          isEvalSupported: false,
         });
 
         const doc = await loadingTask.promise;
@@ -134,7 +139,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
     };
   }, [activePdfUrl]);
 
-  // Render current page onto Canvas
+  // Render current page onto Canvas with crisp font scaling
   const renderPage = useCallback(
     async (pageNumber: number) => {
       if (!pdfDoc || !canvasRef.current) return;
@@ -143,23 +148,28 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
         const page = await pdfDoc.getPage(pageNumber);
         const viewport = page.getViewport({ scale, rotation });
         const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext('2d', { alpha: false });
 
         if (!context) return;
 
-        // Support crisp high-DPI displays
+        // High-DPI screen scaling for ultra crisp text and fonts
         const outputScale = window.devicePixelRatio || 1;
         canvas.width = Math.floor(viewport.width * outputScale);
         canvas.height = Math.floor(viewport.height * outputScale);
         canvas.style.width = `${Math.floor(viewport.width)}px`;
         canvas.style.height = `${Math.floor(viewport.height)}px`;
 
-        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+        const transform = outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : undefined;
+
+        // Fill background white
+        context.fillStyle = '#FFFFFF';
+        context.fillRect(0, 0, canvas.width, canvas.height);
 
         const renderContext = {
           canvasContext: context,
-          transform: transform || undefined,
-          viewport: viewport
+          transform: transform,
+          viewport: viewport,
+          background: 'rgba(255,255,255,1)',
         };
 
         await page.render(renderContext).promise;
@@ -178,186 +188,17 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
     }
   }, [pdfDoc, pageNum, renderPage]);
 
-  // Page Controls
-  const prevPage = () => {
-    if (pageNum > 1) setPageNum((prev) => prev - 1);
-  };
-
-  const nextPage = () => {
-    if (pageNum < numPages) setPageNum((prev) => prev + 1);
-  };
-
-  // Zoom Controls
-  const zoomIn = () => setScale((prev) => Math.min(prev + 0.2, 3.0));
-  const zoomOut = () => setScale((prev) => Math.max(prev - 0.2, 0.6));
+  // Controls
+  const prevPage = () => setPageNum((prev) => Math.max(prev - 1, 1));
+  const nextPage = () => setPageNum((prev) => Math.min(prev + 1, numPages));
+  const zoomIn = () => setScale((prev) => Math.min(prev + 0.15, 2.5));
+  const zoomOut = () => setScale((prev) => Math.max(prev - 0.15, 0.6));
   const rotateRight = () => setRotation((prev) => (prev + 90) % 360);
 
-    // Bulletproof Download implementation
-  const handleDownload = () => {
-    try {
-      const finalFileName = fileName || `AlShamel-${(codeOrNum || 'Document').replace(/[^a-zA-Z0-9-_]/g, '_')}.pdf`;
-      
-      if (activePdfUrl && activePdfUrl.startsWith('data:application/pdf')) {
-        const parts = activePdfUrl.split(',');
-        const mime = parts[0].match(/:(.*?);/)?.[1] || 'application/pdf';
-        const byteCharacters = atob(parts[1]);
-        const byteNumbers = new Uint8Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.charCodeAt(i);
-        }
-        const blob = new Blob([byteNumbers], { type: mime });
-        const objUrl = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = objUrl;
-        link.download = finalFileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        setTimeout(() => URL.revokeObjectURL(objUrl), 3000);
-        return;
-      }
-
-      if (activePdfUrl && (activePdfUrl.startsWith('blob:') || activePdfUrl.startsWith('/') || activePdfUrl.startsWith('http'))) {
-        const link = document.createElement('a');
-        link.href = activePdfUrl;
-        link.download = finalFileName;
-        link.target = '_blank';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        return;
-      }
-
-      downloadDocumentFile(title, codeOrNum, fileUrl, fileName);
-    } catch (err) {
-      console.error('Download error:', err);
-      downloadDocumentFile(title, codeOrNum, fileUrl, fileName);
-    }
-  };
-
-  // Bulletproof Print implementation
-  const handlePrint = () => {
-    try {
-      // If we have an active rendered canvas, print it crisply
-      if (canvasRef.current) {
-        const canvasDataUrl = canvasRef.current.toDataURL('image/png');
-        const printWindow = window.open('', '_blank');
-        if (printWindow) {
-          printWindow.document.write(`
-            <!DOCTYPE html>
-            <html dir="${isAr ? 'rtl' : 'ltr'}">
-              <head>
-                <meta charset="utf-8">
-                <title>${title} - ${codeOrNum}</title>
-                <style>
-                  @page {
-                    size: A4 portrait;
-                    margin: 8mm;
-                  }
-                  body {
-                    margin: 0;
-                    padding: 0;
-                    background: #ffffff;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: flex-start;
-                    font-family: system-ui, -apple-system, sans-serif;
-                  }
-                  .print-header {
-                    width: 100%;
-                    max-width: 800px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    border-bottom: 2px solid #0B6B4F;
-                    padding-bottom: 8px;
-                    margin-bottom: 12px;
-                  }
-                  .print-header h1 {
-                    font-size: 16px;
-                    color: #0B6B4F;
-                    margin: 0;
-                  }
-                  .print-header p {
-                    font-size: 11px;
-                    color: #666;
-                    margin: 2px 0 0 0;
-                  }
-                  .canvas-img {
-                    max-width: 100%;
-                    height: auto;
-                    display: block;
-                    box-shadow: none;
-                  }
-                </style>
-              </head>
-              <body>
-                <div class="print-header">
-                  <div>
-                    <h1>${title}</h1>
-                    <p>جمعية الشامل التعاونية • رمز الوثيقة: ${codeOrNum}</p>
-                  </div>
-                  <img src="/logo.png" alt="Logo" style="height: 48px; width: auto;" />
-                </div>
-                <img src="${canvasDataUrl}" class="canvas-img" />
-                <script>
-                  window.onload = function() {
-                    setTimeout(function() {
-                      window.focus();
-                      window.print();
-                    }, 250);
-                  };
-                </script>
-              </body>
-            </html>
-          `);
-          printWindow.document.close();
-          return;
-        }
-      }
-
-      // Fallback: create hidden print iframe
-      if (activePdfUrl && !activePdfUrl.startsWith('data:')) {
-        const iframe = document.createElement('iframe');
-        iframe.style.position = 'fixed';
-        iframe.style.right = '0';
-        iframe.style.bottom = '0';
-        iframe.style.width = '0';
-        iframe.style.height = '0';
-        iframe.style.border = '0';
-        iframe.src = activePdfUrl;
-        document.body.appendChild(iframe);
-        iframe.onload = () => {
-          setTimeout(() => {
-            iframe.contentWindow?.focus();
-            iframe.contentWindow?.print();
-            setTimeout(() => {
-              if (document.body.contains(iframe)) {
-                document.body.removeChild(iframe);
-              }
-            }, 3000);
-          }, 300);
-        };
-        return;
-      }
-
-      window.print();
-    } catch (err) {
-      console.error('Print error:', err);
-      window.print();
-    }
-  };
-
-  const handleOpenNewTab = () => {
-    if (activePdfUrl) {
-      window.open(activePdfUrl, '_blank');
-    }
-  };
-
   const toggleFullscreen = () => {
+    if (!containerRef.current) return;
     if (!isFullscreen) {
-      if (containerRef.current?.requestFullscreen) {
+      if (containerRef.current.requestFullscreen) {
         containerRef.current.requestFullscreen();
       }
       setIsFullscreen(true);
@@ -369,34 +210,86 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
     }
   };
 
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const handleDownload = () => {
+    downloadDocumentFile(title, codeOrNum, activePdfUrl, fileName);
+  };
+
+  const handlePrint = () => {
+    if (canvasRef.current) {
+      try {
+        const dataUrl = canvasRef.current.toDataURL('image/png');
+        const printWindow = window.open('', '_blank');
+        if (printWindow) {
+          printWindow.document.write(`
+            <!DOCTYPE html>
+            <html dir="${isAr ? 'rtl' : 'ltr'}">
+              <head>
+                <title>${title} - ${codeOrNum}</title>
+                <style>
+                  @page { size: auto; margin: 10mm; }
+                  body { margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: sans-serif; }
+                  img { max-width: 100%; height: auto; display: block; }
+                  .header { margin-bottom: 12px; font-size: 14px; font-weight: bold; color: #12332B; text-align: center; }
+                </style>
+              </head>
+              <body>
+                <div class="header">${title} | ${codeOrNum}</div>
+                <img src="${dataUrl}" onload="window.print();window.close();" />
+              </body>
+            </html>
+          `);
+          printWindow.document.close();
+        }
+      } catch (err) {
+        window.open(activePdfUrl, '_blank')?.print();
+      }
+    } else {
+      window.open(activePdfUrl, '_blank');
+    }
+  };
+
+  const handleOpenNewTab = () => {
+    window.open(activePdfUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <div
       ref={containerRef}
-      className={`w-full flex flex-col bg-[#1A1F26] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-gray-700/80 transition-all ${
+      className={`w-full flex flex-col bg-[#12161C] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-gray-700/80 transition-all ${
         isFullscreen
-          ? 'fixed inset-0 z-50 rounded-none h-screen w-screen'
+          ? 'fixed inset-0 z-50 rounded-none h-screen min-h-screen'
           : 'h-[85vh] sm:h-[90vh] min-h-[650px] sm:min-h-[850px]'
       }`}
-      dir={isAr ? 'rtl' : 'ltr'}
+      dir="rtl"
     >
-      {/* Sleek Top Toolbar Header */}
-      <div className="bg-[#12161C] text-white px-3 sm:px-6 py-3 flex items-center justify-between border-b border-gray-800 shrink-0 gap-3 z-10 flex-wrap">
-        {/* Left: Document details */}
+      {/* Top Controls Toolbar (Sticky, sleek header) */}
+      <div className="bg-[#12161C] text-white px-3 sm:px-6 py-3 flex items-center justify-between border-b border-gray-800 shrink-0 gap-3 z-20 flex-wrap">
+        {/* Left: Document Identity info */}
         <div className="flex items-center gap-3 min-w-0">
           <div className="w-9 h-9 rounded-xl bg-[#0B6B4F]/25 border border-[#0B6B4F]/50 flex items-center justify-center text-[#C9A45C] shrink-0 shadow-inner">
             <FileText className="w-5 h-5" />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h2 className="font-bold text-xs sm:text-sm text-white truncate max-w-[200px] sm:max-w-md">
+              <h3 className="text-xs sm:text-sm font-bold text-white truncate max-w-[200px] sm:max-w-md">
                 {title}
-              </h2>
-              <span className="px-2 py-0.5 rounded-md bg-[#0B6B4F]/20 text-[#4ECCA3] border border-[#0B6B4F]/40 text-[10px] sm:text-xs font-mono font-bold shrink-0">
-                {codeOrNum}
-              </span>
+              </h3>
+              {codeOrNum && (
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-[#0B6B4F]/40 text-emerald-300 border border-[#0B6B4F]/60 shrink-0">
+                  {codeOrNum}
+                </span>
+              )}
             </div>
             <div className="flex items-center gap-2 text-[10px] text-gray-400 mt-0.5">
-              <span className="flex items-center gap-1 text-emerald-400">
+              <span className="flex items-center gap-1 text-emerald-400 font-medium">
                 <ShieldCheck className="w-3 h-3" />
                 {isAr ? 'وثيقة رسمية معتمدة' : 'Official Verified Document'}
               </span>
@@ -415,9 +308,9 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               onClick={prevPage}
               disabled={pageNum <= 1}
               title={isAr ? 'الصفحة السابقة' : 'Previous Page'}
-              className="p-1.5 rounded-lg hover:bg-gray-800 disabled:opacity-30 disabled:hover:bg-transparent text-gray-200 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-800 disabled:opacity-30 disabled:hover:bg-transparent text-gray-200 transition-colors cursor-pointer"
             >
-              {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+              <ChevronRight className="w-4 h-4" />
             </button>
             <span className="text-xs font-mono px-2 text-gray-300 font-bold">
               {pageNum} / {numPages}
@@ -427,9 +320,9 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               onClick={nextPage}
               disabled={pageNum >= numPages}
               title={isAr ? 'الصفحة التالية' : 'Next Page'}
-              className="p-1.5 rounded-lg hover:bg-gray-800 disabled:opacity-30 disabled:hover:bg-transparent text-gray-200 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-800 disabled:opacity-30 disabled:hover:bg-transparent text-gray-200 transition-colors cursor-pointer"
             >
-              {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+              <ChevronLeft className="w-4 h-4" />
             </button>
 
             <div className="h-4 w-[1px] bg-gray-700 mx-1" />
@@ -439,7 +332,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               type="button"
               onClick={zoomOut}
               title={isAr ? 'تصغير' : 'Zoom Out'}
-              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors cursor-pointer"
             >
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
@@ -450,7 +343,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               type="button"
               onClick={zoomIn}
               title={isAr ? 'تكبير' : 'Zoom In'}
-              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors cursor-pointer"
             >
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
@@ -462,7 +355,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               type="button"
               onClick={rotateRight}
               title={isAr ? 'تدوير' : 'Rotate'}
-              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-800 text-gray-200 transition-colors cursor-pointer"
             >
               <RotateCw className="w-3.5 h-3.5" />
             </button>
@@ -515,10 +408,10 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
         </div>
       </div>
 
-      {/* Canvas PDF Viewer Body */}
-      <div className="flex-1 min-h-0 w-full bg-[#1e232a] relative overflow-auto flex items-center justify-center p-4">
+      {/* Canvas PDF Viewer Body - Positioned with proper top padding so nothing is ever cut off */}
+      <div className="flex-1 min-h-0 w-full bg-[#1e232a] relative overflow-auto p-4 sm:p-8 flex flex-col items-center">
         {loading && (
-          <div className="flex flex-col items-center justify-center text-gray-300 py-12">
+          <div className="flex flex-col items-center justify-center text-gray-300 py-20 m-auto">
             <Loader2 className="w-10 h-10 text-[#C9A45C] animate-spin mb-3" />
             <p className="text-sm font-bold text-white">
               {isAr ? 'جاري قراءة ومعالجة وثيقة الـ PDF بدقة عالية...' : 'Rendering high-definition PDF document...'}
@@ -527,7 +420,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
         )}
 
         {error && (
-          <div className="flex flex-col items-center justify-center text-center p-8 bg-gray-800/90 rounded-2xl border border-red-500/30 max-w-md mx-auto">
+          <div className="flex flex-col items-center justify-center text-center p-8 bg-gray-800/90 rounded-2xl border border-red-500/30 max-w-md mx-auto m-auto">
             <AlertCircle className="w-12 h-12 text-amber-400 mb-3" />
             <h3 className="text-base font-bold text-white mb-2">
               {isAr ? 'تعذر عرض الوثيقة عبر العارض التفاعلي' : 'Interactive Viewer Unavailable'}
@@ -560,7 +453,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
         )}
 
         {!loading && !error && (
-          <div className="shadow-2xl rounded-lg overflow-hidden border border-gray-700/60 bg-white transition-transform duration-150">
+          <div className="shadow-2xl rounded-lg overflow-hidden border border-gray-700/60 bg-white transition-transform duration-150 my-auto shrink-0">
             <canvas ref={canvasRef} className="block mx-auto max-w-full" />
           </div>
         )}
