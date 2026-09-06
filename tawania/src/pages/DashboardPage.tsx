@@ -21,6 +21,9 @@ import {
   MapPin,
   Search,
   CheckCircle2,
+  CheckCheck,
+  Clock,
+  Inbox,
   LogOut,
   Bell,
   UserCheck,
@@ -187,10 +190,60 @@ export const DashboardPage: React.FC = () => {
     addTestimonial,
     updateTestimonial,
     deleteTestimonial,
-    resetToDefaults
+    resetToDefaults,
+    notifications,
+    unreadNotificationsCount,
+    markNotificationAsRead,
+    markAllNotificationsAsRead,
+    deleteNotification,
+    refreshNotifications
   } = useGovernanceData();
 
   const [notification, setNotification] = useState<string | null>(null);
+
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [notificationCategoryFilter, setNotificationCategoryFilter] = useState<'all' | 'whistleblowing' | 'membership' | 'survey' | 'contact_message'>('all');
+  const notificationDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close notification dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (notificationDropdownRef.current && !notificationDropdownRef.current.contains(event.target as Node)) {
+        setIsNotificationOpen(false);
+      }
+    };
+    if (isNotificationOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isNotificationOpen]);
+
+  // Handler: click on notification item to review
+  const handleOpenNotificationItem = (notif: any) => {
+    markNotificationAsRead(notif.id);
+    setIsNotificationOpen(false);
+    
+    // Switch to submissions tab with corresponding filter
+    setActiveTab('submissions');
+    if (notif.module === 'whistleblowing') {
+      setSubmissionFilter('whistleblowing');
+    } else if (notif.module === 'membership') {
+      setSubmissionFilter('membership');
+    } else if (notif.module === 'survey') {
+      setSubmissionFilter('survey');
+    } else if (notif.module === 'contact_message') {
+      setSubmissionFilter('contact_message');
+    }
+
+    // Find and open viewingSubmission modal if submission exists
+    const matchedSub = submissions.find(s => String(s.id) === String(notif.id) || (s.title && notif.title && s.title.includes(notif.code)));
+    if (matchedSub) {
+      setViewingSubmission(matchedSub);
+    }
+  };
+
   const [submissionFilter, setSubmissionFilter] = useState<'all' | 'whistleblowing' | 'survey' | 'survey_supporters' | 'survey_assembly' | 'survey_customers' | 'survey_staff' | 'membership' | 'feedback' | 'contact_message'>('all');
   const [submissionViewMode, setSubmissionViewMode] = useState<'cards' | 'table'>('cards');
   const [viewingSubmission, setViewingSubmission] = useState<SubmissionItem | null>(null);
@@ -2147,17 +2200,242 @@ export const DashboardPage: React.FC = () => {
                 <ExternalLink className="w-3.5 h-3.5" />
               </Link>
 
-              {/* Notifications */}
-              <button
-                type="button"
-                className="h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0]   text-gray-600 relative transition-all flex items-center justify-center cursor-pointer shadow-2xs"
-                title={locale === 'ar' ? 'الإشعارات' : 'Notifications'}
-              >
-                <Bell className="w-3.5 h-3.5" />
-                {submissions.filter((s) => s.status === 'pending').length > 0 && (
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 absolute top-1.5 end-1.5 ring-2 ring-white" />
+              {/* Dynamic Notifications Dropdown */}
+              <div className="relative" ref={notificationDropdownRef}>
+                <button
+                  type="button"
+                  onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+                  className={`h-8 w-8 rounded-full ${isNotificationOpen ? 'bg-[#0B6B4F] text-white shadow-md' : 'bg-gray-50 hover:bg-[#EBF4F0] text-gray-600 hover:text-[#0B6B4F]'} relative transition-all flex items-center justify-center cursor-pointer shadow-2xs`}
+                  title={locale === 'ar' ? 'الإشعارات والتنبيهات' : 'Notifications'}
+                  aria-expanded={isNotificationOpen}
+                >
+                  <Bell className="w-3.5 h-3.5" />
+                  {unreadNotificationsCount > 0 && (
+                    <span className="min-w-[17px] h-[17px] px-1 bg-rose-600 text-white text-[9px] font-black rounded-full absolute -top-1.5 -right-1.5 ring-2 ring-white flex items-center justify-center animate-pulse shadow-sm">
+                      {unreadNotificationsCount > 9 ? '9+' : unreadNotificationsCount}
+                    </span>
+                  )}
+                </button>
+
+                {/* Dropdown Menu */}
+                {isNotificationOpen && (
+                  <div className="absolute top-full end-0 mt-2.5 w-[360px] sm:w-[420px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-gray-100/90 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[520px]">
+                    {/* Header */}
+                    <div className="bg-gradient-to-r from-[#12332B] to-[#0B6B4F] text-white p-3.5 px-4 flex items-center justify-between shrink-0 shadow-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#C9A45C]">
+                          <Bell className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-white leading-tight">
+                            {locale === 'ar' ? 'مركز الإشعارات والتنبيهات' : 'Notification Center'}
+                          </h4>
+                          <span className="text-[10px] text-white/70 font-medium">
+                            {unreadNotificationsCount > 0 
+                              ? (locale === 'ar' ? `${unreadNotificationsCount} إشعار جديد غير مقروء` : `${unreadNotificationsCount} unread`)
+                              : (locale === 'ar' ? 'جميع الإشعارات مقروءة' : 'All caught up')}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-1.5">
+                        {unreadNotificationsCount > 0 && (
+                          <button
+                            type="button"
+                            onClick={async (e) => {
+                              e.stopPropagation();
+                              await markAllNotificationsAsRead();
+                              toast.success(
+                                locale === 'ar' ? 'تم تحديد جميع الإشعارات كمقروءة' : 'All notifications marked as read'
+                              );
+                            }}
+                            className="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[10px] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+                            title={locale === 'ar' ? 'تحديد الكل كمقروء' : 'Mark all read'}
+                          >
+                            <CheckCheck className="w-3 h-3 text-[#C9A45C]" />
+                            <span>{locale === 'ar' ? 'تمييز الكل' : 'Mark All'}</span>
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => setIsNotificationOpen(false)}
+                          className="w-6 h-6 rounded-lg text-white/60 hover:text-white hover:bg-white/10 flex items-center justify-center transition-colors"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Filter Category Pills */}
+                    <div className="p-2 px-3 bg-gray-50/80 border-b border-gray-100 flex items-center gap-1 overflow-x-auto text-[11px] shrink-0">
+                      {[
+                        { id: 'all', labelAr: 'الكل', labelEn: 'All', count: notifications.length },
+                        { id: 'whistleblowing', labelAr: 'البلاغات', labelEn: 'Complaints', count: notifications.filter(n => n.module === 'whistleblowing').length },
+                        { id: 'membership', labelAr: 'العضوية', labelEn: 'Membership', count: notifications.filter(n => n.module === 'membership').length },
+                        { id: 'survey', labelAr: 'الاستبيانات', labelEn: 'Surveys', count: notifications.filter(n => n.module === 'survey').length },
+                        { id: 'contact_message', labelAr: 'الرسائل', labelEn: 'Messages', count: notifications.filter(n => n.module === 'contact_message').length },
+                      ].map(cat => (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onClick={() => setNotificationCategoryFilter(cat.id as any)}
+                          className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${
+                            notificationCategoryFilter === cat.id
+                              ? 'bg-[#0B6B4F] text-white shadow-xs'
+                              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
+                          }`}
+                        >
+                          <span>{locale === 'ar' ? cat.labelAr : cat.labelEn}</span>
+                          {cat.count > 0 && (
+                            <span className={`text-[9px] px-1 rounded-full ${
+                              notificationCategoryFilter === cat.id ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-600'
+                            }`}>
+                              {cat.count}
+                            </span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Notifications List */}
+                    <div className="overflow-y-auto flex-1 divide-y divide-gray-100 max-h-[340px]">
+                      {notifications.filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter).length === 0 ? (
+                        <div className="py-10 px-4 text-center flex flex-col items-center justify-center text-gray-400">
+                          <div className="w-12 h-12 rounded-full bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mb-2 shadow-inner">
+                            <Inbox className="w-6 h-6" />
+                          </div>
+                          <p className="text-xs font-bold text-gray-700">
+                            {locale === 'ar' ? 'لا توجد إشعارات جديدة' : 'No notifications'}
+                          </p>
+                          <p className="text-[11px] text-gray-400 mt-0.5">
+                            {locale === 'ar' ? 'جميع الواردات والطلبات محدثة ومقروءة' : 'All incoming items are reviewed'}
+                          </p>
+                        </div>
+                      ) : (
+                        notifications
+                          .filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter)
+                          .map(notif => {
+                            const isUnread = !notif.isRead;
+                            const isComplaint = notif.module === 'whistleblowing';
+                            const isMember = notif.module === 'membership';
+                            const isSurvey = notif.module === 'survey';
+
+                            return (
+                              <div
+                                key={notif.id}
+                                onClick={() => handleOpenNotificationItem(notif)}
+                                className={`p-3 px-3.5 hover:bg-emerald-50/40 transition-colors cursor-pointer relative flex items-start gap-2.5 ${
+                                  isUnread ? 'bg-emerald-50/20' : 'bg-white opacity-85 hover:opacity-100'
+                                }`}
+                              >
+                                {/* Unread indicator bar/dot */}
+                                {isUnread && (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-2 ring-2 ring-rose-200 animate-pulse" />
+                                )}
+
+                                {/* Category Icon */}
+                                <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-2xs ${
+                                  isComplaint
+                                    ? 'bg-rose-50 text-rose-600 border border-rose-100'
+                                    : isMember
+                                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
+                                    : isSurvey
+                                    ? 'bg-purple-50 text-purple-600 border border-purple-100'
+                                    : 'bg-sky-50 text-sky-600 border border-sky-100'
+                                }`}>
+                                  {isComplaint ? (
+                                    <AlertTriangle className="w-4 h-4" />
+                                  ) : isMember ? (
+                                    <UserPlus className="w-4 h-4" />
+                                  ) : isSurvey ? (
+                                    <Smile className="w-4 h-4" />
+                                  ) : (
+                                    <Mail className="w-4 h-4" />
+                                  )}
+                                </div>
+
+                                {/* Content Details */}
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center justify-between gap-1 mb-0.5">
+                                    <span className="text-[11px] font-bold text-gray-900 truncate">
+                                      {locale === 'ar' ? (notif.titleAr || notif.title) : (notif.titleEn || notif.title)}
+                                    </span>
+                                    {notif.code && (
+                                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-gray-100 font-mono text-gray-600 shrink-0 font-semibold">
+                                        {notif.code}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <p className="text-[11px] text-gray-600 line-clamp-2 leading-relaxed">
+                                    {notif.message || notif.title}
+                                  </p>
+
+                                  <div className="flex items-center justify-between mt-1.5 pt-1 border-t border-gray-100/60 text-[10px] text-gray-400">
+                                    <span className="text-gray-500 font-medium truncate max-w-[180px]">
+                                      {notif.senderName}
+                                    </span>
+                                    <div className="flex items-center gap-1 shrink-0">
+                                      <Clock className="w-2.5 h-2.5" />
+                                      <span>{notif.timeAgo || notif.createdAt}</span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-col gap-1 shrink-0 pt-0.5">
+                                  {isUnread && (
+                                    <button
+                                      type="button"
+                                      onClick={async (e) => {
+                                        e.stopPropagation();
+                                        await markNotificationAsRead(notif.id);
+                                      }}
+                                      className="p-1 rounded-md text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors cursor-pointer"
+                                      title={locale === 'ar' ? 'تحديد كمقروء' : 'Mark as read'}
+                                    >
+                                      <CheckCircle2 className="w-3.5 h-3.5" />
+                                    </button>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={async (e) => {
+                                      e.stopPropagation();
+                                      await deleteNotification(notif.id);
+                                    }}
+                                    className="p-1 rounded-md text-gray-300 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                                    title={locale === 'ar' ? 'حذف الإشعار' : 'Delete'}
+                                  >
+                                    <Trash2 className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          })
+                      )}
+                    </div>
+
+                    {/* Footer */}
+                    <div className="p-2.5 px-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsNotificationOpen(false);
+                          setActiveTab('submissions');
+                          setSubmissionFilter('all');
+                        }}
+                        className="text-[11px] font-bold text-[#0B6B4F] hover:text-[#08523C] hover:underline flex items-center gap-1 transition-colors cursor-pointer"
+                      >
+                        <span>{locale === 'ar' ? 'عرض كافة الواردات والطلبات' : 'View all submissions'}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </button>
+                      <span className="text-[10px] text-gray-400 font-mono">
+                        {notifications.length} {locale === 'ar' ? 'سجل' : 'items'}
+                      </span>
+                    </div>
+                  </div>
                 )}
-              </button>
+              </div>
 
               {/* User Avatar & Info */}
               {isAuthenticated ? (

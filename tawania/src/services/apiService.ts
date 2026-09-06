@@ -393,4 +393,25 @@ export const apiService = {
       method: 'DELETE',
     });
   },
+
+  // Dynamic Dashboard Notifications
+  async getNotifications(module?: string) {
+    const query = module ? `?module=${module}` : '';
+    return await fetchJson(`${API_BASE_URL}/notifications${query}`);
+  },
+  async markNotificationAsRead(id: string | number) {
+    return await fetchJson(`${API_BASE_URL}/notifications/${id}/read`, {
+      method: 'POST',
+    });
+  },
+  async markAllNotificationsAsRead() {
+    return await fetchJson(`${API_BASE_URL}/notifications/read-all`, {
+      method: 'POST',
+    });
+  },
+  async deleteNotification(id: string | number) {
+    return await fetchJson(`${API_BASE_URL}/notifications/${id}`, {
+      method: 'DELETE',
+    });
+  },
 };

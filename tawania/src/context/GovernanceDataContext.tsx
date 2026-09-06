@@ -830,6 +830,28 @@ export interface EthicsItem {
   fileSize?: string;
 }
 
+
+export interface NotificationItem {
+  id: string;
+  code?: string;
+  module: string;
+  category: 'whistleblowing' | 'membership' | 'survey' | 'contact_message' | 'feedback' | 'general';
+  title: string;
+  titleAr?: string;
+  titleEn?: string;
+  message: string;
+  senderName: string;
+  senderContact?: string;
+  targetTab: string;
+  icon?: string;
+  badgeColor?: string;
+  status: string;
+  isRead: boolean;
+  timeAgo?: string;
+  createdAt: string;
+  rawCreatedAt?: string;
+}
+
 export interface SubmissionItem {
   id: string;
   module: 'whistleblowing' | 'survey' | 'membership' | 'feedback' | 'contact_message';
@@ -1865,6 +1887,13 @@ interface GovernanceContextType {
   meetings: MeetingItem[];
   ethics: EthicsItem[];
   submissions: SubmissionItem[];
+  notifications: NotificationItem[];
+  unreadNotificationsCount: number;
+  markNotificationAsRead: (id: string | number) => Promise<void>;
+  markAllNotificationsAsRead: () => Promise<void>;
+  deleteNotification: (id: string | number) => Promise<void>;
+  refreshNotifications: () => Promise<void>;
+
 
   // Policies CRUD
   addPolicy: (policy: PolicyItem | any) => Promise<void>;
@@ -2252,6 +2281,7 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
       refreshHomeContent(),
       refreshMembers(),
       refreshSubmissions(),
+      refreshNotifications(),
       refreshBoardMembers(),
       refreshProjects(),
       refreshGallery(),
@@ -2452,6 +2482,84 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
   const [ethics, setEthics] = useState<EthicsItem[]>(initialEthics);
 
   const [submissions, setSubmissions] = useState<SubmissionItem[]>(initialSubmissions);
+
+  const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+
+  const refreshNotifications = async () => {
+    try {
+      const res = await apiService.getNotifications();
+      if (res && res.success && Array.isArray(res.data)) {
+        setNotifications(res.data);
+      } else if (submissions && submissions.length > 0) {
+        // Fallback from submissions
+        const fallbackNotifs: NotificationItem[] = submissions.map((sub) => {
+          const isUnread = ['pending', 'unread', 'new'].includes(sub.status);
+          const moduleMap: Record<string, { category: NotificationItem['category'], titleAr: string, targetTab: string, icon: string, badgeColor: string }> = {
+            whistleblowing: { category: 'whistleblowing', titleAr: 'بلاغ أو شكوى حوكمة جديدة', targetTab: 'submissions', icon: 'alert-triangle', badgeColor: 'amber' },
+            membership: { category: 'membership', titleAr: 'طلب انضمام للجمعية العمومية', targetTab: 'submissions', icon: 'user-plus', badgeColor: 'emerald' },
+            survey: { category: 'survey', titleAr: 'استبيان قياس رضا جديد', targetTab: 'submissions', icon: 'smile', badgeColor: 'purple' },
+            contact_message: { category: 'contact_message', titleAr: 'رسالة تواصل واردة جديدة', targetTab: 'submissions', icon: 'mail', badgeColor: 'blue' },
+            feedback: { category: 'feedback', titleAr: 'ملاحظة ومقترح وارد جديد', targetTab: 'submissions', icon: 'message-square', badgeColor: 'indigo' },
+          };
+          const info = moduleMap[sub.module] || { category: 'general', titleAr: 'إشعار جديد', targetTab: 'submissions', icon: 'bell', badgeColor: 'gray' };
+          return {
+            id: String(sub.id),
+            code: sub.title?.match(/[A-Z]+-[0-9]+/)?.[0] || ('SUB-' + sub.id),
+            module: sub.module,
+            category: info.category,
+            title: sub.title || info.titleAr,
+            titleAr: info.titleAr,
+            message: sub.details || (sub.senderName ? 'وارد من: ' + sub.senderName : ''),
+            senderName: sub.senderName || 'مستخدم',
+            senderContact: sub.senderContact || '',
+            targetTab: info.targetTab,
+            icon: info.icon,
+            badgeColor: info.badgeColor,
+            status: sub.status,
+            isRead: !isUnread,
+            timeAgo: 'مؤخراً',
+            createdAt: sub.createdAt || new Date().toISOString(),
+          };
+        });
+        setNotifications(fallbackNotifs);
+      }
+    } catch (e) {
+      console.warn('Error fetching notifications:', e);
+    }
+  };
+
+  const markNotificationAsRead = async (id: string | number) => {
+    try {
+      await apiService.markNotificationAsRead(id);
+      setNotifications(prev => prev.map(n => String(n.id) === String(id) ? { ...n, isRead: true, status: 'reviewed' } : n));
+      setSubmissions(prev => prev.map(s => String(s.id) === String(id) && s.status === 'pending' ? { ...s, status: 'reviewed' } : s));
+      await refreshNotifications();
+    } catch (err) {
+      setNotifications(prev => prev.map(n => String(n.id) === String(id) ? { ...n, isRead: true, status: 'reviewed' } : n));
+    }
+  };
+
+  const markAllNotificationsAsRead = async () => {
+    try {
+      await apiService.markAllNotificationsAsRead();
+      setNotifications(prev => prev.map(n => ({ ...n, isRead: true, status: 'reviewed' })));
+      setSubmissions(prev => prev.map(s => s.status === 'pending' ? { ...s, status: 'reviewed' } : s));
+      await refreshNotifications();
+    } catch (err) {
+      setNotifications(prev => prev.map(n => ({ ...n, isRead: true, status: 'reviewed' })));
+    }
+  };
+
+  const deleteNotification = async (id: string | number) => {
+    try {
+      await apiService.deleteNotification(id);
+      setNotifications(prev => prev.filter(n => String(n.id) !== String(id)));
+      setSubmissions(prev => prev.filter(s => String(s.id) !== String(id)));
+    } catch (err) {
+      setNotifications(prev => prev.filter(n => String(n.id) !== String(id)));
+    }
+  };
+
 
   // Synchronize to localStorage
   

@@ -131,9 +131,9 @@ export const MembersDirectoryPage: React.FC = () => {
             <Link
               to={getLocalizedPath('/members/register')}
               id="hero-register-member-btn"
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#0B6B4F] hover:bg-[#08523C] text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition-all duration-200 border border-[#0B6B4F]/10 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-4 py-2 rounded-lg  bg-[#0B6B4F] hover:bg-[#08523C] text-white font-bold text-sm sm:text-sm  hover:shadow-md transition-all duration-200 border border-[#0B6B4F]/10 cursor-pointer"
             >
-              <UserPlus className="w-5 h-5 text-[#84CC16] shrink-0" />
+              <UserPlus className="w-4 h-4 text-[#84CC16] shrink-0" />
               <span>{locale === 'ar' ? 'تسجيل عضو جديد' : 'New Member Registration'}</span>
             </Link>
           }

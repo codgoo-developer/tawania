@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardOverviewController;
 use App\Http\Controllers\Api\GeneralAssemblyMemberController;
 use App\Http\Controllers\Api\SubmissionController;
+use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\BoardMemberController;
 use App\Http\Controllers\Api\ExecutiveDirectorController;
 use App\Http\Controllers\Api\ProjectController;
@@ -44,6 +45,12 @@ Route::prefix('v1')->group(function () {
     Route::put('/submissions/{id}/status', [SubmissionController::class, 'updateStatus']);
     Route::post('/submissions/{id}/confirm-membership', [SubmissionController::class, 'confirmMembership']);
     Route::delete('/submissions/{id}', [SubmissionController::class, 'destroy']);
+
+    // Notifications (Dynamic system & submissions notifications)
+    Route::get('/notifications', [NotificationController::class, 'index']);
+    Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+    Route::post('/notifications/read-all', [NotificationController::class, 'markAllAsRead']);
+    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy']);
 
     // Board Members & Executive Director (المدير التنفيذي)
     Route::apiResource('/board-members', BoardMemberController::class);
