@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
       {/* Sticky Header with fixed height */}
       <header
         id="main-header"
-        className={`sticky top-0 z-40 w-full h-[90px] flex items-center transition-all duration-300 ${isScrolled
+        className={`sticky top-0 z-40 w-full h-[70px] flex items-center transition-all duration-300 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#12332B]/10'
             : 'bg-white/95 backdrop-blur-xs border-b border-[#12332B]/5'
           }`}

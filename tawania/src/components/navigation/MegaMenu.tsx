@@ -110,7 +110,7 @@ export const MegaMenu: React.FC = () => {
           <Link
             key={link.to}
             to={getLocalizedPath(link.to)}
-            className={`px-1.5 py-1.5 xl:px-2 xl:py-1.5 rounded-xl transition-all duration-200 whitespace-nowrap shrink-0 ${
+            className={`px-1.5 py-1.5 xl:px-2 xl:py-1.5 rounded-[8px] transition-all duration-200 whitespace-nowrap shrink-0 ${
               active
                 ? 'text-[#0B6B4F] bg-[#EBF4F0]/90 font-bold shadow-2xs'
                 : 'text-[#17211E] hover:text-[#0B6B4F] hover:bg-[#F7F8F6]'

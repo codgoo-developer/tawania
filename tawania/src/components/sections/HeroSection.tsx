@@ -123,7 +123,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero-section"
-      className="relative w-full h-[calc(100vh-124px)] min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#05241C] select-none"
+      className="relative w-full h-[calc(100vh-112px)] min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#05241C] select-none"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
