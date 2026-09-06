@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Helpers\FileUploadHelper;
-use App\Models\Policy;
+use App\Models\PolicyItem;
 use Illuminate\Http\Request;
 
 require_once dirname(__DIR__, 3) . '/Helpers/ApiResponseHelper.php';
@@ -14,7 +14,7 @@ class PolicyController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Policy::query();
+        $query = PolicyItem::query();
 
         if ($request->has('category') && !empty($request->category) && $request->category !== 'all') {
             $query->where('category', $request->category);
@@ -26,10 +26,10 @@ class PolicyController extends Controller
             'success' => true,
             'data' => $policies,
             'counts' => [
-                'total' => Policy::count(),
-                'general' => Policy::where('category', 'general')->count(),
-                'financial' => Policy::where('category', 'financial')->count(),
-                'hr' => Policy::where('category', 'hr')->count(),
+                'total' => PolicyItem::count(),
+                'general' => PolicyItem::where('category', 'general')->count(),
+                'financial' => PolicyItem::where('category', 'financial')->count(),
+                'hr' => PolicyItem::where('category', 'hr')->count(),
             ]
         ]);
     }
@@ -55,16 +55,16 @@ class PolicyController extends Controller
             'file_url' => $fileUrl,
         ];
 
-        $policy = Policy::create($mapped);
+        $policy = PolicyItem::create($mapped);
 
         return api_response(true, 'تمت إضافة السياسة بنجاح', $policy, 201);
     }
 
     public function update(Request $request, $id)
     {
-        $policy = Policy::where('slug_id', $id)->first();
-        if (!$policy && is_numeric($id)) $policy = Policy::find($id);
-        if (!$policy) $policy = Policy::where('id', $id)->first();
+        $policy = PolicyItem::where('slug_id', $id)->first();
+        if (!$policy && is_numeric($id)) $policy = PolicyItem::find($id);
+        if (!$policy) $policy = PolicyItem::where('id', $id)->first();
 
         if (!$policy) {
             return api_response(false, 'السياسة غير موجودة', null, 404);
@@ -96,9 +96,9 @@ class PolicyController extends Controller
 
     public function destroy($id)
     {
-        $policy = Policy::where('slug_id', $id)->first();
-        if (!$policy && is_numeric($id)) $policy = Policy::find($id);
-        if (!$policy) $policy = Policy::where('id', $id)->first();
+        $policy = PolicyItem::where('slug_id', $id)->first();
+        if (!$policy && is_numeric($id)) $policy = PolicyItem::find($id);
+        if (!$policy) $policy = PolicyItem::where('id', $id)->first();
 
         if ($policy) {
             $policy->delete();

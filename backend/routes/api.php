@@ -28,6 +28,7 @@ $registerRoutes = function () {
 
     // General Assembly Members & Dashboard Overview
     Route::get('/dashboard/overview', [DashboardOverviewController::class, 'index']);
+    Route::get('/overview', [DashboardOverviewController::class, 'index']);
     Route::apiResource('/members', GeneralAssemblyMemberController::class);
     Route::apiResource('/general-assembly-members', GeneralAssemblyMemberController::class);
     Route::apiResource('/meetings', MeetingController::class);
