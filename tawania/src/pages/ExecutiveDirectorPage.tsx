@@ -45,10 +45,10 @@ export const ExecutiveDirectorPage: React.FC = () => {
         ]}
       />
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Executive Director Profile Card */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-lg relative overflow-hidden">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
 
             {/* Side 1: Luxury Layered Avatar */}
