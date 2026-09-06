@@ -6,25 +6,41 @@ import { useGovernanceData } from '../../context/GovernanceDataContext';
 
 export const ProjectsShowcaseSection: React.FC = () => {
   const { locale, dir, getLocalizedPath } = useI18n();
-  const { projects } = useGovernanceData();
+  const isAr = locale === 'ar';
+  const { projects, projectsHeader } = useGovernanceData();
   const Arrow = dir === 'rtl' ? ArrowLeft : ArrowRight;
 
   const displayProjects = (projects || []).slice(0, 3);
 
+  const badge = isAr
+    ? (projectsHeader?.badgeAr || 'مشاريع واستثمارات الجمعية')
+    : (projectsHeader?.badgeEn || 'Cooperative Enterprises');
+
+  const title = isAr
+    ? (projectsHeader?.titleAr || 'مشاريعنا التنموية')
+    : (projectsHeader?.titleEn || 'Our Development Projects');
+
+  const description = isAr
+    ? (projectsHeader?.descAr || 'تعاونية الشامل أسست مشاريع متعددة عبر مختلف المجالات منذ تأسيسها بما في ذلك التسويق والأسواق الاستهلاكية والتوزيع ومصنع التعبئة والتغليف والأعلاف وتنمية الثروة الحيوانية والزراعية.')
+    : (projectsHeader?.descEn || 'AlShamel Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.');
+
   return (
     <section id="projects-overview-section" className="py-20 sm:py-28 bg-[#FBFDFB] relative border-t border-[#12332B]/5">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
 
-        {/* Header */}
-        <div className="text-center mb-16">
+        {/* Header with dynamic description */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF5F1] text-[#0B6B4F] mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#53A528]" />
-            <span>{locale === 'ar' ? 'مشاريع واستثمارات الجمعية' : 'Cooperative Enterprises'}</span>
+            <span>{badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight">
-            {locale === 'ar' ? 'مشاريعنا التنموية' : 'Our Development Projects'}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight mb-4">
+            {title}
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#53A528] to-[#0B6B4F] mx-auto mt-4 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-[#53A528] to-[#0B6B4F] mx-auto mb-5 rounded-full" />
+          <p className="text-sm sm:text-base text-[#4A5550] leading-relaxed font-medium">
+            {description}
+          </p>
         </div>
 
         {/* Project Cards Grid */}
@@ -105,7 +121,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
             to={getLocalizedPath('/projects')}
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#095B42] to-[#064230] text-white font-bold text-sm sm:text-base shadow-md hover:brightness-110 hover:shadow-xl transition-all duration-200 group"
           >
-            <span>{locale === 'ar' ? 'عرض كافة مشاريع الجمعية' : 'View All Cooperative Projects'}</span>
+            <span>{isAr ? 'عرض كافة مشاريع الجمعية' : 'View All Cooperative Projects'}</span>
             <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
           </Link>
         </div>

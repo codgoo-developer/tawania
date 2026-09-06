@@ -114,7 +114,7 @@ export const HeroSection: React.FC = () => {
   const scrollToContent = () => {
     const target = document.getElementById('about-overview-section');
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
@@ -123,7 +123,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero-section"
-      className="relative w-full h-[calc(100vh-72px)] min-h-[580px] max-h-[960px] flex flex-col justify-between overflow-hidden bg-[#05241C] select-none"
+      className="relative w-full h-[calc(100vh-124px)] min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#05241C] select-none"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -218,37 +218,35 @@ export const HeroSection: React.FC = () => {
         </button>
       </div>
 
-      {/* 5. Bottom Controls & Scroll Down Anchor (Balanced Container) */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 pb-5 pt-2 flex items-center justify-between">
-        {/* Slide Pagination Dots */}
-        <div className="flex items-center gap-2">
-          {slides.map((_, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={() => setCurrentSlideIndex(idx)}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlideIndex
-                  ? 'w-9 bg-[#84CC16] shadow-sm'
-                  : 'w-2.5 bg-white/35 hover:bg-white/70'
-                }`}
-              aria-label={`Slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Centered Scroll Down Button to page content */}
+      {/* 5. Perfectly Centered Scroll Down Anchor Button (Dead-Center Optical Alignment) */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center pointer-events-auto">
         <button
           type="button"
           onClick={scrollToContent}
-          className="inline-flex items-center gap-2 px-2 pt-4 pb-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white/90 hover:text-white border border-white/20 transition-all text-xs sm:text-sm font-semibold cursor-pointer group shadow-sm"
+          className="w-12 h-12 rounded-full bg-black/50 hover:bg-[#05241C] backdrop-blur-md text-white border border-white/25 hover:border-[#84CC16] flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(132,204,22,0.4)] hover:scale-110 active:scale-95"
+          aria-label={locale === 'ar' ? 'التمرير للأسفل إلى من نحن' : 'Scroll down to about'}
         >
-          <ChevronDown className="w-6 h-4 text-[#84CC16] animate-bounce" />
+          <div className="flex items-center justify-center w-full h-full transform group-hover:translate-y-0.5 transition-transform duration-300">
+            <ChevronDown className="w-6 h-6 text-[#84CC16] stroke-[2.5]" />
+          </div>
         </button>
+      </div>
 
-        {/* Key Quick Stats preview */}
-        <div className="hidden sm:flex items-center gap-4 text-xs text-white/85 font-mono">
-
-        </div>
+      {/* 6. Slide Pagination Dots (Positioned at End Edge) */}
+      <div className="absolute bottom-6 end-6 sm:end-10 z-20 flex items-center gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => setCurrentSlideIndex(idx)}
+            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+              idx === currentSlideIndex
+                ? 'w-9 bg-[#84CC16] shadow-sm'
+                : 'w-2.5 bg-white/35 hover:bg-white/70'
+            }`}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

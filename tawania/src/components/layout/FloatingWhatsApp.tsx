@@ -7,7 +7,7 @@ export const FloatingWhatsApp: React.FC = () => {
   const { t, locale } = useI18n();
   const { contactSettings } = useGovernanceData();
 
-  const rawPhone = contactSettings?.whatsappPhone || contactSettings?.phone || '966504284861';
+  const rawPhone = contactSettings?.whatsappPhone || contactSettings?.phone || '0504284861';
   const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
   const formattedPhone = cleanPhone.startsWith('0') ? `966${cleanPhone.slice(1)}` : (cleanPhone.startsWith('966') ? cleanPhone : `966${cleanPhone}`);
 
@@ -21,7 +21,7 @@ export const FloatingWhatsApp: React.FC = () => {
     <aside 
       id="floating-whatsapp-container" 
       aria-label="WhatsApp Contact"
-      className="fixed bottom-6 start-6 z-50 flex items-center group"
+      className="fixed bottom-6 end-6 z-50 flex items-center group"
     >
       <a
         href={whatsappUrl}

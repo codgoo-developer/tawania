@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Helpers\FileUploadHelper;
 use Illuminate\Http\Request;
+
+require_once dirname(__DIR__, 3) . '/Helpers/ApiResponseHelper.php';
 
 class ProjectController extends Controller
 {
     public function index()
     {
         $projects = Project::orderBy('id', 'asc')->get();
-        return response()->json([
-            'success' => true,
-            'data' => $projects,
-        ]);
+        return api_response(true, 'Projects retrieved successfully', $projects);
     }
 
     public function store(Request $request)
@@ -23,8 +23,9 @@ class ProjectController extends Controller
         if (isset($data['name']) && !isset($data['title_ar'])) {
             $data['title_ar'] = $data['name'];
         }
-        if (isset($data['image']) && !isset($data['image_url'])) {
-            $data['image_url'] = $data['image'];
+        if (isset($data['image']) || isset($data['image_url'])) {
+            $rawImg = $data['image_url'] ?? $data['image'];
+            $data['image_url'] = FileUploadHelper::saveBase64File($rawImg, 'projects', 'proj');
         }
         if (isset($data['description']) && !isset($data['description_ar'])) {
             $data['description_ar'] = $data['description'];
@@ -40,11 +41,7 @@ class ProjectController extends Controller
         }
 
         $project = Project::create($data);
-        return response()->json([
-            'success' => true,
-            'message' => 'تمت إضافة المشروع بنجاح',
-            'data' => $project,
-        ], 201);
+        return api_response(true, 'تمت إضافة المشروع بنجاح', $project, 201);
     }
 
     public function update(Request $request, $id)
@@ -54,8 +51,9 @@ class ProjectController extends Controller
         if (isset($data['name']) && !isset($data['title_ar'])) {
             $data['title_ar'] = $data['name'];
         }
-        if (isset($data['image']) && !isset($data['image_url'])) {
-            $data['image_url'] = $data['image'];
+        if (isset($data['image']) || isset($data['image_url'])) {
+            $rawImg = $data['image_url'] ?? $data['image'];
+            $data['image_url'] = FileUploadHelper::saveBase64File($rawImg, 'projects', 'proj');
         }
         if (isset($data['description']) && !isset($data['description_ar'])) {
             $data['description_ar'] = $data['description'];
@@ -71,20 +69,13 @@ class ProjectController extends Controller
         }
 
         $project->update($data);
-        return response()->json([
-            'success' => true,
-            'message' => 'تم تحديث بيانات المشروع بنجاح',
-            'data' => $project,
-        ]);
+        return api_response(true, 'تم تحديث بيانات المشروع بنجاح', $project);
     }
 
     public function destroy($id)
     {
         $project = Project::findOrFail($id);
         $project->delete();
-        return response()->json([
-            'success' => true,
-            'message' => 'تم حذف المشروع بنجاح',
-        ]);
+        return api_response(true, 'تم حذف المشروع بنجاح');
     }
 }

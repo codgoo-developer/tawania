@@ -27,24 +27,36 @@ export const StrategicGoalsSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* Clean Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-          {goalsList.map((goal, idx) => (
-            <div
-              key={goal.id || idx}
-              className="bg-white rounded-2xl p-7 sm:p-8 border border-[#12332B]/5 shadow-xs hover:shadow-md hover:border-[#095B42]/30 transition-all duration-300 flex flex-col justify-center items-center text-center min-h-[170px] group"
-            >
-              {/* Number (01 - 08) in soft emerald font */}
-              <div className="text-3xl sm:text-4xl font-black text-[#5EA88F] font-sans tracking-tight mb-3">
-                {goal.number || (idx + 1)}
-              </div>
+        {/* Clean Cards with Title and Description */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+          {goalsList.map((goal, idx) => {
+            const title = locale === 'ar' ? goal.titleAr : goal.titleEn;
+            const desc = locale === 'ar' ? goal.descriptionAr : goal.descriptionEn;
 
-              {/* Title */}
-              <h3 className="text-base sm:text-lg font-bold text-[#12332B] group-hover:text-[#095B42] transition-colors leading-snug">
-                {locale === 'ar' ? goal.titleAr : goal.titleEn}
-              </h3>
-            </div>
-          ))}
+            return (
+              <div
+                key={goal.id || idx}
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#12332B]/5 shadow-xs hover:shadow-lg hover:border-[#095B42]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group min-h-[220px]"
+              >
+                {/* Number (1 - 7) in soft emerald font */}
+                <div className="text-3xl sm:text-4xl font-black text-[#5EA88F] font-sans tracking-tight mb-3 group-hover:scale-105 transition-transform">
+                  {goal.number || (idx + 1)}
+                </div>
+
+                {/* Title & Description */}
+                <div className="flex flex-col gap-2 flex-grow justify-start w-full">
+                  <h3 className="text-base sm:text-lg font-bold text-[#12332B] group-hover:text-[#095B42] transition-colors leading-snug">
+                    {title}
+                  </h3>
+                  {desc && (
+                    <p className="text-xs sm:text-sm text-[#525E59] leading-relaxed mt-1 font-normal border-t border-gray-100 pt-2">
+                      {desc}
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

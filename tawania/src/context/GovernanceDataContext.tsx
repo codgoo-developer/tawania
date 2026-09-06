@@ -1,3 +1,38 @@
+﻿export interface BoardIntroData {
+  cycleBadgeAr: string;
+  cycleBadgeEn?: string;
+  titleAr: string;
+  titleEn?: string;
+  descAr: string;
+  descEn?: string;
+  startDate: string;
+  endDate: string;
+  durationYears: number;
+  membersCount: number;
+}
+
+export const initialBoardIntroData: BoardIntroData = {
+  cycleBadgeAr: 'الدورة الانتخابية الثانية',
+  cycleBadgeEn: 'Second Electoral Term',
+  titleAr: 'أعضاء مجلس الإدارة',
+  titleEn: 'Board of Directors',
+  descAr: 'تدار الجمعية من قبل مجلس إدارة عدد أعضائه لا يقل عن خمسة أعضاء تنتخبهم الجمعية العمومية. ومدة عضوية مجلس الإدارة الحالي (الثاني) المنتخب أربع سنوات. ويبلغ عدد أعضائه في دورته الحالية خمسة أعضاء لإدارة الجمعية في خلال الفترة من 1443/6/22 هـ حتى 1447/6/22 هـ.',
+  descEn: 'The cooperative is managed by a Board of Directors of no fewer than five members elected by the General Assembly. The current term is four years from 1443/6/22 AH to 1447/6/22 AH.',
+  startDate: '1443/6/22 هـ',
+  endDate: '1447/6/22 هـ',
+  durationYears: 4,
+  membersCount: 5
+};
+
+export interface ProjectsHeaderData {
+  badgeAr?: string;
+  badgeEn?: string;
+  titleAr?: string;
+  titleEn?: string;
+  descAr?: string;
+  descEn?: string;
+}
+
 import { apiService } from '../services/apiService';
 import { generalAssemblyMembersList, GeneralAssemblyMember } from '../data/generalAssemblyMembers';
 import React, { createContext, useContext, useState, useEffect } from 'react';
@@ -1772,6 +1807,10 @@ const STORAGE_ETHICS = 'tawania_gov_ethics';
 const STORAGE_SUBMISSIONS = 'tawania_gov_submissions_v4';
 
 interface GovernanceContextType {
+  boardIntro: BoardIntroData;
+  updateBoardIntro: (updated: BoardIntroData) => Promise<boolean>;
+  projectsHeader: ProjectsHeaderData;
+  updateProjectsHeader: (data: ProjectsHeaderData) => Promise<boolean>;
   projects: ProjectItem[];
   generalAssemblyMembers: GeneralAssemblyMember[];
   boardMembers: BoardMemberItem[];
@@ -1937,6 +1976,28 @@ export const initialProjectsList: ProjectItem[] = [
 const GovernanceDataContext = createContext<GovernanceContextType | undefined>(undefined);
 
 export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [projectsHeader, setProjectsHeader] = useState<ProjectsHeaderData>({
+    badgeAr: 'مشاريع واستثمارات الجمعية',
+    badgeEn: 'Cooperative Enterprises',
+    titleAr: 'مشاريعنا التنموية',
+    titleEn: 'Our Development Projects',
+    descAr: 'تعاونية الشامل أسست مشاريع متعددة عبر مختلف المجالات منذ تأسيسها بما في ذلك التسويق والأسواق الاستهلاكية والتوزيع ومصنع التعبئة والتغليف والأعلاف وتنمية الثروة الحيوانية والزراعية.',
+    descEn: 'AlShamel Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.'
+  });
+
+  const [boardIntro, setBoardIntro] = useState<BoardIntroData>(initialBoardIntroData);
+
+  const updateBoardIntro = async (updated: BoardIntroData): Promise<boolean> => {
+    try {
+      setBoardIntro(updated);
+      await apiService.updateHomeSection('board_intro', updated);
+      await refreshHomeContent();
+      return true;
+    } catch (e) {
+      console.error('Error updating board intro:', e);
+      return false;
+    }
+  };
 
   const STORAGE_GALLERY = 'rda_governance_gallery_items_v1';
   const STORAGE_CONTACT_SETTINGS = 'tawania_site_contact_settings_v1';
@@ -2151,6 +2212,8 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
         if (res.data.goals) setStrategicGoals(res.data.goals);
         if (res.data.testimonials) setTestimonials(res.data.testimonials);
         if (res.data.contact_settings) setContactSettings(res.data.contact_settings);
+        if (res.data.projects_header) setProjectsHeader(res.data.projects_header);
+        if (res.data.board_intro) setBoardIntro(res.data.board_intro);
       }
     } catch (err) {
       console.error('Error refreshing home content:', err);
@@ -2655,11 +2718,38 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
 
   const [strategicGoals, setStrategicGoals] = useState<StrategicGoalItem[]>(initialStrategicGoalItems);
 
-  
+  const addStrategicGoal = async (goal: StrategicGoalItem) => {
+    const updated = [...strategicGoals, goal];
+    setStrategicGoals(updated);
+    try {
+      await apiService.updateHomeSection('goals', updated);
+      await refreshHomeContent();
+    } catch (err) {
+      console.error('Error adding strategic goal:', err);
+    }
+  };
 
-  const addStrategicGoal = (goal: StrategicGoalItem) => setStrategicGoals(prev => [...prev, goal]);
-  const updateStrategicGoal = (goal: StrategicGoalItem) => setStrategicGoals(prev => prev.map(g => g.id === goal.id ? goal : g));
-  const deleteStrategicGoal = (id: number) => setStrategicGoals(prev => prev.filter(g => g.id !== id));
+  const updateStrategicGoal = async (goal: StrategicGoalItem) => {
+    const updated = strategicGoals.map(g => g.id === goal.id ? goal : g);
+    setStrategicGoals(updated);
+    try {
+      await apiService.updateHomeSection('goals', updated);
+      await refreshHomeContent();
+    } catch (err) {
+      console.error('Error updating strategic goal:', err);
+    }
+  };
+
+  const deleteStrategicGoal = async (id: number) => {
+    const updated = strategicGoals.filter(g => g.id !== id);
+    setStrategicGoals(updated);
+    try {
+      await apiService.updateHomeSection('goals', updated);
+      await refreshHomeContent();
+    } catch (err) {
+      console.error('Error deleting strategic goal:', err);
+    }
+  };
 
   const [testimonials, setTestimonials] = useState<TestimonialItemModel[]>(initialTestimonialItems);
 
@@ -2687,9 +2777,25 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
     setTestimonials(initialTestimonialItems);
   };
 
+    const updateProjectsHeader = async (updated: ProjectsHeaderData): Promise<boolean> => {
+    try {
+      setProjectsHeader(updated);
+      await apiService.updateHomeSection('projects_header', updated);
+      await refreshHomeContent();
+      return true;
+    } catch (e) {
+      console.error('Error updating projects header:', e);
+      return false;
+    }
+  };
+
   return (
     <GovernanceDataContext.Provider
       value={{
+        projectsHeader,
+        updateProjectsHeader,
+        boardIntro,
+        updateBoardIntro,
         projects,
         addProject,
         updateProject,

@@ -12,6 +12,7 @@ import { ToastProvider } from './context/ToastContext';
 
 // Pages
 import { HomePage } from './pages/HomePage';
+import { GovernancePage } from './pages/GovernancePage';
 import { BoardPage } from './pages/BoardPage';
 import { ExecutiveDirectorPage } from './pages/ExecutiveDirectorPage';
 import { ProjectsPage } from './pages/ProjectsPage';
@@ -77,6 +78,9 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="board" element={<BoardPage />} />
             <Route path="executive-director" element={<ExecutiveDirectorPage />} />
+            <Route path="governance" element={<GovernancePage />} />
+            <Route path="policies" element={<GovernancePage />} />
+            <Route path="regulations" element={<GovernancePage />} />
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="projects/:slug" element={<ProjectDetailPage />} />
             <Route path="financial-statements" element={<FinancialStatementsPage />} />

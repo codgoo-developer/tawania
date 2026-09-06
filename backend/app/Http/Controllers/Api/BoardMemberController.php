@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\BoardMember;
+use App\Helpers\FileUploadHelper;
 use Illuminate\Http\Request;
 
 require_once dirname(__DIR__, 3) . '/Helpers/ApiResponseHelper.php';
@@ -12,7 +13,6 @@ class BoardMemberController extends Controller
 {
     public function index()
     {
-        // Strictly return the Board of Directors members (excluding CEO who has his own table/endpoint)
         $members = BoardMember::where('is_ceo', 0)
             ->orWhereNull('is_ceo')
             ->orderBy('order', 'asc')
@@ -24,6 +24,12 @@ class BoardMemberController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $image = null;
+        if (!empty($data['image'])) {
+            $image = FileUploadHelper::saveBase64File($data['image'], 'images', 'board');
+        }
+
         $mapped = [
             'name_ar' => $data['nameAr'] ?? $data['name_ar'] ?? '',
             'name_en' => $data['nameEn'] ?? $data['name_en'] ?? null,
@@ -36,6 +42,7 @@ class BoardMemberController extends Controller
             'bio_ar' => $data['bioAr'] ?? $data['bio_ar'] ?? null,
             'bio_en' => $data['bioEn'] ?? $data['bio_en'] ?? null,
             'initials_ar' => $data['initialsAr'] ?? $data['initials_ar'] ?? null,
+            'image' => $image,
             'order' => (int)($data['order'] ?? 1),
             'is_chairman' => (bool)($data['isChairman'] ?? $data['is_chairman'] ?? false),
             'is_ceo' => false,
@@ -69,6 +76,14 @@ class BoardMemberController extends Controller
         if (isset($data['initialsAr']) || isset($data['initials_ar'])) $member->initials_ar = $data['initialsAr'] ?? $data['initials_ar'];
         if (isset($data['order'])) $member->order = (int)$data['order'];
         if (isset($data['isChairman']) || isset($data['is_chairman'])) $member->is_chairman = (bool)($data['isChairman'] ?? $data['is_chairman']);
+
+        if (array_key_exists('image', $data)) {
+            if (!empty($data['image'])) {
+                $member->image = FileUploadHelper::saveBase64File($data['image'], 'images', 'board');
+            } else {
+                $member->image = null;
+            }
+        }
 
         $member->save();
 

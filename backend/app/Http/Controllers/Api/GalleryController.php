@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\GalleryItem;
+use App\Helpers\FileUploadHelper;
 use Illuminate\Http\Request;
 
 require_once dirname(__DIR__, 3) . '/Helpers/ApiResponseHelper.php';
@@ -23,7 +24,10 @@ class GalleryController extends Controller
         if (isset($data['titleEn'])) $data['title_en'] = $data['titleEn'];
         if (isset($data['categoryNameAr'])) $data['category_name_ar'] = $data['categoryNameAr'];
         if (isset($data['categoryNameEn'])) $data['category_name_en'] = $data['categoryNameEn'];
-        if (isset($data['imageUrl'])) $data['image_url'] = $data['imageUrl'];
+        if (isset($data['imageUrl']) || isset($data['image_url'])) {
+            $rawImg = $data['imageUrl'] ?? $data['image_url'];
+            $data['image_url'] = FileUploadHelper::saveBase64File($rawImg, 'gallery', 'gallery');
+        }
         if (isset($data['date'])) $data['event_date'] = $data['date'];
         if (isset($data['locationAr'])) $data['location_ar'] = $data['locationAr'];
         if (isset($data['locationEn'])) $data['location_en'] = $data['locationEn'];
@@ -42,7 +46,10 @@ class GalleryController extends Controller
         if (isset($data['titleEn'])) $data['title_en'] = $data['titleEn'];
         if (isset($data['categoryNameAr'])) $data['category_name_ar'] = $data['categoryNameAr'];
         if (isset($data['categoryNameEn'])) $data['category_name_en'] = $data['categoryNameEn'];
-        if (isset($data['imageUrl'])) $data['image_url'] = $data['imageUrl'];
+        if (isset($data['imageUrl']) || isset($data['image_url'])) {
+            $rawImg = $data['imageUrl'] ?? $data['image_url'];
+            $data['image_url'] = FileUploadHelper::saveBase64File($rawImg, 'gallery', 'gallery');
+        }
         if (isset($data['date'])) $data['event_date'] = $data['date'];
         if (isset($data['locationAr'])) $data['location_ar'] = $data['locationAr'];
         if (isset($data['locationEn'])) $data['location_en'] = $data['locationEn'];

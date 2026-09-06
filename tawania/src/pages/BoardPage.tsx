@@ -7,7 +7,7 @@ import { useGovernanceData, initialBoardMembers, BoardMemberItem } from '../cont
 
 export const BoardPage: React.FC = () => {
   const { locale, t } = useI18n();
-  const { boardMembers } = useGovernanceData();
+  const { boardMembers, boardIntro } = useGovernanceData();
 
   // Fallback to initialBoardMembers if boardMembers is empty or undefined
   const activeMembers: BoardMemberItem[] =
@@ -53,15 +53,15 @@ export const BoardPage: React.FC = () => {
         <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#12332B]/10 shadow-xs text-center max-w-4xl mx-auto space-y-4">
           <Badge variant="primary" className="mb-1">
             <Users className="w-3.5 h-3.5 text-[#C9A45C]" />
-            <span>{locale === 'ar' ? 'الدورة الانتخابية الثانية' : 'Second Electoral Term'}</span>
+            <span>{locale === 'ar' ? (boardIntro?.cycleBadgeAr || 'الدورة الانتخابية الثانية') : (boardIntro?.cycleBadgeEn || 'Second Electoral Term')}</span>
           </Badge>
           <h2 className="text-2xl sm:text-3xl font-black text-[#12332B] tracking-tight">
-            {locale === 'ar' ? 'أعضاء مجلس الإدارة' : 'Board of Directors'}
+            {locale === 'ar' ? (boardIntro?.titleAr || 'أعضاء مجلس الإدارة') : (boardIntro?.titleEn || 'Board of Directors')}
           </h2>
           <p className="text-sm sm:text-base text-[#4A5550] leading-relaxed font-medium">
             {locale === 'ar'
-              ? 'تدار الجمعية من قبل مجلس إدارة عدد أعضائه لا يقل عن خمسة أعضاء تنتخبهم الجمعية العمومية. ومدة عضوية مجلس الإدارة الحالي (الثاني) المنتخب أربع سنوات. ويبلغ عدد أعضائه في دورته الحالية خمسة أعضاء لإدارة الجمعية في خلال الفترة من 1443/6/22 هـ حتى 1447/6/22 هـ.'
-              : 'The cooperative is managed by a Board of Directors elected by the General Assembly. The term of the current 2nd Board is 4 years, comprising 5 members for the period from 22/06/1443 AH to 22/06/1447 AH.'}
+              ? (boardIntro?.descAr || 'تدار الجمعية من قبل مجلس إدارة عدد أعضائه لا يقل عن خمسة أعضاء تنتخبهم الجمعية العمومية. ومدة عضوية مجلس الإدارة الحالي (الثاني) المنتخب أربع سنوات. ويبلغ عدد أعضائه في دورته الحالية خمسة أعضاء لإدارة الجمعية في خلال الفترة من 1443/6/22 هـ حتى 1447/6/22 هـ.')
+              : (boardIntro?.descEn || 'The cooperative is managed by a Board of Directors elected by the General Assembly.')}
           </p>
         </div>
       </section>
@@ -71,7 +71,7 @@ export const BoardPage: React.FC = () => {
    
 
         {/* User Provided Exact Cards Grid */}
-        <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
+        <div className="pt-2 flex flex-wrap justify-center gap-6 items-stretch max-w-6xl mx-auto">
           {sortedMembers.map((member) => {
             const isChairman =
               member.isChairman ||
@@ -81,7 +81,7 @@ export const BoardPage: React.FC = () => {
             return (
               <div
                 key={member.id}
-                className={`relative rounded-3xl p-6 transition-all duration-300 flex flex-col items-center text-center group ${
+                className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[340px] relative rounded-3xl p-6 transition-all duration-300 flex flex-col items-center text-center group ${
                   isChairman
                     ? 'bg-gradient-to-b from-[#F3F8F5] via-white to-white border-2 border-[#0B6B4F]/40 shadow-md hover:shadow-xl hover:-translate-y-1.5'
                     : 'bg-white border border-[#12332B]/10 shadow-2xs hover:shadow-lg hover:border-[#0B6B4F]/30 hover:-translate-y-1'

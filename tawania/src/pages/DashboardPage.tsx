@@ -71,6 +71,8 @@ import {
   initialBoardMembers,
   initialGalleryItems,
   initialSiteContactSettings,
+  ProjectsHeaderData,
+  BoardIntroData,
   SiteContactSettings,
   HeroSlideItem,
   HomeAboutData,
@@ -142,6 +144,10 @@ export const DashboardPage: React.FC = () => {
     submissions,
     contactSettings,
     updateContactSettings,
+    projectsHeader,
+    updateProjectsHeader,
+    boardIntro,
+    updateBoardIntro,
     feedbackCards,
     updateFeedbackCards,
     addPolicy,
@@ -1714,6 +1720,77 @@ export const DashboardPage: React.FC = () => {
   }, [isAuthenticated, navigate]);
 
   // Read active tab from URL search param or localStorage
+  const [boardIntroForm, setBoardIntroForm] = useState<BoardIntroData>(() => boardIntro || {
+    cycleBadgeAr: 'الدورة الانتخابية الثانية',
+    cycleBadgeEn: 'Second Electoral Term',
+    titleAr: 'أعضاء مجلس الإدارة',
+    titleEn: 'Board of Directors',
+    descAr: 'تدار الجمعية من قبل مجلس إدارة عدد أعضائه لا يقل عن خمسة أعضاء تنتخبهم الجمعية العمومية. ومدة عضوية مجلس الإدارة الحالي (الثاني) المنتخب أربع سنوات. ويبلغ عدد أعضائه في دورته الحالية خمسة أعضاء لإدارة الجمعية في خلال الفترة من 1443/6/22 هـ حتى 1447/6/22 هـ.',
+    descEn: 'The cooperative is managed by a Board of Directors of no fewer than five members elected by the General Assembly. The current term is four years from 1443/6/22 AH to 1447/6/22 AH.',
+    startDate: '1443/6/22 هـ',
+    endDate: '1447/6/22 هـ',
+    durationYears: 4,
+    membersCount: 5
+  });
+  const [savingBoardIntro, setSavingBoardIntro] = useState(false);
+
+  useEffect(() => {
+    if (boardIntro) {
+      setBoardIntroForm(boardIntro);
+    }
+  }, [boardIntro]);
+
+  const handleSaveBoardIntro = async () => {
+    setSavingBoardIntro(true);
+    try {
+      const ok = await updateBoardIntro(boardIntroForm);
+      if (ok) {
+        toast.success(locale === 'ar' ? 'تم حفظ وتحديث بيانات الدورة الانتخابية ومجلس الإدارة بنجاح' : 'Board cycle info saved successfully');
+      } else {
+        toast.error(locale === 'ar' ? 'حدث خطأ أثناء الحفظ' : 'Failed to save board info');
+      }
+    } catch {
+      toast.error(locale === 'ar' ? 'حدث خطأ أثناء الحفظ' : 'Failed to save board info');
+    } finally {
+      setSavingBoardIntro(false);
+    }
+  };
+
+  const [projectsHeaderForm, setProjectsHeaderForm] = useState<ProjectsHeaderData>({
+    badgeAr: 'مشاريع واستثمارات الجمعية',
+    badgeEn: 'Cooperative Enterprises',
+    titleAr: 'مشاريعنا التنموية',
+    titleEn: 'Our Development Projects',
+    descAr: 'تعاونية الشامل أسست مشاريع متعددة عبر مختلف المجالات منذ تأسيسها بما في ذلك التسويق والأسواق الاستهلاكية والتوزيع ومصنع التعبئة والتغليف والأعلاف وتنمية الثروة الحيوانية والزراعية.',
+    descEn: 'AlShamel Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.'
+  });
+
+  useEffect(() => {
+    if (projectsHeader) {
+      setProjectsHeaderForm({
+        badgeAr: projectsHeader.badgeAr || 'مشاريع واستثمارات الجمعية',
+        badgeEn: projectsHeader.badgeEn || 'Cooperative Enterprises',
+        titleAr: projectsHeader.titleAr || 'مشاريعنا التنموية',
+        titleEn: projectsHeader.titleEn || 'Our Development Projects',
+        descAr: projectsHeader.descAr || 'تعاونية الشامل أسست مشاريع متعددة عبر مختلف المجالات منذ تأسيسها بما في ذلك التسويق والأسواق الاستهلاكية والتوزيع ومصنع التعبئة والتغليف والأعلاف وتنمية الثروة الحيوانية والزراعية.',
+        descEn: projectsHeader.descEn || 'AlShamel Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.'
+      });
+    }
+  }, [projectsHeader]);
+
+  const [savingProjectsHeader, setSavingProjectsHeader] = useState(false);
+
+  const handleSaveProjectsHeader = async () => {
+    setSavingProjectsHeader(true);
+    const ok = await updateProjectsHeader(projectsHeaderForm);
+    setSavingProjectsHeader(false);
+    if (ok) {
+      toast.success(locale === 'ar' ? 'تم حفظ عنوان ووصف قسم المشاريع بنجاح' : 'Projects section header updated successfully');
+    } else {
+      toast.error(locale === 'ar' ? 'حدث خطأ أثناء الحفظ' : 'Failed to save projects header');
+    }
+  };
+
   const [activeTab, setActiveTab] = useState<TabType>(() => {
     try {
       const params = new URLSearchParams(window.location.search);
@@ -2689,14 +2766,82 @@ export const DashboardPage: React.FC = () => {
                 </button>
               </div>
 
+              {/* Board Intro & Electoral Cycle Management Card */}
+              <div className="bg-white rounded-3xl p-6 border border-emerald-500/20 shadow-2xs space-y-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-[#0B6B4F]/10 flex items-center justify-center text-[#0B6B4F]">
+                      <Crown className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900">
+                        {locale === 'ar' ? 'بيانات الدورة الانتخابية ومقدمة مجلس الإدارة' : 'Electoral Cycle & Board Intro Settings'}
+                      </h3>
+                      <p className="text-xs text-gray-500">
+                        {locale === 'ar' ? 'تعديل شارة الدورة الانتخابية وعنوان ووصف القسم المعروض في الرئيسية وصفحة المجلس' : 'Manage cycle badge, title, and description displayed on public site'}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleSaveBoardIntro}
+                    disabled={savingBoardIntro}
+                    className="px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>{savingBoardIntro ? (locale === 'ar' ? 'جاري الحفظ...' : 'Saving...') : (locale === 'ar' ? 'حفظ إعدادات الدورة' : 'Save Cycle Settings')}</span>
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      {locale === 'ar' ? 'شارة الدورة الانتخابية (عربي)' : 'Cycle Badge (Arabic)'}
+                    </label>
+                    <input
+                      type="text"
+                      value={boardIntroForm.cycleBadgeAr || ''}
+                      onChange={(e) => setBoardIntroForm({ ...boardIntroForm, cycleBadgeAr: e.target.value })}
+                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      placeholder="مثال: الدورة الانتخابية الثانية"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      {locale === 'ar' ? 'عنوان القسم الرئيسي (عربي)' : 'Main Title (Arabic)'}
+                    </label>
+                    <input
+                      type="text"
+                      value={boardIntroForm.titleAr || ''}
+                      onChange={(e) => setBoardIntroForm({ ...boardIntroForm, titleAr: e.target.value })}
+                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      placeholder="مثال: أعضاء مجلس الإدارة"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    {locale === 'ar' ? 'الوصف التعريفي المعتمد للدورة الانتخابية (عربي)' : 'Cycle Description (Arabic)'}
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={boardIntroForm.descAr || ''}
+                    onChange={(e) => setBoardIntroForm({ ...boardIntroForm, descAr: e.target.value })}
+                    className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed font-medium"
+                    placeholder="أدخل النص التعريفي للدورة..."
+                  />
+                </div>
+              </div>
+
               {/* Board Members Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {((boardMembers && boardMembers.length > 0) ? boardMembers : initialBoardMembers)
                   .sort((a: any, b: any) => a.order - b.order)
                   .map((member: any) => (
                     <div
                       key={member.id}
-                      className={`bg-white rounded-3xl p-5 border flex flex-col justify-between transition-all duration-300 relative group ${member.isChairman
+                      className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[320px] bg-white rounded-3xl p-5 border flex flex-col justify-between transition-all duration-300 relative group ${member.isChairman
                         ? 'border-[#0B6B4F]/40 bg-gradient-to-b from-[#F3F8F5] via-white to-white shadow-md'
                         : 'border-gray-200 shadow-2xs hover:shadow-md'
                         }`}
@@ -4212,6 +4357,69 @@ export const DashboardPage: React.FC = () => {
 
           {activeTab === 'projects' && (
             <div className="space-y-6">
+              {/* Projects Section Header & Description Management */}
+              <div className="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-2xs space-y-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-100 pb-3">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-[#53A528]" />
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900">
+                        {locale === 'ar' ? 'إعدادات ووصف قسم مشاريعنا التنموية' : 'Projects Section Header & Description'}
+                      </h3>
+                      <p className="text-xs text-gray-500">
+                        {locale === 'ar' ? 'التحكم بالعنوان والشارة والوصف العام المعروض في الصفحة الرئيسية وصفحة المشاريع' : 'Manage title, badge, and intro description displayed on public site'}
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleSaveProjectsHeader}
+                    disabled={savingProjectsHeader}
+                    className="px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>{savingProjectsHeader ? (locale === 'ar' ? 'جاري الحفظ...' : 'Saving...') : (locale === 'ar' ? 'حفظ إعدادات القسم' : 'Save Header')}</span>
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      {locale === 'ar' ? 'شارة القسم (عربي)' : 'Badge (Arabic)'}
+                    </label>
+                    <input
+                      type="text"
+                      value={projectsHeaderForm.badgeAr || ''}
+                      onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, badgeAr: e.target.value })}
+                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      {locale === 'ar' ? 'عنوان القسم الرئيسي (عربي)' : 'Main Title (Arabic)'}
+                    </label>
+                    <input
+                      type="text"
+                      value={projectsHeaderForm.titleAr || ''}
+                      onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, titleAr: e.target.value })}
+                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    {locale === 'ar' ? 'الوصف العام لقسم المشاريع التنموية (عربي)' : 'Section Description (Arabic)'}
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={projectsHeaderForm.descAr || ''}
+                    onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, descAr: e.target.value })}
+                    className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed"
+                    placeholder="أدخل وصف قسم المشاريع..."
+                  />
+                </div>
+              </div>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-200/80 shadow-2xs">
                 <div>
                   <h2 className="text-xl font-bold text-gray-900">

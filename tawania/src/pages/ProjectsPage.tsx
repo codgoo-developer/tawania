@@ -6,7 +6,7 @@ import { PageHero } from '../components/layout/PageHero';
 
 export const ProjectsPage: React.FC = () => {
   const { locale, t, dir } = useI18n();
-  const { projects } = useGovernanceData();
+  const { projects, projectsHeader } = useGovernanceData();
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const filteredProjects = (projects || []).filter((p) => {
@@ -25,26 +25,37 @@ export const ProjectsPage: React.FC = () => {
         title={locale === 'ar' ? 'مشاريع الجمعية' : 'Cooperative Projects'}
         subtitle={
           locale === 'ar'
-            ? 'مشاريع تنموية واستثمارية مستدامة تخدم المجتمع المحلي وتسهم في تحقيق الأثر الاقتصادي والاجتماعي'
-            : 'Sustainable development and investment enterprises serving the community and creating long-term economic and social impact'
+            ? (projectsHeader?.descAr || 'تعاونية الرضا أسست مشاريع متعددة عبر مختلف المجالات منذ تأسيسها بما في ذلك التسويق والأسواق الاستهلاكية والتوزيع ومصنع التعبئة والتغليف والأعلاف وتنمية الثروة الحيوانية والزراعية.')
+            : (projectsHeader?.descEn || 'Al-Reda Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.')
         }
         breadcrumbs={[{ label: locale === 'ar' ? 'المشاريع' : 'Projects' }]}
+        action={
+          <div className="w-full sm:w-80 lg:w-96">
+            <div className="relative">
+              <Search className="w-4 h-4 text-gray-400 absolute start-3.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={locale === 'ar' ? 'البحث في مشاريع الجمعية...' : 'Search cooperative projects...'}
+                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-white border border-gray-200 text-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="absolute end-3 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 flex items-center justify-center text-[10px] cursor-pointer transition-colors"
+                  aria-label="Clear Search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
+        }
       />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Search Bar */}
-        <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#12332B]/10 shadow-xs mb-12 flex items-center justify-between gap-4 max-w-2xl mx-auto">
-          <div className="relative w-full">
-            <Search className="w-4 h-4 text-[#68736F] absolute start-4 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={locale === 'ar' ? 'البحث في مشاريع الجمعية...' : 'Search cooperative projects...'}
-              className="w-full ps-11 pe-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#12332B]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
-            />
-          </div>
-        </div>
 
         {/* Projects Cards Grid */}
         {filteredProjects.length > 0 ? (

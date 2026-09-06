@@ -76,7 +76,7 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-2 pt-1">
               <a
-                href="https://instagram.com/shamel_coo"
+                href={contactSettings?.instagramUrl || "https://instagram.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
                 <Instagram className="w-4 h-4 text-white" />
               </a>
               <a
-                href="https://x.com/shamel_coo"
+                href={contactSettings?.twitterUrl || "https://x.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"

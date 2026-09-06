@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\ExecutiveDirector;
+use App\Helpers\FileUploadHelper;
 use Illuminate\Http\Request;
 
 require_once dirname(__DIR__, 3) . '/Helpers/ApiResponseHelper.php';
@@ -53,7 +54,14 @@ class ExecutiveDirectorController extends Controller
         if (isset($data['descriptionEn'])) $director->description_en = $data['descriptionEn'];
         if (isset($data['bioAr'])) $director->description_ar = $data['bioAr'];
         if (isset($data['initialsAr'])) $director->initials_ar = $data['initialsAr'];
-        if (isset($data['image'])) $director->image = $data['image'];
+
+        if (array_key_exists('image', $data)) {
+            if (!empty($data['image'])) {
+                $director->image = FileUploadHelper::saveBase64File($data['image'], 'images', 'ceo');
+            } else {
+                $director->image = null;
+            }
+        }
 
         $director->save();
 

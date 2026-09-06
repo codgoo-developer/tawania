@@ -16,6 +16,7 @@ import {
   Image,
   AlertTriangle,
   MessageSquareQuote,
+  Smile,
   Phone,
   Search,
   Globe,
@@ -69,11 +70,13 @@ export const MobileDrawer: React.FC<{
   };
 
   const isCurrent = (path: string) => {
-    if (path === '/' || path === `/${locale}` || path === `/${locale}/`) {
-      return location.pathname === `/${locale}` || location.pathname === `/${locale}/` || location.pathname === '/';
+    const current = location.pathname.replace(/^\/(ar|en)/, '').replace(/\/+$/, '') || '/';
+    const target = path.replace(/^\/(ar|en)/, '').replace(/\/+$/, '') || '/';
+
+    if (target === '/') {
+      return current === '/';
     }
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return location.pathname === `/${locale}${cleanPath}` || location.pathname.startsWith(`/${locale}${cleanPath}/`);
+    return current === target || current.startsWith(`${target}/`);
   };
 
   return (
@@ -132,86 +135,35 @@ export const MobileDrawer: React.FC<{
             <span>{locale === 'ar' ? 'الرئيسية' : 'Home'}</span>
           </Link>
 
-          {/* 2. الأعضاء (Members Accordion) */}
-          <div className="rounded-xl border border-gray-100 overflow-hidden bg-[#FAFBFA]">
-            <button
-              type="button"
-              onClick={() => toggle('members')}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-[#17211E] hover:bg-[#EBF4F0] cursor-pointer transition-colors"
-            >
-              <div className="flex items-center gap-2.5">
-                <Users className="w-4 h-4 text-[#0B6B4F]" />
-                <span>{locale === 'ar' ? 'الأعضاء' : 'Members'}</span>
-              </div>
-              <ChevronDown
-                className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                  expanded['members'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                }`}
-              />
-            </button>
+          {/* 2. الأعضاء (Members - Direct Link to Directory) */}
+          <Link
+            to={getLocalizedPath('/members/directory')}
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              isCurrent('/members/directory') || isCurrent('/members')
+                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                : 'text-[#17211E] hover:bg-[#F7F8F6]'
+            }`}
+          >
+            <Users className="w-4 h-4 text-[#0B6B4F]" />
+            <span>{locale === 'ar' ? 'الأعضاء' : 'Members'}</span>
+          </Link>
 
-            {expanded['members'] && (
-              <div className="p-2 pt-0 space-y-1 border-t border-gray-100 bg-white">
-                {/* أعضاء الجمعية العمومية (Nested) */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('ga-members')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <UserCheck className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                      {locale === 'ar' ? 'أعضاء الجمعية العمومية' : 'General Assembly Members'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['ga-members'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
+          {/* 3. مجلس الإدارة (Board of Directors - Direct Link to /board) */}
+          <Link
+            to={getLocalizedPath('/board')}
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              isCurrent('/board')
+                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                : 'text-[#17211E] hover:bg-[#F7F8F6]'
+            }`}
+          >
+            <Award className="w-4 h-4 text-[#C9A45C]" />
+            <span>{locale === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</span>
+          </Link>
 
-                  {expanded['ga-members'] && (
-                    <div className="ps-6 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      <Link
-                        to={getLocalizedPath('/members/directory')}
-                        onClick={handleLinkClick}
-                        className={`block py-1.5 px-2 rounded-md transition-colors ${
-                          isCurrent('/members/directory')
-                            ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
-                            : 'text-[#68736F] hover:text-[#0B6B4F] hover:bg-[#EBF4F0]'
-                        }`}
-                      >
-                        {locale === 'ar' ? 'بيانات الاعضاء' : 'Members Directory'}
-                      </Link>
-                      <Link
-                        to={getLocalizedPath('/members/register')}
-                        onClick={handleLinkClick}
-                        className={`block py-1.5 px-2 rounded-md transition-colors ${
-                          isCurrent('/members/register')
-                            ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
-                            : 'text-[#68736F] hover:text-[#0B6B4F] hover:bg-[#EBF4F0]'
-                        }`}
-                      >
-                        {locale === 'ar' ? 'نموذج تسجيل عضو جديد' : 'New Member Registration'}
-                      </Link>
-                    </div>
-                  )}
-                </div>
-
-                {/* أعضاء مجلس الإدارة */}
-                <Link
-                  to={getLocalizedPath('/board')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <Award className="w-3.5 h-3.5 text-[#C9A45C]" />
-                  <span>{locale === 'ar' ? 'أعضاء مجلس الإدارة' : 'Board of Directors'}</span>
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* 3. مشاريعنا (Our Projects) */}
+          {/* 4. مشاريعنا (Our Projects) */}
           <Link
             to={getLocalizedPath('/projects')}
             onClick={handleLinkClick}
@@ -225,311 +177,21 @@ export const MobileDrawer: React.FC<{
             <span>{locale === 'ar' ? 'مشاريعنا' : 'Our Projects'}</span>
           </Link>
 
-          {/* 4. الحوكمة (Governance Multi-Tier Accordion) */}
-          <div className="rounded-xl border border-gray-100 overflow-hidden bg-[#FAFBFA]">
-            <button
-              type="button"
-              onClick={() => toggle('governance')}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-[#17211E] hover:bg-[#EBF4F0] cursor-pointer transition-colors"
-            >
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-[#0B6B4F]" />
-                <span>{locale === 'ar' ? 'الحوكمة' : 'Governance'}</span>
-              </div>
-              <ChevronDown
-                className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                  expanded['governance'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                }`}
-              />
-            </button>
+          {/* 5. الحوكمة (Governance - Direct Link) */}
+          <Link
+            to={getLocalizedPath('/governance')}
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              isCurrent('/governance') || isCurrent('/policies') || isCurrent('/regulations')
+                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                : 'text-[#17211E] hover:bg-[#F7F8F6]'
+            }`}
+          >
+            <ShieldCheck className="w-4 h-4 text-[#0B6B4F]" />
+            <span>{locale === 'ar' ? 'الحوكمة والسياسات' : 'Governance & Policies'}</span>
+          </Link>
 
-            {expanded['governance'] && (
-              <div className="p-2 pt-0 space-y-1.5 border-t border-gray-100 bg-white">
-                {/* محاضر اجتماع الجمعية العمومية */}
-                <Link
-                  to={getLocalizedPath('/meetings/general-assembly')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <Calendar className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'محاضر اجتماع الجمعية العمومية' : 'General Assembly Minutes'}</span>
-                </Link>
-
-                {/* محاضر اجتماع مجلس الادارة */}
-                <Link
-                  to={getLocalizedPath('/meetings/board')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <Calendar className="w-3.5 h-3.5 text-[#C9A45C]" />
-                  <span>{locale === 'ar' ? 'محاضر اجتماع مجلس الادارة' : 'Board Meeting Minutes'}</span>
-                </Link>
-
-                {/* الميثاق الاخلاقي */}
-                <Link
-                  to={getLocalizedPath('/ethics')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'الميثاق الاخلاقي' : 'Ethical Charter'}</span>
-                </Link>
-
-                {/* السياسات (Nested) */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('policies')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <FileText className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                      {locale === 'ar' ? 'السياسات' : 'Policies'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['policies'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {expanded['policies'] && (
-                    <div className="ps-5 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      <Link to={getLocalizedPath('/policies/conflict-of-interest')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'تعارض المصالح' : 'Conflict of Interest'}
-                      </Link>
-                      <Link to={getLocalizedPath('/policies/whistleblowing-policy')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'الابلاغ عن المخالفات' : 'Whistleblowing'}
-                      </Link>
-                      <Link to={getLocalizedPath('/policies/document-retention')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'الاحتفاظ بالوثائق' : 'Document Retention'}
-                      </Link>
-                      <Link to={getLocalizedPath('/policies/gifts-donations')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'قبول الهبات' : 'Acceptance of Gifts & Donations'}
-                      </Link>
-                      <Link to={getLocalizedPath('/policies/member-relations')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'تنظيم العلاقة مع اعضاء الجمعية العمومية وتقديم الخدمات' : 'General Assembly Member Relations'}
-                      </Link>
-                      <Link to={getLocalizedPath('/policies/data-privacy')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'خصوصية البيانات' : 'Data Privacy'}
-                      </Link>
-
-                      {/* غسل الأموال ومكافحة تمويل الإرهاب (Deep Nested) */}
-                      <div className="pt-1">
-                        <button
-                          type="button"
-                          onClick={() => toggle('aml-mobile')}
-                          className="w-full flex items-center justify-between py-1 px-2 rounded font-semibold text-[#17211E] hover:text-[#0B6B4F]"
-                        >
-                          <span className="truncate">{locale === 'ar' ? 'غسل الأموال ومكافحة تمويل الإرهاب' : 'AML & Counter-Terrorism'}</span>
-                          <ChevronDown className={`w-3 h-3 transition-transform ${expanded['aml-mobile'] ? 'rotate-180 text-[#0B6B4F]' : ''}`} />
-                        </button>
-                        {expanded['aml-mobile'] && (
-                          <div className="ps-4 space-y-1 border-s border-gray-300 ms-2 mt-1">
-                            <Link to={getLocalizedPath('/policies/aml-manual')} onClick={handleLinkClick} className="block py-1 text-gray-600 hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'الدليل والمؤشرات والاجراءات' : 'AML Manual & Indicators'}
-                            </Link>
-                            <Link to={getLocalizedPath('/policies/aml-prevention')} onClick={handleLinkClick} className="block py-1 text-gray-600 hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'سياسية الوقاية' : 'Prevention Policy'}
-                            </Link>
-                            <Link to={getLocalizedPath('/policies/aml-suspicion')} onClick={handleLinkClick} className="block py-1 text-gray-600 hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'سياسة الاشتباة' : 'Suspicious Activity Policy'}
-                            </Link>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* القوائم المالية (Nested) */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('financials')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <FileCheck className="w-3.5 h-3.5 text-[#C9A45C]" />
-                      {locale === 'ar' ? 'القوائم المالية' : 'Financial Statements'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['financials'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {expanded['financials'] && (
-                    <div className="ps-5 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      {availableFinancialYears.map((yr) => (
-                        <Link
-                          key={yr}
-                          to={getLocalizedPath('/financial-statements')}
-                          onClick={handleLinkClick}
-                          className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]"
-                        >
-                          {locale === 'ar' ? `القوائم المالية لعام ${yr}` : `Financial Statements ${yr}`}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* اللوائح والأنظمة و الشهادات (Nested) */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('regulations')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <BookOpen className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                      {locale === 'ar' ? 'اللوائح والأنظمة و الشهادات' : 'Regulations & Certificates'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['regulations'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {expanded['regulations'] && (
-                    <div className="ps-5 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      <Link to={getLocalizedPath('/regulations/basic-bylaws')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'اللائحة الاساسية' : 'Basic Bylaws'}
-                      </Link>
-                      <Link to={getLocalizedPath('/regulations/bylaws-approval')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'محضر اعتماد اللائحة الاساسية' : 'Bylaws Approval Minutes'}
-                      </Link>
-                      <Link to={getLocalizedPath('/regulations/registration-certificate')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'شهادة تسجيل الجمعية' : 'Cooperative Registration Certificate'}
-                      </Link>
-                      <Link to={getLocalizedPath('/regulations/work-regulations')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'لائحة تنظيم العمل' : 'Work Organization Regulations'}
-                      </Link>
-                      <Link to={getLocalizedPath('/regulations/aml-law')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'نظام مكافحة غسل الاموال ولائحته التنفيذية' : 'AML Law & Executive Regulations'}
-                      </Link>
-                      <Link to={getLocalizedPath('/regulations/counter-terrorism-law')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'نظام مكافحة جرائم الارهاب وتمويله' : 'Combating Terrorism Financing Law'}
-                      </Link>
-
-                      {/* الملفات المالية المتداخلة */}
-                      <div className="rounded-lg bg-white/80 p-1 mt-1 border border-gray-100">
-                        <button
-                          type="button"
-                          onClick={() => toggle('fin-files-nested-mobile')}
-                          className="w-full flex items-center justify-between px-2 py-1 text-[11px] font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                        >
-                          <span className="flex items-center gap-1.5">
-                            <DollarSign className="w-3 h-3 text-[#C9A45C]" />
-                            {locale === 'ar' ? 'الملفات المالية' : 'Financial Files'}
-                          </span>
-                          <ChevronDown
-                            className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${
-                              expanded['fin-files-nested-mobile'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                            }`}
-                          />
-                        </button>
-
-                        {expanded['fin-files-nested-mobile'] && (
-                          <div className="ps-4 pe-1 py-1 space-y-1 text-[11px] border-s border-[#0B6B4F]/20 ms-2 mt-1">
-                            <Link to={getLocalizedPath('/regulations/board-remuneration')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'سياسة المكافئات والامتيازات لأعضاء مجلس الإدارة' : 'Board Remuneration Policy'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/financial-regulations')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'اللائحة المالية' : 'Financial Regulations'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/disbursement-policy')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'سياسة الصرف للبرامج والأنشطة' : 'Disbursement Policy'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/procurement-bylaws')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'لائحة المشتريات' : 'Procurement Bylaws'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/receipts-procedures')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'إجراءات التعامل مع المقبوضات' : 'Receipts Handling Procedures'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/financial-manual')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'دليل الإجرائات المالي' : 'Financial Procedures Guide'}
-                            </Link>
-                            <Link to={getLocalizedPath('/regulations/investment-policy')} onClick={handleLinkClick} className="block py-1 px-1.5 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                              {locale === 'ar' ? 'سياسة الإستثمار' : 'Investment Policy'}
-                            </Link>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* الورش المقامة */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('workshops')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Sparkles className="w-3.5 h-3.5 text-[#C9A45C]" />
-                      {locale === 'ar' ? 'الورش المقامة' : 'Conducted Workshops'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['workshops'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {expanded['workshops'] && (
-                    <div className="ps-5 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      <Link to={getLocalizedPath('/workshops/governance-intro')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'ورشة التعريف بالحوكمة' : 'Governance Orientation Workshop'}
-                      </Link>
-                      <Link to={getLocalizedPath('/workshops/conflict-whistleblowing')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'ورشة التعريف بسياسة تعارض المصالح وسياسة الابلاغ عن المخالفات' : 'Conflict & Whistleblowing Workshop'}
-                      </Link>
-                      <Link to={getLocalizedPath('/workshops/aml-counter-terrorism')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'ورشة غسل الاموال ومكافحة جرائم تمويل الارهاب' : 'AML & Counter-Terrorism Workshop'}
-                      </Link>
-                    </div>
-                  )}
-                </div>
-
-                {/* الورش المقامة بالشركات المجتمعية */}
-                <div className="rounded-lg bg-gray-50/70 p-1">
-                  <button
-                    type="button"
-                    onClick={() => toggle('community-workshops')}
-                    className="w-full flex items-center justify-between px-2.5 py-1.5 text-xs font-semibold text-[#17211E] hover:text-[#0B6B4F] cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Users className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                      {locale === 'ar' ? 'الورش المقامة بالشركات المجتمعية' : 'Community Partnerships Workshops'}
-                    </span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${
-                        expanded['community-workshops'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {expanded['community-workshops'] && (
-                    <div className="ps-5 pe-2 py-1 space-y-1 text-xs border-s-2 border-[#0B6B4F]/30 ms-3 mt-1">
-                      <Link to={getLocalizedPath('/workshops/community-conflict-whistleblowing')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'ورشة التعريف بسياسة التعارض وسياسة الإبلاغ عن المخالفات' : 'Conflict & Whistleblowing Workshop'}
-                      </Link>
-                      <Link to={getLocalizedPath('/workshops/community-aml-counter-terrorism')} onClick={handleLinkClick} className="block py-1 px-2 rounded hover:bg-[#EBF4F0] text-[#68736F] hover:text-[#0B6B4F]">
-                        {locale === 'ar' ? 'ورشة غسل الاموال ومكافحة جرائم تمويل الارهاب' : 'AML & Counter-Terrorism Workshop'}
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* 5. الجمعية في صور (Society in Photos) */}
+          {/* 6. الجمعية في صور (Society in Photos) */}
           <Link
             to={getLocalizedPath('/gallery')}
             onClick={handleLinkClick}
@@ -543,71 +205,35 @@ export const MobileDrawer: React.FC<{
             <span>{locale === 'ar' ? 'الجمعية في صور' : 'Society in Photos'}</span>
           </Link>
 
-          {/* 6. الشكاوى (Complaints Accordion) */}
-          <div className="rounded-xl border border-gray-100 overflow-hidden bg-[#FAFBFA]">
-            <button
-              type="button"
-              onClick={() => toggle('complaints')}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-semibold text-[#17211E] hover:bg-[#EBF4F0] cursor-pointer transition-colors"
-            >
-              <div className="flex items-center gap-2.5">
-                <AlertTriangle className="w-4 h-4 text-amber-600" />
-                <span>{locale === 'ar' ? 'الشكاوى' : 'Complaints & Surveys'}</span>
-              </div>
-              <ChevronDown
-                className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${
-                  expanded['complaints'] ? 'rotate-180 text-[#0B6B4F]' : ''
-                }`}
-              />
-            </button>
+          {/* 7. الشكاوى (Whistleblowing / Complaints - Direct Link) */}
+          <Link
+            to={getLocalizedPath('/whistleblowing')}
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              isCurrent('/whistleblowing')
+                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                : 'text-[#17211E] hover:bg-[#F7F8F6]'
+            }`}
+          >
+            <AlertTriangle className="w-4 h-4 text-[#0B6B4F]" />
+            <span>{locale === 'ar' ? 'الشكاوى' : 'Complaints'}</span>
+          </Link>
 
-            {expanded['complaints'] && (
-              <div className="p-2 pt-0 space-y-1 border-t border-gray-100 bg-white">
-                <Link
-                  to={getLocalizedPath('whistleblowing')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
-                  <span>{locale === 'ar' ? 'الإبلاغ عن المخالفات' : 'Whistleblowing'}</span>
-                </Link>
-                <Link
-                  to={getLocalizedPath('/surveys?type=supporters')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <MessageSquareQuote className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'قياس رضا الجهات الداعمة' : 'Supporter Satisfaction'}</span>
-                </Link>
-                <Link
-                  to={getLocalizedPath('/surveys?type=assembly')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <MessageSquareQuote className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'قياس رضا اعضاء الجمعية العمومية' : 'Assembly Satisfaction'}</span>
-                </Link>
-                <Link
-                  to={getLocalizedPath('/surveys?type=customers')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <MessageSquareQuote className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'قياس رضا العملاء' : 'Customer Satisfaction'}</span>
-                </Link>
-                <Link
-                  to={getLocalizedPath('/surveys?type=staff')}
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#17211E] hover:text-[#0B6B4F] hover:bg-gray-50"
-                >
-                  <MessageSquareQuote className="w-3.5 h-3.5 text-[#0B6B4F]" />
-                  <span>{locale === 'ar' ? 'قياس رضا العاملين' : 'Staff Satisfaction'}</span>
-                </Link>
-              </div>
-            )}
-          </div>
+          {/* 8. قياس الرضا (Satisfaction Surveys - Direct Link) */}
+          <Link
+            to={getLocalizedPath('/surveys')}
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${
+              isCurrent('/surveys')
+                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                : 'text-[#17211E] hover:bg-[#F7F8F6]'
+            }`}
+          >
+            <Smile className="w-4 h-4 text-[#0B6B4F]" />
+            <span>{locale === 'ar' ? 'قياس الرضا' : 'Satisfaction Surveys'}</span>
+          </Link>
 
-          {/* 7. التغذية الراجعة (Feedback) */}
+          {/* 8. التغذية الراجعة (Feedback) */}
           <Link
             to={getLocalizedPath('/feedback')}
             onClick={handleLinkClick}
@@ -621,7 +247,7 @@ export const MobileDrawer: React.FC<{
             <span>{locale === 'ar' ? 'التغذية الراجعة' : 'Feedback'}</span>
           </Link>
 
-          {/* 8. قنوات التواصل (Contact Channels) */}
+          {/* 9. قنوات التواصل (Contact Channels) */}
           <Link
             to={getLocalizedPath('/contact')}
             onClick={handleLinkClick}
@@ -635,7 +261,7 @@ export const MobileDrawer: React.FC<{
             <span>{locale === 'ar' ? 'قنوات التواصل' : 'Contact Channels'}</span>
           </Link>
 
-          {/* 9. المدير التنفيذي (Executive Director) */}
+          {/* 10. المدير التنفيذي (Executive Director) */}
           <Link
             to={getLocalizedPath('/executive-director')}
             onClick={handleLinkClick}
@@ -685,7 +311,7 @@ export const MobileDrawer: React.FC<{
 
             <div className="flex items-center gap-2">
               <a
-                href="https://instagram.com/shamel_coo"
+                href={contactSettings?.instagramUrl || "https://instagram.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -694,7 +320,7 @@ export const MobileDrawer: React.FC<{
                 <Instagram className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://x.com/shamel_coo"
+                href={contactSettings?.twitterUrl || "https://x.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"

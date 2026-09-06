@@ -20,6 +20,7 @@ class BoardMember extends Model
         'bio_ar',
         'bio_en',
         'initials_ar',
+        'image',
         'order',
         'is_ceo',
         'is_chairman',
@@ -41,6 +42,7 @@ class BoardMember extends Model
         'bioAr',
         'bioEn',
         'initialsAr',
+        'image',
         'isChairman',
         'isCeo',
     ];
@@ -54,6 +56,7 @@ class BoardMember extends Model
     public function getBioArAttribute() { return $this->attributes['bio_ar'] ?? null; }
     public function getBioEnAttribute() { return $this->attributes['bio_en'] ?? null; }
     public function getInitialsArAttribute() { return $this->attributes['initials_ar'] ?? null; }
+    public function getImageAttribute() { return $this->attributes['image'] ?? null; }
     public function getIsChairmanAttribute() { return (bool)($this->attributes['is_chairman'] ?? false); }
     public function getIsCeoAttribute() { return (bool)($this->attributes['is_ceo'] ?? false); }
 }

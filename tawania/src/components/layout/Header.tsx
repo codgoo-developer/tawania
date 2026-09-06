@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Menu, ShieldCheck } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { useI18n } from '../../i18n';
 import { useAuth } from '../../context/AuthContext';
 import { AlShamelLogo } from '../common/AlShamelLogo';
@@ -8,6 +8,7 @@ import { MegaMenu } from '../navigation/MegaMenu';
 import { NavActionsDropdown } from '../navigation/NavActionsDropdown';
 import { GlobalSearchModal } from '../navigation/GlobalSearchModal';
 import { MobileDrawer } from '../navigation/MobileDrawer';
+import { AnnouncementBar } from './AnnouncementBar';
 
 export const Header: React.FC = () => {
   const { locale, t, getLocalizedPath } = useI18n();
@@ -31,6 +32,9 @@ export const Header: React.FC = () => {
 
   return (
     <>
+      {/* Top Announcement Bar Above Navbar */}
+      <AnnouncementBar />
+
       {/* Sticky Header with fixed height */}
       <header
         id="main-header"
@@ -100,5 +104,3 @@ export const Header: React.FC = () => {
     </>
   );
 };
-
-
