@@ -29,7 +29,7 @@ export const ShareholderInquiryForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#12332B]/10 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 sm:p-8 ">
       <h3 className="text-xl font-bold text-[#12332B] mb-2">
         {t.membersPage.inquiryFormTitle}
       </h3>

@@ -40,7 +40,7 @@ export const LatestNewsSection: React.FC = () => {
           {newsData.slice(0, 3).map((item) => (
             <article
               key={item.slug}
-              className="bg-white rounded-2xl border border-[#12332B]/10 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col group"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col group"
             >
               <div className="relative h-48 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
                 <img

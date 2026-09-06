@@ -57,7 +57,7 @@ export const FeedbackForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-sm">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 ">
       <div className="flex items-center gap-2 text-[#0B6B4F] mb-1 text-xs font-bold">
         <Sparkles className="w-4 h-4 text-[#C9A45C]" />
         <span>{locale === 'ar' ? 'شاركنا انطباعك' : 'Share Your Experience'}</span>
@@ -135,11 +135,10 @@ export const FeedbackForm: React.FC = () => {
                     className="p-1 text-amber-400 hover:scale-115 transition-transform cursor-pointer"
                   >
                     <Star
-                      className={`w-6 h-6 ${
-                        star <= (hoverRating || rating)
+                      className={`w-6 h-6 ${star <= (hoverRating || rating)
                           ? 'fill-amber-400 text-amber-400'
                           : 'text-gray-300'
-                      }`}
+                        }`}
                     />
                   </button>
                 ))}

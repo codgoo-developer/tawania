@@ -15,16 +15,16 @@ export const TestimonialsSection: React.FC = () => {
 
   const rawTestimonials = (testimonials && testimonials.length > 0)
     ? testimonials.map(t => ({
-        id: t.id,
-        name: { ar: t.nameAr, en: t.nameEn },
-        role: { ar: t.roleAr, en: t.roleEn },
-        organization: { ar: t.organizationAr, en: t.organizationEn },
-        quote: { ar: t.quoteAr, en: t.quoteEn },
-        rating: t.rating || 5,
-        projectRelated: { ar: t.projectRelatedAr, en: t.projectRelatedEn },
-        avatar: t.avatar,
-        date: t.date
-      }))
+      id: t.id,
+      name: { ar: t.nameAr, en: t.nameEn },
+      role: { ar: t.roleAr, en: t.roleEn },
+      organization: { ar: t.organizationAr, en: t.organizationEn },
+      quote: { ar: t.quoteAr, en: t.quoteEn },
+      rating: t.rating || 5,
+      projectRelated: { ar: t.projectRelatedAr, en: t.projectRelatedEn },
+      avatar: t.avatar,
+      date: t.date
+    }))
     : testimonialsData;
 
   // Triple the items to create a truly seamless, endless loop
@@ -144,7 +144,7 @@ export const TestimonialsSection: React.FC = () => {
                   key={`${item.id}-${idx}`}
                   className="w-[320px] sm:w-[380px] shrink-0 transition-all duration-300"
                 >
-                  <div className="h-full bg-white rounded-3xl p-7 border border-[#12332B]/10 shadow-sm hover:shadow-xl hover:border-[#0B6B4F]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                  <div className="h-full bg-white rounded-3xl p-7  hover:shadow-xl hover:border-[#0B6B4F]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
                     {/* Decorative Background Large Quote */}
                     <div className="absolute top-3 end-4 text-[#0B6B4F]/5 group-hover:text-[#0B6B4F]/10 transition-colors pointer-events-none select-none">
                       <Quote className="w-20 h-20" />

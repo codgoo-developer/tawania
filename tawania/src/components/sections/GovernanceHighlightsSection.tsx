@@ -86,14 +86,14 @@ export const GovernanceHighlightsSection: React.FC = () => {
             <Link
               key={idx}
               to={getLocalizedPath(pillar.link)}
-              className="bg-[#F7F8F6] rounded-2xl p-6 border border-[#12332B]/10 hover:bg-[#EBF4F0]/50 hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
+              className="bg-[#F7F8F6] rounded-2xl p-6 hover:bg-[#EBF4F0]/50 hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-3 rounded-xl bg-white shadow-xs group-hover:scale-105 transition-transform">
                     {pillar.icon}
                   </div>
-                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white border border-[#12332B]/10 text-[#0B6B4F]">
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white text-[#0B6B4F]">
                     {pillar.count}
                   </span>
                 </div>

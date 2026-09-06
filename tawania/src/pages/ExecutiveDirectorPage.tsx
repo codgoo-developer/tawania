@@ -1,68 +1,58 @@
 import React from 'react';
 import {
+  UserCog,
   Phone,
   Mail,
   MessageCircle,
   Briefcase,
-  ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  FileText,
+  Sparkles
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { useGovernanceData } from '../context/GovernanceDataContext';
 import { PageHero } from '../components/layout/PageHero';
 
 export const ExecutiveDirectorPage: React.FC = () => {
-  const { locale, t } = useI18n();
+  const { locale } = useI18n();
   const { executiveDirector } = useGovernanceData();
 
-  const responsibilities = [
-    {
-      titleAr: 'إدارة وتسيير الأعمال اليومية وتطبيق قرارات مجلس الإدارة.',
-      titleEn: 'Day-to-day operations management and board resolution execution.'
-    },
-    {
-      titleAr: 'إعداد وتوثيق خطط التشغيل والفرص الاستثمارية الزراعية.',
-      titleEn: 'Preparing and documenting operational plans and investment opportunities.'
-    },
-    {
-      titleAr: 'متابعة أداء الإدارات والمنافذ التسويقية والتشغيلية للجمعية.',
-      titleEn: 'Monitoring performance of departments and commercial outlets.'
-    },
-    {
-      titleAr: 'تمثيل الجمعية أمام الجهات الإشرافية والشركاء والمستثمرين.',
-      titleEn: 'Representing the cooperative before regulatory bodies, partners, and investors.'
-    }
-  ];
+  if (!executiveDirector) {
+    return (
+      <div className="py-24 text-center">
+        <p className="text-gray-500 font-medium">
+          {locale === 'ar' ? 'بيانات المدير التنفيذي غير متوفرة حالياً' : 'Executive Director details not available'}
+        </p>
+      </div>
+    );
+  }
 
   const displayName = locale === 'ar' ? executiveDirector.nameAr : (executiveDirector.nameEn || executiveDirector.nameAr);
   const displayRole = locale === 'ar' ? executiveDirector.roleAr : (executiveDirector.roleEn || executiveDirector.roleAr);
-  const displayDesc = locale === 'ar' ? executiveDirector.descriptionAr : (executiveDirector.descriptionEn || executiveDirector.descriptionAr);
-  
-  // Auto-calculate first 2 letters from name
-  const cleanedName = executiveDirector.nameAr ? executiveDirector.nameAr.replace(/^(أ\/\s*|أ\.\s*|د\.\s*|م\.\s*)/, '').trim() : '';
-  const words = cleanedName.split(/\s+/).filter(Boolean);
-  const initials = words.length >= 2
-    ? `${words[0][0]} . ${words[1][0]}`
-    : cleanedName.slice(0, 2) || 'م . ح';
+  const displayDesc = locale === 'ar'
+    ? (executiveDirector.descriptionAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.')
+    : (executiveDirector.descriptionEn || executiveDirector.descriptionAr || 'Manages daily executive operations of AlShamel Cooperative.');
+  const initials = executiveDirector.initialsAr || displayName.slice(0, 5) || 'م . ت';
 
   return (
-    <div className="space-y-12 sm:space-y-16 pb-24">
+    <div className="space-y-10 pb-24 bg-[#F7F8F6]">
+      {/* Hero Header */}
       <PageHero
-        badge={locale === 'ar' ? 'الهيكل القيادي' : 'Leadership Structure'}
+        badge={locale === 'ar' ? 'الهيكل القيادي والتنفيذي' : 'Executive Leadership'}
         title={locale === 'ar' ? 'المدير التنفيذي' : 'Executive Director'}
-        subtitle={locale === 'ar' ? 'الإدارة التنفيذية لتعاونية الشامل متعددة الأغراض' : 'Executive Management of AlShamel Multipurpose Cooperative'}
+        subtitle={locale === 'ar' ? 'بيانات وقنوات التواصل الرسمية مع الإدارة التنفيذية لجمعية الشامل' : 'Official profile and direct communication channels with the Executive Director'}
         breadcrumbs={[
-          { label: t.nav.board, url: '/board' },
+          { label: locale === 'ar' ? 'عن الجمعية' : 'About' },
           { label: locale === 'ar' ? 'المدير التنفيذي' : 'Executive Director' }
         ]}
       />
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        
-        {/* Main Leadership Profile Card (Horizontal Layout) */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-sm relative text-start">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        {/* Executive Director Profile Card */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-lg relative overflow-hidden">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
-            
+
             {/* Side 1: Luxury Layered Avatar */}
             <div className="shrink-0 flex flex-col items-center">
               <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1.5 bg-gradient-to-br from-[#C9A45C] via-[#0B6B4F] to-[#0A4D38] shadow-lg">
@@ -88,7 +78,7 @@ export const ExecutiveDirectorPage: React.FC = () => {
 
             {/* Side 2: Details & Direct Contacts */}
             <div className="flex-1 space-y-4 text-center md:text-start">
-              
+
               {/* Header Badges */}
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                 <span className="text-xs font-black px-3.5 py-1 rounded-full bg-[#0B6B4F] text-white shadow-2xs inline-block">
@@ -99,20 +89,12 @@ export const ExecutiveDirectorPage: React.FC = () => {
                 </span>
               </div>
 
-              {/* Name & Subtitle */}
+              {/* Name */}
               <div>
                 <h2 className="text-2xl sm:text-3xl font-black text-[#12332B] tracking-tight">
                   {displayName}
                 </h2>
-                <p className="text-xs font-semibold text-gray-500 mt-1">
-                  {locale === 'ar' ? 'جمعية الشامل التعاونية متعددة الأغراض (ترخيص رقم 234)' : 'AlShamel Multipurpose Cooperative (License #234)'}
-                </p>
               </div>
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-[#4A5550] leading-relaxed font-medium bg-[#F8FAF8] p-4 rounded-2xl border border-gray-100">
-                {displayDesc}
-              </p>
 
               {/* Direct Communication Channels */}
               <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5">
@@ -155,54 +137,23 @@ export const ExecutiveDirectorPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Executive Mandates & Core Responsibilities Grid */}
-        <div className="space-y-4 text-start">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#0B6B4F]" />
+        {/* الوصف والمهام الرئيسية (Description & Key Tasks) */}
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-sm space-y-4 text-start">
+          <div className="flex items-center gap-2.5 border-b border-gray-100 pb-3">
+            <div className="w-9 h-9 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center font-bold">
+              <FileText className="w-5 h-5" />
+            </div>
             <h3 className="text-base sm:text-lg font-black text-[#12332B]">
-              {locale === 'ar' ? 'الصلاحيات والمسؤوليات الرئيسية للمدير التنفيذي' : 'Core Powers & Responsibilities of the Executive Director'}
+              {locale === 'ar' ? 'الوصف والمهام الرئيسية' : 'Description & Key Tasks'}
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {responsibilities.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-5 border border-gray-200/80 shadow-2xs space-y-2 hover:border-[#0B6B4F]/30 hover:shadow-xs transition-all flex items-start gap-3"
-              >
-                <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#0B6B4F] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#0B6B4F]" />
-                </div>
-                <p className="text-xs sm:text-sm text-[#38423E] leading-relaxed font-semibold">
-                  {locale === 'ar' ? item.titleAr : item.titleEn}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Institutional Trust & Oversight Banner */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50 via-white to-amber-50/50 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-start">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-[#0B6B4F] text-white flex items-center justify-center shadow-xs shrink-0">
-              <ShieldCheck className="w-6 h-6 text-amber-300" />
-            </div>
-            <div>
-              <span className="text-xs font-bold text-[#0B6B4F] block">
-                {locale === 'ar' ? 'حوكمة وإشراف رسمي معتمد' : 'Accredited Institutional Oversight'}
-              </span>
-              <p className="text-[11px] text-gray-500 mt-0.5">
-                {locale === 'ar' ? 'تخضع الإدارة التنفيذية لمتابعة مجلس الإدارة والمركز الوطني لتنمية القطاع غير الربحي' : 'Executive actions are supervised by the Board and NCNP.'}
-              </p>
-            </div>
-          </div>
-          <span className="text-xs font-bold font-mono text-[#0B6B4F] bg-white px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-2xs shrink-0">
-            License #234
-          </span>
+          <p className="text-xs sm:text-sm text-[#38423E] leading-relaxed font-medium whitespace-pre-line bg-[#F8FAF8] p-5 rounded-2xl border border-gray-100">
+            {displayDesc}
+          </p>
         </div>
 
       </section>
     </div>
   );
 };
-

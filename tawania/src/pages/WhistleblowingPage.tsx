@@ -90,7 +90,7 @@ export const WhistleblowingPage: React.FC = () => {
     setUserEmail(email);
     try {
       localStorage.setItem('google_form_simulated_email', email);
-    } catch {}
+    } catch { }
     setIsSwitchAccountOpen(false);
     setNewEmailInput('');
     setEmailError('');
@@ -101,7 +101,7 @@ export const WhistleblowingPage: React.FC = () => {
     const errs: { [key: string]: string } = {};
     if (!reporterPhone.trim()) errs.reporterPhone = 'رقم الهاتف مطلوب لمقدم البلاغ';
     if (!reporterEmail.trim()) errs.reporterEmail = 'البريد الالكتروني مطلوب لمقدم البلاغ';
-    
+
     if (!offenderName.trim()) errs.offenderName = 'اسم مرتكب المخالفة مطلوب';
     if (!offenderRole.trim()) errs.offenderRole = 'الدور الوظيفي لمرتكب المخالفة مطلوب';
     if (!offenderDept.trim()) errs.offenderDept = 'إدارة مرتكب المخالفة مطلوبة';
@@ -240,7 +240,7 @@ export const WhistleblowingPage: React.FC = () => {
         </div>
 
         {/* Google Form Account Bar Strip */}
-        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#12332B]/10 shadow-2xs mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#525E59]">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-2xs mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#525E59]">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-[#095B42]/10 flex items-center justify-center text-[#095B42] font-bold text-xs uppercase">
               {userEmail ? userEmail.slice(0, 2) : 'AS'}
@@ -272,12 +272,11 @@ export const WhistleblowingPage: React.FC = () => {
 
         {/* Step Indicator */}
         {!isSubmitted && (
-          <div className="flex items-center justify-between bg-white rounded-2xl p-4 border border-gray-200/80 mb-6 shadow-2xs">
+          <div className="flex items-center justify-between bg-white rounded-2xl p-4   mb-6 shadow-2xs">
             <div className="flex items-center gap-3">
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${
-                  currentStep === 1 ? 'bg-[#095B42] text-white' : 'bg-emerald-100 text-[#095B42]'
-                }`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${currentStep === 1 ? 'bg-[#095B42] text-white' : 'bg-emerald-100 text-[#095B42]'
+                  }`}
               >
                 1
               </div>
@@ -290,9 +289,8 @@ export const WhistleblowingPage: React.FC = () => {
 
             <div className="flex items-center gap-3">
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${
-                  currentStep === 2 ? 'bg-[#095B42] text-white' : 'bg-gray-100 text-gray-400'
-                }`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs ${currentStep === 2 ? 'bg-[#095B42] text-white' : 'bg-gray-100 text-gray-400'
+                  }`}
               >
                 2
               </div>
@@ -393,7 +391,7 @@ export const WhistleblowingPage: React.FC = () => {
             </div>
 
             {/* Reference Box */}
-            <div className="bg-[#F8FAF8] rounded-2xl p-6 border border-[#12332B]/10 max-w-lg mx-auto text-start space-y-3 text-sm">
+            <div className="bg-[#F8FAF8] rounded-2xl p-6 max-w-lg mx-auto text-start space-y-3 text-sm">
               <div className="flex justify-between items-center pb-3 border-b border-[#12332B]/10">
                 <span className="text-xs text-gray-500 font-bold">الرقم المرجعي للبلاغ:</span>
                 <span className="font-mono font-black text-[#095B42] text-lg">{referenceCode}</span>
@@ -432,7 +430,7 @@ export const WhistleblowingPage: React.FC = () => {
             {currentStep === 1 && (
               <div className="space-y-6">
                 {/* SECTION 1: معلومات مقدم البلاغ */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-5">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
                     <h2 className="text-lg font-black text-[#12332B] flex items-center gap-2">
                       <User className="w-5 h-5 text-[#095B42]" />
@@ -530,7 +528,7 @@ export const WhistleblowingPage: React.FC = () => {
                 </div>
 
                 {/* SECTION 2: معلومات مرتكب المخالفة */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-5">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
                     <h2 className="text-lg font-black text-[#12332B] flex items-center gap-2">
                       <AlertCircle className="w-5 h-5 text-red-600" />
@@ -614,7 +612,7 @@ export const WhistleblowingPage: React.FC = () => {
                 </div>
 
                 {/* SECTION 3: معلومات الشهود إن وجدوا */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-5">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
                     <h2 className="text-lg font-black text-[#12332B] flex items-center gap-2">
                       <UserCheck className="w-5 h-5 text-[#095B42]" />
@@ -692,7 +690,7 @@ export const WhistleblowingPage: React.FC = () => {
             {/* STEP 2: VIOLATION DETAILS & DECLARATION */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-5">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
                     <h2 className="text-lg font-black text-[#12332B] flex items-center gap-2">
                       <FileText className="w-5 h-5 text-[#095B42]" />
@@ -742,7 +740,7 @@ export const WhistleblowingPage: React.FC = () => {
                             }
                             const cleanDigits = inputVal.replace(/[^0-9]/g, '').slice(0, 8);
                             const suffix = inputVal.includes('هـ') ? ' هـ' : inputVal.includes('م') ? ' م' : '';
-                            
+
                             let formatted = '';
                             if (cleanDigits.length > 0) {
                               formatted = cleanDigits.slice(0, 2);
@@ -925,7 +923,7 @@ export const WhistleblowingPage: React.FC = () => {
               </div>
             )}
 
-   
+
           </form>
         )}
       </div>

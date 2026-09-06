@@ -10,7 +10,7 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center py-20 px-4">
-      <div className="max-w-md w-full text-center space-y-6 bg-white p-8 sm:p-10 rounded-3xl border border-[#12332B]/10 shadow-xs">
+      <div className="max-w-md w-full text-center space-y-6 bg-white p-8 sm:p-10 rounded-3xl shadow-xs">
         <div className="w-16 h-16 rounded-2xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center mx-auto">
           <ShieldAlert className="w-8 h-8" />
         </div>

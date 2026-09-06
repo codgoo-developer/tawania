@@ -76,7 +76,7 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
   };
 
   return (
-    <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#12332B]/10 shadow-sm">
+    <div className="bg-white rounded-2xl p-6 sm:p-8 ">
       <h3 className="text-xl font-bold text-[#12332B] mb-2">
         {t.contactPage.formTitle}
       </h3>
@@ -122,9 +122,8 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder={t.contactPage.namePlaceholder}
-                  className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${
-                    errors.name ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${errors.name ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
+                    }`}
                 />
               </div>
               {errors.name && <span className="text-[11px] text-rose-600 mt-1 block">{errors.name}</span>}
@@ -141,9 +140,8 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="example@mail.com"
-                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${
-                  errors.email ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
-                }`}
+                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${errors.email ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
+                  }`}
               />
               {errors.email && <span className="text-[11px] text-rose-600 mt-1 block">{errors.email}</span>}
             </div>
@@ -162,9 +160,8 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="05XXXXXXXX"
                 dir="ltr"
-                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${
-                  errors.phone ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
-                }`}
+                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${errors.phone ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
+                  }`}
               />
               {errors.phone && <span className="text-[11px] text-rose-600 mt-1 block">{errors.phone}</span>}
             </div>
@@ -180,9 +177,8 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 placeholder={t.contactPage.subjectPlaceholder}
-                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${
-                  errors.subject ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
-                }`}
+                className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors ${errors.subject ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
+                  }`}
               />
               {errors.subject && <span className="text-[11px] text-rose-600 mt-1 block">{errors.subject}</span>}
             </div>
@@ -199,9 +195,8 @@ export const ContactForm: React.FC<{ initialSubject?: string }> = ({ initialSubj
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder={t.contactPage.messagePlaceholder}
-              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors resize-none ${
-                errors.message ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
-              }`}
+              className={`w-full px-3.5 py-2.5 text-sm rounded-xl border bg-white text-[#17211E] outline-none transition-colors resize-none ${errors.message ? 'border-rose-400 bg-rose-50/20' : 'border-[#12332B]/15 focus:border-[#0B6B4F]'
+                }`}
             />
             {errors.message && <span className="text-[11px] text-rose-600 mt-1 block">{errors.message}</span>}
           </div>

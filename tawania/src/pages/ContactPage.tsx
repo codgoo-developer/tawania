@@ -37,7 +37,7 @@ export const ContactPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Contact Details & Map Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6 text-start">
-            <div className="bg-white rounded-3xl p-8 border border-[#12332B]/10 shadow-xs space-y-6">
+            <div className="bg-white rounded-3xl p-8 shadow-xs space-y-6">
               <h2 className="text-xl font-bold text-[#12332B]">
                 {locale === 'ar' ? (contactSettings?.hqTitleAr || 'المقر الرئيسي للإدارة') : (contactSettings?.hqTitleEn || 'Headquarters & Main Office')}
               </h2>
@@ -124,7 +124,7 @@ export const ContactPage: React.FC = () => {
                     href={contactSettings?.instagramUrl || 'https://instagram.com/shamel_coo'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] border border-[#12332B]/10 hover:border-[#0B6B4F] hover:bg-[#EBF4F0] text-xs font-semibold text-[#12332B] transition-colors"
+                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B6B4F] hover:bg-[#EBF4F0] text-xs font-semibold text-[#12332B] transition-colors"
                   >
                     <Instagram className="w-4 h-4 text-[#E1306C]" />
                     <span>{contactSettings?.instagramHandle || '@shamel_coo'}</span>
@@ -133,7 +133,7 @@ export const ContactPage: React.FC = () => {
                     href={contactSettings?.twitterUrl || 'https://x.com/shamel_coo'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] border border-[#12332B]/10 hover:border-[#0B6B4F] hover:bg-[#EBF4F0] text-xs font-semibold text-[#12332B] transition-colors"
+                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B6B4F] hover:bg-[#EBF4F0] text-xs font-semibold text-[#12332B] transition-colors"
                   >
                     <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                     <span>{contactSettings?.twitterHandle || '@shamel_coo'}</span>
@@ -143,7 +143,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Map Preview Card */}
-            <div className="bg-white rounded-3xl overflow-hidden border border-[#12332B]/10 shadow-xs">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-xs">
               <div className="p-4 bg-[#F7F8F6] border-b border-[#12332B]/5 flex items-center justify-between text-xs font-bold text-[#12332B]">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#0B6B4F]" />

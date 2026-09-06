@@ -34,7 +34,7 @@ export const MediaHubPage: React.FC = () => {
       {/* Featured Main Story */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {newsData.length > 0 && (
-          <div className="bg-white rounded-3xl border border-[#12332B]/10 overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-0">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-0">
             <div className="lg:col-span-7 relative h-72 lg:h-auto min-h-[320px]">
               <img
                 src={newsData[0].image}
@@ -89,7 +89,7 @@ export const MediaHubPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             to={getLocalizedPath('/news')}
-            className="bg-white rounded-2xl p-6 border border-[#12332B]/10 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+            className="bg-white rounded-2xl p-6 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center mb-4">
@@ -110,7 +110,7 @@ export const MediaHubPage: React.FC = () => {
 
           <Link
             to={getLocalizedPath('/gallery')}
-            className="bg-white rounded-2xl p-6 border border-[#12332B]/10 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+            className="bg-white rounded-2xl p-6 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center mb-4">
@@ -131,7 +131,7 @@ export const MediaHubPage: React.FC = () => {
 
           <Link
             to={getLocalizedPath('/partnerships')}
-            className="bg-white rounded-2xl p-6 border border-[#12332B]/10 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+            className="bg-white rounded-2xl p-6 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center mb-4">
@@ -152,7 +152,7 @@ export const MediaHubPage: React.FC = () => {
 
           <Link
             to={getLocalizedPath('/feedback')}
-            className="bg-white rounded-2xl p-6 border border-[#12332B]/10 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
+            className="bg-white rounded-2xl p-6 hover:border-[#0B6B4F]/40 shadow-xs hover:shadow-md transition-all group flex flex-col justify-between"
           >
             <div>
               <div className="w-12 h-12 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center mb-4">

@@ -374,29 +374,29 @@ export const DashboardPage: React.FC = () => {
       updatedList = feedbackCards.map((c: any) =>
         c.id === cleanId || c.slug_id === cleanId
           ? {
-              ...c,
-              ...feedbackCardForm,
-              id: cleanId,
-              slug_id: cleanId,
-              titleAr: feedbackCardForm.titleAr,
-              titleEn: feedbackCardForm.titleEn || feedbackCardForm.titleAr,
-              descriptionAr: feedbackCardForm.descriptionAr || '',
-              descriptionEn: feedbackCardForm.descriptionEn || '',
-              url: feedbackCardForm.url,
-              platform: feedbackCardForm.platform || 'maps',
-              platformName:
-                feedbackCardForm.platformName ||
-                (feedbackCardForm.platform === 'drive' ? 'Google Drive' : 'Google Maps'),
-              badgeAr:
-                feedbackCardForm.badgeAr ||
-                (feedbackCardForm.platform === 'drive' ? 'Google Drive PDF' : 'Google Maps'),
-              badgeEn:
-                feedbackCardForm.badgeEn ||
-                (feedbackCardForm.platform === 'drive' ? 'Verified Document' : 'Google Maps Location'),
-              accentColor:
-                feedbackCardForm.accentColor ||
-                (feedbackCardForm.platform === 'drive' ? 'emerald' : 'amber')
-            }
+            ...c,
+            ...feedbackCardForm,
+            id: cleanId,
+            slug_id: cleanId,
+            titleAr: feedbackCardForm.titleAr,
+            titleEn: feedbackCardForm.titleEn || feedbackCardForm.titleAr,
+            descriptionAr: feedbackCardForm.descriptionAr || '',
+            descriptionEn: feedbackCardForm.descriptionEn || '',
+            url: feedbackCardForm.url,
+            platform: feedbackCardForm.platform || 'maps',
+            platformName:
+              feedbackCardForm.platformName ||
+              (feedbackCardForm.platform === 'drive' ? 'Google Drive' : 'Google Maps'),
+            badgeAr:
+              feedbackCardForm.badgeAr ||
+              (feedbackCardForm.platform === 'drive' ? 'Google Drive PDF' : 'Google Maps'),
+            badgeEn:
+              feedbackCardForm.badgeEn ||
+              (feedbackCardForm.platform === 'drive' ? 'Verified Document' : 'Google Maps Location'),
+            accentColor:
+              feedbackCardForm.accentColor ||
+              (feedbackCardForm.platform === 'drive' ? 'emerald' : 'amber')
+          }
           : c
       );
       toast.success(
@@ -2128,7 +2128,7 @@ export const DashboardPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث سريع في المستندات واللوائح والقرارات...' : 'Search anything...'}
-                className="w-full ps-10 pe-12 py-2 rounded-full bg-gray-50/80 hover:bg-gray-100/80 focus:bg-white border border-gray-200/80 focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 text-xs text-gray-800 placeholder-gray-400 transition-all outline-none"
+                className="w-full ps-10 pe-12 py-2 rounded-full bg-gray-50/80 hover:bg-gray-100/80 focus:bg-white   focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 text-xs text-gray-800 placeholder-gray-400 transition-all outline-none"
               />
               <kbd className="absolute end-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[10px] font-mono text-gray-400 bg-white border border-gray-200 shadow-2xs">
                 ⌘K
@@ -2141,7 +2141,7 @@ export const DashboardPage: React.FC = () => {
               <Link
                 to={getLocalizedPath('/')}
                 target="_blank"
-                className="hidden md:flex h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0] border border-gray-200/80 text-gray-600 hover:text-[#0B6B4F] transition-all items-center justify-center cursor-pointer shadow-2xs"
+                className="hidden md:flex h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0]   text-gray-600 hover:text-[#0B6B4F] transition-all items-center justify-center cursor-pointer shadow-2xs"
                 title={locale === 'ar' ? 'معاينة الموقع' : 'Public Site'}
               >
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -2150,7 +2150,7 @@ export const DashboardPage: React.FC = () => {
               {/* Notifications */}
               <button
                 type="button"
-                className="h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0] border border-gray-200/80 text-gray-600 relative transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                className="h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0]   text-gray-600 relative transition-all flex items-center justify-center cursor-pointer shadow-2xs"
                 title={locale === 'ar' ? 'الإشعارات' : 'Notifications'}
               >
                 <Bell className="w-3.5 h-3.5" />
@@ -2195,7 +2195,7 @@ export const DashboardPage: React.FC = () => {
                 type="button"
                 id="dashboard-mobile-drawer-toggle"
                 onClick={() => setIsMobileNavOpen(true)}
-                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#12332B] hover:bg-[#EBF4F0] rounded-full transition-colors cursor-pointer border border-gray-200/80 hover:border-[#12332B]/20 shadow-2xs ms-1"
+                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#12332B] hover:bg-[#EBF4F0] rounded-full transition-colors cursor-pointer   hover:border-[#12332B]/20 shadow-2xs ms-1"
                 aria-label="Open Menu"
               >
                 <Menu className="w-4 h-4 text-[#0B6B4F]" />
@@ -2402,7 +2402,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('policies')}
-                  className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2424,7 +2424,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('regulations')}
-                  className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2446,7 +2446,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('workshops')}
-                  className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2468,7 +2468,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('submissions')}
-                  className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs hover:border-amber-400 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-amber-400 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2490,7 +2490,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('members')}
-                  className="p-4 rounded-3xl bg-white border border-gray-200/80 shadow-xs hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group col-span-2 sm:col-span-1"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group col-span-2 sm:col-span-1"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2510,7 +2510,7 @@ export const DashboardPage: React.FC = () => {
               </div>
 
               {/* Sub-groups Directory Cards */}
-              <div className="bg-white rounded-3xl p-4 sm:p-5 border border-gray-200/80 shadow-xs space-y-4">
+              <div className="bg-white rounded-3xl p-4 sm:p-5 space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                   <h3 className="font-black text-sm text-gray-900 flex items-center gap-2">
                     <Layers className="w-4 h-4 text-[#0B6B4F]" />
@@ -2638,7 +2638,7 @@ export const DashboardPage: React.FC = () => {
               {/* Two Column Grid: Latest Members & Latest Submissions */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* 1. Latest Registered Members */}
-                <div className="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-xs space-y-4">
+                <div className="bg-white rounded-3xl p-5 space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                     <h3 className="font-black text-sm text-gray-900 flex items-center gap-2">
                       <Users className="w-4 h-4 text-[#0B6B4F]" />
@@ -2683,7 +2683,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
 
                 {/* 2. Latest Submissions & Complaints */}
-                <div className="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-xs space-y-4">
+                <div className="bg-white rounded-3xl p-5 space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                     <h3 className="font-black text-sm text-gray-900 flex items-center gap-2">
                       <AlertTriangle className="w-4 h-4 text-amber-600" />
@@ -2707,13 +2707,12 @@ export const DashboardPage: React.FC = () => {
                             <span className="font-bold text-xs text-gray-900 truncate max-w-[240px]" title={sub.title}>
                               {sub.title}
                             </span>
-                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${
-                              sub.status === 'pending'
-                                ? 'bg-amber-100 text-amber-800'
-                                : sub.status === 'in_progress'
-                                  ? 'bg-blue-100 text-blue-800'
-                                  : 'bg-emerald-100 text-emerald-800'
-                            }`}>
+                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${sub.status === 'pending'
+                              ? 'bg-amber-100 text-amber-800'
+                              : sub.status === 'in_progress'
+                                ? 'bg-blue-100 text-blue-800'
+                                : 'bg-emerald-100 text-emerald-800'
+                              }`}>
                               {sub.status === 'pending' ? 'جديد' : sub.status === 'in_progress' ? 'قيد المعالجة' : 'معتمد'}
                             </span>
                           </div>
@@ -3249,7 +3248,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'feedback' && (
             <div className="space-y-8 animate-in fade-in duration-200">
               {/* Module Header */}
-              <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="bg-white rounded-3xl p-6   shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-purple-50 border border-purple-200/60 flex items-center justify-center text-purple-700 shadow-xs">
                     <MessageSquare className="w-6 h-6" />
@@ -3610,7 +3609,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'contact-messages' && (
             <div className="space-y-6 animate-in fade-in duration-200 text-start">
               {/* Header */}
-              <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="bg-white rounded-3xl p-6   shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200/60 flex items-center justify-center text-amber-700 shadow-xs">
                     <Mail className="w-6 h-6" />
@@ -3644,7 +3643,7 @@ export const DashboardPage: React.FC = () => {
 
                 return (
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-2xs">
+                    <div className="bg-white p-5 rounded-2xl   shadow-2xs">
                       <span className="text-xs font-bold text-gray-400 block mb-1">إجمالي الرسائل الواردة</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-2xl font-black text-gray-900 font-mono">{contactMsgs.length}</span>
@@ -3768,7 +3767,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'executive-director' && (
             <div className="space-y-6 animate-in fade-in duration-200">
               {/* Header */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-gray-200/80 shadow-2xs">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl   shadow-2xs">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
                     <UserCog className="w-6 h-6" />
@@ -3810,102 +3809,77 @@ export const DashboardPage: React.FC = () => {
                   : cleanedName.slice(0, 2) || 'م . ح';
 
                 return (
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                    {/* Main Profile Card */}
-                    <div className="lg:col-span-1 bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs hover:shadow-md transition-all space-y-6 text-center">
-                      <div className="relative inline-block">
-                        <div className="w-28 h-28 mx-auto rounded-3xl bg-gradient-to-br from-[#095B42] via-[#0B6B4F] to-[#042B1F] text-white flex items-center justify-center font-black text-3xl shadow-md border-4 border-emerald-50 overflow-hidden">
-                          {ceo.image ? (
-                            <img src={ceo.image} alt={ceo.nameAr} className="w-full h-full object-cover" />
-                          ) : (
-                            <span className="font-serif tracking-wider select-none">{autoInitials}</span>
-                          )}
-                        </div>
-                        <span className="absolute bottom-0 end-0 bg-emerald-500 w-5 h-5 rounded-full border-2 border-white shadow-xs" title="نشط على رأس العمل"></span>
-                      </div>
+                  <div className=" max-w-2xl mx-auto bg-white rounded-3xl p-8  text-center space-y-6 relative overflow-hidden">
+                    {/* Top Accent Ribbon */}
+                    <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
 
-                      <div className="space-y-1.5">
-                        <h3 className="text-lg font-black text-gray-900 leading-snug">{ceo.nameAr}</h3>
-                        <p className="text-xs font-bold text-[#095B42] bg-[#EBF4F0] px-3.5 py-1 rounded-full inline-block border border-[#095B42]/15">
-                          {ceo.roleAr}
-                        </p>
-                        <p className="text-xs text-gray-500 font-mono dir-ltr mt-1 block">{ceo.email}</p>
-                      </div>
-
-                      {/* Contact Channels & Direct Actions */}
-                      <div className="pt-4 border-t border-gray-100 space-y-2 text-xs">
-                        {ceo.phone && (
-                          <div className="grid grid-cols-2 gap-2">
-                            <a
-                              href={`tel:${ceo.phone}`}
-                              className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60"
-                              dir="ltr"
-                            >
-                              <Phone className="w-3.5 h-3.5 text-[#095B42]" />
-                              <span className="font-mono text-[11px]">{ceo.phone}</span>
-                            </a>
-                            <a
-                              href={`https://wa.me/${ceo.phone.replace(/[^0-9]/g, '')}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold transition-all shadow-2xs"
-                            >
-                              <MessageSquare className="w-3.5 h-3.5 fill-white" />
-                              <span>محادثة واتساب</span>
-                            </a>
-                          </div>
+                    {/* Luxury Avatar / Photo */}
+                    <div className="relative inline-block mx-auto mt-2">
+                      <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#095B42] via-[#0B6B4F] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+                        {ceo.image ? (
+                          <img src={ceo.image} alt={ceo.nameAr} className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="font-serif tracking-wider select-none">{autoInitials}</span>
                         )}
                       </div>
+                      <span className="absolute bottom-1 end-1 bg-emerald-500 w-6 h-6 rounded-full border-2 border-white shadow-xs flex items-center justify-center" title="نشط على رأس العمل">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+                      </span>
+                    </div>
 
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-black text-gray-900 leading-snug">{ceo.nameAr}</h3>
+                      <p className="text-xs font-bold text-[#095B42] bg-[#EBF4F0] px-4 py-1 rounded-full inline-block border border-[#095B42]/15">
+                        {ceo.roleAr}
+                      </p>
+                      {ceo.email && (
+                        <p className="text-xs text-gray-500 font-mono dir-ltr mt-1 block">{ceo.email}</p>
+                      )}
+                    </div>
+
+                    {/* الوصف والمهام الرئيسية */}
+                    <div className="text-start bg-[#F8FAF8] p-5 rounded-2xl border border-gray-200/60 space-y-2">
+                      <h4 className="text-xs font-bold text-[#095B42] flex items-center gap-1.5">
+                        <FileText className="w-4 h-4" />
+                        <span>الوصف والمهام الرئيسية</span>
+                      </h4>
+                      <p className="text-xs text-gray-700 leading-relaxed font-medium">
+                        {ceo.descriptionAr || ceo.bioAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.'}
+                      </p>
+                    </div>
+
+                    {/* Contact Channels & Direct Actions */}
+                    {ceo.phone && (
+                      <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-3 text-xs">
+                        <a
+                          href={`tel:${ceo.phone}`}
+                          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60"
+                          dir="ltr"
+                        >
+                          <Phone className="w-4 h-4 text-[#095B42]" />
+                          <span className="font-mono text-xs">{ceo.phone}</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/${ceo.phone.replace(/[^0-9]/g, '')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold transition-all shadow-2xs"
+                        >
+                          <MessageSquare className="w-4 h-4 fill-white" />
+                          <span>محادثة واتساب</span>
+                        </a>
+                      </div>
+                    )}
+
+                    <div className="pt-2">
                       <button
                         type="button"
                         onClick={handleOpenEditExecDirector}
-                        className="w-full py-3 rounded-2xl bg-[#095B42] hover:bg-[#074633] text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                        className="w-full py-3.5 rounded-2xl bg-[#095B42] hover:bg-[#074633] text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <Edit2 className="w-4 h-4" />
                         <span>تعديل بيانات المدير التنفيذي</span>
                       </button>
-                    </div>
-
-                    {/* Responsibilities & Bio Grid */}
-                    <div className="lg:col-span-2 space-y-6">
-                      {/* Bio Section */}
-                      <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-3">
-                        <h4 className="font-bold text-base text-gray-900 flex items-center gap-2">
-                          <FileText className="w-5 h-5 text-[#095B42]" />
-                          <span>السيرة الذاتية والنبذة التنفيذية</span>
-                        </h4>
-                        <p className="text-xs sm:text-sm text-gray-700 leading-relaxed bg-[#F8FAF8] p-4 rounded-2xl border border-gray-200/60 font-medium">
-                          {ceo.descriptionAr || ceo.bioAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.'}
-                        </p>
-                      </div>
-
-                      {/* Key Responsibilities */}
-                      <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-4">
-                        <h4 className="font-bold text-base text-gray-900 flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                          <span>الصلاحيات والمسؤوليات الرئيسية للمدير التنفيذي</span>
-                        </h4>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
-                          <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100/80 flex items-start gap-3 hover:bg-emerald-50 transition-colors">
-                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1 shrink-0"></span>
-                            <span className="font-medium leading-relaxed text-gray-800">إدارة وتسيير الأعمال اليومية وتطبيق قرارات مجلس الإدارة.</span>
-                          </div>
-                          <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100/80 flex items-start gap-3 hover:bg-emerald-50 transition-colors">
-                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1 shrink-0"></span>
-                            <span className="font-medium leading-relaxed text-gray-800">إعداد وتوثيق خطط التشغيل والفرص الاستثمارية الزراعية.</span>
-                          </div>
-                          <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100/80 flex items-start gap-3 hover:bg-emerald-50 transition-colors">
-                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1 shrink-0"></span>
-                            <span className="font-medium leading-relaxed text-gray-800">متابعة أداء الإدارات والمنافذ التسويقية والتشغيلية للجمعية.</span>
-                          </div>
-                          <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100/80 flex items-start gap-3 hover:bg-emerald-50 transition-colors">
-                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1.5 shrink-0"></span>
-                            <span className="font-medium leading-relaxed text-gray-800">تمثيل الجمعية أمام الجهات الإشرافية والشركاء والمستثمرين.</span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 );
@@ -3919,7 +3893,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'membership-requests' && (
             <div className="space-y-6 animate-in fade-in duration-200">
               {/* Header */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-gray-200/80 shadow-2xs">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl   shadow-2xs">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
                     <UserCheck className="w-6 h-6" />
@@ -3964,7 +3938,7 @@ export const DashboardPage: React.FC = () => {
 
                 return (
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-200/80 shadow-2xs">
+                    <div className="bg-white p-5 rounded-2xl   shadow-2xs">
                       <span className="text-xs font-bold text-gray-400 block mb-1">إجمالي طلبات العضوية</span>
                       <div className="flex items-baseline gap-2">
                         <span className="text-2xl font-black text-gray-900 font-mono">{allReqs.length}</span>
@@ -4065,7 +4039,7 @@ export const DashboardPage: React.FC = () => {
           {/* ========================================================================= */}
           {activeTab === 'members' && (
             <div className="space-y-6 animate-in fade-in duration-200">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-200/80 shadow-2xs">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl   shadow-2xs">
                 <div>
                   <h2 className="text-xl font-bold text-gray-900">
                     {locale === 'ar' ? 'سجل أعضاء الجمعية العمومية' : 'General Assembly Members Directory'}
@@ -4099,21 +4073,21 @@ export const DashboardPage: React.FC = () => {
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="bg-white p-4 rounded-xl border border-gray-200/80">
+                <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">إجمالي الأعضاء</span>
                   <span className="text-xl font-black text-[#0B6B4F] font-mono">{(generalAssemblyMembers || []).length} عضو</span>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-gray-200/80">
+                <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">إجمالي الأسهم</span>
                   <span className="text-xl font-black text-gray-800 font-mono">
                     {(generalAssemblyMembers || []).reduce((acc, m) => acc + (m.sharesCount || 0), 0).toLocaleString()}
                   </span>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-gray-200/80">
+                <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">نوع الكيان</span>
                   <span className="text-sm font-bold text-emerald-700">جمعية تعاونية مساهمة</span>
                 </div>
-                <div className="bg-white p-4 rounded-xl border border-gray-200/80">
+                <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">الجهة الإشرافية</span>
                   <span className="text-sm font-bold text-gray-700 truncate block">المركز الوطني للقطاع غير الربحي</span>
                 </div>
@@ -4159,7 +4133,7 @@ export const DashboardPage: React.FC = () => {
                 return (
                   <div className="space-y-4">
                     {/* Search & Control Bar */}
-                    <div className="bg-white p-4 rounded-2xl border border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xs">
+                    <div className="bg-white p-4 rounded-2xl   flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xs">
                       <div className="relative w-full sm:w-80">
                         <Search className="w-4 h-4 text-gray-400 absolute start-3 top-3.5" />
                         <input
@@ -4205,7 +4179,7 @@ export const DashboardPage: React.FC = () => {
                     </div>
 
                     {/* General Assembly Members Directory Table */}
-                    <div className="bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-2xs">
+                    <div className="bg-white rounded-2xl   overflow-hidden shadow-2xs">
                       <div className="overflow-x-auto">
                         <table className="w-full text-end text-xs">
                           <thead className="bg-[#F8FAF8] text-gray-700 font-bold border-b border-gray-200">
@@ -4245,7 +4219,7 @@ export const DashboardPage: React.FC = () => {
                                     {member.joinYear ? `${member.joinYear} هـ` : '-'}
                                   </td>
                                   <td className="p-4 text-center text-gray-600 whitespace-nowrap">
-                                    <span className="px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-200/80 font-medium">
+                                    <span className="px-2.5 py-1 rounded-lg bg-gray-50   font-medium">
                                       {member.city || 'القصيم'}
                                     </span>
                                   </td>
@@ -4322,11 +4296,10 @@ export const DashboardPage: React.FC = () => {
                                     key={pageNum}
                                     type="button"
                                     onClick={() => setMembersCurrentPage(pageNum)}
-                                    className={`min-w-[32px] h-8 rounded-xl text-xs font-bold font-mono transition-all cursor-pointer flex items-center justify-center ${
-                                      isActive
-                                        ? 'bg-[#0B6B4F] text-white shadow-sm ring-2 ring-[#0B6B4F]/20'
-                                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200/80 shadow-2xs'
-                                    }`}
+                                    className={`min-w-[32px] h-8 rounded-xl text-xs font-bold font-mono transition-all cursor-pointer flex items-center justify-center ${isActive
+                                      ? 'bg-[#0B6B4F] text-white shadow-sm ring-2 ring-[#0B6B4F]/20'
+                                      : 'bg-white text-gray-700 hover:bg-gray-100   shadow-2xs'
+                                      }`}
                                   >
                                     {pageNum}
                                   </button>
@@ -4358,7 +4331,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'projects' && (
             <div className="space-y-6">
               {/* Projects Section Header & Description Management */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-200/80 shadow-2xs space-y-4">
+              <div className="bg-white p-6 rounded-2xl   shadow-2xs space-y-4">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-100 pb-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-5 h-5 text-[#53A528]" />
@@ -4420,7 +4393,7 @@ export const DashboardPage: React.FC = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-gray-200/80 shadow-2xs">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl   shadow-2xs">
                 <div>
                   <h2 className="text-xl font-bold text-gray-900">
                     {locale === 'ar' ? 'إدارة مشاريع الجمعية' : 'Cooperative Projects Management'}
@@ -4519,7 +4492,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'policies' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -4574,7 +4547,7 @@ export const DashboardPage: React.FC = () => {
               {/* Policies Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {policies.map((policy) => (
-                  <div key={policy.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={policy.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -4629,7 +4602,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'regulations' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -4664,7 +4637,7 @@ export const DashboardPage: React.FC = () => {
               {/* Regulations Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {regulations.map((reg) => (
-                  <div key={reg.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={reg.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
@@ -4719,7 +4692,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'financials' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -4772,7 +4745,7 @@ export const DashboardPage: React.FC = () => {
               {/* Financials Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {financials.map((fin) => (
-                  <div key={fin.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={fin.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-xs font-mono font-black px-3 py-1 rounded-xl bg-[#0B6B4F] text-white">
@@ -4832,7 +4805,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'workshops' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -4867,7 +4840,7 @@ export const DashboardPage: React.FC = () => {
               {/* Workshops Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {workshops.map((w) => (
-                  <div key={w.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={w.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -4922,7 +4895,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'ethics' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -4947,7 +4920,7 @@ export const DashboardPage: React.FC = () => {
               {/* Ethics Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {ethics.map((eth) => (
-                  <div key={eth.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={eth.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -4992,7 +4965,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'meetings' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -5036,7 +5009,7 @@ export const DashboardPage: React.FC = () => {
               {/* Meetings Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {meetings.map((mtg) => (
-                  <div key={mtg.id} className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={mtg.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -5080,7 +5053,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'submissions' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               {/* Dynamic Header & Stats Banner */}
               {(() => {
                 const getHeaderData = () => {
@@ -5233,15 +5206,14 @@ export const DashboardPage: React.FC = () => {
               {/* Sub-groups Filter Pills */}
               <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-gray-100">
                 <span className="text-[11px] font-bold text-gray-400 me-2">{locale === 'ar' ? 'تصنيف النموذج:' : 'Category:'}</span>
-                
+
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('all')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'all'
-                      ? 'bg-gray-900 text-white shadow-md'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'all'
+                    ? 'bg-gray-900 text-white shadow-md'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
                 >
                   <MessageSquareQuote className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'جميع الطلبات والردود (' + submissions.length + ')' : 'All Submissions (' + submissions.length + ')'}</span>
@@ -5250,11 +5222,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('whistleblowing')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'whistleblowing'
-                      ? 'bg-red-600 text-white shadow-md ring-2 ring-red-600/20'
-                      : 'bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'whistleblowing'
+                    ? 'bg-red-600 text-white shadow-md ring-2 ring-red-600/20'
+                    : 'bg-white text-gray-700 hover:bg-red-50 hover:text-red-600 border border-gray-200'
+                    }`}
                 >
                   <AlertTriangle className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'بلاغات المخالفات والشكاوى (' + submissions.filter((s) => s.module === 'whistleblowing').length + ')' : 'Whistleblowing (' + submissions.filter((s) => s.module === 'whistleblowing').length + ')'}</span>
@@ -5263,11 +5234,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('survey_supporters')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'survey_supporters'
-                      ? 'bg-[#095B42] text-white shadow-md ring-2 ring-[#095B42]/20'
-                      : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#095B42] border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'survey_supporters'
+                    ? 'bg-[#095B42] text-white shadow-md ring-2 ring-[#095B42]/20'
+                    : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#095B42] border border-gray-200'
+                    }`}
                 >
                   <HeartHandshake className="w-3.5 h-3.5" />
                   <span>{locale === 'ar'
@@ -5278,11 +5248,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('survey_assembly')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'survey_assembly'
-                      ? 'bg-emerald-700 text-white shadow-md ring-2 ring-emerald-700/20'
-                      : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'survey_assembly'
+                    ? 'bg-emerald-700 text-white shadow-md ring-2 ring-emerald-700/20'
+                    : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 border border-gray-200'
+                    }`}
                 >
                   <Users className="w-3.5 h-3.5" />
                   <span>{locale === 'ar'
@@ -5293,11 +5262,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('survey_customers')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'survey_customers'
-                      ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-600/20'
-                      : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'survey_customers'
+                    ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-600/20'
+                    : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
+                    }`}
                 >
                   <Smile className="w-3.5 h-3.5" />
                   <span>{locale === 'ar'
@@ -5308,11 +5276,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('survey_staff')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'survey_staff'
-                      ? 'bg-purple-600 text-white shadow-md ring-2 ring-purple-600/20'
-                      : 'bg-white text-gray-700 hover:bg-purple-50 hover:text-purple-600 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'survey_staff'
+                    ? 'bg-purple-600 text-white shadow-md ring-2 ring-purple-600/20'
+                    : 'bg-white text-gray-700 hover:bg-purple-50 hover:text-purple-600 border border-gray-200'
+                    }`}
                 >
                   <Briefcase className="w-3.5 h-3.5" />
                   <span>{locale === 'ar'
@@ -5323,11 +5290,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('contact_message')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'contact_message'
-                      ? 'bg-amber-600 text-white shadow-md ring-2 ring-amber-600/20'
-                      : 'bg-white text-gray-700 hover:bg-amber-50 hover:text-amber-600 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'contact_message'
+                    ? 'bg-amber-600 text-white shadow-md ring-2 ring-amber-600/20'
+                    : 'bg-white text-gray-700 hover:bg-amber-50 hover:text-amber-600 border border-gray-200'
+                    }`}
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'رسائل اتصل بنا المباشرة (' + submissions.filter((s) => s.module === 'contact_message').length + ')' : 'Contact Messages (' + submissions.filter((s) => s.module === 'contact_message').length + ')'}</span>
@@ -5336,11 +5302,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSubmissionFilter('membership')}
-                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${
-                    submissionFilter === 'membership'
-                      ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-600/20'
-                      : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 border border-gray-200'
-                  }`}
+                  className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'membership'
+                    ? 'bg-emerald-600 text-white shadow-md ring-2 ring-emerald-600/20'
+                    : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 border border-gray-200'
+                    }`}
                 >
                   <UserCheck className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'طلبات العضوية (' + submissions.filter((s) => s.module === 'membership').length + ')' : 'Membership Requests (' + submissions.filter((s) => s.module === 'membership').length + ')'}</span>
@@ -5383,7 +5348,7 @@ export const DashboardPage: React.FC = () => {
 
                 if (submissionViewMode === 'table') {
                   return (
-                    <div className="overflow-x-auto border border-gray-200/80 rounded-2xl">
+                    <div className="overflow-x-auto   rounded-2xl">
                       <table className="w-full min-w-[720px] text-start text-xs border-collapse">
                         <thead>
                           <tr className="bg-[#F7F8F6] border-b border-gray-200 text-gray-700 font-bold">
@@ -5400,17 +5365,16 @@ export const DashboardPage: React.FC = () => {
                             <tr key={sub.id} className="hover:bg-gray-50/80 transition-colors">
                               <td className="py-3 px-4 whitespace-nowrap">
                                 <span
-                                  className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
-                                    sub.module === 'whistleblowing'
-                                      ? 'bg-red-100 text-red-700 border border-red-200'
-                                      : sub.module === 'survey'
-                                        ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                                        : sub.module === 'contact_message'
-                                          ? 'bg-amber-100 text-amber-800 border border-amber-300'
-                                          : sub.module === 'membership'
-                                            ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
-                                            : 'bg-purple-100 text-purple-700 border border-purple-200'
-                                  }`}
+                                  className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${sub.module === 'whistleblowing'
+                                    ? 'bg-red-100 text-red-700 border border-red-200'
+                                    : sub.module === 'survey'
+                                      ? 'bg-blue-100 text-blue-700 border border-blue-200'
+                                      : sub.module === 'contact_message'
+                                        ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                                        : sub.module === 'membership'
+                                          ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                          : 'bg-purple-100 text-purple-700 border border-purple-200'
+                                    }`}
                                 >
                                   {sub.module === 'whistleblowing'
                                     ? 'بلاغ مخالفة سري'
@@ -5494,22 +5458,21 @@ export const DashboardPage: React.FC = () => {
                     {filtered.map((sub) => (
                       <div
                         key={sub.id}
-                        className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all space-y-3.5 text-xs shadow-2xs flex flex-col justify-between"
+                        className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all space-y-3.5 text-xs shadow-2xs flex flex-col justify-between"
                       >
                         <div className="space-y-2.5">
                           <div className="flex items-center justify-between gap-2">
                             <span
-                              className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
-                                sub.module === 'whistleblowing'
-                                  ? 'bg-red-100 text-red-700 border border-red-200'
-                                  : sub.module === 'survey'
-                                    ? 'bg-blue-100 text-blue-700 border border-blue-200'
-                                    : sub.module === 'contact_message'
-                                      ? 'bg-amber-100 text-amber-800 border border-amber-300'
-                                      : sub.module === 'membership'
-                                        ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
-                                        : 'bg-purple-100 text-purple-700 border border-purple-200'
-                              }`}
+                              className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${sub.module === 'whistleblowing'
+                                ? 'bg-red-100 text-red-700 border border-red-200'
+                                : sub.module === 'survey'
+                                  ? 'bg-blue-100 text-blue-700 border border-blue-200'
+                                  : sub.module === 'contact_message'
+                                    ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                                    : sub.module === 'membership'
+                                      ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
+                                      : 'bg-purple-100 text-purple-700 border border-purple-200'
+                                }`}
                             >
                               {sub.module === 'whistleblowing'
                                 ? 'بلاغ مخالفة سري'
@@ -5571,7 +5534,7 @@ export const DashboardPage: React.FC = () => {
           )}
 
           {activeTab === 'home-management' && (
-            <div className="bg-white rounded-3xl p-4 sm:p-6 border border-gray-200/80 shadow-xs space-y-6 animate-in fade-in duration-200 text-start">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
               {/* Header & Sub-navigation Tabs */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-gray-100">
                 <div>
@@ -5898,7 +5861,7 @@ export const DashboardPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {statsForm.map((stat, idx) => (
-                      <div key={stat.id || idx} className="bg-[#F7F8F6] p-5 rounded-2xl border border-gray-200/80 space-y-3">
+                      <div key={stat.id || idx} className="bg-[#F7F8F6] p-5 rounded-2xl   space-y-3">
                         <div className="flex items-center justify-between border-b border-gray-200 pb-2">
                           <span className="font-mono font-bold text-xs text-[#0B6B4F]">إحصائية #{idx + 1}</span>
                         </div>
@@ -5967,7 +5930,7 @@ export const DashboardPage: React.FC = () => {
                     {strategicGoals.map((goal) => (
                       <div
                         key={goal.id}
-                        className="bg-[#F7F8F6] rounded-2xl p-5 border border-gray-200/80 hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-3 relative group"
+                        className="bg-[#F7F8F6] rounded-2xl p-5   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-3 relative group"
                       >
                         <div>
                           <div className="text-2xl font-black text-[#5EA88F] font-sans mb-1">
@@ -6031,7 +5994,7 @@ export const DashboardPage: React.FC = () => {
                     {testimonials.map((t) => (
                       <div
                         key={t.id}
-                        className="bg-[#F7F8F6] p-5 rounded-2xl border border-gray-200/80 space-y-3 flex flex-col justify-between"
+                        className="bg-[#F7F8F6] p-5 rounded-2xl   space-y-3 flex flex-col justify-between"
                       >
                         <div className="space-y-2">
                           <div className="flex items-center justify-between gap-2">
@@ -6807,11 +6770,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setRegulationForm({ ...regulationForm, fileUrl: e.target.value, pdfUrl: e.target.value })}
                     readOnly={(regulationForm.fileUrl || regulationForm.pdfUrl)?.startsWith('data:application/pdf')}
                     placeholder="https://... أو اختر ملف PDF من جهازك"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${
-                      (regulationForm.fileUrl || regulationForm.pdfUrl)?.startsWith('data:application/pdf')
-                        ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                        : 'border-gray-300 focus:border-[#095B42]'
-                    }`}
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(regulationForm.fileUrl || regulationForm.pdfUrl)?.startsWith('data:application/pdf')
+                      ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
+                      : 'border-gray-300 focus:border-[#095B42]'
+                      }`}
                   />
                   <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
@@ -6958,11 +6920,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setFinancialForm({ ...financialForm, pdfUrl: e.target.value, fileUrl: e.target.value })}
                     readOnly={(financialForm.pdfUrl || financialForm.fileUrl)?.startsWith('data:application/pdf')}
                     placeholder="https://... أو اختر ملف PDF من جهازك"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${
-                      (financialForm.pdfUrl || financialForm.fileUrl)?.startsWith('data:application/pdf')
-                        ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                        : 'border-gray-300 focus:border-[#095B42]'
-                    }`}
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(financialForm.pdfUrl || financialForm.fileUrl)?.startsWith('data:application/pdf')
+                      ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
+                      : 'border-gray-300 focus:border-[#095B42]'
+                      }`}
                   />
                   <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
@@ -7232,11 +7193,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setMeetingForm({ ...meetingForm, fileUrl: e.target.value, pdfUrl: e.target.value })}
                     readOnly={(meetingForm.fileUrl || meetingForm.pdfUrl)?.startsWith('data:application/pdf')}
                     placeholder="/documents/AlShamel-Meeting-Minutes.pdf أو رابط مباشر"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${
-                      (meetingForm.fileUrl || meetingForm.pdfUrl)?.startsWith('data:application/pdf')
-                        ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                        : 'border-gray-300 focus:border-[#095B42]'
-                    }`}
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(meetingForm.fileUrl || meetingForm.pdfUrl)?.startsWith('data:application/pdf')
+                      ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
+                      : 'border-gray-300 focus:border-[#095B42]'
+                      }`}
                   />
                   <label className="px-4 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
@@ -8649,7 +8609,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
         </div>
 
         {/* Sender Info & Status Header Ribbon */}
-        <div className="bg-[#FAF9F5] p-4 sm:p-5 rounded-2xl border border-[#12332B]/10 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div className="bg-[#FAF9F5] p-4 sm:p-5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
           <div>
             <span className="text-[11px] font-bold text-gray-400 block mb-0.5">اسم صاحب الطلب / المرسل:</span>
             <div className="font-black text-sm text-gray-900">{submission.senderName}</div>
@@ -8718,7 +8678,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
             <span>تفاصيل البيانات والرد المتلقى:</span>
           </h4>
 
-          <div className="bg-[#F7F8F6] p-4 sm:p-5 rounded-2xl border border-gray-200/80 space-y-2.5 text-xs text-gray-800 leading-relaxed">
+          <div className="bg-[#F7F8F6] p-4 sm:p-5 rounded-2xl   space-y-2.5 text-xs text-gray-800 leading-relaxed">
             {detailLines.map((line, idx) => {
               const hasColon = line.includes(':');
 
@@ -8856,7 +8816,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
   return (
     <div className="space-y-6 animate-in fade-in duration-200 text-start">
       {/* Header */}
-      <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-white rounded-3xl p-6   shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-2xl bg-[#EBF5F0] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
             <Phone className="w-6 h-6" />
@@ -8892,7 +8852,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Section 1: Main Contact Info */}
-        <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-5">
+        <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
             <Building className="w-5 h-5 text-[#0B6B4F]" />
             <span>بيانات الاتصال والمقر الرئيسي</span>
@@ -9001,7 +8961,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         </div>
 
         {/* Section 1.5: Footer Dynamic Text */}
-        <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-5">
+        <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
             <Layout className="w-5 h-5 text-[#0B6B4F]" />
             <span>نصوص وعناوين ذيل الصفحة (Footer Dynamic Content)</span>
@@ -9050,7 +9010,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         </div>
 
         {/* Section 2: Social Links & Google Maps Link */}
-        <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-5">
+        <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
             <Globe className="w-5 h-5 text-[#0B6B4F]" />
             <span>حسابات المنصات الاجتماعية ورابط الخريطة</span>
@@ -9120,7 +9080,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         </div>
 
         {/* Section 3: Logos (Light & Dark) */}
-        <div className="bg-white rounded-3xl p-6 border border-gray-200/80 shadow-2xs space-y-5">
+        <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
             <ImageIcon className="w-5 h-5 text-[#0B6B4F]" />
             <span>شعارات الجمعية للموقع (Light & Dark Logos)</span>

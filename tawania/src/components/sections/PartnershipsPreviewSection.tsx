@@ -40,7 +40,7 @@ export const PartnershipsPreviewSection: React.FC = () => {
           {partnershipsData.map((partner) => (
             <div
               key={partner.id}
-              className="bg-[#F7F8F6] rounded-2xl p-6 border border-[#12332B]/10 hover:border-[#0B6B4F]/40 hover:bg-[#EBF4F0]/40 transition-all duration-300 flex flex-col justify-between"
+              className="bg-[#F7F8F6] rounded-2xl p-6 hover:border-[#0B6B4F]/40 hover:bg-[#EBF4F0]/40 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">

@@ -103,18 +103,17 @@ export const DocumentsPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Category Tabs & Search */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-[#12332B]/10 shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 type="button"
                 onClick={() => setSelectedCategory(cat.key)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                  selectedCategory === cat.key
+                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCategory === cat.key
                     ? 'bg-[#0B6B4F] text-white shadow-xs'
                     : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-[#12332B]/5'
-                }`}
+                  }`}
               >
                 {cat.label}
               </button>
@@ -138,7 +137,7 @@ export const DocumentsPage: React.FC = () => {
           {filteredDocs.map((doc) => (
             <div
               key={doc.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#12332B]/10 shadow-xs hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xs hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-3 text-start">
                 <div className="flex items-center justify-between">

@@ -39,7 +39,7 @@ export const StrategicGoalsPage: React.FC = () => {
           {strategicGoalsData.map((goal) => (
             <div
               key={goal.id}
-              className="bg-white rounded-2xl p-8 border border-[#12332B]/10 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-2xl p-8 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">

@@ -118,7 +118,7 @@ export const FinancialStatementsPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Year Filter Pills Panel */}
-        <div className="bg-white p-5 sm:p-6 rounded-3xl border border-[#12332B]/10 shadow-xs space-y-4">
+        <div className="bg-white p-5 sm:p-6 rounded-3xl shadow-xs space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
             <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-[#0B6B4F]">
               <div className="w-8 h-8 rounded-xl bg-[#0B6B4F]/10 flex items-center justify-center text-[#0B6B4F]">
@@ -146,7 +146,7 @@ export const FinancialStatementsPage: React.FC = () => {
                   className={'px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold font-mono transition-all cursor-pointer flex items-center gap-2 shrink-0 ' + (
                     isSelected
                       ? 'bg-gradient-to-r from-[#0B6B4F] to-[#064230] text-white shadow-md ring-2 ring-[#0B6B4F]/20 scale-102'
-                      : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200/80'
+                      : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F]  '
                   )}
                 >
                   <span className={'w-2 h-2 rounded-full ' + (isSelected ? 'bg-white' : 'bg-[#0B6B4F]')} />
@@ -160,7 +160,7 @@ export const FinancialStatementsPage: React.FC = () => {
         {/* Dynamic Financial KPI Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Revenue Card */}
-          <div className="bg-white rounded-2xl p-5 border border-[#12332B]/10 shadow-xs flex items-center gap-4 hover:border-emerald-300 transition-colors">
+          <div className="bg-white rounded-2xl p-5 shadow-xs flex items-center gap-4 hover:border-emerald-300 transition-colors">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
               <TrendingUp className="w-6 h-6" />
             </div>
@@ -175,7 +175,7 @@ export const FinancialStatementsPage: React.FC = () => {
           </div>
 
           {/* Expenses Card */}
-          <div className="bg-white rounded-2xl p-5 border border-[#12332B]/10 shadow-xs flex items-center gap-4 hover:border-amber-300 transition-colors">
+          <div className="bg-white rounded-2xl p-5 shadow-xs flex items-center gap-4 hover:border-amber-300 transition-colors">
             <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
               <CreditCard className="w-6 h-6" />
             </div>
@@ -190,7 +190,7 @@ export const FinancialStatementsPage: React.FC = () => {
           </div>
 
           {/* Net Surplus Card */}
-          <div className="bg-white rounded-2xl p-5 border border-[#12332B]/10 shadow-xs flex items-center gap-4 hover:border-[#0B6B4F] transition-colors">
+          <div className="bg-white rounded-2xl p-5 shadow-xs flex items-center gap-4 hover:border-[#0B6B4F] transition-colors">
             <div className="w-12 h-12 rounded-2xl bg-[#0B6B4F]/10 text-[#0B6B4F] flex items-center justify-center shrink-0">
               <PiggyBank className="w-6 h-6" />
             </div>
@@ -205,7 +205,7 @@ export const FinancialStatementsPage: React.FC = () => {
           </div>
 
           {/* Auditor Card */}
-          <div className="bg-white rounded-2xl p-5 border border-[#12332B]/10 shadow-xs flex items-center gap-4 hover:border-blue-300 transition-colors">
+          <div className="bg-white rounded-2xl p-5 shadow-xs flex items-center gap-4 hover:border-blue-300 transition-colors">
             <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
               <Building2 className="w-6 h-6" />
             </div>

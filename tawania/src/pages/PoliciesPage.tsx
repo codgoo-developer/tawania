@@ -57,14 +57,14 @@ export const PoliciesPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 border border-[#12332B]/10 shadow-xs mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-xs mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
             <button
               type="button"
               onClick={() => setSelectedSub('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'all'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'كافة السياسات (الكل)' : 'All Policies'}
@@ -73,8 +73,8 @@ export const PoliciesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSub('general')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'general'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'السياسات الداخلية العامة' : 'General Policies'}
@@ -83,8 +83,8 @@ export const PoliciesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSub('aml')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'aml'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'مكافحة غسل الأموال وتمويل الإرهاب' : 'AML & Counter-Terrorism'}
@@ -108,7 +108,7 @@ export const PoliciesPage: React.FC = () => {
           {filtered.map((policy) => (
             <div
               key={policy.id}
-              className="bg-white rounded-3xl p-7 border border-[#12332B]/10 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-7 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

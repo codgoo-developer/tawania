@@ -89,8 +89,8 @@ export const BoardPreviewSection: React.FC = () => {
               <div
                 key={member.id}
                 className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[340px] relative rounded-3xl p-6 transition-all duration-300 flex flex-col items-center text-center group ${isChairman
-                    ? 'bg-gradient-to-b from-[#F3F8F5] via-white to-white border-2 border-[#0B6B4F]/40 shadow-md hover:shadow-xl hover:-translate-y-1.5'
-                    : 'bg-white border border-[#12332B]/10 shadow-2xs hover:shadow-lg hover:border-[#0B6B4F]/30 hover:-translate-y-1'
+                  ? 'bg-gradient-to-b from-[#F3F8F5] via-white to-white border-2 border-[#0B6B4F]/40 shadow-md hover:shadow-xl hover:-translate-y-1.5'
+                  : 'bg-white shadow-2xs hover:shadow-lg hover:border-[#0B6B4F]/30 hover:-translate-y-1'
                   }`}
               >
                 {/* Top Accent Ribbon for Chairman */}
@@ -105,8 +105,8 @@ export const BoardPreviewSection: React.FC = () => {
                 <div className="relative mt-2 mb-4">
                   <div
                     className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105 shadow-md ${isChairman
-                        ? 'bg-gradient-to-br from-[#C9A45C] via-[#0B6B4F] to-[#0A4D38]'
-                        : 'bg-gradient-to-br from-[#0B6B4F]/30 via-gray-200 to-gray-100'
+                      ? 'bg-gradient-to-br from-[#C9A45C] via-[#0B6B4F] to-[#0A4D38]'
+                      : 'bg-gradient-to-br from-[#0B6B4F]/30 via-gray-200 to-gray-100'
                       }`}
                   >
                     <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B6B4F] to-[#063325] border-2 border-white flex items-center justify-center shadow-inner">

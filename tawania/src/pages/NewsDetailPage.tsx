@@ -108,7 +108,7 @@ export const NewsDetailPage: React.FC = () => {
         </div>
 
         {/* Featured Main Image */}
-        <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#12332B]/10 mb-8 h-72 sm:h-96">
+        <div className="relative rounded-3xl overflow-hidden shadow-lg mb-8 h-72 sm:h-96">
           <img
             src={article.image}
             alt={getLocalized(article.title)}
@@ -163,7 +163,7 @@ export const NewsDetailPage: React.FC = () => {
             <Link
               key={rel.slug}
               to={getLocalizedPath(`/news/${rel.slug}`)}
-              className="bg-white rounded-2xl border border-[#12332B]/10 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
             >
               <div className="h-44 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
                 <img

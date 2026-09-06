@@ -67,7 +67,7 @@ export const SurveysPage: React.FC = () => {
     setUserEmail(email);
     try {
       localStorage.setItem('google_form_simulated_email', email);
-    } catch {}
+    } catch { }
     setIsSwitchAccountOpen(false);
     setNewEmailInput('');
     setEmailError('');
@@ -416,12 +416,12 @@ export const SurveysPage: React.FC = () => {
     lowLabel: string = 'غير راضي',
     highLabel: string = 'راضي'
   ) => (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-4">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
       <label className="block text-sm sm:text-base font-bold text-[#12332B]">
         {questionText} <span className="text-red-500">*</span>
       </label>
 
-      <div className="p-4 sm:p-5 bg-[#F8FAF8] rounded-2xl border border-gray-200/80 space-y-3">
+      <div className="p-4 sm:p-5 bg-[#F8FAF8] rounded-2xl   space-y-3">
         <div className="flex items-center justify-between text-xs font-bold text-gray-500 px-1">
           <span className="text-red-600">{lowLabel}</span>
           <span className="text-[#095B42]">{highLabel}</span>
@@ -433,17 +433,15 @@ export const SurveysPage: React.FC = () => {
               key={val}
               type="button"
               onClick={() => setter(val)}
-              className={`p-3 sm:p-4 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                currentValue === val
-                  ? 'bg-[#095B42] text-white border-[#095B42] shadow-md scale-105'
-                  : 'bg-white text-gray-700 border-gray-200 hover:border-[#095B42]/50 hover:bg-emerald-50/50'
-              }`}
+              className={`p-3 sm:p-4 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${currentValue === val
+                ? 'bg-[#095B42] text-white border-[#095B42] shadow-md scale-105'
+                : 'bg-white text-gray-700 border-gray-200 hover:border-[#095B42]/50 hover:bg-emerald-50/50'
+                }`}
             >
               <span className="font-mono font-black text-base sm:text-lg">{val}</span>
               <Star
-                className={`w-3.5 h-3.5 ${
-                  currentValue === val ? 'fill-amber-300 text-amber-300' : 'text-gray-300'
-                }`}
+                className={`w-3.5 h-3.5 ${currentValue === val ? 'fill-amber-300 text-amber-300' : 'text-gray-300'
+                  }`}
               />
             </button>
           ))}
@@ -465,10 +463,10 @@ export const SurveysPage: React.FC = () => {
               activeTab === 'supporters'
                 ? 'رضا الجهات الداعمة'
                 : activeTab === 'assembly'
-                ? 'رضا أعضاء العمومية'
-                : activeTab === 'customers'
-                ? 'رضا العملاء'
-                : 'رضا العاملين'
+                  ? 'رضا أعضاء العمومية'
+                  : activeTab === 'customers'
+                    ? 'رضا العملاء'
+                    : 'رضا العاملين'
           }
         ]}
       />
@@ -479,11 +477,10 @@ export const SurveysPage: React.FC = () => {
           <button
             type="button"
             onClick={() => handleTabChange('supporters')}
-            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              activeTab === 'supporters'
-                ? 'bg-[#095B42] text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-            }`}
+            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'supporters'
+              ? 'bg-[#095B42] text-white shadow-md'
+              : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
           >
             <HeartHandshake className="w-4 h-4 shrink-0" />
             <span>رضا الجهات الداعمة</span>
@@ -492,11 +489,10 @@ export const SurveysPage: React.FC = () => {
           <button
             type="button"
             onClick={() => handleTabChange('assembly')}
-            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              activeTab === 'assembly'
-                ? 'bg-[#095B42] text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-            }`}
+            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'assembly'
+              ? 'bg-[#095B42] text-white shadow-md'
+              : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
           >
             <Users className="w-4 h-4 shrink-0" />
             <span>أعضاء العمومية</span>
@@ -505,11 +501,10 @@ export const SurveysPage: React.FC = () => {
           <button
             type="button"
             onClick={() => handleTabChange('customers')}
-            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              activeTab === 'customers'
-                ? 'bg-[#095B42] text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-            }`}
+            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'customers'
+              ? 'bg-[#095B42] text-white shadow-md'
+              : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
           >
             <Building2 className="w-4 h-4 shrink-0" />
             <span>عملاء التعاونية</span>
@@ -518,11 +513,10 @@ export const SurveysPage: React.FC = () => {
           <button
             type="button"
             onClick={() => handleTabChange('staff')}
-            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-              activeTab === 'staff'
-                ? 'bg-[#095B42] text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-            }`}
+            className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'staff'
+              ? 'bg-[#095B42] text-white shadow-md'
+              : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
           >
             <Briefcase className="w-4 h-4 shrink-0" />
             <span>رضا العاملين</span>
@@ -530,7 +524,7 @@ export const SurveysPage: React.FC = () => {
         </div>
 
         {/* Google Simulated Header Banner */}
-        <div className="bg-white rounded-3xl p-6 border-t-8 border-t-[#095B42] border border-gray-200/80 shadow-xs space-y-3">
+        <div className="bg-white rounded-3xl p-6 border-t-8 border-t-[#095B42] space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs border-b border-gray-100 pb-3">
             <div className="flex items-center gap-2 font-bold text-gray-700 dir-ltr">
               <span>{userEmail}</span>
@@ -645,7 +639,7 @@ export const SurveysPage: React.FC = () => {
                 {/* Entities Checkboxes */}
                 <div
                   data-error={!!errors.selectedEntities}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-4"
+                  className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     حدد الجهة : <span className="text-red-500">*</span>
@@ -696,7 +690,7 @@ export const SurveysPage: React.FC = () => {
                 {/* Position */}
                 <div
                   data-error={!!errors.position}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-3"
+                  className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     المنصب الوظيفي : <span className="text-red-500">*</span>
@@ -718,7 +712,7 @@ export const SurveysPage: React.FC = () => {
                 {/* How Discovered */}
                 <div
                   data-error={!!errors.howDiscovered}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-3"
+                  className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     كيف تعرفت على الجمعية ؟ <span className="text-red-500">*</span>
@@ -743,7 +737,7 @@ export const SurveysPage: React.FC = () => {
                 {/* Communication Method */}
                 <div
                   data-error={!!errors.communicationMethod}
-                  className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-4"
+                  className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     ماهي طريقة التواصل مع الجمعية : <span className="text-red-500">*</span>
@@ -796,7 +790,7 @@ export const SurveysPage: React.FC = () => {
             {activeTab === 'assembly' && (
               <form onSubmit={handleAssemblySubmit} className="space-y-6">
                 {/* Member Name */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-3">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     اسم عضو الجمعية العمومية <span className="text-red-500">*</span>
                   </label>
@@ -874,7 +868,7 @@ export const SurveysPage: React.FC = () => {
             {activeTab === 'staff' && (
               <form onSubmit={handleStaffSubmit} className="space-y-6">
                 {/* Department Name */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-3">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     اسم المؤسسة او الإدارة التابع لها الموظف <span className="text-red-500">*</span>
                   </label>
@@ -906,7 +900,7 @@ export const SurveysPage: React.FC = () => {
                 ))}
 
                 {/* Morale Status Question */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-4">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     كيف تصف معنوياتك في العمل في هذا الوقت <span className="text-red-500">*</span>
                   </label>
@@ -931,7 +925,7 @@ export const SurveysPage: React.FC = () => {
                 </div>
 
                 {/* Planned Duration Question */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-4">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     كم المدة التي تخطط للاستمرار بالعمل بالجمعية ( بنفس ظروف العمل الحالية ) <span className="text-red-500">*</span>
                   </label>
@@ -962,7 +956,7 @@ export const SurveysPage: React.FC = () => {
                 </div>
 
                 {/* Additional Notes */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-2xs space-y-3">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
                   <label className="block text-sm sm:text-base font-bold text-[#12332B]">
                     أي ملاحظات اخرى
                   </label>

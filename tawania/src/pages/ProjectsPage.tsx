@@ -151,7 +151,7 @@ export const ProjectsPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#12332B]/10 max-w-lg mx-auto shadow-xs">
+          <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl max-w-lg mx-auto shadow-xs">
             <p className="text-base font-semibold">{t.common.noResults}</p>
             <p className="text-xs text-gray-400 mt-1">
               {locale === 'ar' ? 'لا توجد مشاريع مطابقة للبحث.' : 'No projects matched your search.'}

@@ -83,7 +83,7 @@ export const SearchResultsPage: React.FC = () => {
             <Link
               key={res.id}
               to={res.url}
-              className="block bg-white p-5 rounded-2xl border border-[#12332B]/10 hover:border-[#0B6B4F]/40 hover:shadow-xs transition-all duration-200 group"
+              className="block bg-white p-5 rounded-2xl hover:border-[#0B6B4F]/40 hover:shadow-xs transition-all duration-200 group"
             >
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-[#EBF4F0] flex items-center justify-center shrink-0 mt-0.5">
@@ -117,7 +117,7 @@ export const SearchResultsPage: React.FC = () => {
           ))}
 
           {results.length === 0 && initialQuery && (
-            <div className="py-16 text-center text-[#68736F] bg-white rounded-2xl border border-[#12332B]/10 space-y-2">
+            <div className="py-16 text-center text-[#68736F] bg-white rounded-2xl space-y-2">
               <Search className="w-8 h-8 mx-auto text-gray-300" />
               <p className="text-sm font-semibold">{t.search.noResults}</p>
               <p className="text-xs text-gray-400">

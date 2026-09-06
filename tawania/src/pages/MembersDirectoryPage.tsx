@@ -142,7 +142,7 @@ export const MembersDirectoryPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 screen-only">
         {/* Top Control Bar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 bg-white p-4 rounded-2xl border border-[#12332B]/10 shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 bg-white p-4 rounded-2xl shadow-xs">
           {/* Search Input */}
           <div className="relative flex-1 max-w-md">
             <Search className="w-4 h-4 text-gray-400 absolute start-3.5 top-1/2 -translate-y-1/2" />
@@ -164,11 +164,10 @@ export const MembersDirectoryPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setViewMode('poster')}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  viewMode === 'poster'
-                    ? 'bg-[#0B6B4F] text-white shadow-xs'
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'poster'
+                  ? 'bg-[#0B6B4F] text-white shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900'
+                  }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
                 <span>{locale === 'ar' ? 'عرض السجل المعتمد' : 'Official Registry'}</span>
@@ -176,11 +175,10 @@ export const MembersDirectoryPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setViewMode('table')}
-                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  viewMode === 'table'
-                    ? 'bg-[#0B6B4F] text-white shadow-xs'
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'table'
+                  ? 'bg-[#0B6B4F] text-white shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900'
+                  }`}
               >
                 <TableIcon className="w-3.5 h-3.5" />
                 <span>{locale === 'ar' ? 'عرض الجدول' : 'Table View'}</span>
@@ -201,7 +199,7 @@ export const MembersDirectoryPage: React.FC = () => {
         {/* Dynamic Display based on View Mode */}
         {viewMode === 'poster' ? (
           /* LUXURY POSTER VIEW */
-          <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-lg relative overflow-hidden">
+          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
             {/* Poster Header */}
             <div className="text-center max-w-2xl mx-auto space-y-4 mb-8">
               <div className="flex justify-center mb-2">
@@ -243,9 +241,8 @@ export const MembersDirectoryPage: React.FC = () => {
                     return (
                       <tr
                         key={member.id}
-                        className={`transition-colors hover:bg-[#EBF4F0]/70 ${
-                          isEven ? 'bg-[#FAFBFA]' : 'bg-white'
-                        }`}
+                        className={`transition-colors hover:bg-[#EBF4F0]/70 ${isEven ? 'bg-[#FAFBFA]' : 'bg-white'
+                          }`}
                       >
                         <td className="py-2.5 px-4 font-mono font-bold text-[#0B6B4F] bg-gray-50/50 border-e border-gray-100">
                           {member.id}
@@ -286,7 +283,7 @@ export const MembersDirectoryPage: React.FC = () => {
           </div>
         ) : (
           /* TABLE VIEW: Comprehensive Sortable & Filterable Table */
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-md space-y-6">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-md space-y-6">
             <div className="flex items-center justify-between flex-wrap gap-2">
               <h3 className="text-lg font-bold text-[#12332B]">
                 قائمة أعضاء الجمعية العمومية ({filteredMembers.length} عضو)
@@ -296,7 +293,7 @@ export const MembersDirectoryPage: React.FC = () => {
               </span>
             </div>
 
-            <div className="overflow-x-auto border border-gray-200/80 rounded-2xl">
+            <div className="overflow-x-auto   rounded-2xl">
               <table className="w-full min-w-[650px] text-start text-xs sm:text-sm border-collapse">
                 <thead>
                   <tr className="bg-[#F7F8F6] border-b border-gray-200 text-gray-700 font-bold">
@@ -367,11 +364,10 @@ export const MembersDirectoryPage: React.FC = () => {
                   key={pageNum}
                   type="button"
                   onClick={() => setCurrentPage(pageNum)}
-                  className={`w-9 h-9 rounded-xl text-xs font-bold transition-all shadow-2xs ${
-                    isActive
-                      ? 'bg-[#0B6B4F] text-white shadow-xs scale-105'
-                      : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
-                  }`}
+                  className={`w-9 h-9 rounded-xl text-xs font-bold transition-all shadow-2xs ${isActive
+                    ? 'bg-[#0B6B4F] text-white shadow-xs scale-105'
+                    : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+                    }`}
                 >
                   {pageNum}
                 </button>

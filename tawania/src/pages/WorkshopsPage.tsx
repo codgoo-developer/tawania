@@ -59,33 +59,30 @@ export const WorkshopsPage: React.FC = () => {
           <button
             type="button"
             onClick={() => setSelectedFilter('all')}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              selectedFilter === 'all'
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'all'
                 ? 'bg-[#0B6B4F] text-white shadow-sm'
                 : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
-            }`}
+              }`}
           >
             {locale === 'ar' ? 'كافة الورش (الكل)' : 'All Workshops'}
           </button>
           <button
             type="button"
             onClick={() => setSelectedFilter('internal')}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              selectedFilter === 'internal'
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'internal'
                 ? 'bg-[#0B6B4F] text-white shadow-sm'
                 : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
-            }`}
+              }`}
           >
             {locale === 'ar' ? 'ورش الحوكمة والامتثال' : 'Governance Workshops'}
           </button>
           <button
             type="button"
             onClick={() => setSelectedFilter('community')}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              selectedFilter === 'community'
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'community'
                 ? 'bg-[#0B6B4F] text-white shadow-sm'
                 : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
-            }`}
+              }`}
           >
             {locale === 'ar' ? 'الورش المقامة بالشركات المجتمعية' : 'Community Partnerships'}
           </button>
@@ -96,7 +93,7 @@ export const WorkshopsPage: React.FC = () => {
           {filteredWorkshops.map((w) => (
             <div
               key={w.id}
-              className="bg-white rounded-3xl border border-[#12332B]/10 overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12"
+              className="bg-white rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 grid grid-cols-1 lg:grid-cols-12"
             >
               {/* Image side */}
               <div className="lg:col-span-4 relative h-64 lg:h-auto overflow-hidden bg-gray-100">

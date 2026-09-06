@@ -43,7 +43,7 @@ export const MembersPage: React.FC = () => {
       {/* Overview Metric Stats */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-2xl border border-[#12332B]/10 shadow-xs text-center space-y-1">
+          <div className="bg-white p-6 rounded-2xl shadow-xs text-center space-y-1">
             <span className="text-xs text-[#68736F] font-bold">
               {locale === 'ar' ? 'رأس المال المكتتب' : 'Paid Equity'}
             </span>
@@ -55,7 +55,7 @@ export const MembersPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#12332B]/10 shadow-xs text-center space-y-1">
+          <div className="bg-white p-6 rounded-2xl shadow-xs text-center space-y-1">
             <span className="text-xs text-[#68736F] font-bold">
               {locale === 'ar' ? 'إجمالي الأسهم' : 'Total Issued Shares'}
             </span>
@@ -67,7 +67,7 @@ export const MembersPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#12332B]/10 shadow-xs text-center space-y-1">
+          <div className="bg-white p-6 rounded-2xl shadow-xs text-center space-y-1">
             <span className="text-xs text-[#68736F] font-bold">
               {locale === 'ar' ? 'الحد الأدنى للاكتتاب' : 'Minimum Subscription'}
             </span>
@@ -79,7 +79,7 @@ export const MembersPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#12332B]/10 shadow-xs text-center space-y-1">
+          <div className="bg-white p-6 rounded-2xl shadow-xs text-center space-y-1">
             <span className="text-xs text-[#68736F] font-bold">
               {locale === 'ar' ? 'أعضاء الجمعية العمومية' : 'Shareholder Count'}
             </span>
@@ -169,7 +169,7 @@ export const MembersPage: React.FC = () => {
           {subscriptionStepsData.map((step, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-6 border border-[#12332B]/10 shadow-2xs space-y-3 relative"
+              className="bg-white rounded-2xl p-6 shadow-2xs space-y-3 relative"
             >
               <span className="text-2xl font-black text-[#C9A45C] font-mono block">
                 {step.stepNumber}
@@ -189,7 +189,7 @@ export const MembersPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Rights */}
-          <div className="bg-white rounded-2xl p-8 border border-[#12332B]/10 shadow-xs space-y-6">
+          <div className="bg-white rounded-2xl p-8 shadow-xs space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
                 <CheckCircle2 className="w-5 h-5" />
@@ -219,7 +219,7 @@ export const MembersPage: React.FC = () => {
           </div>
 
           {/* Obligations */}
-          <div className="bg-white rounded-2xl p-8 border border-[#12332B]/10 shadow-xs space-y-6">
+          <div className="bg-white rounded-2xl p-8 shadow-xs space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center font-bold">
                 <ShieldCheck className="w-5 h-5" />

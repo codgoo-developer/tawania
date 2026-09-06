@@ -55,7 +55,7 @@ export const ProjectDetailPage: React.FC = () => {
           {/* Main Column (8 cols) */}
           <div className="lg:col-span-8 space-y-10 text-start">
             {/* Main Featured Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#12332B]/10 h-72 sm:h-96">
+            <div className="relative rounded-3xl overflow-hidden shadow-lg h-72 sm:h-96">
               <img
                 src={project.heroImage || project.thumbnailImage}
                 alt={getLocalized(project.name)}
@@ -89,7 +89,7 @@ export const ProjectDetailPage: React.FC = () => {
                   {project.services.map((service, idx) => (
                     <div
                       key={idx}
-                      className="p-4 rounded-xl bg-white border border-[#12332B]/10 shadow-2xs space-y-1.5"
+                      className="p-4 rounded-xl bg-white shadow-2xs space-y-1.5"
                     >
                       <div className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-[#0B6B4F] shrink-0" />
@@ -114,7 +114,7 @@ export const ProjectDetailPage: React.FC = () => {
                   {project.objectives.map((obj, idx) => (
                     <div
                       key={idx}
-                      className="p-4 rounded-xl bg-[#F7F8F6] border border-[#12332B]/10 flex items-start gap-3"
+                      className="p-4 rounded-xl bg-[#F7F8F6] flex items-start gap-3"
                     >
                       <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                         {idx + 1}
@@ -176,7 +176,7 @@ export const ProjectDetailPage: React.FC = () => {
           {/* Sidebar Column (4 cols) - Sticky Fixed */}
           <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-[110px] self-start z-10">
             {/* Quick Stats Card */}
-            <div className="bg-white rounded-3xl p-6 border border-[#12332B]/10 shadow-sm space-y-6">
+            <div className="bg-white rounded-3xl p-6  space-y-6">
               <h3 className="text-base font-bold text-[#12332B] pb-3 border-b border-[#12332B]/5">
                 {locale === 'ar' ? 'بطاقة المشروع ومؤشراته' : 'Project Quick Facts'}
               </h3>
@@ -250,7 +250,7 @@ export const ProjectDetailPage: React.FC = () => {
             <Link
               key={rel.slug}
               to={getLocalizedPath(`/projects/${rel.slug}`)}
-              className="bg-white rounded-2xl border border-[#12332B]/10 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
             >
               <div className="h-40 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
                 <img

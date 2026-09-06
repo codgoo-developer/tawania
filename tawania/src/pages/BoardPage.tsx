@@ -50,7 +50,7 @@ export const BoardPage: React.FC = () => {
 
       {/* Governance Overview Callout */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#12332B]/10 shadow-xs text-center max-w-4xl mx-auto space-y-4">
+        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-xs text-center max-w-4xl mx-auto space-y-4">
           <Badge variant="primary" className="mb-1">
             <Users className="w-3.5 h-3.5 text-[#C9A45C]" />
             <span>{locale === 'ar' ? (boardIntro?.cycleBadgeAr || 'الدورة الانتخابية الثانية') : (boardIntro?.cycleBadgeEn || 'Second Electoral Term')}</span>
@@ -68,7 +68,7 @@ export const BoardPage: React.FC = () => {
 
       {/* Board Members Cards Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-   
+
 
         {/* User Provided Exact Cards Grid */}
         <div className="pt-2 flex flex-wrap justify-center gap-6 items-stretch max-w-6xl mx-auto">
@@ -81,11 +81,10 @@ export const BoardPage: React.FC = () => {
             return (
               <div
                 key={member.id}
-                className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[340px] relative rounded-3xl p-6 transition-all duration-300 flex flex-col items-center text-center group ${
-                  isChairman
+                className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[340px] relative rounded-3xl p-6 transition-all duration-300 flex flex-col items-center text-center group ${isChairman
                     ? 'bg-gradient-to-b from-[#F3F8F5] via-white to-white border-2 border-[#0B6B4F]/40 shadow-md hover:shadow-xl hover:-translate-y-1.5'
-                    : 'bg-white border border-[#12332B]/10 shadow-2xs hover:shadow-lg hover:border-[#0B6B4F]/30 hover:-translate-y-1'
-                }`}
+                    : 'bg-white shadow-2xs hover:shadow-lg hover:border-[#0B6B4F]/30 hover:-translate-y-1'
+                  }`}
               >
                 {/* Chairman Top Banner Badge */}
                 {isChairman && (
@@ -98,11 +97,10 @@ export const BoardPage: React.FC = () => {
                 {/* Avatar / Initials Box */}
                 <div className="relative mt-2 mb-4">
                   <div
-                    className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105 shadow-md ${
-                      isChairman
+                    className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 transition-transform duration-300 group-hover:scale-105 shadow-md ${isChairman
                         ? 'bg-gradient-to-br from-[#C9A45C] via-[#0B6B4F] to-[#0A4D38]'
                         : 'bg-gradient-to-br from-[#0B6B4F]/30 via-gray-200 to-gray-100'
-                    }`}
+                      }`}
                   >
                     <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B6B4F] to-[#063325] border-2 border-white flex items-center justify-center shadow-inner">
                       {member.image ? (
@@ -116,9 +114,8 @@ export const BoardPage: React.FC = () => {
                   </div>
 
                   <div
-                    className={`absolute -bottom-1 end-0.5 w-7 h-7 rounded-full flex items-center justify-center border-2 border-white shadow-xs ${
-                      isChairman ? 'bg-amber-100 text-amber-800' : 'bg-emerald-50 text-[#0B6B4F]'
-                    }`}
+                    className={`absolute -bottom-1 end-0.5 w-7 h-7 rounded-full flex items-center justify-center border-2 border-white shadow-xs ${isChairman ? 'bg-amber-100 text-amber-800' : 'bg-emerald-50 text-[#0B6B4F]'
+                      }`}
                   >
                     {getRoleIcon(member.roleAr, member.badgeAr || '', member.isChairman)}
                   </div>
@@ -126,13 +123,12 @@ export const BoardPage: React.FC = () => {
 
                 {/* Role Badge */}
                 <span
-                  className={`text-[11px] font-bold px-3 py-1 rounded-full mb-2.5 ${
-                    isChairman
+                  className={`text-[11px] font-bold px-3 py-1 rounded-full mb-2.5 ${isChairman
                       ? 'bg-gradient-to-r from-amber-50 to-emerald-50 text-emerald-950 border border-amber-300/60 shadow-xs'
                       : member.roleAr.includes('مالي')
-                      ? 'bg-amber-50 text-amber-900 border border-amber-200/80'
-                      : 'bg-[#EBF4F0] text-[#0B6B4F] border border-[#0B6B4F]/20'
-                  }`}
+                        ? 'bg-amber-50 text-amber-900 border border-amber-200/80'
+                        : 'bg-[#EBF4F0] text-[#0B6B4F] border border-[#0B6B4F]/20'
+                    }`}
                 >
                   {locale === 'ar' ? member.roleAr : member.roleEn || member.roleAr}
                 </span>

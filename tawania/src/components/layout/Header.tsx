@@ -38,11 +38,10 @@ export const Header: React.FC = () => {
       {/* Sticky Header with fixed height */}
       <header
         id="main-header"
-        className={`sticky top-0 z-40 w-full h-[90px] flex items-center transition-all duration-300 ${
-          isScrolled
+        className={`sticky top-0 z-40 w-full h-[90px] flex items-center transition-all duration-300 ${isScrolled
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#12332B]/10'
             : 'bg-white/95 backdrop-blur-xs border-b border-[#12332B]/5'
-        }`}
+          }`}
       >
         <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
           <div className="flex items-center justify-between gap-2 xl:gap-4">
@@ -65,7 +64,7 @@ export const Header: React.FC = () => {
                 type="button"
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="h-8 w-8 text-xs font-medium text-[#17211E] bg-[#F7F8F6] hover:bg-[#EBF4F0] border border-[#12332B]/10 rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs group"
+                className="h-8 w-8 text-xs font-medium text-[#17211E] bg-[#F7F8F6] hover:bg-[#EBF4F0] rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs group"
                 aria-label={t.common.search}
               >
                 <Search className="w-3.5 h-3.5 text-[#0B6B4F] group-hover:scale-110 transition-transform" />

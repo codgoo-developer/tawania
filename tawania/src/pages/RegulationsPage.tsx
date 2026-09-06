@@ -59,14 +59,14 @@ export const RegulationsPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 border border-[#12332B]/10 shadow-xs mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-xs mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
             <button
               type="button"
               onClick={() => setSelectedSection('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'all'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'كافة الوثائق (الكل)' : 'All Documents'}
@@ -75,8 +75,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('foundation')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'foundation'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'اللائحة الأساسية والشهادات' : 'Bylaws & Certificates'}
@@ -85,8 +85,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('financial')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'financial'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'الملفات واللوائح المالية' : 'Financial Files'}
@@ -95,8 +95,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('laws')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'laws'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
-                  : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B6B4F] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
                 }`}
             >
               {locale === 'ar' ? 'الأنظمة والتشريعات' : 'Statutory Laws'}
@@ -120,7 +120,7 @@ export const RegulationsPage: React.FC = () => {
           {filtered.map((doc) => (
             <div
               key={doc.id}
-              className="bg-white rounded-3xl p-7 border border-[#12332B]/10 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-7 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

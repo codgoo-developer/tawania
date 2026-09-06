@@ -55,7 +55,7 @@ export const MemberRegistrationPage: React.FC = () => {
     setUserEmail(email);
     try {
       localStorage.setItem('google_form_simulated_email', email);
-    } catch {}
+    } catch { }
     setIsSwitchAccountOpen(false);
     setNewEmailInput('');
     setEmailError('');
@@ -162,7 +162,7 @@ export const MemberRegistrationPage: React.FC = () => {
   };
 
   const copyToClipboard = () => {
-    const text = 
+    const text =
       `طلب تسجيل عضو جديد - تعاونية الشامل\n` +
       `رقم الطلب: ${referenceCode}\n` +
       `الاسم: ${fullName}\n` +
@@ -218,7 +218,7 @@ export const MemberRegistrationPage: React.FC = () => {
         </div>
 
         {/* Google Form Header Simulation Strip */}
-        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-[#12332B]/10 shadow-2xs mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#525E59]">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 shadow-2xs mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#525E59]">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-full bg-[#095B42]/10 flex items-center justify-center text-[#095B42] font-bold text-xs uppercase">
               {userEmail ? userEmail.slice(0, 2) : 'AS'}
@@ -338,7 +338,7 @@ export const MemberRegistrationPage: React.FC = () => {
             </div>
 
             {/* Reference & Breakdown Box */}
-            <div className="bg-[#F8FAF8] rounded-2xl p-6 border border-[#12332B]/10 max-w-lg mx-auto text-start space-y-3 text-sm">
+            <div className="bg-[#F8FAF8] rounded-2xl p-6 max-w-lg mx-auto text-start space-y-3 text-sm">
               <div className="flex justify-between items-center pb-3 border-b border-[#12332B]/10">
                 <span className="text-xs text-gray-500 font-bold">رقم الطلب المرجعي:</span>
                 <span className="font-mono font-black text-[#095B42] text-base">{referenceCode}</span>
@@ -412,9 +412,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 1: الاسم الرباعي */}
             <div
               data-error={!!errors.fullName}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.fullName ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.fullName ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 الاسم الرباعي <span className="text-red-500">*</span>
@@ -436,9 +435,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 2: رقم الهوية */}
             <div
               data-error={!!errors.nationalId}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.nationalId ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.nationalId ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 رقم الهوية الوطنية <span className="text-red-500">*</span>
@@ -461,9 +459,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 3: مصدر الهوية الوطنية */}
             <div
               data-error={!!errors.idSource}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.idSource ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.idSource ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 مصدر الهوية الوطنية <span className="text-red-500">*</span>
@@ -485,9 +482,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 4: تاريخ الميلاد */}
             <div
               data-error={!!errors.birthDate}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.birthDate ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.birthDate ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <label className="block text-sm sm:text-base font-bold text-[#12332B]">
@@ -515,7 +511,7 @@ export const MemberRegistrationPage: React.FC = () => {
                       // Extract digits and any suffix like هـ or م
                       const cleanDigits = inputVal.replace(/[^0-9]/g, '').slice(0, 8);
                       const suffix = inputVal.includes('هـ') ? ' هـ' : inputVal.includes('م') ? ' م' : '';
-                      
+
                       let formatted = '';
                       if (cleanDigits.length > 0) {
                         formatted = cleanDigits.slice(0, 2);
@@ -564,9 +560,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 5: رقم الجوال */}
             <div
               data-error={!!errors.phone}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.phone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.phone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 رقم الجوال <span className="text-red-500">*</span>
@@ -588,9 +583,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 6: رقم قريب للطوارى */}
             <div
               data-error={!!errors.emergencyPhone}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.emergencyPhone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.emergencyPhone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 رقم قريب للطوارى <span className="text-red-500">*</span>
@@ -612,9 +606,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 7: عنوان السكن */}
             <div
               data-error={!!errors.residenceAddress}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.residenceAddress ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.residenceAddress ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 عنوان السكن <span className="text-red-500">*</span>
@@ -636,9 +629,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 8: المؤهل */}
             <div
               data-error={!!errors.qualification}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.qualification ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.qualification ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 المؤهل <span className="text-red-500">*</span>
@@ -647,11 +639,10 @@ export const MemberRegistrationPage: React.FC = () => {
                 {['ثانوي فما دون', 'دبلوم متوسط', 'بكالوريوس', 'ماجستير', 'دكتوراه', 'أخرى'].map((q) => (
                   <label
                     key={q}
-                    className={`flex items-center gap-2 p-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
-                      qualification === q
+                    className={`flex items-center gap-2 p-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${qualification === q
                         ? 'border-[#095B42] bg-[#EBF4F0] text-[#095B42]'
                         : 'border-gray-200 hover:bg-gray-50 text-gray-700'
-                    }`}
+                      }`}
                   >
                     <input
                       type="radio"
@@ -674,9 +665,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 9: المهنة */}
             <div
               data-error={!!errors.occupation}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.occupation ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.occupation ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 المهنة <span className="text-red-500">*</span>
@@ -698,9 +688,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 10: كم عدد الاسهم المطلوبة ؟ وقيمتها ؟ WITH EXACT USER TEXT */}
             <div
               data-error={!!errors.sharesCount}
-              className={`bg-white rounded-2xl p-6 sm:p-8 border transition-all ${
-                errors.sharesCount ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 sm:p-8 border transition-all ${errors.sharesCount ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-3">
                 كم عدد الاسهم المطلوبة ؟ وقيمتها ؟ <span className="text-red-500">*</span>
@@ -746,11 +735,10 @@ export const MemberRegistrationPage: React.FC = () => {
                         key={count}
                         type="button"
                         onClick={() => setSharesCount(count)}
-                        className={`px-3 py-2 rounded-xl text-xs font-bold transition-colors ${
-                          sharesCount === count
+                        className={`px-3 py-2 rounded-xl text-xs font-bold transition-colors ${sharesCount === count
                             ? 'bg-gradient-to-br from-[#095B42] to-[#064230] text-white'
                             : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                        }`}
+                          }`}
                       >
                         {count} سهم
                       </button>
@@ -781,9 +769,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 11: كم نسبة الأرباح المتوقعة ؟ */}
             <div
               data-error={!!errors.expectedProfitResponse}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.expectedProfitResponse ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.expectedProfitResponse ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-2">
                 كم نسبة الأرباح المتوقعة ؟ <span className="text-red-500">*</span>
@@ -808,9 +795,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 12: التعهد بالشراء والتعامل */}
             <div
               data-error={!!errors.pledgePurchasing}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.pledgePurchasing ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.pledgePurchasing ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-4 leading-relaxed">
                 اتعهد بالتعامل والشراء من التعاونية وذلك لانجاح التعاونية وتحقيق الفائدة من المساهمة. <span className="text-red-500">*</span>
@@ -836,9 +822,8 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 13: الاطلاع على اللوائح والأنظمة */}
             <div
               data-error={!!errors.viewedBylaws}
-              className={`bg-white rounded-2xl p-6 border transition-all ${
-                errors.viewedBylaws ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
-              }`}
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.viewedBylaws ? 'border-red-400 ring-2 ring-red-100' : 'border-[#12332B]/10 shadow-2xs'
+                }`}
             >
               <label className="block text-sm sm:text-base font-bold text-[#12332B] mb-4 leading-relaxed">
                 هل تم الاطلاع على اللوائح والانظمة الخاصة بالجمعيات التعاونية <span className="text-red-500">*</span>
@@ -893,7 +878,7 @@ export const MemberRegistrationPage: React.FC = () => {
               </button>
             </div>
 
-   
+
           </form>
         )}
       </div>

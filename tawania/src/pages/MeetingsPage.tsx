@@ -120,10 +120,10 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         {/* Navigation & Year Switchers Panel */}
-        <div className="bg-white p-5 rounded-3xl border border-[#12332B]/10 shadow-xs space-y-4">
+        <div className="bg-white p-5 rounded-3xl shadow-xs space-y-4">
           {/* Top Row: Main Section Switcher (GA vs Board) */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
-            <div className="flex items-center gap-2 bg-[#F7F8F6] p-1.5 rounded-2xl border border-gray-200/80 w-full sm:w-auto">
+            <div className="flex items-center gap-2 bg-[#F7F8F6] p-1.5 rounded-2xl   w-full sm:w-auto">
               <Link
                 to={getLocalizedPath('/meetings/general-assembly')}
                 className={`flex-1 sm:flex-none py-2.5 px-5 text-xs sm:text-sm font-bold text-center rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 ${activeType === 'general-assembly'
@@ -170,7 +170,7 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
                   }}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${isSelected
                     ? 'bg-[#0B6B4F] text-white shadow-sm ring-2 ring-[#0B6B4F]/20 scale-102'
-                    : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200/80'
+                    : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F]  '
                     }`}
                 >
                   <span className="font-mono">{locale === 'ar' ? `عام ${yr}م` : yr}</span>
@@ -185,7 +185,7 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
 
         {/* If multiple meetings exist in the selected fiscal year, render sub-meeting selector grid */}
         {meetingsInSelectedYear.length > 1 && (
-          <div className="bg-[#F7F8F6] p-4 rounded-3xl border border-gray-200/80 shadow-xs space-y-3 animate-in fade-in duration-200">
+          <div className="bg-[#F7F8F6] p-4 rounded-3xl space-y-3 animate-in fade-in duration-200">
             <div className="flex items-center justify-between gap-2 text-xs font-bold text-[#0B6B4F]">
               <div className="flex items-center gap-2">
                 <Layers className="w-4 h-4" />
@@ -206,7 +206,7 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
                     onClick={() => setSelectedMeetingId(m.id)}
                     className={`p-3 rounded-2xl text-xs font-bold transition-all cursor-pointer flex flex-col justify-between gap-2 text-start ${isSelected
                       ? 'bg-[#0B6B4F] text-white shadow-md ring-2 ring-[#0B6B4F]/30 scale-[1.01]'
-                      : 'bg-white text-gray-800 hover:bg-gray-100 hover:text-[#0B6B4F] border border-gray-200/80'
+                      : 'bg-white text-gray-800 hover:bg-gray-100 hover:text-[#0B6B4F]  '
                       }`}
                   >
                     <div className="flex items-center justify-between gap-2">

@@ -101,7 +101,7 @@ export const ReportsPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filters and Search */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-[#12332B]/10 shadow-xs mb-8 space-y-4">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xs mb-8 space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Year Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
@@ -113,11 +113,10 @@ export const ReportsPage: React.FC = () => {
                   key={yr}
                   type="button"
                   onClick={() => setSelectedYear(yr)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold font-mono whitespace-nowrap transition-all cursor-pointer ${
-                    selectedYear === yr
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold font-mono whitespace-nowrap transition-all cursor-pointer ${selectedYear === yr
                       ? 'bg-[#0B6B4F] text-white shadow-xs'
                       : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
-                  }`}
+                    }`}
                 >
                   {yr === 'all' ? (locale === 'ar' ? 'كافة الأعوام' : 'All') : yr}
                 </button>
@@ -143,7 +142,7 @@ export const ReportsPage: React.FC = () => {
           {filteredReports.map((report) => (
             <div
               key={report.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#12332B]/10 hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className="bg-white rounded-3xl p-6 sm:p-7 hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-6"
             >
               {/* Left Side: Report Meta */}
               <div className="flex items-start gap-4 min-w-0">

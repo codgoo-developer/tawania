@@ -49,18 +49,17 @@ export const NewsPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filters and Search Bar */}
-        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-[#12332B]/10 shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xs mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
             {categories.map((cat) => (
               <button
                 key={cat.key}
                 type="button"
                 onClick={() => setSelectedCat(cat.key)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                  selectedCat === cat.key
+                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCat === cat.key
                     ? 'bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white shadow-xs'
                     : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-[#12332B]/5'
-                }`}
+                  }`}
               >
                 {cat.label}
               </button>
@@ -84,7 +83,7 @@ export const NewsPage: React.FC = () => {
           {filteredNews.map((item) => (
             <article
               key={item.slug}
-              className="bg-white rounded-2xl border border-[#12332B]/10 overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col group"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col group"
             >
               <div className="relative h-52 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
                 <img

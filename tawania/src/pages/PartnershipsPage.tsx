@@ -35,7 +35,7 @@ export const PartnershipsPage: React.FC = () => {
           {partnershipsData.map((partner) => (
             <div
               key={partner.id}
-              className="bg-white rounded-3xl p-8 border border-[#12332B]/10 shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col justify-between space-y-6"
+              className="bg-white rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
