@@ -204,6 +204,17 @@ export const DashboardPage: React.FC = () => {
   const safeNotifs = Array.isArray(notifications) ? notifications : [];
   const safeUnreadCount = typeof unreadNotificationsCount === 'number' ? unreadNotificationsCount : safeNotifs.filter(n => !n.isRead).length;
 
+  
+  // Refresh notifications and submissions on dashboard mount & every 15s
+  useEffect(() => {
+    refreshNotifications();
+    refreshSubmissions();
+    const interval = setInterval(() => {
+      refreshNotifications();
+    }, 15000);
+    return () => clearInterval(interval);
+  }, []);
+
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [notificationCategoryFilter, setNotificationCategoryFilter] = useState<'all' | 'unread' | 'whistleblowing' | 'membership' | 'survey' | 'contact_message'>('all');
   const notificationDropdownRef = useRef<HTMLDivElement>(null);
