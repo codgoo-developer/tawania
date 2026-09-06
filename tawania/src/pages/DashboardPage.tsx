@@ -1286,6 +1286,8 @@ export const DashboardPage: React.FC = () => {
   };
 
   // 5. Meetings Modal
+  const [meetingTypeFilter, setMeetingTypeFilter] = useState<'all' | 'board' | 'general_assembly'>('all');
+  const [meetingSearchQuery, setMeetingSearchQuery] = useState('');
   const [isMeetingModalOpen, setIsMeetingModalOpen] = useState(false);
   const [editingMeeting, setEditingMeeting] = useState<MeetingItem | null>(null);
   const [meetingForm, setMeetingForm] = useState<Partial<MeetingItem> & { date?: string; pdfUrl?: string; descriptionAr?: string; descriptionEn?: string }>({
@@ -5272,6 +5274,7 @@ export const DashboardPage: React.FC = () => {
 
           {activeTab === 'meetings' && (
             <div className="bg-white rounded-3xl p-4 sm:p-6 space-y-6 animate-in fade-in duration-200 text-start">
+              {/* Header Title & Add Action */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
@@ -5285,76 +5288,186 @@ export const DashboardPage: React.FC = () => {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    setEditingMeeting(null);
-                    setMeetingForm({
-                      meetingNumber: 'MTG-' + Math.floor(100 + Math.random() * 900),
-                      type: 'board',
-                      titleAr: '',
-                      titleEn: '',
-                      dateAr: '',
-                      dateEn: '',
-                      locationAr: 'المقر الرئيسي للجمعية',
-                      locationEn: 'Cooperative HQ',
-                      attendeesCount: 7,
-                      decisionsCount: 3,
-                      fileSize: '2.5 MB',
-                      fileUrl: '',
-                      pdfUrl: '',
-                      decisionsAr: []
-                    });
-                    setIsMeetingModalOpen(true);
-                  }}
-                  className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                  onClick={handleOpenAddMeeting}
+                  className="px-4 py-2.5 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm transition-all cursor-pointer hover:shadow-md"
                 >
                   <Plus className="w-4 h-4" />
-                  <span>{locale === 'ar' ? 'إضافة محضر اجتماع' : 'Add Meeting'}</span>
+                  <span>{locale === 'ar' ? 'إضافة محضر اجتماع جديد' : 'Add New Meeting'}</span>
                 </button>
               </div>
 
-              {/* Meetings Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {meetings.map((mtg) => (
-                  <div key={mtg.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
-                          {mtg.meetingNumber}
-                        </span>
-                        <span className="text-[10px] text-gray-500 font-mono">
-                          {mtg.dateAr}
-                        </span>
-                      </div>
-                      <h4 className="font-bold text-sm text-gray-900 leading-snug">
-                        {mtg.titleAr}
-                      </h4>
-                      <div className="flex items-center gap-3 text-xs text-gray-500 font-medium pt-1">
-                        <span>الحضور: {mtg.attendeesCount}</span>
-                        <span>القرارات: {mtg.decisionsCount}</span>
-                      </div>
-                    </div>
+              {/* Filtering Controls: Meeting Type Pills & Search Bar */}
+              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 bg-[#F8FAF8] p-3 rounded-2xl border border-gray-200/60">
+                {/* Type Filter Pills */}
+                <div className="flex items-center gap-1.5 overflow-x-auto text-xs shrink-0 no-scrollbar">
+                  {[
+                    { id: 'all', labelAr: 'جميع المحاضر', labelEn: 'All Meetings', count: meetings.length },
+                    { id: 'board', labelAr: 'مجلس الإدارة', labelEn: 'Board of Directors', count: meetings.filter(m => m.type === 'board').length },
+                    { id: 'general_assembly', labelAr: 'الجمعية العمومية', labelEn: 'General Assembly', count: meetings.filter(m => m.type !== 'board').length },
+                  ].map(tab => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setMeetingTypeFilter(tab.id as any)}
+                      className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
+                        meetingTypeFilter === tab.id
+                          ? 'bg-[#0B6B4F] text-white shadow-sm'
+                          : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200/80'
+                      }`}
+                    >
+                      <span>{locale === 'ar' ? tab.labelAr : tab.labelEn}</span>
+                      <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                        meetingTypeFilter === tab.id ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
+                      }`}>
+                        {tab.count}
+                      </span>
+                    </button>
+                  ))}
+                </div>
 
-                    <div className="pt-3 border-t border-gray-200/60 flex items-center justify-between gap-2">
+                {/* Search Bar */}
+                <div className="relative flex-1 max-w-xs ms-auto">
+                  <Search className="w-4 h-4 text-gray-400 absolute start-3 top-2.5 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={meetingSearchQuery}
+                    onChange={(e) => setMeetingSearchQuery(e.target.value)}
+                    placeholder={locale === 'ar' ? 'بحث برقم المحضر أو العنوان...' : 'Search by code or title...'}
+                    className="w-full ps-9 pe-3 py-2 bg-white border border-gray-200 rounded-xl text-xs outline-none focus:border-[#0B6B4F] text-gray-800 transition-colors shadow-2xs"
+                  />
+                  {meetingSearchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setMeetingSearchQuery('')}
+                      className="absolute end-2.5 top-2.5 text-gray-400 hover:text-gray-600"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Meetings Grid */}
+              {(() => {
+                const filteredMeetings = meetings.filter(mtg => {
+                  const matchesType = meetingTypeFilter === 'all' || 
+                    (meetingTypeFilter === 'board' ? mtg.type === 'board' : mtg.type !== 'board');
+                  
+                  const q = meetingSearchQuery.trim().toLowerCase();
+                  const matchesSearch = !q ||
+                    (mtg.titleAr && mtg.titleAr.toLowerCase().includes(q)) ||
+                    (mtg.titleEn && mtg.titleEn.toLowerCase().includes(q)) ||
+                    (mtg.meetingNumber && mtg.meetingNumber.toLowerCase().includes(q)) ||
+                    (mtg.dateAr && mtg.dateAr.toLowerCase().includes(q)) ||
+                    (mtg.locationAr && mtg.locationAr.toLowerCase().includes(q));
+
+                  return matchesType && matchesSearch;
+                });
+
+                if (filteredMeetings.length === 0) {
+                  return (
+                    <div className="py-16 text-center bg-[#F9FAF9] rounded-2xl border border-dashed border-gray-300 space-y-3">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mx-auto shadow-inner">
+                        <Calendar className="w-6 h-6" />
+                      </div>
+                      <p className="text-sm font-bold text-gray-700">
+                        {locale === 'ar' ? 'لا توجد محاضر اجتماعات مطابقة للفلتر المحدد' : 'No meeting minutes match this filter'}
+                      </p>
                       <button
                         type="button"
-                        onClick={() => handleOpenEditMeeting(mtg)}
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
+                        onClick={handleOpenAddMeeting}
+                        className="px-4 py-2 rounded-xl bg-[#0B6B4F] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
                       >
-                        <Edit2 className="w-3.5 h-3.5" />
-                        <span>تعديل المحضر</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => { if (window.confirm(locale === 'ar' ? 'حذف هذا المحضر؟' : 'Delete meeting?')) deleteMeeting((mtg as any).slug_id || mtg.id); }}
-                        className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
-                        title="حذف"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Plus className="w-4 h-4" />
+                        <span>{locale === 'ar' ? 'إضافة محضر جديد الآن' : 'Add New Meeting'}</span>
                       </button>
                     </div>
+                  );
+                }
+
+                return (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {filteredMeetings.map((mtg) => {
+                      const isBoard = mtg.type === 'board';
+
+                      return (
+                        <div
+                          key={mtg.id}
+                          className="p-5 rounded-2xl bg-[#F7F8F6] hover:bg-white border border-gray-200/80 hover:border-[#0B6B4F]/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-4 group"
+                        >
+                          <div className="space-y-3">
+                            {/* Top Badges: Type + Code + Date */}
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs ${
+                                isBoard
+                                  ? 'bg-blue-50 text-blue-700 border-blue-200'
+                                  : 'bg-purple-50 text-purple-700 border-purple-200'
+                              }`}>
+                                {isBoard
+                                  ? (locale === 'ar' ? 'مجلس الإدارة' : 'Board')
+                                  : (locale === 'ar' ? 'الجمعية العمومية' : 'General Assembly')}
+                              </span>
+
+                              <div className="flex items-center gap-1.5 ms-auto">
+                                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                                  {mtg.meetingNumber}
+                                </span>
+                                {mtg.dateAr && (
+                                  <span className="text-[10px] text-gray-500 font-mono">
+                                    {mtg.dateAr}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Meeting Title */}
+                            <h4 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#0B6B4F] transition-colors line-clamp-2">
+                              {mtg.titleAr}
+                            </h4>
+
+                            {/* Stats & Meta */}
+                            <div className="flex items-center gap-3 text-xs text-gray-500 font-medium pt-1 border-t border-gray-200/60">
+                              <span>الحضور: <strong className="text-gray-800">{mtg.attendeesCount || 0}</strong></span>
+                              <span>•</span>
+                              <span>القرارات: <strong className="text-gray-800">{mtg.decisionsCount || 0}</strong></span>
+                              {mtg.fileSize && (
+                                <>
+                                  <span>•</span>
+                                  <span className="font-mono text-[11px] text-gray-400">{mtg.fileSize}</span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Card Actions */}
+                          <div className="pt-3 border-t border-gray-200/60 flex items-center justify-between gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleOpenEditMeeting(mtg)}
+                              className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
+                            >
+                              <Edit2 className="w-3.5 h-3.5" />
+                              <span>تعديل المحضر</span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (window.confirm(locale === 'ar' ? 'هل أنت متأكد من حذف هذا المحضر؟' : 'Delete meeting?')) {
+                                  deleteMeeting((mtg as any).slug_id || mtg.id);
+                                }
+                              }}
+                              className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors cursor-pointer"
+                              title={locale === 'ar' ? 'حذف' : 'Delete'}
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
+                );
+              })()}
             </div>
           )}
 
