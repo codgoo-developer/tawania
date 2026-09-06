@@ -3809,7 +3809,7 @@ export const DashboardPage: React.FC = () => {
                   : cleanedName.slice(0, 2) || 'م . ح';
 
                 return (
-                  <div className=" max-w-2xl mx-auto bg-white rounded-3xl p-8  text-center space-y-6 relative overflow-hidden">
+                  <div className=" max-w-2xl mx-auto bg-white rounded-3xl p-4  text-center space-y-6 relative overflow-hidden">
                     {/* Top Accent Ribbon */}
                     <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
 
@@ -3835,22 +3835,15 @@ export const DashboardPage: React.FC = () => {
                       {ceo.email && (
                         <p className="text-xs text-gray-500 font-mono dir-ltr mt-1 block">{ceo.email}</p>
                       )}
-                    </div>
-
-                    {/* الوصف والمهام الرئيسية */}
-                    <div className="text-start bg-[#F8FAF8] p-5 rounded-2xl border border-gray-200/60 space-y-2">
-                      <h4 className="text-xs font-bold text-[#095B42] flex items-center gap-1.5">
-                        <FileText className="w-4 h-4" />
-                        <span>الوصف والمهام الرئيسية</span>
-                      </h4>
-                      <p className="text-xs text-gray-700 leading-relaxed font-medium">
+                      {/* Description & Key Tasks value placed under name */}
+                      <p className="text-xs text-gray-700 leading-relaxed font-medium bg-[#F8FAF8] p-3.5 rounded-2xl border border-gray-200/60 mt-3 text-start">
                         {ceo.descriptionAr || ceo.bioAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.'}
                       </p>
                     </div>
 
                     {/* Contact Channels & Direct Actions */}
                     {ceo.phone && (
-                      <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-center gap-3 text-xs">
+                      <div className=" flex flex-wrap items-center justify-center gap-3 text-xs">
                         <a
                           href={`tel:${ceo.phone}`}
                           className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60"

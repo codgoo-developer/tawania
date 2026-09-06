@@ -5,9 +5,7 @@ import {
   Mail,
   MessageCircle,
   Briefcase,
-  CheckCircle2,
-  FileText,
-  Sparkles
+  CheckCircle2
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { useGovernanceData } from '../context/GovernanceDataContext';
@@ -47,7 +45,7 @@ export const ExecutiveDirectorPage: React.FC = () => {
         ]}
       />
 
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Executive Director Profile Card */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-lg relative overflow-hidden">
@@ -96,6 +94,11 @@ export const ExecutiveDirectorPage: React.FC = () => {
                 </h2>
               </div>
 
+              {/* Description & Key Tasks directly under Name */}
+              <p className="text-xs sm:text-sm text-[#38423E] leading-relaxed font-medium bg-[#F8FAF8] p-4 rounded-2xl border border-gray-100/80">
+                {displayDesc}
+              </p>
+
               {/* Direct Communication Channels */}
               <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5">
                 {executiveDirector.phone && (
@@ -135,22 +138,6 @@ export const ExecutiveDirectorPage: React.FC = () => {
             </div>
 
           </div>
-        </div>
-
-        {/* الوصف والمهام الرئيسية (Description & Key Tasks) */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#12332B]/10 shadow-sm space-y-4 text-start">
-          <div className="flex items-center gap-2.5 border-b border-gray-100 pb-3">
-            <div className="w-9 h-9 rounded-xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center font-bold">
-              <FileText className="w-5 h-5" />
-            </div>
-            <h3 className="text-base sm:text-lg font-black text-[#12332B]">
-              {locale === 'ar' ? 'الوصف والمهام الرئيسية' : 'Description & Key Tasks'}
-            </h3>
-          </div>
-
-          <p className="text-xs sm:text-sm text-[#38423E] leading-relaxed font-medium whitespace-pre-line bg-[#F8FAF8] p-5 rounded-2xl border border-gray-100">
-            {displayDesc}
-          </p>
         </div>
 
       </section>
