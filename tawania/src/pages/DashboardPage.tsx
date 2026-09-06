@@ -5259,22 +5259,46 @@ export const DashboardPage: React.FC = () => {
                     </div>
 
                     <div className="pt-3 border-t border-gray-200/60 flex items-center justify-between gap-2">
-                      <Link
-                        to={getLocalizedPath('/ethics')}
-                        target="_blank"
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>معاينة</span>
-                      </Link>
-                      <button
-                        type="button"
-                        onClick={() => handleOpenEditEthics(eth)}
-                        className="p-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
-                        title="تعديل"
-                      >
-                        <Edit2 className="w-3.5 h-3.5" />
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <Link
+                          to={getLocalizedPath('/ethics')}
+                          target="_blank"
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] text-xs font-bold transition-colors inline-flex items-center gap-1"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>معاينة الصفحة</span>
+                        </Link>
+                        {eth.fileUrl && (
+                          <a
+                            href={eth.fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors inline-flex items-center gap-1"
+                            title="فتح ملف PDF المرفوع مباشرة"
+                          >
+                            <FileText className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                            <span className="max-w-[120px] truncate">{eth.fileName || 'ملف PDF'}</span>
+                          </a>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={() => handleOpenEditEthics(eth)}
+                          className="p-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                          title="تعديل"
+                        >
+                          <Edit2 className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteEthics(eth.id, eth.titleAr)}
+                          className="p-1.5 rounded-lg text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                          title="حذف"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -7678,23 +7702,90 @@ export const DashboardPage: React.FC = () => {
                 <label className="block font-bold text-gray-700 mb-1">تفاصيل القواعد والمبادئ الأخلاقية</label>
                 <textarea rows={4} value={ethicsForm.descAr || ''} onChange={(e) => setEthicsForm({ ...ethicsForm, descAr: e.target.value })} placeholder="المبادئ الأخلاقية والالتزام بقواعد السلوك..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
               </div>
-              <div>
-                <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
-                  <span>رابط وثيقة الميثاق الأخلاقي PDF</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف أو إدخال رابط</span>
-                </label>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    value={ethicsForm.fileUrl?.startsWith('data:application/pdf') ? `ملف جديد مرفق: ${ethicsForm.fileName || 'document.pdf'}` : (ethicsForm.fileUrl || '')}
-                    onChange={(e) => setEthicsForm({ ...ethicsForm, fileUrl: e.target.value })}
-                    placeholder="/uploads/ethics/AlShamel-Ethical-Charter.pdf"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${ethicsForm.fileUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
-                      }`}
-                  />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
-                    <Upload className="w-4 h-4 text-white" />
-                    <span>{ethicsForm.fileUrl ? 'تغيير / رفع PDF جديد' : 'رفع ملف PDF'}</span>
+              <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 space-y-3">
+                <div className="flex items-center justify-between">
+                  <label className="font-bold text-gray-800 flex items-center gap-1.5">
+                    <FileText className="w-4 h-4 text-[#0B6B4F]" />
+                    <span>وثيقة الميثاق الأخلاقي المعتمدة (PDF)</span>
+                  </label>
+                  <span className="text-[10px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full font-bold">
+                    حفظ سحابي ومحلي
+                  </span>
+                </div>
+
+                {ethicsForm.fileUrl ? (
+                  <div className="p-3 rounded-xl bg-white border border-emerald-200 flex items-center justify-between gap-3 shadow-xs">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-9 h-9 rounded-lg bg-emerald-50 text-[#0B6B4F] flex items-center justify-center shrink-0">
+                        <FileText className="w-5 h-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs font-bold text-gray-900 truncate">
+                          {ethicsForm.fileName || 'AlShamel-Ethical-Charter.pdf'}
+                        </p>
+                        <p className="text-[10px] text-emerald-600 font-medium">
+                          {ethicsForm.fileUrl?.startsWith('data:') ? 'ملف جديد جاهز للحفظ والإرسال' : 'ملف محفوظ ومعتمد في قاعدة البيانات'} • {ethicsForm.fileSize || 'PDF'}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {!ethicsForm.fileUrl?.startsWith('data:') && (
+                        <a
+                          href={ethicsForm.fileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-2.5 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-700 inline-flex items-center gap-1 transition-colors"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          <span>فتح</span>
+                        </a>
+                      )}
+                      <label className="px-3 py-1.5 bg-[#0B6B4F] hover:bg-[#08523C] text-white rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>تغيير</span>
+                        <input
+                          type="file"
+                          accept=".pdf,application/pdf"
+                          className="hidden"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const sizeMb = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+                              setEthicsForm(prev => ({
+                                ...prev,
+                                fileName: file.name,
+                                fileSize: sizeMb
+                              }));
+                            }
+                            handlePdfFileUpload(e, (dataUrl) => {
+                              setEthicsForm(prev => ({
+                                ...prev,
+                                fileUrl: dataUrl
+                              }));
+                            });
+                          }}
+                        />
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => setEthicsForm({ ...ethicsForm, fileUrl: '', fileName: 'Ethical-Charter.pdf' })}
+                        className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
+                        title="إزالة الملف"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="border-2 border-dashed border-gray-300 hover:border-[#0B6B4F] bg-white rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 cursor-pointer transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B6B4F] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Upload className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-800">انقر هنا لاختيار ورفع ملف PDF من جهازك</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">الملف سيتم حفظه تلقائياً في قاعدة البيانات ومجلد الوثائق</p>
+                    </div>
                     <input
                       type="file"
                       accept=".pdf,application/pdf"
@@ -7718,10 +7809,7 @@ export const DashboardPage: React.FC = () => {
                       }}
                     />
                   </label>
-                  {ethicsForm.fileUrl && (
-                    <button type="button" title="إلغاء الملف" onClick={() => setEthicsForm({ ...ethicsForm, fileUrl: '', fileName: 'Ethical-Charter.pdf' })} className="p-2 text-red-500 hover:bg-red-50 rounded-xl border border-red-200 cursor-pointer"><X className="w-4 h-4" /></button>
-                  )}
-                </div>
+                )}
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsEthicsModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
