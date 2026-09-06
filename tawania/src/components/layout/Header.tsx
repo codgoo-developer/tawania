@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
             : 'bg-white/95 backdrop-blur-xs border-b border-[#12332B]/5'
           }`}
       >
-        <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8">
+        <div className="w-full max-w-full xl:max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-4 xl:px-6">
           <div className="flex items-center justify-between gap-2 xl:gap-4">
             {/* Logo Section */}
             <Link

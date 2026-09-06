@@ -4137,9 +4137,7 @@ export const DashboardPage: React.FC = () => {
                           <span className="font-serif tracking-wider select-none">{autoInitials}</span>
                         )}
                       </div>
-                      <span className="absolute bottom-1 end-1 bg-emerald-500 w-6 h-6 rounded-full border-2 border-white shadow-xs flex items-center justify-center" title="نشط على رأس العمل">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-white" />
-                      </span>
+                 
                     </div>
 
                     <div className="space-y-2">
