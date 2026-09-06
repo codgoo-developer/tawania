@@ -97,7 +97,6 @@ export const MegaMenu: React.FC = () => {
       to: '/executive-director',
       labelAr: 'المدير التنفيذي',
       labelEn: 'Executive Director',
-      isFeatured: true,
       isActive: () => isCurrent('/executive-director')
     }
   ];
@@ -106,22 +105,6 @@ export const MegaMenu: React.FC = () => {
     <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 text-[11.5px] xl:text-[12.5px] 2xl:text-[13px] font-semibold select-none shrink">
       {navLinks.map((link) => {
         const active = link.isActive();
-
-        if (link.isFeatured) {
-          return (
-            <Link
-              key={link.to}
-              to={getLocalizedPath(link.to)}
-              className={`px-2 py-1 xl:px-2.5 xl:py-1.5 rounded-full font-bold transition-all duration-200 whitespace-nowrap shrink-0 border flex items-center gap-1 shadow-2xs ${
-                active
-                  ? 'bg-[#0B6B4F] text-white border-[#0B6B4F] shadow-xs'
-                  : 'bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] border-emerald-200/80'
-              }`}
-            >
-              <span>{isAr ? link.labelAr : link.labelEn}</span>
-            </Link>
-          );
-        }
 
         return (
           <Link
