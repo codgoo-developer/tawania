@@ -208,7 +208,6 @@ export const DashboardPage: React.FC = () => {
   // Refresh notifications and submissions on dashboard mount & every 15s
   useEffect(() => {
     refreshNotifications();
-    refreshSubmissions();
     const interval = setInterval(() => {
       refreshNotifications();
     }, 15000);
