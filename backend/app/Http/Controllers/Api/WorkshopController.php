@@ -37,6 +37,9 @@ class WorkshopController extends Controller
     {
         $data = $request->all();
 
+        $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null;
+        $fileUrl = FileUploadHelper::saveBase64File($rawFile, 'workshops', 'wkp');
+
         $mapped = [
             'slug_id' => $data['slug_id'] ?? $data['slugId'] ?? $data['id'] ?? 'wkp-' . time(),
             'type' => $data['type'] ?? 'internal',
@@ -57,7 +60,7 @@ class WorkshopController extends Controller
             'objectives_ar' => isset($data['objectivesAr']) ? (is_array($data['objectivesAr']) ? json_encode($data['objectivesAr'], JSON_UNESCAPED_UNICODE) : $data['objectivesAr']) : null,
             'objectives_en' => isset($data['objectivesEn']) ? (is_array($data['objectivesEn']) ? json_encode($data['objectivesEn'], JSON_UNESCAPED_UNICODE) : $data['objectivesEn']) : null,
             'file_size' => $data['fileSize'] ?? $data['file_size'] ?? '3.5 MB',
-            'file_url' => $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null,
+            'file_url' => $fileUrl,
         ];
 
         $wkp = WorkshopItem::create($mapped);
@@ -115,7 +118,8 @@ class WorkshopController extends Controller
         }
         if (isset($data['fileSize']) || isset($data['file_size'])) $wkp->file_size = $data['fileSize'] ?? $data['file_size'];
         if (isset($data['fileUrl']) || isset($data['file_url']) || isset($data['pdfUrl'])) {
-            $wkp->file_url = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $wkp->file_url = FileUploadHelper::saveBase64File($rawFile, 'workshops', 'wkp');
         }
 
         $wkp->save();

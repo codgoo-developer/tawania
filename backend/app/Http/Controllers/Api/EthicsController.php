@@ -28,6 +28,9 @@ class EthicsController extends Controller
         $data = $request->all();
         $nextNum = EthicsItem::max('num') + 1;
 
+        $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null;
+        $fileUrl = FileUploadHelper::saveBase64File($rawFile, 'ethics', 'eth');
+
         $mapped = [
             'slug_id' => $data['slug_id'] ?? $data['slugId'] ?? $data['id'] ?? 'eth-' . time(),
             'num' => (int)($data['num'] ?? $nextNum),
@@ -37,7 +40,7 @@ class EthicsController extends Controller
             'desc_en' => $data['descEn'] ?? $data['desc_en'] ?? $data['descriptionEn'] ?? null,
             'file_name' => $data['fileName'] ?? $data['file_name'] ?? 'Ethical-Charter.pdf',
             'file_size' => $data['fileSize'] ?? $data['file_size'] ?? '2.4 MB',
-            'file_url' => $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null,
+            'file_url' => $fileUrl,
         ];
 
         $ethics = EthicsItem::create($mapped);
@@ -72,7 +75,8 @@ class EthicsController extends Controller
         if (isset($data['fileName']) || isset($data['file_name'])) $ethics->file_name = $data['fileName'] ?? $data['file_name'];
         if (isset($data['fileSize']) || isset($data['file_size'])) $ethics->file_size = $data['fileSize'] ?? $data['file_size'];
         if (isset($data['fileUrl']) || isset($data['file_url']) || isset($data['pdfUrl'])) {
-            $ethics->file_url = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $ethics->file_url = FileUploadHelper::saveBase64File($rawFile, 'ethics', 'eth');
         }
 
         $ethics->save();

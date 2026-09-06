@@ -46,6 +46,9 @@ class MeetingController extends Controller
         $prefix = $type === 'board' ? 'bm' : 'ga';
         $year = date('Y');
 
+        $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null;
+        $fileUrl = FileUploadHelper::saveBase64File($rawFile, 'meetings', 'meet');
+
         $mapped = [
             'slug_id' => $data['slug_id'] ?? $data['slugId'] ?? $data['id'] ?? "{$prefix}-{$year}-" . rand(10, 99),
             'type' => $type,
@@ -61,7 +64,7 @@ class MeetingController extends Controller
             'desc_ar' => $data['descAr'] ?? $data['desc_ar'] ?? $data['descriptionAr'] ?? '',
             'desc_en' => $data['descEn'] ?? $data['desc_en'] ?? null,
             'file_size' => $data['fileSize'] ?? $data['file_size'] ?? '2.0 MB',
-            'file_url' => $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'] ?? null,
+            'file_url' => $fileUrl,
         ];
 
         $meeting = Meeting::create($mapped);
@@ -108,7 +111,8 @@ class MeetingController extends Controller
         if (isset($data['descEn']) || isset($data['desc_en'])) $meeting->desc_en = $data['descEn'] ?? $data['desc_en'];
         if (isset($data['fileSize']) || isset($data['file_size'])) $meeting->file_size = $data['fileSize'] ?? $data['file_size'];
         if (isset($data['fileUrl']) || isset($data['file_url']) || isset($data['pdfUrl'])) {
-            $meeting->file_url = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $rawFile = $data['fileUrl'] ?? $data['file_url'] ?? $data['pdfUrl'];
+            $meeting->file_url = FileUploadHelper::saveBase64File($rawFile, 'meetings', 'meet');
         }
 
         $meeting->save();
