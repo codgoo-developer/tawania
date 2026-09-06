@@ -471,7 +471,7 @@ export const SurveysPage: React.FC = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
         {/* Navigation Tabs Switcher */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-white p-2 rounded-3xlshadow-sm">
           <button

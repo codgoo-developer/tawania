@@ -205,7 +205,7 @@ export const DashboardPage: React.FC = () => {
   const safeUnreadCount = typeof unreadNotificationsCount === 'number' ? unreadNotificationsCount : safeNotifs.filter(n => !n.isRead).length;
 
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [notificationCategoryFilter, setNotificationCategoryFilter] = useState<'all' | 'whistleblowing' | 'membership' | 'survey' | 'contact_message'>('all');
+  const [notificationCategoryFilter, setNotificationCategoryFilter] = useState<'all' | 'unread' | 'whistleblowing' | 'membership' | 'survey' | 'contact_message'>('all');
   const notificationDropdownRef = useRef<HTMLDivElement>(null);
 
   // Close notification dropdown on click outside
@@ -2270,9 +2270,10 @@ export const DashboardPage: React.FC = () => {
                     </div>
 
                     {/* Filter Category Pills */}
-                    <div className="p-2 px-3 bg-gray-50/80 border-b border-gray-100 flex items-center gap-1 overflow-x-auto text-[11px] shrink-0">
+                    <div className="p-2 px-3 bg-gray-50/90 border-b border-gray-100 flex items-center gap-1.5 overflow-x-auto text-[11px] shrink-0 no-scrollbar">
                       {[
                         { id: 'all', labelAr: 'الكل', labelEn: 'All', count: safeNotifs.length },
+                        { id: 'unread', labelAr: 'غير مقروءة', labelEn: 'Unread', count: safeUnreadCount },
                         { id: 'whistleblowing', labelAr: 'البلاغات', labelEn: 'Complaints', count: safeNotifs.filter(n => n.module === 'whistleblowing').length },
                         { id: 'membership', labelAr: 'العضوية', labelEn: 'Membership', count: safeNotifs.filter(n => n.module === 'membership').length },
                         { id: 'survey', labelAr: 'الاستبيانات', labelEn: 'Surveys', count: safeNotifs.filter(n => n.module === 'survey').length },
@@ -2282,15 +2283,23 @@ export const DashboardPage: React.FC = () => {
                           key={cat.id}
                           type="button"
                           onClick={() => setNotificationCategoryFilter(cat.id as any)}
-                          className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${notificationCategoryFilter === cat.id
-                            ? 'bg-[#0B6B4F] text-white shadow-xs'
-                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
-                            }`}
+                          className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${
+                            notificationCategoryFilter === cat.id
+                              ? 'bg-[#0B6B4F] text-white shadow-xs'
+                              : cat.id === 'unread' && safeUnreadCount > 0
+                              ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
+                              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
+                          }`}
                         >
                           <span>{locale === 'ar' ? cat.labelAr : cat.labelEn}</span>
                           {cat.count > 0 && (
-                            <span className={`text-[9px] px-1 rounded-full ${notificationCategoryFilter === cat.id ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-600'
-                              }`}>
+                            <span className={`text-[9px] px-1.5 py-0.2 rounded-full font-mono ${
+                              notificationCategoryFilter === cat.id
+                                ? 'bg-white/25 text-white'
+                                : cat.id === 'unread'
+                                ? 'bg-rose-600 text-white'
+                                : 'bg-gray-100 text-gray-700'
+                            }`}>
                               {cat.count}
                             </span>
                           )}
@@ -2299,119 +2308,129 @@ export const DashboardPage: React.FC = () => {
                     </div>
 
                     {/* Notifications List */}
-                    <div className="overflow-y-auto flex-1 divide-y divide-gray-100 max-h-[340px]">
-                      {safeNotifs.filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter).length === 0 ? (
-                        <div className="py-10 px-4 text-center flex flex-col items-center justify-center text-gray-400">
-                          <div className="w-12 h-12 rounded-full bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mb-2 shadow-inner">
-                            <Inbox className="w-6 h-6" />
-                          </div>
-                          <p className="text-xs font-bold text-gray-700">
-                            {locale === 'ar' ? 'لا توجد إشعارات جديدة' : 'No notifications'}
-                          </p>
-                          <p className="text-[11px] text-gray-400 mt-0.5">
-                            {locale === 'ar' ? 'جميع الواردات والطلبات محدثة ومقروءة' : 'All incoming items are reviewed'}
-                          </p>
-                        </div>
-                      ) : (
-                        notifications
-                          .filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter)
-                          .map(notif => {
-                            const isUnread = !notif.isRead;
-                            const isComplaint = notif.module === 'whistleblowing';
-                            const isMember = notif.module === 'membership';
-                            const isSurvey = notif.module === 'survey';
+                    <div className="overflow-y-auto flex-1 divide-y divide-gray-100 max-h-[350px]">
+                      {(() => {
+                        const filteredNotifs = safeNotifs.filter(n => {
+                          if (notificationCategoryFilter === 'all') return true;
+                          if (notificationCategoryFilter === 'unread') return !n.isRead;
+                          return n.module === notificationCategoryFilter;
+                        });
 
-                            return (
-                              <div
-                                key={notif.id}
-                                onClick={() => handleOpenNotificationItem(notif)}
-                                className={`p-3 px-3.5 hover:bg-emerald-50/40 transition-colors cursor-pointer relative flex items-start gap-2.5 ${isUnread ? 'bg-emerald-50/20' : 'bg-white opacity-85 hover:opacity-100'
-                                  }`}
-                              >
-                                {/* Unread indicator bar/dot */}
-                                {isUnread && (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 mt-2 ring-2 ring-rose-200 animate-pulse" />
-                                )}
+                        if (filteredNotifs.length === 0) {
+                          return (
+                            <div className="py-12 px-4 text-center flex flex-col items-center justify-center text-gray-400">
+                              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mb-2.5 shadow-inner">
+                                <Inbox className="w-6 h-6" />
+                              </div>
+                              <p className="text-xs font-bold text-gray-700">
+                                {locale === 'ar' ? 'لا توجد إشعارات في هذا القسم' : 'No notifications in this category'}
+                              </p>
+                              <p className="text-[11px] text-gray-400 mt-0.5">
+                                {locale === 'ar' ? 'جميع الواردات والطلبات محدثة ومقروءة' : 'All incoming items are up to date'}
+                              </p>
+                            </div>
+                          );
+                        }
 
-                                {/* Category Icon */}
-                                <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-2xs ${isComplaint
+                        return filteredNotifs.map(notif => {
+                          const isUnread = !notif.isRead;
+                          const isComplaint = notif.module === 'whistleblowing';
+                          const isMember = notif.module === 'membership';
+                          const isSurvey = notif.module === 'survey';
+
+                          return (
+                            <div
+                              key={notif.id}
+                              onClick={() => handleOpenNotificationItem(notif)}
+                              className={`p-3 px-3.5 hover:bg-emerald-50/50 transition-colors cursor-pointer relative flex items-start gap-2.5 group ${
+                                isUnread ? 'bg-emerald-50/25' : 'bg-white opacity-85 hover:opacity-100'
+                              }`}
+                            >
+                              {/* Unread indicator dot */}
+                              {isUnread && (
+                                <span className="w-2 h-2 rounded-full bg-rose-500 shrink-0 mt-2 ring-2 ring-rose-200 animate-pulse" />
+                              )}
+
+                              {/* Category Icon */}
+                              <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105 ${
+                                isComplaint
                                   ? 'bg-rose-50 text-rose-600 border border-rose-100'
                                   : isMember
-                                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
-                                    : isSurvey
-                                      ? 'bg-purple-50 text-purple-600 border border-purple-100'
-                                      : 'bg-sky-50 text-sky-600 border border-sky-100'
-                                  }`}>
-                                  {isComplaint ? (
-                                    <AlertTriangle className="w-4 h-4" />
-                                  ) : isMember ? (
-                                    <UserPlus className="w-4 h-4" />
-                                  ) : isSurvey ? (
-                                    <Smile className="w-4 h-4" />
-                                  ) : (
-                                    <Mail className="w-4 h-4" />
+                                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
+                                  : isSurvey
+                                  ? 'bg-purple-50 text-purple-600 border border-purple-100'
+                                  : 'bg-sky-50 text-sky-600 border border-sky-100'
+                              }`}>
+                                {isComplaint ? (
+                                  <AlertTriangle className="w-4 h-4" />
+                                ) : isMember ? (
+                                  <UserPlus className="w-4 h-4" />
+                                ) : isSurvey ? (
+                                  <Smile className="w-4 h-4" />
+                                ) : (
+                                  <Mail className="w-4 h-4" />
+                                )}
+                              </div>
+
+                              {/* Content Details */}
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center justify-between gap-1 mb-0.5">
+                                  <span className="text-[11.5px] font-bold text-gray-900 truncate">
+                                    {locale === 'ar' ? (notif.titleAr || notif.title) : (notif.titleEn || notif.title)}
+                                  </span>
+                                  {notif.code && (
+                                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-gray-100 font-mono text-gray-600 shrink-0 font-semibold border border-gray-200/50">
+                                      {notif.code}
+                                    </span>
                                   )}
                                 </div>
 
-                                {/* Content Details */}
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-center justify-between gap-1 mb-0.5">
-                                    <span className="text-[11px] font-bold text-gray-900 truncate">
-                                      {locale === 'ar' ? (notif.titleAr || notif.title) : (notif.titleEn || notif.title)}
-                                    </span>
-                                    {notif.code && (
-                                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-gray-100 font-mono text-gray-600 shrink-0 font-semibold">
-                                        {notif.code}
-                                      </span>
-                                    )}
-                                  </div>
+                                <p className="text-[11px] text-gray-600 line-clamp-2 leading-relaxed">
+                                  {notif.message || notif.title}
+                                </p>
 
-                                  <p className="text-[11px] text-gray-600 line-clamp-2 leading-relaxed">
-                                    {notif.message || notif.title}
-                                  </p>
-
-                                  <div className="flex items-center justify-between mt-1.5 pt-1 border-t border-gray-100/60 text-[10px] text-gray-400">
-                                    <span className="text-gray-500 font-medium truncate max-w-[180px]">
-                                      {notif.senderName}
-                                    </span>
-                                    <div className="flex items-center gap-1 shrink-0">
-                                      <Clock className="w-2.5 h-2.5" />
-                                      <span>{notif.timeAgo || notif.createdAt}</span>
-                                    </div>
+                                <div className="flex items-center justify-between mt-1.5 pt-1 border-t border-gray-100/60 text-[10px] text-gray-400">
+                                  <span className="text-gray-500 font-medium truncate max-w-[170px]">
+                                    {notif.senderName}
+                                  </span>
+                                  <div className="flex items-center gap-1 shrink-0 font-medium">
+                                    <Clock className="w-2.5 h-2.5 text-gray-400" />
+                                    <span>{notif.timeAgo || notif.createdAt}</span>
                                   </div>
                                 </div>
+                              </div>
 
-                                {/* Action Buttons */}
-                                <div className="flex flex-col gap-1 shrink-0 pt-0.5">
-                                  {isUnread && (
-                                    <button
-                                      type="button"
-                                      onClick={async (e) => {
-                                        e.stopPropagation();
-                                        await markNotificationAsRead(notif.id);
-                                      }}
-                                      className="p-1 rounded-md text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors cursor-pointer"
-                                      title={locale === 'ar' ? 'تحديد كمقروء' : 'Mark as read'}
-                                    >
-                                      <CheckCircle2 className="w-3.5 h-3.5" />
-                                    </button>
-                                  )}
+                              {/* Action Buttons */}
+                              <div className="flex flex-col gap-1 shrink-0 pt-0.5">
+                                {isUnread && (
                                   <button
                                     type="button"
                                     onClick={async (e) => {
                                       e.stopPropagation();
-                                      await deleteNotification(notif.id);
+                                      await markNotificationAsRead(notif.id);
                                     }}
-                                    className="p-1 rounded-md text-gray-300 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
-                                    title={locale === 'ar' ? 'حذف الإشعار' : 'Delete'}
+                                    className="p-1 rounded-md text-gray-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors cursor-pointer"
+                                    title={locale === 'ar' ? 'تحديد كمقروء' : 'Mark as read'}
                                   >
-                                    <Trash2 className="w-3 h-3" />
+                                    <CheckCircle2 className="w-3.5 h-3.5" />
                                   </button>
-                                </div>
+                                )}
+                                <button
+                                  type="button"
+                                  onClick={async (e) => {
+                                    e.stopPropagation();
+                                    await deleteNotification(notif.id);
+                                  }}
+                                  className="p-1 rounded-md text-gray-300 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                                  title={locale === 'ar' ? 'حذف الإشعار' : 'Delete'}
+                                >
+                                  <Trash2 className="w-3 h-3" />
+                                </button>
                               </div>
-                            );
-                          })
-                      )}
+                            </div>
+                          );
+                        });
+                      })()}
                     </div>
 
                     {/* Footer */}
