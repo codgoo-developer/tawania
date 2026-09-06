@@ -191,8 +191,8 @@ export const DashboardPage: React.FC = () => {
     updateTestimonial,
     deleteTestimonial,
     resetToDefaults,
-    notifications,
-    unreadNotificationsCount,
+    notifications = [],
+    unreadNotificationsCount = 0,
     markNotificationAsRead,
     markAllNotificationsAsRead,
     deleteNotification,
@@ -200,6 +200,9 @@ export const DashboardPage: React.FC = () => {
   } = useGovernanceData();
 
   const [notification, setNotification] = useState<string | null>(null);
+
+  const safeNotifs = Array.isArray(notifications) ? notifications : [];
+  const safeUnreadCount = typeof unreadNotificationsCount === 'number' ? unreadNotificationsCount : safeNotifs.filter(n => !n.isRead).length;
 
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [notificationCategoryFilter, setNotificationCategoryFilter] = useState<'all' | 'whistleblowing' | 'membership' | 'survey' | 'contact_message'>('all');
@@ -2210,9 +2213,9 @@ export const DashboardPage: React.FC = () => {
                   aria-expanded={isNotificationOpen}
                 >
                   <Bell className="w-3.5 h-3.5" />
-                  {unreadNotificationsCount > 0 && (
+                  {safeUnreadCount > 0 && (
                     <span className="min-w-[17px] h-[17px] px-1 bg-rose-600 text-white text-[9px] font-black rounded-full absolute -top-1.5 -right-1.5 ring-2 ring-white flex items-center justify-center animate-pulse shadow-sm">
-                      {unreadNotificationsCount > 9 ? '9+' : unreadNotificationsCount}
+                      {safeUnreadCount > 9 ? '9+' : safeUnreadCount}
                     </span>
                   )}
                 </button>
@@ -2231,15 +2234,15 @@ export const DashboardPage: React.FC = () => {
                             {locale === 'ar' ? 'مركز الإشعارات والتنبيهات' : 'Notification Center'}
                           </h4>
                           <span className="text-[10px] text-white/70 font-medium">
-                            {unreadNotificationsCount > 0 
-                              ? (locale === 'ar' ? `${unreadNotificationsCount} إشعار جديد غير مقروء` : `${unreadNotificationsCount} unread`)
+                            {safeUnreadCount > 0 
+                              ? (locale === 'ar' ? `${safeUnreadCount} إشعار جديد غير مقروء` : `${safeUnreadCount} unread`)
                               : (locale === 'ar' ? 'جميع الإشعارات مقروءة' : 'All caught up')}
                           </span>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-1.5">
-                        {unreadNotificationsCount > 0 && (
+                        {safeUnreadCount > 0 && (
                           <button
                             type="button"
                             onClick={async (e) => {
@@ -2269,11 +2272,11 @@ export const DashboardPage: React.FC = () => {
                     {/* Filter Category Pills */}
                     <div className="p-2 px-3 bg-gray-50/80 border-b border-gray-100 flex items-center gap-1 overflow-x-auto text-[11px] shrink-0">
                       {[
-                        { id: 'all', labelAr: 'الكل', labelEn: 'All', count: notifications.length },
-                        { id: 'whistleblowing', labelAr: 'البلاغات', labelEn: 'Complaints', count: notifications.filter(n => n.module === 'whistleblowing').length },
-                        { id: 'membership', labelAr: 'العضوية', labelEn: 'Membership', count: notifications.filter(n => n.module === 'membership').length },
-                        { id: 'survey', labelAr: 'الاستبيانات', labelEn: 'Surveys', count: notifications.filter(n => n.module === 'survey').length },
-                        { id: 'contact_message', labelAr: 'الرسائل', labelEn: 'Messages', count: notifications.filter(n => n.module === 'contact_message').length },
+                        { id: 'all', labelAr: 'الكل', labelEn: 'All', count: safeNotifs.length },
+                        { id: 'whistleblowing', labelAr: 'البلاغات', labelEn: 'Complaints', count: safeNotifs.filter(n => n.module === 'whistleblowing').length },
+                        { id: 'membership', labelAr: 'العضوية', labelEn: 'Membership', count: safeNotifs.filter(n => n.module === 'membership').length },
+                        { id: 'survey', labelAr: 'الاستبيانات', labelEn: 'Surveys', count: safeNotifs.filter(n => n.module === 'survey').length },
+                        { id: 'contact_message', labelAr: 'الرسائل', labelEn: 'Messages', count: safeNotifs.filter(n => n.module === 'contact_message').length },
                       ].map(cat => (
                         <button
                           key={cat.id}
@@ -2299,7 +2302,7 @@ export const DashboardPage: React.FC = () => {
 
                     {/* Notifications List */}
                     <div className="overflow-y-auto flex-1 divide-y divide-gray-100 max-h-[340px]">
-                      {notifications.filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter).length === 0 ? (
+                      {safeNotifs.filter(n => notificationCategoryFilter === 'all' || n.module === notificationCategoryFilter).length === 0 ? (
                         <div className="py-10 px-4 text-center flex flex-col items-center justify-center text-gray-400">
                           <div className="w-12 h-12 rounded-full bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mb-2 shadow-inner">
                             <Inbox className="w-6 h-6" />
@@ -2430,7 +2433,7 @@ export const DashboardPage: React.FC = () => {
                         <ExternalLink className="w-3 h-3" />
                       </button>
                       <span className="text-[10px] text-gray-400 font-mono">
-                        {notifications.length} {locale === 'ar' ? 'سجل' : 'items'}
+                        {safeNotifs.length} {locale === 'ar' ? 'سجل' : 'items'}
                       </span>
                     </div>
                   </div>

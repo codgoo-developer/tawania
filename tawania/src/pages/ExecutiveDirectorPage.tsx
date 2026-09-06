@@ -55,7 +55,7 @@ export const ExecutiveDirectorPage: React.FC = () => {
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Executive Director Profile Card - Exactly matches Dashboard Layout */}
-        <div className="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-8 text-center space-y-6 relative overflow-hidden shadow-lg border border-[#12332B]/10">
+        <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 text-center space-y-6 relative overflow-hidden ">
           {/* Top Accent Ribbon */}
           <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
 
