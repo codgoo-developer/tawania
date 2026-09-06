@@ -5215,14 +5215,24 @@ export const DashboardPage: React.FC = () => {
                   </p>
                 </div>
 
-                <Link
-                  to={getLocalizedPath('/ethics')}
-                  target="_blank"
-                  className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-700 inline-flex items-center gap-1.5 transition-colors"
-                >
-                  <ExternalLink className="w-3.5 h-3.5" />
-                  <span>{locale === 'ar' ? 'معاينة صفحة الميثاق الأخلاقي' : 'View Ethics Page'}</span>
-                </Link>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <button
+                    type="button"
+                    onClick={handleOpenAddEthics}
+                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>{locale === 'ar' ? 'إضافة وثيقة / بند ميثاق جديد' : 'Add Ethics Document'}</span>
+                  </button>
+                  <Link
+                    to={getLocalizedPath('/ethics')}
+                    target="_blank"
+                    className="px-3 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-xs font-bold text-gray-700 inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>{locale === 'ar' ? 'معاينة صفحة الميثاق الأخلاقي' : 'View Ethics Page'}</span>
+                  </Link>
+                </div>
               </div>
 
               {/* Ethics Cards */}

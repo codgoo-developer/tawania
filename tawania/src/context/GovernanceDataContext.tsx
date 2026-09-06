@@ -2201,8 +2201,20 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
   const refreshEthics = async () => {
     try {
       const res = await apiService.getEthics();
-      if (res && res.data && res.data.length > 0) {
-        setEthics(res.data);
+      if (res && res.data && Array.isArray(res.data) && res.data.length > 0) {
+        const normalized: EthicsItem[] = res.data.map((item: any) => ({
+          ...item,
+          id: item.slug_id || item.slugId || String(item.id),
+          num: Number(item.num || 1),
+          titleAr: item.title_ar || item.titleAr || '',
+          titleEn: item.title_en || item.titleEn || '',
+          descAr: item.desc_ar || item.descAr || item.descriptionAr || '',
+          descEn: item.desc_en || item.descEn || item.descriptionEn || '',
+          fileName: item.file_name || item.fileName || 'Ethical-Charter.pdf',
+          fileSize: item.file_size || item.fileSize || '2.4 MB',
+          fileUrl: item.file_url || item.fileUrl || item.pdfUrl || '',
+        }));
+        setEthics(normalized);
       }
     } catch (err) {
       console.error('Error fetching ethics:', err);
