@@ -7,8 +7,6 @@ import {
   FileText,
   ExternalLink,
   ShieldCheck,
-  RotateCw,
-  Eye,
   AlertCircle
 } from 'lucide-react';
 import { useI18n } from '../../i18n';
@@ -33,38 +31,37 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
-  const [activePdfUrl, setActivePdfUrl] = useState<string>('');
+  const [resolvedUrl, setResolvedUrl] = useState<string>('');
   const [blobUrl, setBlobUrl] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Compute resolved PDF URL & create Blob URL for native high-fidelity rendering
+  const displayFileName = fileName || `${(title || 'Document').replace(/[^\w\s\u0600-\u06FF-]/gi, '')}.pdf`;
+
+  // Compute resolved PDF URL & create Object/Blob URL for native high-fidelity rendering
   useEffect(() => {
     setError(null);
     setLoading(true);
 
     let rawUrl = '';
-    if (fileUrl) {
+    if (fileUrl && fileUrl.trim()) {
       if (fileUrl.startsWith('data:application/pdf') || fileUrl.startsWith('blob:') || fileUrl.startsWith('http')) {
         rawUrl = fileUrl;
-      } else if (fileUrl.startsWith('/files/') || fileUrl.startsWith('/uploads/')) {
-        const cleanPath = fileUrl
-          .split('/')
-          .map((part) => (part ? encodeURIComponent(decodeURIComponent(part)) : ''))
-          .join('/');
-        rawUrl = cleanPath;
-      } else {
+      } else if (fileUrl.startsWith('/files/') || fileUrl.startsWith('/uploads/') || fileUrl.startsWith('/')) {
         rawUrl = fileUrl;
+      } else {
+        rawUrl = `/${fileUrl.replace(/^\/+/, '')}`;
       }
     } else {
       rawUrl = getDocumentPdfUrl(title, codeOrNum);
     }
 
-    setActivePdfUrl(rawUrl);
+    setResolvedUrl(rawUrl);
 
-    // If it's a data URL or relative URL, fetch as blob to give the native browser viewer a clean, high-performance object URL
     let isMounted = true;
-    const prepareBlob = async () => {
+    let createdUrl = '';
+
+    const prepareViewer = async () => {
       try {
         if (rawUrl.startsWith('blob:')) {
           if (isMounted) {
@@ -83,39 +80,36 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
           }
           const byteArray = new Uint8Array(byteNumbers);
           const blob = new Blob([byteArray], { type: 'application/pdf' });
-          const url = URL.createObjectURL(blob);
+          createdUrl = URL.createObjectURL(blob);
           if (isMounted) {
-            setBlobUrl(url);
+            setBlobUrl(createdUrl);
             setLoading(false);
           }
           return;
         }
 
-        // Fetch remote / local file as blob
-        const response = await fetch(rawUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error ${response.status}`);
-        }
-        const blob = await response.blob();
-        const pdfBlob = new Blob([blob], { type: 'application/pdf' });
-        const url = URL.createObjectURL(pdfBlob);
+        // For regular paths (/uploads/..., /files/..., http://...)
+        // Use direct URL for maximum native browser fidelity and proper tab title
         if (isMounted) {
-          setBlobUrl(url);
+          setBlobUrl(rawUrl);
           setLoading(false);
         }
       } catch (err: any) {
-        console.warn('Could not prepare PDF blob, falling back to direct URL:', err);
+        console.error('PDF Document Viewer Preparation Error:', err);
         if (isMounted) {
-          setBlobUrl(rawUrl);
+          setError(err.message || 'Failed to load document');
           setLoading(false);
         }
       }
     };
 
-    prepareBlob();
+    prepareViewer();
 
     return () => {
       isMounted = false;
+      if (createdUrl && createdUrl.startsWith('blob:')) {
+        URL.revokeObjectURL(createdUrl);
+      }
     };
   }, [fileUrl, title, codeOrNum]);
 
@@ -143,7 +137,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
   }, []);
 
   const handleDownload = () => {
-    downloadDocumentFile(title, codeOrNum, blobUrl || activePdfUrl, fileName);
+    downloadDocumentFile(title, codeOrNum, resolvedUrl || blobUrl, displayFileName);
   };
 
   const handlePrint = () => {
@@ -156,14 +150,16 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
         // Fallback
       }
     }
-    const printWin = window.open(blobUrl || activePdfUrl, '_blank');
+    const targetUrl = (resolvedUrl && !resolvedUrl.startsWith('data:')) ? resolvedUrl : blobUrl;
+    const printWin = window.open(targetUrl, '_blank');
     if (printWin) {
       printWin.focus();
     }
   };
 
   const handleOpenNewTab = () => {
-    window.open(blobUrl || activePdfUrl, '_blank', 'noopener,noreferrer');
+    const targetUrl = (resolvedUrl && !resolvedUrl.startsWith('data:')) ? resolvedUrl : blobUrl;
+    window.open(targetUrl, '_blank', 'noopener,noreferrer');
   };
 
   const iframeSrc = blobUrl ? `${blobUrl}#view=FitH&toolbar=1` : '';
@@ -202,7 +198,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
                 {isAr ? 'وثيقة رسمية معتمدة بدقة أصلية عالية' : 'High-Definition Verified Document'}
               </span>
               <span>•</span>
-              <span>{isAr ? 'جمعية الشامل التعاونية' : 'AlShamel Cooperative'}</span>
+              <span className="truncate max-w-[180px]">{displayFileName}</span>
             </div>
           </div>
         </div>
