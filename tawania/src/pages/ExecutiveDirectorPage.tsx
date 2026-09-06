@@ -1,10 +1,8 @@
 import React from 'react';
 import {
-  UserCog,
   Phone,
   Mail,
-  MessageCircle,
-  Briefcase,
+  MessageSquare,
   CheckCircle2
 } from 'lucide-react';
 import { useI18n } from '../i18n';
@@ -28,9 +26,19 @@ export const ExecutiveDirectorPage: React.FC = () => {
   const displayName = locale === 'ar' ? executiveDirector.nameAr : (executiveDirector.nameEn || executiveDirector.nameAr);
   const displayRole = locale === 'ar' ? executiveDirector.roleAr : (executiveDirector.roleEn || executiveDirector.roleAr);
   const displayDesc = locale === 'ar'
-    ? (executiveDirector.descriptionAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.')
-    : (executiveDirector.descriptionEn || executiveDirector.descriptionAr || 'Manages daily executive operations of AlShamel Cooperative.');
-  const initials = executiveDirector.initialsAr || displayName.slice(0, 5) || 'م . ت';
+    ? (executiveDirector.descriptionAr || executiveDirector.bioAr || 'يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية.')
+    : (executiveDirector.descriptionEn || executiveDirector.bioEn || executiveDirector.descriptionAr || 'Manages daily executive operations of AlShamel Cooperative.');
+
+  const autoInitials = executiveDirector.initialsAr || (
+    displayName
+      ? displayName
+          .trim()
+          .split(/\s+/)
+          .slice(0, 2)
+          .map((w: string) => w[0])
+          .join(' ')
+      : 'م ت'
+  );
 
   return (
     <div className="space-y-10 pb-24 bg-[#F7F8F6]">
@@ -46,100 +54,78 @@ export const ExecutiveDirectorPage: React.FC = () => {
       />
 
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Executive Director Profile Card - Exactly matches Dashboard Layout */}
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-8 text-center space-y-6 relative overflow-hidden shadow-lg border border-[#12332B]/10">
+          {/* Top Accent Ribbon */}
+          <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
 
-        {/* Executive Director Profile Card */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#12332B]/10 shadow-lg relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
-
-            {/* Side 1: Luxury Layered Avatar */}
-            <div className="shrink-0 flex flex-col items-center">
-              <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1.5 bg-gradient-to-br from-[#C9A45C] via-[#0B6B4F] to-[#0A4D38] shadow-lg">
-                <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B6B4F] to-[#063325] border-3 border-white flex items-center justify-center shadow-inner">
-                  {executiveDirector.image ? (
-                    <img src={executiveDirector.image} alt={displayName} className="w-full h-full object-cover" />
-                  ) : (
-                    <span className="text-3xl sm:text-4xl font-black text-amber-200 font-serif tracking-wider select-none">
-                      {initials}
-                    </span>
-                  )}
-                </div>
-                <div className="absolute -bottom-1 end-1 w-9 h-9 rounded-full bg-amber-100 text-amber-900 border-2 border-white flex items-center justify-center shadow-sm">
-                  <Briefcase className="w-4 h-4 text-[#0B6B4F]" />
-                </div>
-              </div>
-
-              <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                <span>{locale === 'ar' ? 'تعيين رسمي معتمد' : 'Officially Appointed'}</span>
-              </div>
+          {/* Luxury Avatar / Photo */}
+          <div className="relative inline-block mx-auto mt-2">
+            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#095B42] via-[#0B6B4F] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+              {executiveDirector.image ? (
+                <img src={executiveDirector.image} alt={displayName} className="w-full h-full object-cover" />
+              ) : (
+                <span className="font-serif tracking-wider select-none">{autoInitials}</span>
+              )}
             </div>
+            <span
+              className="absolute bottom-1 end-1 bg-emerald-500 w-6 h-6 rounded-full border-2 border-white shadow-xs flex items-center justify-center"
+              title={locale === 'ar' ? 'نشط على رأس العمل' : 'Active on duty'}
+            >
+              <CheckCircle2 className="w-3.5 h-3.5 text-white" />
+            </span>
+          </div>
 
-            {/* Side 2: Details & Direct Contacts */}
-            <div className="flex-1 space-y-4 text-center md:text-start">
+          <div className="space-y-2">
+            <h3 className="text-2xl font-black text-gray-900 leading-snug">{displayName}</h3>
+            <p className="text-xs font-bold text-[#095B42] bg-[#EBF4F0] px-4 py-1 rounded-full inline-block border border-[#095B42]/15">
+              {displayRole}
+            </p>
+            {executiveDirector.email && (
+              <p className="text-xs text-gray-500 font-mono dir-ltr mt-1 block">{executiveDirector.email}</p>
+            )}
+            {/* Description & Key Tasks value placed under name */}
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-medium bg-[#F8FAF8] p-4 rounded-2xl border border-gray-200/60 mt-3 text-start">
+              {displayDesc}
+            </p>
+          </div>
 
-              {/* Header Badges */}
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                <span className="text-xs font-black px-3.5 py-1 rounded-full bg-[#0B6B4F] text-white shadow-2xs inline-block">
-                  {displayRole}
-                </span>
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-amber-100/70 text-amber-900 border border-amber-200 inline-block">
-                  {locale === 'ar' ? 'الهيكل القيادي • الإدارة التنفيذية' : 'Executive Leadership'}
-                </span>
-              </div>
+          {/* Contact Channels & Direct Actions */}
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs pt-1">
+            {executiveDirector.phone && (
+              <a
+                href={`tel:${executiveDirector.phone}`}
+                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60 shadow-2xs"
+                dir="ltr"
+              >
+                <Phone className="w-4 h-4 text-[#095B42]" />
+                <span className="font-mono text-xs">{executiveDirector.phone}</span>
+              </a>
+            )}
 
-              {/* Name */}
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-black text-[#12332B] tracking-tight">
-                  {displayName}
-                </h2>
-              </div>
+            {executiveDirector.phone && (
+              <a
+                href={`https://wa.me/${executiveDirector.phone.replace(/[^0-9]/g, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold transition-all shadow-2xs"
+              >
+                <MessageSquare className="w-4 h-4 fill-white" />
+                <span>{locale === 'ar' ? 'محادثة واتساب' : 'WhatsApp Chat'}</span>
+              </a>
+            )}
 
-              {/* Description & Key Tasks directly under Name */}
-              <p className="text-xs sm:text-sm text-[#38423E] leading-relaxed font-medium bg-[#F8FAF8] p-4 rounded-2xl border border-gray-100/80">
-                {displayDesc}
-              </p>
-
-              {/* Direct Communication Channels */}
-              <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-2.5">
-                {executiveDirector.phone && (
-                  <a
-                    href={`tel:${executiveDirector.phone}`}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-[#EBF4F0] hover:bg-[#0B6B4F] text-[#08523C] hover:text-white font-bold text-xs sm:text-sm transition-all shadow-2xs group"
-                    dir="ltr"
-                  >
-                    <Phone className="w-4 h-4 text-[#C9A45C] group-hover:text-white transition-colors" />
-                    <span>{executiveDirector.phone}</span>
-                  </a>
-                )}
-
-                {executiveDirector.phone && (
-                  <a
-                    href={`https://wa.me/${executiveDirector.phone.replace(/[^0-9]/g, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-[#25D366] to-[#1EBE5D] hover:brightness-105 text-white font-bold text-xs sm:text-sm shadow-xs transition-all"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>{locale === 'ar' ? 'محادثة واتساب مباشرة' : 'Direct WhatsApp'}</span>
-                  </a>
-                )}
-
-                {executiveDirector.email && (
-                  <a
-                    href={`mailto:${executiveDirector.email}`}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white border border-gray-200 hover:border-[#0B6B4F] text-gray-700 hover:text-[#0B6B4F] font-bold text-xs sm:text-sm transition-all shadow-2xs"
-                  >
-                    <Mail className="w-4 h-4 text-[#0B6B4F]" />
-                    <span>{executiveDirector.email}</span>
-                  </a>
-                )}
-              </div>
-
-            </div>
-
+            {executiveDirector.email && (
+              <a
+                href={`mailto:${executiveDirector.email}`}
+                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-gray-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60 shadow-2xs"
+              >
+                <Mail className="w-4 h-4 text-[#095B42]" />
+                <span>{locale === 'ar' ? 'البريد الإلكتروني' : 'Send Email'}</span>
+              </a>
+            )}
           </div>
         </div>
-
       </section>
     </div>
   );
