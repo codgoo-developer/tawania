@@ -473,7 +473,7 @@ export const SurveysPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
         {/* Navigation Tabs Switcher */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-white p-2 rounded-3xl border border-gray-200 shadow-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 bg-white p-2 rounded-3xlshadow-sm">
           <button
             type="button"
             onClick={() => handleTabChange('supporters')}
@@ -574,7 +574,7 @@ export const SurveysPage: React.FC = () => {
                     value={newEmailInput}
                     onChange={(e) => setNewEmailInput(e.target.value)}
                     placeholder="example@gmail.com"
-                    className="w-full text-xs google-form-input py-2.5 text-gray-900 font-medium border border-gray-200 rounded-xl"
+                    className="w-full text-xs google-form-input py-2.5 text-gray-900 font-mediumrounded-xl"
                   />
                   {emailError && (
                     <span className="text-[11px] text-red-500 font-semibold">{emailError}</span>
@@ -585,7 +585,7 @@ export const SurveysPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsSwitchAccountOpen(false)}
-                    className="px-4 py-2 text-xs font-bold text-gray-600 rounded-xl border border-gray-200 hover:bg-gray-50"
+                    className="px-4 py-2 text-xs font-bold text-gray-600 rounded-xlhover:bg-gray-50"
                   >
                     إلغاء
                   </button>
@@ -615,7 +615,7 @@ export const SurveysPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-[#F8FAF8] p-4 rounded-2xl border border-gray-200 inline-block font-mono text-sm font-bold text-[#095B42]">
+            <div className="bg-[#F8FAF8] p-4 rounded-2xlinline-block font-mono text-sm font-bold text-[#095B42]">
               رقم المرجع: {referenceCode}
             </div>
 
@@ -655,7 +655,7 @@ export const SurveysPage: React.FC = () => {
                     ].map((entity) => (
                       <label
                         key={entity}
-                        className="flex items-center gap-3 p-3.5 rounded-2xl border border-gray-200 hover:bg-[#F7F8F6] cursor-pointer transition-colors"
+                        className="flex items-center gap-3 p-3.5 rounded-2xlhover:bg-[#F7F8F6] cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
@@ -747,7 +747,7 @@ export const SurveysPage: React.FC = () => {
                     {['الجوال', 'البريد الإلكتروني', 'التواصل المباشر'].map((method) => (
                       <label
                         key={method}
-                        className="flex items-center gap-3 p-3.5 rounded-2xl border border-gray-200 hover:bg-[#F7F8F6] cursor-pointer transition-colors"
+                        className="flex items-center gap-3 p-3.5 rounded-2xlhover:bg-[#F7F8F6] cursor-pointer transition-colors"
                       >
                         <input
                           type="radio"
@@ -908,7 +908,7 @@ export const SurveysPage: React.FC = () => {
                     {['مرتفعة', 'عادية', 'منخفضة'].map((opt) => (
                       <label
                         key={opt}
-                        className="flex items-center gap-3 p-3.5 rounded-2xl border border-gray-200 hover:bg-[#F7F8F6] cursor-pointer"
+                        className="flex items-center gap-3 p-3.5 rounded-2xlhover:bg-[#F7F8F6] cursor-pointer"
                       >
                         <input
                           type="radio"
@@ -939,7 +939,7 @@ export const SurveysPage: React.FC = () => {
                     ].map((opt) => (
                       <label
                         key={opt}
-                        className="flex items-center gap-3 p-3.5 rounded-2xl border border-gray-200 hover:bg-[#F7F8F6] cursor-pointer"
+                        className="flex items-center gap-3 p-3.5 rounded-2xlhover:bg-[#F7F8F6] cursor-pointer"
                       >
                         <input
                           type="radio"
@@ -965,7 +965,7 @@ export const SurveysPage: React.FC = () => {
                     value={staffNotes}
                     onChange={(e) => setStaffNotes(e.target.value)}
                     placeholder="اكتب أي مقترحات أو ملاحظات تود مشاركتها مع الإدارة..."
-                    className="w-full text-xs sm:text-sm p-3.5 border border-gray-200 rounded-2xl text-gray-900 font-medium outline-none focus:ring-2 focus:ring-[#095B42]"
+                    className="w-full text-xs sm:text-sm p-3.5rounded-2xl text-gray-900 font-medium outline-none focus:ring-2 focus:ring-[#095B42]"
                   />
                 </div>
 

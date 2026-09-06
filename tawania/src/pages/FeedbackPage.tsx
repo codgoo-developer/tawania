@@ -208,7 +208,7 @@ export const FeedbackPage: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث في المنصات...' : 'Search platforms...'}
-                className="w-full ps-9 pe-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#095B42] focus:bg-white transition-all"
+                className="w-full ps-9 pe-4 py-2 bg-gray-50rounded-xl text-xs focus:outline-none focus:border-[#095B42] focus:bg-white transition-all"
               />
             </div>
           </div>
@@ -337,7 +337,7 @@ export const FeedbackPage: React.FC = () => {
         </div>
 
         {filteredCards.length === 0 && (
-          <div className="p-12 rounded-2xl bg-white border border-gray-200 text-center space-y-3">
+          <div className="p-12 rounded-2xl bg-whitetext-center space-y-3">
             <Sparkles className="w-8 h-8 text-gray-300 mx-auto" />
             <p className="text-sm font-bold text-gray-600">
               {locale === 'ar' ? 'لم يتم العثور على منصات تطابق البحث' : 'No matching platforms found'}

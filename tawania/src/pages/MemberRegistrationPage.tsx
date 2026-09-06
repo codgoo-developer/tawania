@@ -111,7 +111,7 @@ export const MemberRegistrationPage: React.FC = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) {
       const firstErr = document.querySelector('[data-error="true"]');
@@ -125,7 +125,7 @@ export const MemberRegistrationPage: React.FC = () => {
     setReferenceCode(code);
 
     toast.success('تم تسجيل طلب العضوية بنجاح', 'تم رفع طلب الانضمام والاكتتاب بانتظار المراجعة والاعتماد');
-    addSubmission({
+    await addSubmission({
       module: 'membership',
       senderName: fullName,
       senderContact: `${phone} • الهوية: ${nationalId}`,

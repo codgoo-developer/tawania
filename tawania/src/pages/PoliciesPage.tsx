@@ -98,7 +98,7 @@ export const PoliciesPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في السياسات...' : 'Search policies...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-gray-200 focus:border-[#0B6B4F] outline-none"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xlfocus:border-[#0B6B4F] outline-none"
             />
           </div>
         </div>
@@ -141,7 +141,7 @@ export const PoliciesPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDownload(policy)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-gray-200 hover:border-[#0B6B4F] text-gray-700 hover:text-[#0B6B4F] text-xs font-bold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xlhover:border-[#0B6B4F] text-gray-700 hover:text-[#0B6B4F] text-xs font-bold transition-all cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PDF</span>

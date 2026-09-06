@@ -471,7 +471,7 @@ export const GovernancePage: React.FC = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full appearance-none ps-3.5 pe-8 py-2.5 text-xs sm:text-sm font-bold rounded-2xl bg-white border border-gray-200 text-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all cursor-pointer"
+                className="w-full appearance-none ps-3.5 pe-8 py-2.5 text-xs sm:text-sm font-bold rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all cursor-pointer"
               >
                 {filterOptions.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -490,7 +490,7 @@ export const GovernancePage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'البحث في الوثائق...' : 'Search documents...'}
-                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-white border border-gray-200 text-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
+                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
               />
               {searchQuery && (
                 <button
@@ -557,7 +557,7 @@ export const GovernancePage: React.FC = () => {
           </div>
         ) : (
           /* Empty Search State with Reset */
-          <div className="text-center py-16 bg-white rounded-3xl border border-gray-200 p-8 shadow-xs space-y-4">
+          <div className="text-center py-16 bg-white rounded-3xlp-8 shadow-xs space-y-4">
             <ShieldCheck className="w-12 h-12 text-gray-300 mx-auto" />
             <h3 className="text-lg font-bold text-gray-700">
               {locale === 'ar' ? 'لم يتم العثور على وثائق مطابقة' : 'No matching documents found'}

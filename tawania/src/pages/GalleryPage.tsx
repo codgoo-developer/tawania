@@ -38,7 +38,7 @@ export const GalleryPage: React.FC = () => {
             <div
               key={photo.id}
               onClick={() => setActivePhoto(photo)}
-              className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-2xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
+              className="bg-white rounded-3xl overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
             >
               {/* Image Container */}
               <div className="relative aspect-4/3 overflow-hidden bg-gray-100">

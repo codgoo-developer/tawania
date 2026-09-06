@@ -38,7 +38,7 @@ export const ProjectsPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'البحث في مشاريع الجمعية...' : 'Search cooperative projects...'}
-                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-white border border-gray-200 text-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
+                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
               />
               {searchQuery && (
                 <button

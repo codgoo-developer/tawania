@@ -227,7 +227,7 @@ export const DashboardPage: React.FC = () => {
   const handleOpenNotificationItem = (notif: any) => {
     markNotificationAsRead(notif.id);
     setIsNotificationOpen(false);
-    
+
     // Switch to submissions tab with corresponding filter
     setActiveTab('submissions');
     if (notif.module === 'whistleblowing') {
@@ -2186,7 +2186,7 @@ export const DashboardPage: React.FC = () => {
                 placeholder={locale === 'ar' ? 'بحث سريع في المستندات واللوائح والقرارات...' : 'Search anything...'}
                 className="w-full ps-10 pe-12 py-2 rounded-full bg-gray-50/80 hover:bg-gray-100/80 focus:bg-white   focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 text-xs text-gray-800 placeholder-gray-400 transition-all outline-none"
               />
-              <kbd className="absolute end-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[10px] font-mono text-gray-400 bg-white border border-gray-200 shadow-2xs">
+              <kbd className="absolute end-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[10px] font-mono text-gray-400 bg-white">
                 ⌘K
               </kbd>
             </div>
@@ -2234,7 +2234,7 @@ export const DashboardPage: React.FC = () => {
                             {locale === 'ar' ? 'مركز الإشعارات والتنبيهات' : 'Notification Center'}
                           </h4>
                           <span className="text-[10px] text-white/70 font-medium">
-                            {safeUnreadCount > 0 
+                            {safeUnreadCount > 0
                               ? (locale === 'ar' ? `${safeUnreadCount} إشعار جديد غير مقروء` : `${safeUnreadCount} unread`)
                               : (locale === 'ar' ? 'جميع الإشعارات مقروءة' : 'All caught up')}
                           </span>
@@ -2282,17 +2282,15 @@ export const DashboardPage: React.FC = () => {
                           key={cat.id}
                           type="button"
                           onClick={() => setNotificationCategoryFilter(cat.id as any)}
-                          className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${
-                            notificationCategoryFilter === cat.id
-                              ? 'bg-[#0B6B4F] text-white shadow-xs'
-                              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
-                          }`}
+                          className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${notificationCategoryFilter === cat.id
+                            ? 'bg-[#0B6B4F] text-white shadow-xs'
+                            : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
+                            }`}
                         >
                           <span>{locale === 'ar' ? cat.labelAr : cat.labelEn}</span>
                           {cat.count > 0 && (
-                            <span className={`text-[9px] px-1 rounded-full ${
-                              notificationCategoryFilter === cat.id ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-600'
-                            }`}>
+                            <span className={`text-[9px] px-1 rounded-full ${notificationCategoryFilter === cat.id ? 'bg-white/25 text-white' : 'bg-gray-100 text-gray-600'
+                              }`}>
                               {cat.count}
                             </span>
                           )}
@@ -2327,9 +2325,8 @@ export const DashboardPage: React.FC = () => {
                               <div
                                 key={notif.id}
                                 onClick={() => handleOpenNotificationItem(notif)}
-                                className={`p-3 px-3.5 hover:bg-emerald-50/40 transition-colors cursor-pointer relative flex items-start gap-2.5 ${
-                                  isUnread ? 'bg-emerald-50/20' : 'bg-white opacity-85 hover:opacity-100'
-                                }`}
+                                className={`p-3 px-3.5 hover:bg-emerald-50/40 transition-colors cursor-pointer relative flex items-start gap-2.5 ${isUnread ? 'bg-emerald-50/20' : 'bg-white opacity-85 hover:opacity-100'
+                                  }`}
                               >
                                 {/* Unread indicator bar/dot */}
                                 {isUnread && (
@@ -2337,15 +2334,14 @@ export const DashboardPage: React.FC = () => {
                                 )}
 
                                 {/* Category Icon */}
-                                <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-2xs ${
-                                  isComplaint
-                                    ? 'bg-rose-50 text-rose-600 border border-rose-100'
-                                    : isMember
+                                <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 shadow-2xs ${isComplaint
+                                  ? 'bg-rose-50 text-rose-600 border border-rose-100'
+                                  : isMember
                                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-100'
                                     : isSurvey
-                                    ? 'bg-purple-50 text-purple-600 border border-purple-100'
-                                    : 'bg-sky-50 text-sky-600 border border-sky-100'
-                                }`}>
+                                      ? 'bg-purple-50 text-purple-600 border border-purple-100'
+                                      : 'bg-sky-50 text-sky-600 border border-sky-100'
+                                  }`}>
                                   {isComplaint ? (
                                     <AlertTriangle className="w-4 h-4" />
                                   ) : isMember ? (
@@ -3082,7 +3078,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={boardIntroForm.cycleBadgeAr || ''}
                       onChange={(e) => setBoardIntroForm({ ...boardIntroForm, cycleBadgeAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
                       placeholder="مثال: الدورة الانتخابية الثانية"
                     />
                   </div>
@@ -3094,7 +3090,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={boardIntroForm.titleAr || ''}
                       onChange={(e) => setBoardIntroForm({ ...boardIntroForm, titleAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
                       placeholder="مثال: أعضاء مجلس الإدارة"
                     />
                   </div>
@@ -3108,7 +3104,7 @@ export const DashboardPage: React.FC = () => {
                     rows={3}
                     value={boardIntroForm.descAr || ''}
                     onChange={(e) => setBoardIntroForm({ ...boardIntroForm, descAr: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed font-medium"
+                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed font-medium"
                     placeholder="أدخل النص التعريفي للدورة..."
                   />
                 </div>
@@ -3349,7 +3345,7 @@ export const DashboardPage: React.FC = () => {
                 {((galleryItems && galleryItems.length > 0) ? galleryItems : initialGalleryItems).map((item: any) => (
                   <div
                     key={item.id}
-                    className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
+                    className="bg-white rounded-3xl overflow-hidden hover:shadow-md transition-all flex flex-col justify-between"
                   >
                     <div className="space-y-3">
                       <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
@@ -3626,7 +3622,7 @@ export const DashboardPage: React.FC = () => {
                     return (
                       <div
                         key={item.id}
-                        className={`bg-white rounded-3xl p-6 border border-gray-200 shadow-2xs hover:shadow-md ${colorStyles.border} transition-all flex flex-col justify-between space-y-5 group relative`}
+                        className={`bg-white rounded-3xl p-6 hover:shadow-md ${colorStyles.border} transition-all flex flex-col justify-between space-y-5 group relative`}
                       >
                         <div className="space-y-3.5">
                           {/* Header: Icon + Badge + Management Edit/Delete Controls */}
@@ -3717,7 +3713,7 @@ export const DashboardPage: React.FC = () => {
                   })}
 
                   {feedbackCards.length === 0 && (
-                    <div className="col-span-full p-12 bg-white rounded-3xl border border-gray-200 text-center space-y-3">
+                    <div className="col-span-full p-12 bg-white rounded-3xltext-center space-y-3">
                       <Globe className="w-8 h-8 text-gray-300 mx-auto" />
                       <p className="text-sm font-bold text-gray-600">لا توجد منصات تقييم مضافة حالياً</p>
                       <button
@@ -3958,7 +3954,7 @@ export const DashboardPage: React.FC = () => {
                   .map((sub) => (
                     <div
                       key={sub.id}
-                      className="p-5 rounded-3xl bg-white border border-gray-200 shadow-2xs hover:shadow-md transition-all space-y-4 text-xs flex flex-col justify-between"
+                      className="p-5 rounded-3xl bg-white hover:shadow-md transition-all space-y-4 text-xs flex flex-col justify-between"
                     >
                       <div className="space-y-3">
                         <div className="flex items-center justify-between gap-2 border-b border-gray-100 pb-2.5">
@@ -3985,7 +3981,7 @@ export const DashboardPage: React.FC = () => {
                           <select
                             value={sub.status}
                             onChange={(e) => updateSubmissionStatus(sub.id, e.target.value as SubmissionItem['status'])}
-                            className="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1 text-[10px] font-bold text-gray-700 focus:ring-1 focus:ring-[#0B6B4F] cursor-pointer"
+                            className="bg-gray-50rounded-lg px-2 py-1 text-[10px] font-bold text-gray-700 focus:ring-1 focus:ring-[#0B6B4F] cursor-pointer"
                           >
                             <option value="pending">جديد</option>
                             <option value="in_progress">قيد المعالجة</option>
@@ -4022,7 +4018,7 @@ export const DashboardPage: React.FC = () => {
                   ))}
 
                 {submissions.filter((s) => s.module === 'contact_message').length === 0 && (
-                  <div className="col-span-full p-8 bg-gray-50 rounded-2xl border border-gray-200 text-center text-xs text-gray-500">
+                  <div className="col-span-full p-8 bg-gray-50 rounded-2xltext-center text-xs text-gray-500">
                     {locale === 'ar' ? 'لا توجد رسائل تواصل مباشرة مسجلة حالياً' : 'No direct contact messages recorded yet'}
                   </div>
                 )}
@@ -4188,7 +4184,7 @@ export const DashboardPage: React.FC = () => {
                   <Link
                     to={getLocalizedPath('/members/register')}
                     target="_blank"
-                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0] border border-gray-200 text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0]text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>معاينة نموذج التسجيل</span>
@@ -4329,7 +4325,7 @@ export const DashboardPage: React.FC = () => {
                   <Link
                     to={getLocalizedPath('/members/directory')}
                     target="_blank"
-                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0] border border-gray-200 text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0]text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>معاينة السجل</span>
@@ -4418,7 +4414,7 @@ export const DashboardPage: React.FC = () => {
                             setMembersCurrentPage(1);
                           }}
                           placeholder={locale === 'ar' ? 'بحث باسم العضو، رقم العضوية، أو المدينة...' : 'Search by member name, ID, or city...'}
-                          className="w-full ps-9 pe-4 py-2.5 rounded-xl border border-gray-200 text-xs focus:border-[#0B6B4F] outline-none"
+                          className="w-full ps-9 pe-4 py-2.5 rounded-xltext-xs focus:border-[#0B6B4F] outline-none"
                         />
                       </div>
 
@@ -4431,7 +4427,7 @@ export const DashboardPage: React.FC = () => {
                               setMembersPerPage(Number(e.target.value));
                               setMembersCurrentPage(1);
                             }}
-                            className="bg-[#F8FAF8] border border-gray-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B6B4F] cursor-pointer"
+                            className="bg-[#F8FAF8]rounded-lg px-2.5 py-1.5 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B6B4F] cursor-pointer"
                           >
                             <option value={10}>10 أعضاء</option>
                             <option value={20}>20 عضو</option>
@@ -4547,7 +4543,7 @@ export const DashboardPage: React.FC = () => {
                               type="button"
                               disabled={safeCurrentPage <= 1}
                               onClick={() => setMembersCurrentPage((prev) => Math.max(1, prev - 1))}
-                              className="px-3 py-1.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-gray-700 flex items-center gap-1 shadow-2xs transition-all cursor-pointer"
+                              className="px-3 py-1.5 rounded-xlbg-white hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-gray-700 flex items-center gap-1 shadow-2xs transition-all cursor-pointer"
                             >
                               <ChevronRight className="w-3.5 h-3.5" />
                               <span>السابق</span>
@@ -4586,7 +4582,7 @@ export const DashboardPage: React.FC = () => {
                               type="button"
                               disabled={safeCurrentPage >= totalPages}
                               onClick={() => setMembersCurrentPage((prev) => Math.min(totalPages, prev + 1))}
-                              className="px-3 py-1.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-gray-700 flex items-center gap-1 shadow-2xs transition-all cursor-pointer"
+                              className="px-3 py-1.5 rounded-xlbg-white hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-gray-700 flex items-center gap-1 shadow-2xs transition-all cursor-pointer"
                             >
                               <span>التالي</span>
                               <ChevronLeft className="w-3.5 h-3.5" />
@@ -4638,7 +4634,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={projectsHeaderForm.badgeAr || ''}
                       onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, badgeAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none"
                     />
                   </div>
                   <div>
@@ -4649,7 +4645,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={projectsHeaderForm.titleAr || ''}
                       onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, titleAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
                     />
                   </div>
                 </div>
@@ -4662,7 +4658,7 @@ export const DashboardPage: React.FC = () => {
                     rows={3}
                     value={projectsHeaderForm.descAr || ''}
                     onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, descAr: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed"
+                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed"
                     placeholder="أدخل وصف قسم المشاريع..."
                   />
                 </div>
@@ -5450,7 +5446,7 @@ export const DashboardPage: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={locale === 'ar' ? 'ابحث باسم المرسل، رقم الهاتف، أو تفاصيل الرد...' : 'Search by name, contact, or response details...'}
-                    className="w-full ps-9 pe-4 py-2 bg-white rounded-xl text-xs border border-gray-200 font-medium text-gray-800 outline-none focus:ring-2 focus:ring-[#0B6B4F]"
+                    className="w-full ps-9 pe-4 py-2 bg-white rounded-xl text-xsfont-medium text-gray-800 outline-none focus:ring-2 focus:ring-[#0B6B4F]"
                   />
                 </div>
 
@@ -6080,7 +6076,7 @@ export const DashboardPage: React.FC = () => {
                           <img
                             src={slide.bgImage}
                             alt={slide.titleAr}
-                            className="w-20 h-16 rounded-xl object-cover border border-gray-200 shrink-0"
+                            className="w-20 h-16 rounded-xl object-covershrink-0"
                           />
                           <div className="space-y-1 text-xs">
                             <span className="inline-block px-2 py-0.5 rounded-full bg-[#EBF4F0] text-[#0B6B4F] text-[10px] font-bold">
@@ -7597,7 +7593,7 @@ export const DashboardPage: React.FC = () => {
                   required
                   value={execDirectorForm.nameAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, nameAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
                   placeholder="أ. محمد ذواب مفرح الحربي"
                 />
               </div>
@@ -7609,7 +7605,7 @@ export const DashboardPage: React.FC = () => {
                   required
                   value={execDirectorForm.roleAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, roleAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
                   placeholder="المدير التنفيذي"
                 />
               </div>
@@ -7621,7 +7617,7 @@ export const DashboardPage: React.FC = () => {
                     type="text"
                     value={execDirectorForm.phone}
                     onChange={(e) => setExecDirectorForm({ ...execDirectorForm, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
+                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
                     placeholder="+966531389196"
                   />
                 </div>
@@ -7632,7 +7628,7 @@ export const DashboardPage: React.FC = () => {
                     type="email"
                     value={execDirectorForm.email}
                     onChange={(e) => setExecDirectorForm({ ...execDirectorForm, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
+                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
                     placeholder="mohamad89196@gmail.com"
                   />
                 </div>
@@ -7677,7 +7673,7 @@ export const DashboardPage: React.FC = () => {
                   rows={3}
                   value={execDirectorForm.descriptionAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, descriptionAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all leading-relaxed"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all leading-relaxed"
                   placeholder="يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية."
                 />
               </div>
@@ -7795,7 +7791,7 @@ const PdfUploadField: React.FC<PdfUploadFieldProps> = ({
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="px-3 py-1.5 rounded-xl bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 text-xs font-bold cursor-pointer transition-colors shadow-2xs"
+              className="px-3 py-1.5 rounded-xl bg-white hover:bg-gray-100 text-gray-800text-xs font-bold cursor-pointer transition-colors shadow-2xs"
             >
               استبدال
             </button>
@@ -7907,7 +7903,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 required
                 value={formData.code}
                 onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
               />
             </div>
             <div>
@@ -7915,7 +7911,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as 'general' | 'aml' })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-semibold focus:ring-2 focus:ring-[#0B6B4F]"
               >
                 <option value="general">سياسة حوكمة عامة</option>
                 <option value="aml">مكافحة غسل الأموال والجرائم المالية</option>
@@ -7928,7 +7924,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 required
                 value={formData.id}
                 onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
               />
             </div>
           </div>
@@ -7941,7 +7937,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
               placeholder="مثال: سياسة الأمن السيبراني والذكاء الاصطناعي"
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
             />
           </div>
 
@@ -7952,7 +7948,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.titleEn}
               onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
               placeholder="e.g. Cybersecurity & AI Policy"
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
               dir="ltr"
             />
           </div>
@@ -7964,7 +7960,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
               placeholder="شرح موجز لأهداف السياسة وضوابط تطبيقها..."
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
             />
           </div>
 
@@ -7997,7 +7993,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 type="text"
                 value={formData.version}
                 onChange={(e) => setFormData({ ...formData, version: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+                className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
               />
             </div>
             <div>
@@ -8006,7 +8002,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 type="text"
                 value={formData.approvedDate}
                 onChange={(e) => setFormData({ ...formData, approvedDate: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+                className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
               />
             </div>
           </div>
@@ -8083,7 +8079,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
                 required
                 value={formData.num}
                 onChange={(e) => setFormData({ ...formData, num: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs"
               />
             </div>
             <div>
@@ -8091,7 +8087,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
               <select
                 value={formData.sec}
                 onChange={(e) => setFormData({ ...formData, sec: e.target.value as any })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-semibold"
+                className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-semibold"
               >
                 <option value="foundation">اللوائح التأسيسية والشهادات</option>
                 <option value="financial">الملفات واللوائح المالية (مكافآت، صرف، مشتريات، استثمار)</option>
@@ -8107,7 +8103,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
               required
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8117,7 +8113,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
               type="text"
               value={formData.titleEn}
               onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
               dir="ltr"
             />
           </div>
@@ -8128,7 +8124,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
               rows={3}
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8220,7 +8216,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
                 required
                 value={formData.year}
                 onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-bold"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-bold"
               />
             </div>
             <div>
@@ -8229,7 +8225,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
                 type="text"
                 value={formData.auditFirmAr}
                 onChange={(e) => setFormData({ ...formData, auditFirmAr: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+                className="w-full p-2.5 bg-gray-50rounded-xl"
               />
             </div>
           </div>
@@ -8241,7 +8237,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
               required
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+              className="w-full p-2.5 bg-gray-50rounded-xl"
             />
           </div>
 
@@ -8252,7 +8248,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
                 type="text"
                 value={formData.revenue}
                 onChange={(e) => setFormData({ ...formData, revenue: e.target.value })}
-                className="w-full p-2 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs"
+                className="w-full p-2 bg-gray-50rounded-xl font-mono text-xs"
               />
             </div>
             <div>
@@ -8261,7 +8257,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
                 type="text"
                 value={formData.expenses}
                 onChange={(e) => setFormData({ ...formData, expenses: e.target.value })}
-                className="w-full p-2 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs"
+                className="w-full p-2 bg-gray-50rounded-xl font-mono text-xs"
               />
             </div>
             <div>
@@ -8270,7 +8266,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
                 type="text"
                 value={formData.netSurplus}
                 onChange={(e) => setFormData({ ...formData, netSurplus: e.target.value })}
-                className="w-full p-2 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs text-emerald-600 font-bold"
+                className="w-full p-2 bg-gray-50rounded-xl font-mono text-xs text-emerald-600 font-bold"
               />
             </div>
           </div>
@@ -8400,7 +8396,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
             <select
               value={formData.type}
               onChange={(e) => setFormData({ ...formData, type: e.target.value as 'internal' | 'community' })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-semibold text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl font-semibold text-xs"
             >
               <option value="internal">ورشة مقامة داخلية (للمجلس والمنسوبين)</option>
               <option value="community">ورشة مقامة بالشراكات المجتمعية</option>
@@ -8415,7 +8411,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
                 <select
                   value={selectedMonth}
                   onChange={(e) => handleMonthYearChange(e.target.value, selectedYear)}
-                  className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-bold text-xs"
+                  className="w-full p-2.5 bg-gray-50rounded-xl font-bold text-xs"
                 >
                   {ARABIC_MONTHS.map((m) => (
                     <option key={m.ar} value={m.ar}>
@@ -8428,7 +8424,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
                 <select
                   value={selectedYear}
                   onChange={(e) => handleMonthYearChange(selectedMonth, e.target.value)}
-                  className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono font-bold text-xs"
+                  className="w-full p-2.5 bg-gray-50rounded-xl font-mono font-bold text-xs"
                 >
                   {SELECTABLE_YEARS.map((y) => (
                     <option key={y} value={y}>
@@ -8447,7 +8443,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
               required
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8457,7 +8453,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
               rows={3}
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8566,7 +8562,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value as 'general_assembly' | 'board' })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-semibold text-xs"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-semibold text-xs"
               >
                 <option value="general_assembly">محضر اجتماع الجمعية العمومية</option>
                 <option value="board">محضر اجتماع مجلس الإدارة</option>
@@ -8579,7 +8575,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
                 required
                 value={formData.meetingNumber}
                 onChange={(e) => setFormData({ ...formData, meetingNumber: e.target.value })}
-                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs"
               />
             </div>
           </div>
@@ -8591,7 +8587,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
               required
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8603,7 +8599,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
                 <select
                   value={selectedMonth}
                   onChange={(e) => handleMonthYearChange(e.target.value, selectedYear)}
-                  className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-bold text-xs"
+                  className="w-full p-2.5 bg-gray-50rounded-xl font-bold text-xs"
                 >
                   {ARABIC_MONTHS.map((m) => (
                     <option key={m.ar} value={m.ar}>
@@ -8616,7 +8612,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
                 <select
                   value={selectedYear}
                   onChange={(e) => handleMonthYearChange(selectedMonth, e.target.value)}
-                  className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl font-mono font-bold text-xs"
+                  className="w-full p-2.5 bg-gray-50rounded-xl font-mono font-bold text-xs"
                 >
                   {SELECTABLE_YEARS.map((y) => (
                     <option key={y} value={y}>
@@ -8634,7 +8630,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
               rows={3}
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs"
             />
           </div>
 
@@ -8721,7 +8717,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
               placeholder="مثال: وثيقة الميثاق الأخلاقي وقواعد السلوك المهني والمؤسسي"
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+              className="w-full p-2.5 bg-gray-50rounded-xl"
             />
           </div>
 
@@ -8732,7 +8728,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
               placeholder="e.g. Ethical Charter & Institutional Code of Conduct"
               value={formData.titleEn || ''}
               onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+              className="w-full p-2.5 bg-gray-50rounded-xl"
             />
           </div>
 
@@ -8743,7 +8739,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
               placeholder="المبادئ الأخلاقية والقواعد السلوكية الحاكمة لجميع معاملات الجمعية مع الشركاء والمستفيدين والجهات الرقابية..."
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+              className="w-full p-2.5 bg-gray-50rounded-xl"
             />
           </div>
 
@@ -8754,7 +8750,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
               placeholder="Brief description of the ethical charter principles and code of conduct..."
               value={formData.descEn || ''}
               onChange={(e) => setFormData({ ...formData, descEn: e.target.value })}
-              className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl"
+              className="w-full p-2.5 bg-gray-50rounded-xl"
             />
           </div>
 
@@ -8855,7 +8851,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
         {/* Modal Certificate Header Clean Redesign */}
         <div className="flex items-start justify-between gap-4 pb-5 border-b border-gray-100">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-12 h-12 rounded-2xl bg-white border border-gray-200 p-1 flex items-center justify-center shrink-0 shadow-2xs overflow-hidden">
+            <div className="w-12 h-12 rounded-2xl bg-whitep-1 flex items-center justify-center shrink-0 shadow-2xs overflow-hidden">
               <img src="/logo.png" alt="الجمعية" className="h-8 w-auto object-contain" />
             </div>
             <div className="min-w-0 space-y-0.5">
@@ -9007,7 +9003,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-xs font-bold text-gray-700 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50text-xs font-bold text-gray-700 transition-colors cursor-pointer"
             >
               <Printer className="w-4 h-4 text-[#095B42]" />
               <span>طباعة الرد</span>
@@ -9016,7 +9012,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
             <button
               type="button"
               onClick={copyDetails}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-xs font-bold text-gray-700 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50text-xs font-bold text-gray-700 transition-colors cursor-pointer"
             >
               <Copy className="w-4 h-4 text-[#C9A45C]" />
               <span>{copied ? 'تم النسخ' : 'نسخ النص'}</span>
@@ -9372,7 +9368,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 placeholder="/logo.png"
                 className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
               />
-              <div className="p-4 bg-gray-50 rounded-2xl border border-gray-200 flex items-center justify-center">
+              <div className="p-4 bg-gray-50 rounded-2xlflex items-center justify-center">
                 <img
                   src={form.logoLightUrl || '/logo.png'}
                   alt="Light Logo Preview"

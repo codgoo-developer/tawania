@@ -2770,17 +2770,64 @@ export const GovernanceDataProvider: React.FC<{ children: React.ReactNode }> = (
     setEthics((prev) => prev.filter((e) => String(e.id) !== String(id) && (e as any).slug_id !== String(id)));
   };
 
-  // Submissions
+    // Submissions
   const addSubmission = async (item: Omit<SubmissionItem, 'id' | 'createdAt' | 'status'>) => {
-    await apiService.addSubmission(item);
-    await refreshSubmissions();
+    let newId = `sub-${Date.now()}`;
+    try {
+      const res = await apiService.addSubmission(item);
+      if (res && res.data && (res.data.id || res.data._id)) {
+        newId = String(res.data.id || res.data._id);
+      }
+    } catch (e) {
+      console.warn('Backend API submission request warning:', e);
+    }
+
     const newItem: SubmissionItem = {
       ...item,
-      id: `sub-${Date.now()}`,
+      id: newId,
       createdAt: new Date().toISOString().slice(0, 16).replace('T', ' '),
       status: 'pending'
     };
-    setSubmissions(prev => [newItem, ...prev]);
+
+    setSubmissions(prev => [newItem, ...(Array.isArray(prev) ? prev : [])]);
+
+    // Immediately push to notifications state for instant notification badge and dropdown entry
+    const notifInfo: Record<string, { category: NotificationItem['category'], titleAr: string, titleEn: string, icon: string, badgeColor: string }> = {
+      whistleblowing: { category: 'whistleblowing', titleAr: 'بلاغ أو شكوى حوكمة جديدة', titleEn: 'New Whistleblowing Report', icon: 'alert-triangle', badgeColor: 'amber' },
+      membership: { category: 'membership', titleAr: 'طلب انضمام للجمعية العمومية', titleEn: 'New Membership Application', icon: 'user-plus', badgeColor: 'emerald' },
+      survey: { category: 'survey', titleAr: 'استبيان قياس رضا جديد', titleEn: 'New Survey Response', icon: 'smile', badgeColor: 'purple' },
+      contact_message: { category: 'contact_message', titleAr: 'رسالة تواصل واردة جديدة', titleEn: 'New Contact Message', icon: 'mail', badgeColor: 'blue' },
+      feedback: { category: 'feedback', titleAr: 'ملاحظة ومقترح وارد جديد', titleEn: 'New Feedback Submission', icon: 'message-square', badgeColor: 'indigo' },
+    };
+    const info = notifInfo[item.module] || { category: 'general', titleAr: 'إشعار جديد', titleEn: 'New Notification', icon: 'bell', badgeColor: 'gray' };
+
+    const newNotifItem: NotificationItem = {
+      id: newId,
+      code: 'MSG-' + Math.floor(100000 + Math.random() * 900000),
+      module: item.module,
+      category: info.category,
+      title: item.title || info.titleAr,
+      titleAr: info.titleAr,
+      titleEn: info.titleEn,
+      message: item.details || (item.senderName ? 'وارد من: ' + item.senderName : ''),
+      senderName: item.senderName || 'زائر',
+      senderContact: item.senderContact || '',
+      targetTab: 'submissions',
+      icon: info.icon,
+      badgeColor: info.badgeColor,
+      status: 'pending',
+      isRead: false,
+      timeAgo: 'الآن',
+      createdAt: newItem.createdAt,
+    };
+
+    setNotifications(prev => [newNotifItem, ...(Array.isArray(prev) ? prev : [])]);
+
+    // Refresh from backend to sync persistent IDs
+    try {
+      await refreshSubmissions();
+      await refreshNotifications();
+    } catch {}
   };
   const updateSubmissionStatus = async (id: string, status: SubmissionItem['status']) => {
     await apiService.updateSubmissionStatus(id, status);

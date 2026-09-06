@@ -35,12 +35,12 @@ export const FeedbackForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!feedback.trim()) return;
 
     setIsSubmitting(true);
-    addSubmission({
+    await addSubmission({
       module: 'feedback',
       senderName: name.trim() || (locale === 'ar' ? 'مستفيد / عميل' : 'Beneficiary'),
       senderContact: locale === 'ar' ? 'نموذج التغذية الراجعة' : 'Feedback Form',

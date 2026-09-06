@@ -114,8 +114,8 @@ export const ReportsPage: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedYear(yr)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold font-mono whitespace-nowrap transition-all cursor-pointer ${selectedYear === yr
-                      ? 'bg-[#0B6B4F] text-white shadow-xs'
-                      : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
+                    ? 'bg-[#0B6B4F] text-white shadow-xs'
+                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
                     }`}
                 >
                   {yr === 'all' ? (locale === 'ar' ? 'كافة الأعوام' : 'All') : yr}
@@ -191,7 +191,7 @@ export const ReportsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDownload(report)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 text-xs font-bold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-gray-50 text-gray-700text-xs font-bold transition-all cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'تحميل' : 'Download'}</span>

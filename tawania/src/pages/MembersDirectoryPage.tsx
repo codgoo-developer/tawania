@@ -154,7 +154,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 setCurrentPage(1);
               }}
               placeholder={locale === 'ar' ? 'ابحث باسم العضو، المدينة، أو رقم السهم...' : 'Search by member name, city or ID...'}
-              className="w-full ps-10 pe-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs sm:text-sm font-medium text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all"
+              className="w-full ps-10 pe-4 py-2.5 rounded-xl bg-gray-50text-xs sm:text-sm font-medium text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all"
             />
           </div>
 
@@ -343,7 +343,7 @@ export const MembersDirectoryPage: React.FC = () => {
               type="button"
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-2 rounded-xl bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs"
+              className="p-2 rounded-xl bg-whitetext-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs"
               aria-label="Previous Page"
             >
               <ChevronRight className="w-4 h-4" />
@@ -366,7 +366,7 @@ export const MembersDirectoryPage: React.FC = () => {
                   onClick={() => setCurrentPage(pageNum)}
                   className={`w-9 h-9 rounded-xl text-xs font-bold transition-all shadow-2xs ${isActive
                     ? 'bg-[#0B6B4F] text-white shadow-xs scale-105'
-                    : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+                    : 'bg-whitetext-gray-700 hover:bg-gray-50'
                     }`}
                 >
                   {pageNum}
@@ -378,7 +378,7 @@ export const MembersDirectoryPage: React.FC = () => {
               type="button"
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-2 rounded-xl bg-white border border-gray-200 text-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs"
+              className="p-2 rounded-xl bg-whitetext-gray-600 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed shadow-2xs"
               aria-label="Next Page"
             >
               <ChevronLeft className="w-4 h-4" />
