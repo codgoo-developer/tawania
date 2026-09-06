@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = typeof window !== 'undefined' ? '/api/v1' : 'http://127.0.0.1:8000/api/v1';
 
 export function getAuthToken(): string | null {
   return localStorage.getItem('tawania_auth_token');
@@ -13,37 +13,46 @@ export function setAuthToken(token: string | null) {
 }
 
 async function fetchJson(url: string, options: RequestInit = {}) {
-  try {
-    const token = getAuthToken();
-    const authHeaders: Record<string, string> = {};
-    if (token) {
-      authHeaders['Authorization'] = `Bearer ${token}`;
-    }
-
-    console.log('🚀 [Network API Request]:', options.method || 'GET', url, options.body ? JSON.parse(options.body as string) : '');
-    const res = await fetch(url, {
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        ...authHeaders,
-        ...(options.headers || {}),
-      },
-      ...options,
-    });
-    console.log('📥 [Network API Response Status]:', res.status, res.statusText);
-    if (!res.ok) {
-      const errText = await res.text();
-      console.warn('⚠️ [Network API Error Response]:', errText);
-      return null;
-    }
-    const data = await res.json();
-    console.log('✅ [Network API Success Data]:', data);
-    return data;
-  } catch (err) {
-    console.error('❌ [Network API Exception]:', err);
-    return null;
+  const token = getAuthToken();
+  const authHeaders: Record<string, string> = {};
+  if (token) {
+    authHeaders['Authorization'] = `Bearer ${token}`;
   }
+
+  const defaultHeaders = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    ...authHeaders,
+    ...(options.headers || {}),
+  };
+
+  const candidateUrls: string[] = [url];
+  if (url.startsWith('/api/v1')) {
+    candidateUrls.push(`http://127.0.0.1:8000${url}`);
+    candidateUrls.push(`http://localhost:8000${url}`);
+    candidateUrls.push(url.replace('/api/v1', '/api'));
+  } else if (url.includes(':8000/api/v1')) {
+    candidateUrls.push(url.replace(/https?:\/\/[^/]+/, ''));
+    candidateUrls.push(url.replace('localhost', '127.0.0.1'));
+  }
+
+  for (const targetUrl of candidateUrls) {
+    try {
+      const res = await fetch(targetUrl, {
+        headers: defaultHeaders,
+        ...options,
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        return data;
+      }
+    } catch (err) {
+      // Continue trying fallback endpoints
+    }
+  }
+
+  return null;
 }
 
 export const apiService = {
