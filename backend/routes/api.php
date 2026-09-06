@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\HomeContentController;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
@@ -21,15 +19,17 @@ use App\Http\Controllers\Api\FinancialController;
 use App\Http\Controllers\Api\RegulationController;
 use App\Http\Controllers\Api\WorkshopController;
 use App\Http\Controllers\Api\GovernanceDocumentController;
+use App\Http\Controllers\Api\HomeContentController;
 
-Route::prefix('v1')->group(function () {
+$registerRoutes = function () {
     // Auth Routes
     Route::post('/auth/login', [AuthController::class, 'login']);
     Route::get('/auth/me', [AuthController::class, 'me']);
 
-    // General Assembly Members
+    // General Assembly Members & Dashboard Overview
     Route::get('/dashboard/overview', [DashboardOverviewController::class, 'index']);
     Route::apiResource('/members', GeneralAssemblyMemberController::class);
+    Route::apiResource('/general-assembly-members', GeneralAssemblyMemberController::class);
     Route::apiResource('/meetings', MeetingController::class);
     Route::apiResource('/ethics', EthicsController::class);
     Route::apiResource('/policies', PolicyController::class);
@@ -67,8 +67,14 @@ Route::prefix('v1')->group(function () {
 
     // Governance Documents
     Route::apiResource('/governance', GovernanceDocumentController::class);
-});
 
-// Home Page Content Management Routes
-Route::get('v1/home-content', [HomeContentController::class, 'index']);
-Route::put('v1/home-content/{sectionKey}', [HomeContentController::class, 'updateSection']);
+    // Home Content
+    Route::get('/home-content', [HomeContentController::class, 'index']);
+    Route::put('/home-content/{sectionKey}', [HomeContentController::class, 'updateSection']);
+};
+
+// Register under /api/v1/... (Preferred by frontend apiService)
+Route::prefix('v1')->group($registerRoutes);
+
+// Also register directly under /api/... (For direct backward compatibility)
+$registerRoutes();
