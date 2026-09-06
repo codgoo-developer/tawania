@@ -7686,25 +7686,40 @@ export const DashboardPage: React.FC = () => {
                 <div className="flex gap-2">
                   <input
                     type="text"
-                    value={ethicsForm.fileUrl?.startsWith('data:application/pdf') ? 'تم مرفق ملف PDF بنجاح (معتمد ومحفوظ)' : (ethicsForm.fileUrl || '')}
+                    value={ethicsForm.fileUrl?.startsWith('data:application/pdf') ? `ملف جديد مرفق: ${ethicsForm.fileName || 'document.pdf'}` : (ethicsForm.fileUrl || '')}
                     onChange={(e) => setEthicsForm({ ...ethicsForm, fileUrl: e.target.value })}
-                    readOnly={ethicsForm.fileUrl?.startsWith('data:application/pdf')}
-                    placeholder="/documents/AlShamel-Ethical-Charter.pdf"
+                    placeholder="/uploads/ethics/AlShamel-Ethical-Charter.pdf"
                     className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${ethicsForm.fileUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
                       }`}
                   />
                   <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
-                    <span>{ethicsForm.fileUrl?.startsWith('data:application/pdf') ? 'تغيير' : 'رفع PDF'}</span>
+                    <span>{ethicsForm.fileUrl ? 'تغيير / رفع PDF جديد' : 'رفع ملف PDF'}</span>
                     <input
                       type="file"
                       accept=".pdf,application/pdf"
                       className="hidden"
-                      onChange={(e) => handlePdfFileUpload(e, (dataUrl) => setEthicsForm({ ...ethicsForm, fileUrl: dataUrl }))}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const sizeMb = (file.size / (1024 * 1024)).toFixed(1) + ' MB';
+                          setEthicsForm(prev => ({
+                            ...prev,
+                            fileName: file.name,
+                            fileSize: sizeMb
+                          }));
+                        }
+                        handlePdfFileUpload(e, (dataUrl) => {
+                          setEthicsForm(prev => ({
+                            ...prev,
+                            fileUrl: dataUrl
+                          }));
+                        });
+                      }}
                     />
                   </label>
-                  {ethicsForm.fileUrl?.startsWith('data:application/pdf') && (
-                    <button type="button" onClick={() => setEthicsForm({ ...ethicsForm, fileUrl: '' })} className="p-2 text-red-500 hover:bg-red-50 rounded-xl border border-red-200"><X className="w-4 h-4" /></button>
+                  {ethicsForm.fileUrl && (
+                    <button type="button" title="إلغاء الملف" onClick={() => setEthicsForm({ ...ethicsForm, fileUrl: '', fileName: 'Ethical-Charter.pdf' })} className="p-2 text-red-500 hover:bg-red-50 rounded-xl border border-red-200 cursor-pointer"><X className="w-4 h-4" /></button>
                   )}
                 </div>
               </div>
