@@ -1,6 +1,6 @@
 import { useToast } from '../context/ToastContext';
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import {
   ShieldCheck,
   HeartHandshake,
@@ -1847,27 +1847,34 @@ export const DashboardPage: React.FC = () => {
     }
   };
 
+  const location = useLocation();
+
   const [activeTab, setActiveTab] = useState<TabType>(() => {
     try {
       const params = new URLSearchParams(window.location.search);
       const tabParam = params.get('tab');
-      const saved = localStorage.getItem('tawania_dashboard_tab');
-      const target = (tabParam || saved || '').trim();
-
-      const validTabs = [
-        'submissions', 'members', 'projects', 'overview', 'home-management',
-        'policies', 'regulations', 'financials', 'workshops', 'meetings',
-        'ethics', 'governance', 'board-members', 'executive-director',
-        'gallery', 'feedback', 'contact-messages', 'contact-info', 'membership-requests'
-      ];
-
-      if (target && validTabs.includes(target)) {
+      if (tabParam && tabParam.trim()) {
+        const target = tabParam.trim();
         if (target === 'governance') return 'policies';
         return target as TabType;
       }
     } catch { }
     return 'overview';
   });
+
+  // Sync activeTab whenever URL query string changes
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const tabParam = params.get('tab');
+    if (tabParam) {
+      const target = tabParam === 'governance' ? 'policies' : tabParam;
+      setActiveTab(target as TabType);
+      localStorage.setItem('tawania_dashboard_tab', target);
+    } else {
+      setActiveTab('overview');
+      localStorage.setItem('tawania_dashboard_tab', 'overview');
+    }
+  }, [location.search]);
 
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 

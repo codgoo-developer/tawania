@@ -32,7 +32,8 @@ export const LoginPage: React.FC = () => {
   // If already authenticated, redirect to dashboard
   React.useEffect(() => {
     if (isAuthenticated) {
-      navigate('/dashboard', { replace: true });
+      localStorage.setItem('tawania_dashboard_tab', 'overview');
+      navigate('/dashboard?tab=overview', { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
@@ -45,7 +46,8 @@ export const LoginPage: React.FC = () => {
       const res = await login(email, password);
       if (res.success) {
         toast.success('تم تسجيل الدخول بنجاح', 'مرحباً بك في لوحة تحكم الحوكمة والتحكم المؤسسي');
-        navigate('/dashboard');
+        localStorage.setItem('tawania_dashboard_tab', 'overview');
+        navigate('/dashboard?tab=overview', { replace: true });
       } else {
         setError(res.error || (locale === 'ar' ? 'بيانات الاعتماد غير صحيحة، يرجى المحاولة مجدداً' : 'Invalid credentials, please try again'));
       }
