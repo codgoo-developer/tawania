@@ -27,7 +27,6 @@ import {
   ChevronLeft,
   Mail,
   Instagram,
-  Twitter,
   MessageCircle,
   DollarSign
 } from 'lucide-react';
@@ -35,6 +34,7 @@ import { useI18n } from '../../i18n';
 import { useAuth } from '../../context/AuthContext';
 import { useGovernanceData } from '../../context/GovernanceDataContext';
 import { AlShamelLogo } from '../common/AlShamelLogo';
+import { XIcon } from '../common/XIcon';
 
 export const MobileDrawer: React.FC<{
   isOpen: boolean;
@@ -311,10 +311,10 @@ export const MobileDrawer: React.FC<{
                 href={contactSettings?.twitterUrl || "https://x.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X (Twitter)"
-                className="w-7 h-7 rounded-lg bg-whiteflex items-center justify-center text-[#1DA1F2] hover:bg-gray-50 transition-colors"
+                aria-label="X"
+                className="w-7 h-7 rounded-lg bg-white flex items-center justify-center text-gray-800 hover:bg-gray-50 transition-colors shadow-2xs"
               >
-                <Twitter className="w-3.5 h-3.5" />
+                <XIcon className="w-3 h-3" />
               </a>
             </div>
           </div>

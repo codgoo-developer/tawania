@@ -6,14 +6,14 @@ import {
   MapPin,
   Clock,
   MessageSquare,
-  Instagram,
-  Twitter
+  Instagram
 } from 'lucide-react';
 import { useI18n } from '../i18n';
 import { useGovernanceData } from '../context/GovernanceDataContext';
 import { PageHero } from '../components/layout/PageHero';
 import { ContactForm } from '../components/forms/ContactForm';
 import { Button } from '../components/ui/Button';
+import { XIcon } from '../components/common/XIcon';
 
 export const ContactPage: React.FC = () => {
   const toast = useToast();
@@ -135,7 +135,7 @@ export const ContactPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B4F26] hover:bg-[#E8F7F0] text-xs font-semibold text-[#0B4F26] transition-colors"
                   >
-                    <Twitter className="w-4 h-4 text-[#1DA1F2]" />
+                    <XIcon className="w-3.5 h-3.5 text-gray-800" />
                     <span>{contactSettings?.twitterHandle || '@shamel_coo'}</span>
                   </a>
                 </div>

@@ -8,12 +8,12 @@ import {
   ShieldCheck,
   Send,
   MessageSquareQuote,
-  Instagram,
-  Twitter
+  Instagram
 } from 'lucide-react';
 import { useI18n } from '../../i18n';
 import { useGovernanceData } from '../../context/GovernanceDataContext';
 import { AlShamelLogo } from '../common/AlShamelLogo';
+import { XIcon } from '../common/XIcon';
 
 export const Footer: React.FC = () => {
   const { locale, t, getLocalizedPath } = useI18n();
@@ -119,10 +119,10 @@ export const Footer: React.FC = () => {
                 href={contactSettings?.twitterUrl || "https://x.com/shamel_coo"}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="X (Twitter)"
+                aria-label="X"
                 className="w-9 h-9 rounded-xl bg-white/10 hover:bg-[#84CC16] hover:text-[#0B4F26] text-white flex items-center justify-center transition-all duration-300 border border-white/15"
               >
-                <Twitter className="w-4 h-4" />
+                <XIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

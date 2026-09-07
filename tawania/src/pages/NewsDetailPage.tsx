@@ -16,6 +16,7 @@ import { getNewsBySlug, newsData } from '../data/news';
 import { PageHero } from '../components/layout/PageHero';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { XIcon } from '../components/common/XIcon';
 
 export const NewsDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -91,10 +92,10 @@ export const NewsDetailPage: React.FC = () => {
               href={twitterShareUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-sky-50 text-sky-700 hover:bg-sky-100 transition-colors"
+              className="p-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors"
               title="Share on X"
             >
-              <Share2 className="w-3.5 h-3.5" />
+              <XIcon className="w-3.5 h-3.5" />
             </a>
             <button
               type="button"

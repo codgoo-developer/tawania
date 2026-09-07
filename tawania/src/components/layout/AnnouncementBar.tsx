@@ -1,7 +1,8 @@
 import React from 'react';
-import { Calendar, Phone, Send, Twitter, Instagram } from 'lucide-react';
+import { Calendar, Phone, Send, Instagram } from 'lucide-react';
 import { useGovernanceData } from '../../context/GovernanceDataContext';
 import { useI18n } from '../../i18n';
+import { XIcon } from '../common/XIcon';
 
 export const AnnouncementBar: React.FC = () => {
   const { locale } = useI18n();
@@ -59,9 +60,9 @@ export const AnnouncementBar: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/25 hover:text-[#FACC15] transition-all flex items-center justify-center cursor-pointer"
-            aria-label="Twitter / X"
+            aria-label="X"
           >
-            <Twitter className="w-3.5 h-3.5" />
+            <XIcon className="w-3 h-3" />
           </a>
           <a
             href={instagramUrl}
