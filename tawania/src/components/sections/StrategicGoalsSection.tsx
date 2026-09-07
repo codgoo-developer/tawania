@@ -21,7 +21,7 @@ export const StrategicGoalsSection: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header with Line Badge matching screen.png */}
         <div className="flex items-center justify-end rtl:justify-start gap-3 mb-12 text-start">
-          <span className="w-10 h-1 bg-gradient-to-br from-[#0B6B4F] to-[#095B42] rounded-full" />
+          <span className="w-10 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] rounded-full" />
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#12332B] tracking-tight">
             {locale === 'ar' ? 'الأهداف الاستراتيجية' : 'Strategic Objectives'}
           </h2>

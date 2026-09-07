@@ -29,7 +29,7 @@ export const TrustStatsSection: React.FC = () => {
   ];
 
   return (
-    <section id="trust-stats-bar" className="bg-gradient-to-br from-[#095B42] to-[#064230] text-white py-7 sm:py-10 border-y border-[#0E7A5A]">
+    <section id="trust-stats-bar" className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white py-7 sm:py-10 border-y border-[#0E7A5A]">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, index) => (

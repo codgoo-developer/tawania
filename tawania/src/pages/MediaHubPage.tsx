@@ -43,7 +43,7 @@ export const MediaHubPage: React.FC = () => {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute top-4 start-4">
-                <span className="px-3 py-1 rounded-lg text-xs font-bold bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white">
+                <span className="px-3 py-1 rounded-lg text-xs font-bold bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white">
                   {locale === 'ar' ? 'خبر رئيسي' : 'Featured Story'}
                 </span>
               </div>

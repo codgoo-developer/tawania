@@ -61,11 +61,35 @@
   :root {
     --font-arabic: 'Noto Kufi Arabic', system-ui, sans-serif;
     --font-english: 'Inter', system-ui, sans-serif;
-    --primary: #0B6B4F;
-    --primary-dark: #12332B;
-    --primary-light: #EBF4F0;
-    --accent: #C9A45C;
-    --accent-light: #FBF7EE;
+    
+    /* Core Brand Colors */
+    --primary: #0B4F26;
+    --primary-vibrant: #10B981;
+    --primary-dark: #073519;
+    --primary-light: #E8F7F0;
+    
+    /* 5 Brand Color Gradients */
+    /* 1. النمو والاستدامة (Growth & Sustainability) */
+    --grad-growth: linear-gradient(135deg, #0B4F26 0%, #10B981 100%);
+    --grad-growth-h: linear-gradient(90deg, #0B4F26 0%, #10B981 100%);
+    --grad-growth-r: linear-gradient(135deg, #10B981 0%, #0B4F26 100%);
+
+    /* 2. الطاقة والشغف (Energy & Passion) */
+    --grad-energy: linear-gradient(135deg, #8B0000 0%, #EF4444 100%);
+    --grad-energy-h: linear-gradient(90deg, #8B0000 0%, #EF4444 100%);
+
+    /* 3. التوافق والتقدم (Harmony & Progress) */
+    --grad-progress: linear-gradient(135deg, #F97316 0%, #FACC15 100%);
+    --grad-progress-h: linear-gradient(90deg, #F97316 0%, #FACC15 100%);
+
+    /* 4. المستقبل والتجدد (Future & Renewal) */
+    --grad-future: linear-gradient(135deg, #84CC16 0%, #EAB308 100%);
+    --grad-future-h: linear-gradient(90deg, #84CC16 0%, #EAB308 100%);
+
+    /* 5. الثقة والاتزان (Trust & Stability) */
+    --grad-trust: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
+    --grad-trust-h: linear-gradient(90deg, #2563EB 0%, #0F172A 100%);
+
     --bg-base: #F7F8F6;
     --text-main: #17211E;
     --text-muted: #68736F;
@@ -101,41 +125,119 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #0B6B4F;
+    background: #0B4F26;
   }
+}
+
+/* ==========================================================================
+   CSS Gradient Utility Classes (Reusable anywhere in website)
+   ========================================================================== */
+
+/* 1. التدرج الأول: النمو والاستدامة (#0B4F26 -> #10B981) */
+.grad-growth,
+.bg-grad-growth {
+  background: linear-gradient(135deg, #0B4F26 0%, #10B981 100%) !important;
+}
+.bg-grad-growth-h {
+  background: linear-gradient(90deg, #0B4F26 0%, #10B981 100%) !important;
+}
+.text-grad-growth {
+  background: linear-gradient(135deg, #0B4F26 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.border-grad-growth {
+  border-image: linear-gradient(135deg, #0B4F26 0%, #10B981 100%) 1;
+}
+
+/* 2. التدرج الثاني: الطاقة والشغف (#8B0000 -> #EF4444) */
+.grad-energy,
+.bg-grad-energy {
+  background: linear-gradient(135deg, #8B0000 0%, #EF4444 100%) !important;
+}
+.bg-grad-energy-h {
+  background: linear-gradient(90deg, #8B0000 0%, #EF4444 100%) !important;
+}
+.text-grad-energy {
+  background: linear-gradient(135deg, #8B0000 0%, #EF4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3. التدرج الثالث: التوافق والتقدم (#F97316 -> #FACC15) */
+.grad-progress,
+.bg-grad-progress {
+  background: linear-gradient(135deg, #F97316 0%, #FACC15 100%) !important;
+}
+.bg-grad-progress-h {
+  background: linear-gradient(90deg, #F97316 0%, #FACC15 100%) !important;
+}
+.text-grad-progress {
+  background: linear-gradient(135deg, #F97316 0%, #FACC15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 4. التدرج الرابع: المستقبل والتجدد (#84CC16 -> #EAB308) */
+.grad-future,
+.bg-grad-future {
+  background: linear-gradient(135deg, #84CC16 0%, #EAB308 100%) !important;
+}
+.bg-grad-future-h {
+  background: linear-gradient(90deg, #84CC16 0%, #EAB308 100%) !important;
+}
+.text-grad-future {
+  background: linear-gradient(135deg, #84CC16 0%, #EAB308 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 5. التدرج الخامس: الثقة والاتزان (#2563EB -> #0F172A) */
+.grad-trust,
+.bg-grad-trust {
+  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%) !important;
+}
+.bg-grad-trust-h {
+  background: linear-gradient(90deg, #2563EB 0%, #0F172A 100%) !important;
+}
+.text-grad-trust {
+  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Institutional subtle pattern overlay */
 .bg-geo-pattern {
-  background-image: radial-gradient(rgba(11, 107, 79, 0.08) 1px, transparent 0);
+  background-image: radial-gradient(rgba(11, 79, 38, 0.08) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
 .bg-geo-dark {
-  background-image: radial-gradient(rgba(201, 164, 92, 0.12) 1px, transparent 0);
+  background-image: radial-gradient(rgba(16, 185, 129, 0.12) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
 /* Glass & Card effects compliant with design system */
 .rda-card {
   background-color: #FFFFFF;
-  border: 1px solid rgba(18, 51, 43, 0.08);
+  border: 1px solid rgba(11, 79, 38, 0.08);
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .rda-card:hover {
-  border-color: rgba(11, 107, 79, 0.25);
-  box-shadow: 0 12px 30px -10px rgba(18, 51, 43, 0.08);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 12px 30px -10px rgba(11, 79, 38, 0.12);
   transform: translateY(-2px);
 }
 
 /* Focus states */
 *:focus-visible {
-  outline: 2px solid #0B6B4F;
+  outline: 2px solid #0B4F26;
   outline-offset: 2px;
 }
-/* Clean Google Form Input Focus - completely removes browser native rectangle */
+
+/* Clean Google Form Input Focus */
 .google-form-input {
   border-top: none !important;
   border-left: none !important;
@@ -155,7 +257,7 @@
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
-  border-bottom: 2px solid #095B42 !important;
+  border-bottom: 2px solid #0B4F26 !important;
   outline: none !important;
   outline-width: 0 !important;
   outline-style: none !important;

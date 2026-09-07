@@ -33,7 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white hover:brightness-110 shadow-sm hover:shadow active:scale-[0.99] focus-visible:outline-[#0B6B4F]",
+    primary: "bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white hover:brightness-110 shadow-sm hover:shadow active:scale-[0.99] focus-visible:outline-[#0B6B4F]",
     secondary: "bg-[#EBF4F0] text-[#0B6B4F] hover:bg-[#DCEDE7] active:scale-[0.99] focus-visible:outline-[#0B6B4F]",
     accent: "bg-[#C9A45C] text-[#12332B] hover:bg-[#BE994E] shadow-sm active:scale-[0.99] font-semibold focus-visible:outline-[#C9A45C]",
     outline: "border border-[#12332B]/20 text-[#17211E] bg-white hover:bg-[#F7F8F6] hover:border-[#0B6B4F]/40 active:scale-[0.99] focus-visible:outline-[#0B6B4F]",

@@ -57,7 +57,7 @@ export const NewsPage: React.FC = () => {
                 type="button"
                 onClick={() => setSelectedCat(cat.key)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCat === cat.key
-                    ? 'bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white shadow-xs'
+                    ? 'bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white shadow-xs'
                     : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-[#12332B]/5'
                   }`}
               >
@@ -94,7 +94,7 @@ export const NewsPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#12332B]/80 via-transparent to-transparent" />
                 <div className="absolute top-3 start-3">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white">
                     {getLocalized(item.category)}
                   </span>
                 </div>

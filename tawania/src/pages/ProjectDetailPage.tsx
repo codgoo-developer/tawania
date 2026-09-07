@@ -63,7 +63,7 @@ export const ProjectDetailPage: React.FC = () => {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute top-4 start-4">
-                <span className="px-3 py-1 rounded-lg text-xs font-bold bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white shadow-sm">
+                <span className="px-3 py-1 rounded-lg text-xs font-bold bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white shadow-sm">
                   {getLocalized(project.category)}
                 </span>
               </div>
@@ -116,7 +116,7 @@ export const ProjectDetailPage: React.FC = () => {
                       key={idx}
                       className="p-4 rounded-xl bg-[#F7F8F6] flex items-start gap-3"
                     >
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                      <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                         {idx + 1}
                       </div>
                       <div>

@@ -66,7 +66,7 @@ export const ProjectsPage: React.FC = () => {
                 className="bg-white rounded-3xl border border-[#0B6B4F]/15 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group text-start relative"
               >
                 {/* Top Green Accent Line */}
-                <div className="h-1.5 w-full bg-gradient-to-r from-[#53A528] via-[#0B6B4F] to-[#53A528]" />
+                <div className="h-1.5 w-full bg-gradient-to-r from-[#0B4F26] via-[#10B981] to-[#0B4F26]" />
 
                 {/* Project Image / Branded Default Fallback Banner */}
                 <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] flex items-center justify-center">
@@ -82,30 +82,17 @@ export const ProjectsPage: React.FC = () => {
                   ) : null}
 
                   {/* Fallback Graphic (shows when no image or image failed to load) */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 pointer-events-none z-0">
-                    <div className="w-14 h-14 rounded-2xl bg-white/80 shadow-xs border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] mb-1">
-                      <Building2 className="w-7 h-7 text-[#0B6B4F]" />
-                    </div>
-                    <span className="text-[11px] font-bold text-[#0B6B4F] tracking-wide text-center line-clamp-1 px-4">
-                      {project.name}
-                    </span>
-                  </div>
+            
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none z-2" />
-                  
-                  <div className="absolute bottom-3 start-4 end-4 z-3">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#0B6B4F] backdrop-blur-xs shadow-xs border border-[#0B6B4F]/10">
-                      <Sparkles className="w-3 h-3 text-[#53A528]" />
-                      <span>{locale === 'ar' ? 'مشروع معتمد' : 'Verified Project'}</span>
-                    </span>
-                  </div>
+       
                 </div>
 
                 {/* Card Content Area */}
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">
                   {/* Project Name (Required) - prominent text-start */}
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#53A528] tracking-tight leading-snug text-start group-hover:text-[#41861E] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#41861E] transition-colors">
                       {project.name}
                     </h3>
                   </div>
@@ -138,7 +125,7 @@ export const ProjectsPage: React.FC = () => {
                             key={idx}
                             className="flex items-start gap-2.5 text-xs font-semibold text-[#1C3A32] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100 group-hover:border-[#0B6B4F]/15 transition-colors"
                           >
-                            <CheckCircle2 className="w-4 h-4 text-[#53A528] shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                             <span className="leading-snug text-start flex-1">{feat}</span>
                           </div>
                         ))}

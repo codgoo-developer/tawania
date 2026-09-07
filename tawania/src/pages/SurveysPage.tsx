@@ -775,7 +775,7 @@ export const SurveysPage: React.FC = () => {
                 <div className="flex items-center justify-end pt-4">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg cursor-pointer"
                   >
                     <span>إرسال الاستبيان</span>
                     <Send className="w-5 h-5 shrink-0" />
@@ -824,7 +824,7 @@ export const SurveysPage: React.FC = () => {
                 <div className="flex items-center justify-end pt-4">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg cursor-pointer"
                   >
                     <span>إرسال الاستبيان</span>
                     <Send className="w-5 h-5 shrink-0" />
@@ -853,7 +853,7 @@ export const SurveysPage: React.FC = () => {
                 <div className="flex items-center justify-end pt-4">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg cursor-pointer"
                   >
                     <span>إرسال الاستبيان</span>
                     <Send className="w-5 h-5 shrink-0" />
@@ -972,7 +972,7 @@ export const SurveysPage: React.FC = () => {
                 <div className="flex items-center justify-end pt-4">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg cursor-pointer"
                   >
                     <span>إرسال الاستبيان</span>
                     <Send className="w-5 h-5 shrink-0" />

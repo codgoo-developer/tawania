@@ -13,7 +13,7 @@ export const LanguageSwitcher: React.FC<{ isScrolled?: boolean }> = () => {
         type="button"
         onClick={() => setLocale('ar')}
         className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${locale === 'ar'
-            ? 'bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white shadow-xs'
+            ? 'bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white shadow-xs'
             : 'text-[#68736F] hover:text-[#0B6B4F]'
           }`}
       >
@@ -23,7 +23,7 @@ export const LanguageSwitcher: React.FC<{ isScrolled?: boolean }> = () => {
         type="button"
         onClick={() => setLocale('en')}
         className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${locale === 'en'
-            ? 'bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white shadow-xs'
+            ? 'bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white shadow-xs'
             : 'text-[#68736F] hover:text-[#0B6B4F]'
           }`}
       >

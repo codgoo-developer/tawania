@@ -2579,7 +2579,7 @@ export const DashboardPage: React.FC = () => {
                             type="button"
                             onClick={() => handleTabChange(tab.id as TabType)}
                             className={`w-full flex items-center justify-between p-3 rounded-xl text-xs font-bold transition-all text-start cursor-pointer ${isActive
-                              ? 'bg-gradient-to-r from-[#095B42] to-[#064230] text-white shadow-xs'
+                              ? 'bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white shadow-xs'
                               : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
                               }`}
                           >
@@ -3074,7 +3074,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleOpenAddBoardMember}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs px-5 py-3 rounded-2xl shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs px-5 py-3 rounded-2xl shadow-sm transition-all cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>إضافة عضو مجلس جديد</span>
@@ -3338,7 +3338,7 @@ export const DashboardPage: React.FC = () => {
                         </button>
                         <button
                           type="submit"
-                          className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
+                          className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
                         >
                           حفظ البيانات
                         </button>
@@ -3372,7 +3372,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleOpenAddGalleryItem}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs px-5 py-3 rounded-2xl shadow-sm transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs px-5 py-3 rounded-2xl shadow-sm transition-all cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>إضافة صورة / فعالية جديدة</span>
@@ -3542,7 +3542,7 @@ export const DashboardPage: React.FC = () => {
                         </button>
                         <button
                           type="submit"
-                          className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
+                          className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
                         >
                           حفظ الصورة
                         </button>
@@ -3593,7 +3593,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleOpenAddFeedbackCard}
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs flex items-center gap-1.5 shadow-xs cursor-pointer transition-all"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs flex items-center gap-1.5 shadow-xs cursor-pointer transition-all"
                   >
                     <Plus className="w-4 h-4" />
                     <span>إضافة منصة جديدة</span>
@@ -3907,7 +3907,7 @@ export const DashboardPage: React.FC = () => {
                         </button>
                         <button
                           type="submit"
-                          className="px-6 py-2 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] text-white font-bold text-xs cursor-pointer hover:brightness-110 shadow-xs"
+                          className="px-6 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white font-bold text-xs cursor-pointer hover:brightness-110 shadow-xs"
                         >
                           {editingFeedbackCard ? 'حفظ التعديلات' : 'إضافة المنصة'}
                         </button>
@@ -4033,7 +4033,7 @@ export const DashboardPage: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => setViewingSubmission(sub)}
-                            className="flex-1 px-3 py-2 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                            className="flex-1 px-3 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs shadow-2xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                           >
                             <Eye className="w-3.5 h-3.5" />
                             <span>{locale === 'ar' ? 'معاينة والرد التفصيلي' : 'View & Reply'}</span>
@@ -4229,7 +4229,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setActiveTab('members')}
-                    className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
+                    className="px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
                   >
                     <Users className="w-3.5 h-3.5" />
                     <span>سجل الأعضاء المعتمدين</span>
@@ -4325,7 +4325,7 @@ export const DashboardPage: React.FC = () => {
                               <button
                                 type="button"
                                 onClick={() => handleConfirmMembershipFromSubmission(sub)}
-                                className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
+                                className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
                               >
                                 <CheckCircle2 className="w-4 h-4" />
                                 <span>اعتماد وإضافة للسجل</span>
@@ -4370,7 +4370,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => openMemberModal()}
-                    className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer shrink-0"
+                    className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer shrink-0"
                   >
                     <UserPlus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة عضو جديد' : 'Add New Member'}</span>
@@ -4641,7 +4641,7 @@ export const DashboardPage: React.FC = () => {
               <div className="bg-white p-6 rounded-2xl   shadow-2xs space-y-4">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-100 pb-3">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-[#53A528]" />
+                    <Sparkles className="w-5 h-5 text-[#10B981]" />
                     <div>
                       <h3 className="text-base font-bold text-gray-900">
                         {locale === 'ar' ? 'إعدادات ووصف قسم مشاريعنا التنموية' : 'Projects Section Header & Description'}
@@ -4715,7 +4715,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => openProjectModal()}
-                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer shrink-0"
+                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all flex items-center gap-2 cursor-pointer shrink-0"
                 >
                   <Plus className="w-4 h-4" />
                   <span>{locale === 'ar' ? 'إضافة مشروع جديد' : 'Add New Project'}</span>
@@ -5967,7 +5967,7 @@ export const DashboardPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => setViewingSubmission(sub)}
-                              className="px-3 py-1.5 rounded-xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs shadow-2xs transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                              className="px-3 py-1.5 rounded-xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs shadow-2xs transition-all inline-flex items-center gap-1.5 cursor-pointer"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               <span>معاينة الرد التفصيلي</span>
@@ -6588,7 +6588,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsHeroModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الشريحة</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الشريحة</button>
               </div>
             </form>
           </div>
@@ -6620,7 +6620,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsGoalModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الهدف</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الهدف</button>
               </div>
             </form>
           </div>
@@ -6720,7 +6720,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsTestimonialModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الشهادة</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الشهادة</button>
               </div>
             </form>
           </div>
@@ -6839,7 +6839,7 @@ export const DashboardPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] rounded-xl shadow-xs hover:brightness-110 cursor-pointer"
+                  className="px-5 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] rounded-xl shadow-xs hover:brightness-110 cursor-pointer"
                 >
                   {editingMember ? 'حفظ التعديلات' : 'إضافة العضو'}
                 </button>
@@ -7050,7 +7050,7 @@ export const DashboardPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] rounded-xl shadow-xs hover:brightness-110 cursor-pointer transition-all"
+                  className="px-6 py-2.5 text-xs font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] rounded-xl shadow-xs hover:brightness-110 cursor-pointer transition-all"
                 >
                   حفظ المشروع
                 </button>
@@ -7117,7 +7117,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsPolicyModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ السياسة</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ السياسة</button>
               </div>
             </form>
           </div>
@@ -7263,7 +7263,7 @@ export const DashboardPage: React.FC = () => {
 
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsRegulationModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">
                   {editingRegulation ? 'حفظ كافة التعديلات' : 'إضافة اللائحة للسجل'}
                 </button>
               </div>
@@ -7413,7 +7413,7 @@ export const DashboardPage: React.FC = () => {
 
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsFinancialModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ القائمة المالية</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ القائمة المالية</button>
               </div>
             </form>
           </div>
@@ -7483,7 +7483,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsWorkshopModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الورشة</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الورشة</button>
               </div>
             </form>
           </div>
@@ -7686,7 +7686,7 @@ export const DashboardPage: React.FC = () => {
 
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsMeetingModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">
                   {editingMeeting ? 'حفظ كافة التعديلات' : 'إضافة المحضر للسجل'}
                 </button>
               </div>
@@ -7823,7 +7823,7 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsEthicsModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
-                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الميثاق</button>
+                <button type="submit" className="px-6 py-2.5 font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer">حفظ الميثاق</button>
               </div>
             </form>
           </div>
@@ -9204,7 +9204,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
               onClick={() => onConfirmMembership(submission)}
               className={`shrink-0 px-5 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-2 ${isConfirmedMember
                 ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 cursor-default'
-                : 'bg-gradient-to-r from-[#095B42] to-[#064230] text-white hover:brightness-110 shadow-xs cursor-pointer'
+                : 'bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white hover:brightness-110 shadow-xs cursor-pointer'
                 }`}
             >
               <UserCheck className="w-4 h-4" />
@@ -9384,7 +9384,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
           <button
             type="button"
             onClick={handleSubmit}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs shadow-xs cursor-pointer transition-all flex items-center gap-2"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs shadow-xs cursor-pointer transition-all flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
             <span>حفظ بيانات التواصل</span>
@@ -9677,7 +9677,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         <div className="flex items-center justify-end gap-3 pt-2">
           <button
             type="submit"
-            className="px-8 py-3 rounded-2xl bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 text-white font-black text-sm shadow-md cursor-pointer transition-all flex items-center gap-2"
+            className="px-8 py-3 rounded-2xl bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-black text-sm shadow-md cursor-pointer transition-all flex items-center gap-2"
           >
             <Save className="w-5 h-5" />
             <span>حفظ وتحديث كل بيانات الموقع الشامل</span>

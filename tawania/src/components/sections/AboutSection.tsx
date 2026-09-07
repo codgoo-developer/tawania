@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-start">
             {/* Minimal Badge */}
             <div className="flex items-center gap-2 text-sm font-bold text-[#68736F] tracking-wider uppercase">
-              <span className="w-8 h-0.5 bg-gradient-to-br from-[#0B6B4F] to-[#095B42]" />
+              <span className="w-8 h-0.5 bg-gradient-to-br from-[#0B4F26] to-[#10B981]" />
               <span>{locale === 'ar' ? (homeAboutData?.badgeAr || 'من نحن') : (homeAboutData?.badgeEn || 'About Us')}</span>
             </div>
 

@@ -31,13 +31,13 @@ export const ProjectsShowcaseSection: React.FC = () => {
         {/* Header with dynamic description */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#EBF5F1] text-[#0B6B4F] mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-[#53A528]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
             <span>{badge}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight mb-4">
             {title}
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#53A528] to-[#0B6B4F] mx-auto mb-5 rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-[#0B4F26] to-[#10B981] mx-auto mb-5 rounded-full" />
           <p className="text-sm sm:text-base text-[#4A5550] leading-relaxed font-medium">
             {description}
           </p>
@@ -50,7 +50,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
               key={project.id}
               className="bg-white rounded-3xl border border-[#0B6B4F]/15 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group text-start relative"
             >
-              <div className="h-1.5 w-full bg-gradient-to-r from-[#53A528] via-[#0B6B4F] to-[#53A528]" />
+              <div className="h-1.5 w-full bg-gradient-to-r from-[#0B4F26] via-[#10B981] to-[#0B4F26]" />
 
               <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] flex items-center justify-center">
                 {project.image ? (
@@ -78,14 +78,14 @@ export const ProjectsShowcaseSection: React.FC = () => {
 
                 <div className="absolute bottom-3 start-4 end-4 z-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#0B6B4F] backdrop-blur-xs shadow-xs border border-[#0B6B4F]/10">
-                    <Sparkles className="w-3 h-3 text-[#53A528]" />
+                    <Sparkles className="w-3 h-3 text-[#10B981]" />
                     <span>{isAr ? 'مشروع معتمد' : 'Verified Project'}</span>
                   </span>
                 </div>
               </div>
 
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">
-                <h3 className="text-2xl sm:text-3xl font-black text-[#53A528] tracking-tight leading-snug text-start group-hover:text-[#41861E] transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#41861E] transition-colors">
                   {project.name}
                 </h3>
 
@@ -110,7 +110,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
                         key={idx}
                         className="flex items-start gap-2.5 text-xs font-semibold text-[#1C3A32] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#53A528] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                         <span className="leading-snug text-start flex-1">{feat}</span>
                       </div>
                     ))}
@@ -137,7 +137,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
         <div className="text-center">
           <Link
             to={getLocalizedPath('/projects')}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#095B42] to-[#064230] text-white font-bold text-sm sm:text-base shadow-md hover:brightness-110 hover:shadow-xl transition-all duration-200 group"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white font-bold text-sm sm:text-base shadow-md hover:brightness-110 hover:shadow-xl transition-all duration-200 group"
           >
             <span>{isAr ? 'عرض كافة مشاريع الجمعية' : 'View All Cooperative Projects'}</span>
             <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

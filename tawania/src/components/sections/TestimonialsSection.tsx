@@ -116,7 +116,7 @@ export const TestimonialsSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight">
             {locale === 'ar' ? 'قالوا عنا' : 'What They Said About Us'}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-br from-[#095B42] to-[#064230] mx-auto my-3 rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] mx-auto my-3 rounded-full" />
           <p className="text-xs sm:text-sm text-[#68736F] leading-relaxed">
             {locale === 'ar'
               ? 'شهادات وآراء موثقة من مساهمي الجمعية وعملائها وشركاء النجاح التنموي'

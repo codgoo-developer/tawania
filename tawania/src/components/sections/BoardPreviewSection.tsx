@@ -67,7 +67,7 @@ export const BoardPreviewSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight mb-3">
             {isAr ? (boardIntro?.titleAr || 'أعضاء مجلس الإدارة') : (boardIntro?.titleEn || 'Board of Directors')}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-br from-[#095B42] to-[#064230] mx-auto rounded-full mb-6" />
+          <div className="w-20 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] mx-auto rounded-full mb-6" />
         </div>
 
         {/* Governance Intro Paragraph */}

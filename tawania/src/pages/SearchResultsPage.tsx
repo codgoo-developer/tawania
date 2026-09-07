@@ -65,7 +65,7 @@ export const SearchResultsPage: React.FC = () => {
           <Search className="w-5 h-5 text-[#68736F] absolute start-4 top-1/2 -translate-y-1/2" />
           <button
             type="submit"
-            className="absolute end-2 top-1/2 -translate-y-1/2 px-5 py-2 bg-gradient-to-br from-[#0B6B4F] to-[#095B42] text-white rounded-xl text-xs font-bold hover:brightness-110 transition-all cursor-pointer"
+            className="absolute end-2 top-1/2 -translate-y-1/2 px-5 py-2 bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-xl text-xs font-bold hover:brightness-110 transition-all cursor-pointer"
           >
             {t.search.searchButton}
           </button>

@@ -97,7 +97,7 @@ export const MembersPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: نموذج تسجيل عضو جديد */}
-          <div className="bg-gradient-to-br from-[#095B42] to-[#064230] text-white rounded-3xl p-8 shadow-md relative overflow-hidden flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-3xl p-8 shadow-md relative overflow-hidden flex flex-col justify-between">
             <div className="space-y-3 relative z-10">
               <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-xs font-bold text-[#E5C170]">
                 {locale === 'ar' ? 'اكتتاب وانضمام' : 'Join as Shareholder'}
@@ -140,7 +140,7 @@ export const MembersPage: React.FC = () => {
             <div className="pt-6">
               <Link
                 to={getLocalizedPath('/members/directory')}
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-transform hover:scale-105 shadow-sm"
+                className="inline-flex items-center gap-2 bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-transform hover:scale-105 shadow-sm"
               >
                 <span>{locale === 'ar' ? 'عرض سجل وبيانات الأعضاء' : 'View Members Directory'}</span>
                 <Arrow className="w-4 h-4" />

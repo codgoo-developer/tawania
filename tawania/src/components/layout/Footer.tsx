@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
               href={`https://wa.me/${formattedWa}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 text-white text-xs sm:text-sm font-bold transition-all flex items-center gap-2"
+              className="px-6 py-3 rounded-full bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white text-xs sm:text-sm font-bold transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-[#E5C170]" />
               <span>{locale === 'ar' ? 'واتساب' : 'WhatsApp'}</span>

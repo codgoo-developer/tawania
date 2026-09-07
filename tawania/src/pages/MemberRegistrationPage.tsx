@@ -190,7 +190,7 @@ export const MemberRegistrationPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Main Instruction Banner from user prompt */}
-        <div className="bg-gradient-to-br from-[#095B42] to-[#064230] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden mb-6 border border-[#0B6B4F]">
+        <div className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden mb-6 border border-[#0B6B4F]">
           <div className="relative z-10 space-y-3 text-center sm:text-start">
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#E5C170]">
               {locale === 'ar'
@@ -308,7 +308,7 @@ export const MemberRegistrationPage: React.FC = () => {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
+                    className="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
                   >
                     تأكيد التبديل
                   </button>
@@ -736,7 +736,7 @@ export const MemberRegistrationPage: React.FC = () => {
                         type="button"
                         onClick={() => setSharesCount(count)}
                         className={`px-3 py-2 rounded-xl text-xs font-bold transition-colors ${sharesCount === count
-                            ? 'bg-gradient-to-br from-[#095B42] to-[#064230] text-white'
+                            ? 'bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white'
                             : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                           }`}
                       >
@@ -850,7 +850,7 @@ export const MemberRegistrationPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg hover:shadow-xl active:scale-[0.99] transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg hover:shadow-xl active:scale-[0.99] transition-all cursor-pointer"
               >
                 <span>إرسال طلب المساهمة والتسجيل</span>
                 <Send className="w-5 h-5 shrink-0" />

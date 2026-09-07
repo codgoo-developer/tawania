@@ -224,7 +224,7 @@ export const WhistleblowingPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Google Form Simulation Header Banner */}
-        <div className="bg-gradient-to-br from-[#095B42] to-[#064230] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden mb-6 border border-[#0B6B4F]">
+        <div className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden mb-6 border border-[#0B6B4F]">
           <div className="relative z-10 space-y-3 text-center sm:text-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-amber-300 text-xs font-bold">
               <ShieldCheck className="w-4 h-4" />
@@ -361,7 +361,7 @@ export const WhistleblowingPage: React.FC = () => {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-[#095B42] to-[#064230] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
+                    className="px-5 py-2 text-xs font-bold text-white bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 rounded-xl shadow-xs cursor-pointer"
                   >
                     تأكيد التبديل
                   </button>
@@ -914,7 +914,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#095B42] to-[#064230] hover:brightness-110 shadow-lg cursor-pointer transition-all"
+                    className="inline-flex items-center gap-3 px-10 py-4 text-base font-bold text-white rounded-2xl bg-gradient-to-br from-[#0B4F26] to-[#10B981] hover:brightness-110 shadow-lg cursor-pointer transition-all"
                   >
                     <span>إرسال البلاغ</span>
                     <Send className="w-5 h-5 shrink-0" />
