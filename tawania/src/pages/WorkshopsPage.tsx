@@ -158,9 +158,9 @@ export const WorkshopsPage: React.FC = () => {
                 <div className="pt-2 flex items-center justify-end">
                   <Link
                     to={getLocalizedPath(`/workshops/${w.id}`)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold transition-all shadow-xs"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white text-xs font-bold transition-all shadow-xs hover:shadow-md hover:-translate-y-0.5"
                   >
-                    <Eye className="w-4 h-4" />
+                    <Eye className="w-4 h-4 text-[#84CC16]" />
                     <span>{locale === 'ar' ? 'عرض تفاصيل الورشة والتقرير الكامل' : 'View Full Report & Details'}</span>
                     {locale === 'ar' ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
                   </Link>

@@ -419,7 +419,7 @@ export const WhistleblowingPage: React.FC = () => {
                 setViolationEvidences('');
                 setExpectedOutcomes('');
               }}
-              className="px-6 py-3 rounded-full bg-[#0B4F26] text-white font-bold text-xs hover:bg-[#073519] transition-colors cursor-pointer"
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white font-bold text-xs shadow-md hover:shadow-lg transition-all cursor-pointer"
             >
               تقديم بلاغ جديد
             </button>
@@ -678,7 +678,7 @@ export const WhistleblowingPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 bg-[#0B4F26] hover:bg-[#073519] text-white font-bold text-sm px-8 py-3.5 rounded-2xl shadow-md transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white font-bold text-sm px-8 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-all cursor-pointer"
                   >
                     <span>التالي</span>
                     <ArrowLeft className="w-4 h-4 dir-rtl:rotate-180" />

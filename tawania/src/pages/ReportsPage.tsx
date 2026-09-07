@@ -182,9 +182,9 @@ export const ReportsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedReportForView(report)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white text-xs font-bold transition-all cursor-pointer shadow-xs hover:shadow-md"
                 >
-                  <Eye className="w-4 h-4" />
+                  <Eye className="w-4 h-4 text-[#84CC16]" />
                   <span>{locale === 'ar' ? 'معاينة التقرير (PDF)' : 'View PDF'}</span>
                 </button>
 

@@ -131,7 +131,7 @@ export const MembersDirectoryPage: React.FC = () => {
             <Link
               to={getLocalizedPath('/members/register')}
               id="hero-register-member-btn"
-              className="inline-flex items-center justify-center gap-2.5 px-4 py-2 rounded-lg  bg-[#0B4F26] hover:bg-[#08523C] text-white font-bold text-sm sm:text-sm  hover:shadow-md transition-all duration-200 border border-[#0B4F26]/10 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-200 border border-[#84CC16]/30 cursor-pointer shadow-md"
             >
               <UserPlus className="w-4 h-4 text-[#84CC16] shrink-0" />
               <span>{locale === 'ar' ? 'تسجيل عضو جديد' : 'New Member Registration'}</span>
@@ -165,7 +165,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 type="button"
                 onClick={() => setViewMode('poster')}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'poster'
-                  ? 'bg-[#0B4F26] text-white shadow-xs'
+                  ? 'bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
@@ -176,7 +176,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 type="button"
                 onClick={() => setViewMode('table')}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'table'
-                  ? 'bg-[#0B4F26] text-white shadow-xs'
+                  ? 'bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
@@ -188,7 +188,7 @@ export const MembersDirectoryPage: React.FC = () => {
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#0B4F26] to-[#08523C] hover:brightness-110 text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>{locale === 'ar' ? 'طباعة كامل السجل' : 'Print All Members'}</span>

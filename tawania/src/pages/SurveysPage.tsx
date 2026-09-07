@@ -623,7 +623,7 @@ export const SurveysPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsSubmitted(false)}
-                className="px-8 py-3 bg-[#0B4F26] text-white text-xs sm:text-sm font-bold rounded-2xl hover:bg-[#073519] shadow-md transition-all cursor-pointer"
+                className="px-8 py-3.5 bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white text-xs sm:text-sm font-bold rounded-2xl shadow-md hover:shadow-lg transition-all cursor-pointer"
               >
                 إرسال رد آخر
               </button>

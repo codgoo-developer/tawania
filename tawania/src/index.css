@@ -274,3 +274,62 @@
   outline-offset: 0 !important;
   box-shadow: none !important;
 }
+
+/* ==========================================================================
+   Universal Button Gradient System (Applied across all pages & systems)
+   ========================================================================== */
+
+/* Primary buttons with cooperative green gradient */
+button.bg-\[\#0B4F26\],
+a.bg-\[\#0B4F26\],
+.btn-gradient-primary,
+.btn-gradient-green {
+  background-image: linear-gradient(135deg, #0B4F26 0%, #0d5f2e 50%, #10B981 100%) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button.bg-\[\#0B4F26\]:hover,
+a.bg-\[\#0B4F26\]:hover,
+.btn-gradient-primary:hover,
+.btn-gradient-green:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 20px -4px rgba(11, 79, 38, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Secondary / Lime accent gradient buttons */
+.btn-gradient-lime {
+  background-image: linear-gradient(135deg, #84CC16 0%, #A3E635 50%, #65A30D 100%) !important;
+  color: #042419 !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gradient-lime:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 20px -4px rgba(132, 204, 22, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Energy / Danger gradient buttons */
+.btn-gradient-danger {
+  background-image: linear-gradient(135deg, #DC2626 0%, #EF4444 50%, #991B1B 100%) !important;
+  color: #FFFFFF !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gradient-danger:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px -4px rgba(220, 38, 38, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Amber / Gold gradient buttons */
+.btn-gradient-amber {
+  background-image: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%) !important;
+  color: #FFFFFF !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gradient-amber:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 20px -4px rgba(245, 158, 11, 0.35);
+  transform: translateY(-1px);
+}
+

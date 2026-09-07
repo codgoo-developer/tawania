@@ -227,13 +227,13 @@ export const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-3.5 sm:py-4 px-6 bg-[#0B4F26] hover:bg-[#08523C] text-white rounded-2xl font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50"
+              className="w-full mt-2 py-3.5 sm:py-4 px-6 bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] hover:brightness-110 text-white rounded-2xl font-bold text-sm sm:text-base shadow-lg shadow-[#0B4F26]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50"
             >
               {isLoading ? (
                 <span>{locale === 'ar' ? 'جارٍ التحقق...' : 'Verifying...'}</span>
               ) : (
                 <>
-                  <ShieldCheck className="w-5 h-5 text-[#F59E0B]" />
+                  <ShieldCheck className="w-5 h-5 text-[#84CC16]" />
                   <span>{locale === 'ar' ? 'تسجيل الدخول إلى لوحة التحكم' : 'Sign In to Dashboard'}</span>
                 </>
               )}
