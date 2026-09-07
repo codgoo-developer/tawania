@@ -75,8 +75,8 @@ export const LoginPage: React.FC = () => {
         
         {/* Center: Quote & Value Proposition */}
         <div className="relative z-10 space-y-4 max-w-lg my-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C9A45C]/20 border border-[#C9A45C]/40 text-xs font-bold text-amber-300 backdrop-blur-md">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#C9A45C]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F59E0B]/20 border border-[#F59E0B]/40 text-xs font-bold text-amber-300 backdrop-blur-md">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{locale === 'ar' ? 'منظومة الحوكمة الرقمية المعتمدة' : 'Official Governance Portal'}</span>
           </div>
 
@@ -133,7 +133,7 @@ export const LoginPage: React.FC = () => {
             title={locale === 'ar' ? 'العودة للصفحة الرئيسية' : 'Go to Homepage'}
             className="group flex items-center gap-2 transition-transform hover:scale-105 cursor-pointer"
           >
-            <AlShamelLogo size="md" textColor="#0A4D38" />
+            <AlShamelLogo size="md" textColor="#0B4F26" />
           </Link>
         </div>
 
@@ -142,7 +142,7 @@ export const LoginPage: React.FC = () => {
           
           {/* Title & Welcome */}
           <div className="text-start space-y-1.5">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#12332B] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] tracking-tight">
               {locale === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
             </h1>
             <p className="text-sm text-gray-500 leading-relaxed font-medium">
@@ -174,7 +174,7 @@ export const LoginPage: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@tawania.sa"
-                  className="w-full ps-11 pe-4 py-3 sm:py-3.5 bg-white border border-gray-300 rounded-2xl text-sm sm:text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0B6B4F] focus:border-transparent transition-all shadow-xs text-start"
+                  className="w-full ps-11 pe-4 py-3 sm:py-3.5 bg-white border border-gray-300 rounded-2xl text-sm sm:text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0B4F26] focus:border-transparent transition-all shadow-xs text-start"
                 />
               </div>
             </div>
@@ -191,7 +191,7 @@ export const LoginPage: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full ps-11 pe-12 py-3 sm:py-3.5 bg-white border border-gray-300 rounded-2xl text-sm sm:text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0B6B4F] focus:border-transparent transition-all shadow-xs text-start"
+                  className="w-full ps-11 pe-12 py-3 sm:py-3.5 bg-white border border-gray-300 rounded-2xl text-sm sm:text-base font-medium text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0B4F26] focus:border-transparent transition-all shadow-xs text-start"
                 />
                 <button
                   type="button"
@@ -212,13 +212,13 @@ export const LoginPage: React.FC = () => {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 rounded text-[#0B6B4F] focus:ring-[#0B6B4F] border-gray-300 accent-[#0B6B4F]"
+                  className="w-4 h-4 rounded text-[#0B4F26] focus:ring-[#0B4F26] border-gray-300 accent-[#0B4F26]"
                 />
                 <span>{locale === 'ar' ? 'تذكر بيانات الجلسة' : 'Remember session'}</span>
               </label>
 
               <span className="text-gray-400 text-xs flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#0B6B4F]" />
+                <ShieldCheck className="w-4 h-4 text-[#0B4F26]" />
                 <span>{locale === 'ar' ? 'مشفر ومحمي' : 'Encrypted & Secure'}</span>
               </span>
             </div>
@@ -227,13 +227,13 @@ export const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full mt-2 py-3.5 sm:py-4 px-6 bg-[#0B6B4F] hover:bg-[#08523C] text-white rounded-2xl font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50"
+              className="w-full mt-2 py-3.5 sm:py-4 px-6 bg-[#0B4F26] hover:bg-[#08523C] text-white rounded-2xl font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50"
             >
               {isLoading ? (
                 <span>{locale === 'ar' ? 'جارٍ التحقق...' : 'Verifying...'}</span>
               ) : (
                 <>
-                  <ShieldCheck className="w-5 h-5 text-[#C9A45C]" />
+                  <ShieldCheck className="w-5 h-5 text-[#F59E0B]" />
                   <span>{locale === 'ar' ? 'تسجيل الدخول إلى لوحة التحكم' : 'Sign In to Dashboard'}</span>
                 </>
               )}
@@ -244,7 +244,7 @@ export const LoginPage: React.FC = () => {
 
         {/* Bottom Footer Note */}
         <div className="mt-4 pt-3 border-t border-gray-200/80 text-center text-[10px] text-gray-400 flex items-center justify-center gap-1.5">
-          <Building2 className="w-3.5 h-3.5 text-[#0B6B4F]" />
+          <Building2 className="w-3.5 h-3.5 text-[#0B4F26]" />
           <span>
             {locale === 'ar'
               ? 'جمعية الشامل التعاونية متعددة الأغراض بعقلة الصقور (ترخيص 234)'

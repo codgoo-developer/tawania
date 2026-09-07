@@ -59,25 +59,25 @@ export const NewsDetailPage: React.FC = () => {
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Article Meta Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-b border-[#12332B]/10 text-xs text-[#68736F] mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-4 border-b border-[#0F172A]/10 text-xs text-[#68736F] mb-8">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <Calendar className="w-4 h-4 text-[#0B6B4F]" />
+              <Calendar className="w-4 h-4 text-[#0B4F26]" />
               <span>{article.date}</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <User className="w-4 h-4 text-[#0B6B4F]" />
+              <User className="w-4 h-4 text-[#0B4F26]" />
               <span>{getLocalized(article.author)}</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-[#0B6B4F]" />
+              <Clock className="w-4 h-4 text-[#0B4F26]" />
               <span>{getLocalized(article.readTime)}</span>
             </span>
           </div>
 
           {/* Social Share Buttons */}
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-[#12332B]">{locale === 'ar' ? 'مشاركة:' : 'Share:'}</span>
+            <span className="font-semibold text-[#0F172A]">{locale === 'ar' ? 'مشاركة:' : 'Share:'}</span>
             <a
               href={whatsappShareUrl}
               target="_blank"
@@ -118,7 +118,7 @@ export const NewsDetailPage: React.FC = () => {
         </div>
 
         {/* Excerpt Lead */}
-        <p className="text-base sm:text-lg font-semibold text-[#12332B] leading-relaxed mb-8 p-4 rounded-xl bg-[#EBF4F0]/60 border-s-4 border-[#0B6B4F]">
+        <p className="text-base sm:text-lg font-semibold text-[#0F172A] leading-relaxed mb-8 p-4 rounded-xl bg-[#E8F7F0]/60 border-s-4 border-[#0B4F26]">
           {getLocalized(article.excerpt)}
         </p>
 
@@ -130,13 +130,13 @@ export const NewsDetailPage: React.FC = () => {
         </div>
 
         {/* Tags */}
-        <div className="pt-8 mt-8 border-t border-[#12332B]/10 flex flex-wrap items-center gap-2">
-          <Tag className="w-4 h-4 text-[#0B6B4F]" />
-          <span className="text-xs font-bold text-[#12332B] me-1">{locale === 'ar' ? 'الوسوم:' : 'Tags:'}</span>
+        <div className="pt-8 mt-8 border-t border-[#0F172A]/10 flex flex-wrap items-center gap-2">
+          <Tag className="w-4 h-4 text-[#0B4F26]" />
+          <span className="text-xs font-bold text-[#0F172A] me-1">{locale === 'ar' ? 'الوسوم:' : 'Tags:'}</span>
           {article.tags.map((tag, idx) => (
             <span
               key={idx}
-              className="text-xs px-3 py-1 bg-[#F7F8F6] text-[#0B6B4F] rounded-full border border-[#12332B]/10"
+              className="text-xs px-3 py-1 bg-[#F7F8F6] text-[#0B4F26] rounded-full border border-[#0F172A]/10"
             >
               #{getLocalized(tag)}
             </span>
@@ -147,12 +147,12 @@ export const NewsDetailPage: React.FC = () => {
       {/* Related News */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#12332B]">
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A]">
             {locale === 'ar' ? 'أخبار أخرى ذات صلة' : 'Related News'}
           </h2>
           <Link
             to={getLocalizedPath('/news')}
-            className="text-xs sm:text-sm font-bold text-[#0B6B4F] hover:underline"
+            className="text-xs sm:text-sm font-bold text-[#0B4F26] hover:underline"
           >
             {t.common.viewAll} →
           </Link>
@@ -163,9 +163,9 @@ export const NewsDetailPage: React.FC = () => {
             <Link
               key={rel.slug}
               to={getLocalizedPath(`/news/${rel.slug}`)}
-              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B4F26]/30 transition-all duration-300 group flex flex-col"
             >
-              <div className="h-44 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
+              <div className="h-44 bg-gradient-to-br from-[#0F172A] to-[#0B211C] overflow-hidden">
                 <img
                   src={rel.image}
                   alt={getLocalized(rel.title)}
@@ -174,13 +174,13 @@ export const NewsDetailPage: React.FC = () => {
                 />
               </div>
               <div className="p-5 flex-1 flex flex-col justify-between">
-                <span className="text-[10px] font-bold text-[#0B6B4F] mb-1 block">
+                <span className="text-[10px] font-bold text-[#0B4F26] mb-1 block">
                   {getLocalized(rel.category)}
                 </span>
-                <h4 className="text-sm font-bold text-[#12332B] group-hover:text-[#0B6B4F] transition-colors line-clamp-2">
+                <h4 className="text-sm font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors line-clamp-2">
                   {getLocalized(rel.title)}
                 </h4>
-                <div className="flex items-center gap-2 text-[11px] text-[#68736F] mt-3 pt-2 border-t border-[#12332B]/5">
+                <div className="flex items-center gap-2 text-[11px] text-[#68736F] mt-3 pt-2 border-t border-[#0F172A]/5">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>{rel.date}</span>
                 </div>

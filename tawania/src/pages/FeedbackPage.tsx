@@ -142,8 +142,8 @@ export const FeedbackPage: React.FC = () => {
         <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-[#12332B] flex items-center gap-2">
-                <Globe className="w-6 h-6 text-[#0B6B4F]" />
+              <h2 className="text-xl sm:text-2xl font-black text-[#0F172A] flex items-center gap-2">
+                <Globe className="w-6 h-6 text-[#0B4F26]" />
                 {locale === 'ar' ? 'منصات التغذية الراجعة والتقييمات المعتمدة' : 'Official Feedback & Review Platforms'}
               </h2>
               <p className="text-xs sm:text-sm text-[#68736F] mt-1">
@@ -154,7 +154,7 @@ export const FeedbackPage: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
-              <span className="px-3.5 py-1.5 rounded-full bg-[#0B6B4F]/10 text-[#0B6B4F] font-bold text-xs">
+              <span className="px-3.5 py-1.5 rounded-full bg-[#0B4F26]/10 text-[#0B4F26] font-bold text-xs">
                 {filteredCards.length} {locale === 'ar' ? 'منصات معتمدة' : 'Platforms'}
               </span>
             </div>
@@ -168,7 +168,7 @@ export const FeedbackPage: React.FC = () => {
                 onClick={() => setActiveFilter('all')}
                 className={'px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ' + (
                   activeFilter === 'all'
-                    ? 'bg-[#0B6B4F] text-white shadow-2xs'
+                    ? 'bg-[#0B4F26] text-white shadow-2xs'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 )}
               >
@@ -208,7 +208,7 @@ export const FeedbackPage: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث في المنصات...' : 'Search platforms...'}
-                className="w-full ps-9 pe-4 py-2 bg-gray-50rounded-xl text-xs focus:outline-none focus:border-[#095B42] focus:bg-white transition-all"
+                className="w-full ps-9 pe-4 py-2 bg-gray-50rounded-xl text-xs focus:outline-none focus:border-[#0B4F26] focus:bg-white transition-all"
               />
             </div>
           </div>
@@ -274,10 +274,10 @@ export const FeedbackPage: React.FC = () => {
                   {/* Title & Platform Tag */}
                   <div>
                     <div className="flex items-center gap-1.5 text-[11px] font-bold text-gray-400 mb-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#0B4F26]" />
                       <span>{item.platformName}</span>
                     </div>
-                    <h3 className="font-black text-base text-[#12332B] group-hover:text-[#0B6B4F] transition-colors leading-snug">
+                    <h3 className="font-black text-base text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
                       {title}
                     </h3>
                   </div>

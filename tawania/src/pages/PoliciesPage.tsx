@@ -63,8 +63,8 @@ export const PoliciesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSub('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'all'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'كافة السياسات (الكل)' : 'All Policies'}
@@ -73,8 +73,8 @@ export const PoliciesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSub('general')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'general'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'السياسات الداخلية العامة' : 'General Policies'}
@@ -83,8 +83,8 @@ export const PoliciesPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSub('aml')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSub === 'aml'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'مكافحة غسل الأموال وتمويل الإرهاب' : 'AML & Counter-Terrorism'}
@@ -98,7 +98,7 @@ export const PoliciesPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في السياسات...' : 'Search policies...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xlfocus:border-[#0B6B4F] outline-none"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xlfocus:border-[#0B4F26] outline-none"
             />
           </div>
         </div>
@@ -112,7 +112,7 @@ export const PoliciesPage: React.FC = () => {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-[#EBF4F0] text-[#0B6B4F]">
+                  <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-[#E8F7F0] text-[#0B4F26]">
                     {policy.code}
                   </span>
                   <span className="text-[11px] text-gray-500 font-medium">
@@ -120,7 +120,7 @@ export const PoliciesPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#12332B] group-hover:text-[#0B6B4F] transition-colors leading-snug">
+                <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
                   {locale === 'ar' ? policy.titleAr : policy.titleEn}
                 </h3>
 
@@ -132,7 +132,7 @@ export const PoliciesPage: React.FC = () => {
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between gap-2">
                 <Link
                   to={getLocalizedPath(`/policies/${policy.id}`)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#EBF4F0] hover:bg-[#0B6B4F] text-[#0B6B4F] hover:text-white text-xs font-bold transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#E8F7F0] hover:bg-[#0B4F26] text-[#0B4F26] hover:text-white text-xs font-bold transition-all"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'عرض السياسة' : 'View Policy'}</span>
@@ -141,7 +141,7 @@ export const PoliciesPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDownload(policy)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xlhover:border-[#0B6B4F] text-gray-700 hover:text-[#0B6B4F] text-xs font-bold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xlhover:border-[#0B4F26] text-gray-700 hover:text-[#0B4F26] text-xs font-bold transition-all cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PDF</span>

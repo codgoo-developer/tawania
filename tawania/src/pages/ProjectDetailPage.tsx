@@ -71,7 +71,7 @@ export const ProjectDetailPage: React.FC = () => {
 
             {/* Description Paragraph */}
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-[#12332B]">
+              <h2 className="text-2xl font-bold text-[#0F172A]">
                 {locale === 'ar' ? 'نبذة تفصيلية عن المشروع' : 'Project Overview'}
               </h2>
               <p className="text-sm sm:text-base text-[#68736F] leading-relaxed">
@@ -82,7 +82,7 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Key Services & Capabilities */}
             {project.services && project.services.length > 0 && (
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#12332B]">
+                <h3 className="text-xl font-bold text-[#0F172A]">
                   {locale === 'ar' ? 'أبرز خدمات المشروع' : 'Key Services & Solutions'}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -92,7 +92,7 @@ export const ProjectDetailPage: React.FC = () => {
                       className="p-4 rounded-xl bg-white shadow-2xs space-y-1.5"
                     >
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#0B6B4F] shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#0B4F26] shrink-0" />
                         <h4 className="text-sm font-bold text-[#17211E]">{getLocalized(service.title)}</h4>
                       </div>
                       <p className="text-xs text-[#68736F] leading-relaxed ps-6">
@@ -107,7 +107,7 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Objectives */}
             {project.objectives && project.objectives.length > 0 && (
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#12332B]">
+                <h3 className="text-xl font-bold text-[#0F172A]">
                   {locale === 'ar' ? 'أهداف المشروع الاستراتيجية' : 'Strategic Objectives'}
                 </h3>
                 <div className="space-y-3">
@@ -120,7 +120,7 @@ export const ProjectDetailPage: React.FC = () => {
                         {idx + 1}
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-[#12332B]">{getLocalized(obj.title)}</h4>
+                        <h4 className="text-sm font-bold text-[#0F172A]">{getLocalized(obj.title)}</h4>
                         {obj.description && (
                           <p className="text-xs text-[#68736F] mt-1">{getLocalized(obj.description)}</p>
                         )}
@@ -134,7 +134,7 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Impact Highlights */}
             {project.impact && project.impact.length > 0 && (
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#12332B]">
+                <h3 className="text-xl font-bold text-[#0F172A]">
                   {locale === 'ar' ? 'الأثر التنموي والمجتمعي' : 'Developmental & Community Impact'}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -143,7 +143,7 @@ export const ProjectDetailPage: React.FC = () => {
                       key={idx}
                       className="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/60 flex items-start gap-2.5 text-xs text-emerald-950 font-medium"
                     >
-                      <Award className="w-4 h-4 text-[#0B6B4F] shrink-0 mt-0.5" />
+                      <Award className="w-4 h-4 text-[#0B4F26] shrink-0 mt-0.5" />
                       <span>{getLocalized(imp)}</span>
                     </div>
                   ))}
@@ -154,12 +154,12 @@ export const ProjectDetailPage: React.FC = () => {
             {/* Gallery Images if available */}
             {project.galleryImages && project.galleryImages.length > 1 && (
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#12332B]">
+                <h3 className="text-xl font-bold text-[#0F172A]">
                   {locale === 'ar' ? 'معرض صور المشروع' : 'Project Gallery'}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {project.galleryImages.map((imgUrl, imgIdx) => (
-                    <div key={imgIdx} className="rounded-2xl overflow-hidden h-36 border border-[#12332B]/10">
+                    <div key={imgIdx} className="rounded-2xl overflow-hidden h-36 border border-[#0F172A]/10">
                       <img
                         src={imgUrl}
                         alt={`${getLocalized(project.name)} ${imgIdx + 1}`}
@@ -177,14 +177,14 @@ export const ProjectDetailPage: React.FC = () => {
           <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-[110px] self-start z-10">
             {/* Quick Stats Card */}
             <div className="bg-white rounded-3xl p-6  space-y-6">
-              <h3 className="text-base font-bold text-[#12332B] pb-3 border-b border-[#12332B]/5">
+              <h3 className="text-base font-bold text-[#0F172A] pb-3 border-b border-[#0F172A]/5">
                 {locale === 'ar' ? 'بطاقة المشروع ومؤشراته' : 'Project Quick Facts'}
               </h3>
 
               <div className="space-y-4">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-[#68736F]">{locale === 'ar' ? 'سنة التأسيس' : 'Year Established'}</span>
-                  <span className="font-bold text-[#12332B] font-mono">{project.yearEstablished}</span>
+                  <span className="font-bold text-[#0F172A] font-mono">{project.yearEstablished}</span>
                 </div>
 
                 <div className="flex items-center justify-between text-xs">
@@ -195,15 +195,15 @@ export const ProjectDetailPage: React.FC = () => {
                 </div>
 
                 {project.stats && project.stats.map((st, sIdx) => (
-                  <div key={sIdx} className="flex items-center justify-between text-xs pt-2 border-t border-[#12332B]/5">
+                  <div key={sIdx} className="flex items-center justify-between text-xs pt-2 border-t border-[#0F172A]/5">
                     <span className="text-[#68736F]">{getLocalized(st.label)}</span>
-                    <span className="font-bold text-[#0B6B4F]">{st.value}</span>
+                    <span className="font-bold text-[#0B4F26]">{st.value}</span>
                   </div>
                 ))}
               </div>
 
               {/* Inquiries CTA */}
-              <div className="pt-4 border-t border-[#12332B]/5 space-y-3">
+              <div className="pt-4 border-t border-[#0F172A]/5 space-y-3">
                 <Button
                   href={getLocalizedPath('/contact')}
                   variant="primary"
@@ -227,10 +227,10 @@ export const ProjectDetailPage: React.FC = () => {
       </section>
 
       {/* Related Projects */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-[#12332B]/10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-[#0F172A]/10">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h3 className="text-xl font-bold text-[#12332B]">
+            <h3 className="text-xl font-bold text-[#0F172A]">
               {locale === 'ar' ? 'مشاريع واستثمارات أخرى للجمعية' : 'Other Society Projects'}
             </h3>
             <p className="text-xs text-[#68736F] mt-1">
@@ -239,7 +239,7 @@ export const ProjectDetailPage: React.FC = () => {
           </div>
           <Link
             to={getLocalizedPath('/projects')}
-            className="text-xs sm:text-sm font-bold text-[#0B6B4F] hover:underline"
+            className="text-xs sm:text-sm font-bold text-[#0B4F26] hover:underline"
           >
             {t.common.viewAll} ({projectsData.length}) →
           </Link>
@@ -250,9 +250,9 @@ export const ProjectDetailPage: React.FC = () => {
             <Link
               key={rel.slug}
               to={getLocalizedPath(`/projects/${rel.slug}`)}
-              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 group flex flex-col"
+              className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B4F26]/30 transition-all duration-300 group flex flex-col"
             >
-              <div className="h-40 bg-gradient-to-br from-[#12332B] to-[#0B211C] overflow-hidden">
+              <div className="h-40 bg-gradient-to-br from-[#0F172A] to-[#0B211C] overflow-hidden">
                 <img
                   src={rel.thumbnailImage}
                   alt={getLocalized(rel.name)}
@@ -261,10 +261,10 @@ export const ProjectDetailPage: React.FC = () => {
                 />
               </div>
               <div className="p-4 flex-1 flex flex-col justify-between">
-                <span className="text-[10px] font-bold text-[#0B6B4F] mb-1 block">
+                <span className="text-[10px] font-bold text-[#0B4F26] mb-1 block">
                   {getLocalized(rel.category)}
                 </span>
-                <h4 className="text-sm font-bold text-[#12332B] group-hover:text-[#0B6B4F] transition-colors line-clamp-1">
+                <h4 className="text-sm font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors line-clamp-1">
                   {getLocalized(rel.name)}
                 </h4>
                 <p className="text-xs text-[#68736F] mt-1 line-clamp-2">

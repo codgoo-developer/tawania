@@ -57,11 +57,11 @@ export const ExecutiveDirectorPage: React.FC = () => {
         {/* Executive Director Profile Card - Exactly matches Dashboard Layout */}
         <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-8 text-center space-y-6 relative overflow-hidden ">
           {/* Top Accent Ribbon */}
-          <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
+          <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B4F26] via-[#84CC16] to-[#0B4F26]" />
 
           {/* Luxury Avatar / Photo */}
           <div className="relative inline-block mx-auto mt-2">
-            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#095B42] via-[#0B6B4F] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+            <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#0B4F26] via-[#0B4F26] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
               {executiveDirector.image ? (
                 <img src={executiveDirector.image} alt={displayName} className="w-full h-full object-cover" />
               ) : (
@@ -73,7 +73,7 @@ export const ExecutiveDirectorPage: React.FC = () => {
 
           <div className="space-y-2">
             <h3 className="text-2xl font-black text-gray-900 leading-snug">{displayName}</h3>
-            <p className="text-xs font-bold text-[#095B42] bg-[#EBF4F0] px-4 py-1 rounded-full inline-block border border-[#095B42]/15">
+            <p className="text-xs font-bold text-[#0B4F26] bg-[#E8F7F0] px-4 py-1 rounded-full inline-block border border-[#0B4F26]/15">
               {displayRole}
             </p>
             {executiveDirector.email && (
@@ -90,10 +90,10 @@ export const ExecutiveDirectorPage: React.FC = () => {
             {executiveDirector.phone && (
               <a
                 href={`tel:${executiveDirector.phone}`}
-                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60 shadow-2xs"
+                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#0B4F26] font-bold transition-all border border-gray-200/60 shadow-2xs"
                 dir="ltr"
               >
-                <Phone className="w-4 h-4 text-[#095B42]" />
+                <Phone className="w-4 h-4 text-[#0B4F26]" />
                 <span className="font-mono text-xs">{executiveDirector.phone}</span>
               </a>
             )}
@@ -113,9 +113,9 @@ export const ExecutiveDirectorPage: React.FC = () => {
             {executiveDirector.email && (
               <a
                 href={`mailto:${executiveDirector.email}`}
-                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-gray-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60 shadow-2xs"
+                className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white hover:bg-gray-50 text-gray-700 hover:text-[#0B4F26] font-bold transition-all border border-gray-200/60 shadow-2xs"
               >
-                <Mail className="w-4 h-4 text-[#095B42]" />
+                <Mail className="w-4 h-4 text-[#0B4F26]" />
                 <span>{locale === 'ar' ? 'البريد الإلكتروني' : 'Send Email'}</span>
               </a>
             )}

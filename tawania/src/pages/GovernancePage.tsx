@@ -424,11 +424,11 @@ export const GovernancePage: React.FC = () => {
     <Link
       key={item.id}
       to={getLocalizedPath(item.path)}
-      className="flex flex-col items-center justify-between p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#0B6B4F]/30 shadow-xs hover:shadow-lg transition-all duration-300 group cursor-pointer text-center"
+      className="flex flex-col items-center justify-between p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#0B4F26]/30 shadow-xs hover:shadow-lg transition-all duration-300 group cursor-pointer text-center"
     >
       {/* Clean Document Icon with Shield */}
       <div className="relative mb-5 transform group-hover:scale-110 transition-transform duration-300">
-        <div className="w-14 h-16 bg-white rounded-lg border-2 border-gray-300 group-hover:border-[#0B6B4F] shadow-xs flex flex-col p-2.5 justify-between transition-colors">
+        <div className="w-14 h-16 bg-white rounded-lg border-2 border-gray-300 group-hover:border-[#0B4F26] shadow-xs flex flex-col p-2.5 justify-between transition-colors">
           <div className="w-full space-y-1.5">
             <div className="w-3/4 h-1 bg-gray-400 rounded-full" />
             <div className="w-full h-1 bg-gray-300 rounded-full" />
@@ -437,14 +437,14 @@ export const GovernancePage: React.FC = () => {
           </div>
         </div>
         {/* Small Emerald Shield Badge */}
-        <div className="absolute -bottom-1.5 -start-1.5 w-6 h-6 rounded-full bg-[#0B6B4F] text-white flex items-center justify-center border-2 border-white shadow-xs">
+        <div className="absolute -bottom-1.5 -start-1.5 w-6 h-6 rounded-full bg-[#0B4F26] text-white flex items-center justify-center border-2 border-white shadow-xs">
           <ShieldCheck className="w-3.5 h-3.5 text-[#84CC16]" />
         </div>
       </div>
 
       {/* Primary System Colored Pill Button */}
       <span
-        className="w-full text-center py-2.5 px-4 rounded-full bg-[#0B6B4F] group-hover:bg-[#074734] text-white font-bold text-xs sm:text-[13px] shadow-sm group-hover:shadow-md transition-all duration-200 block truncate"
+        className="w-full text-center py-2.5 px-4 rounded-full bg-[#0B4F26] group-hover:bg-[#074734] text-white font-bold text-xs sm:text-[13px] shadow-sm group-hover:shadow-md transition-all duration-200 block truncate"
         title={locale === 'ar' ? item.titleAr : item.titleEn}
       >
         {locale === 'ar' ? item.titleAr : item.titleEn}
@@ -471,7 +471,7 @@ export const GovernancePage: React.FC = () => {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full appearance-none ps-3.5 pe-8 py-2.5 text-xs sm:text-sm font-bold rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all cursor-pointer"
+                className="w-full appearance-none ps-3.5 pe-8 py-2.5 text-xs sm:text-sm font-bold rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 transition-all cursor-pointer"
               >
                 {filterOptions.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -490,7 +490,7 @@ export const GovernancePage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'البحث في الوثائق...' : 'Search documents...'}
-                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
+                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 transition-all text-start"
               />
               {searchQuery && (
                 <button
@@ -515,10 +515,10 @@ export const GovernancePage: React.FC = () => {
               <div key={section.id} className="space-y-10">
                 {/* Main Parent Section Title */}
                 <div className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-black text-[#12332B] tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
                     {locale === 'ar' ? section.titleAr : section.titleEn}
                   </h2>
-                  <div className="w-16 h-1 bg-[#0B6B4F] mx-auto rounded-full" />
+                  <div className="w-16 h-1 bg-[#0B4F26] mx-auto rounded-full" />
                 </div>
 
                 {/* Direct Child Items Grid */}
@@ -534,12 +534,12 @@ export const GovernancePage: React.FC = () => {
                     {section.subGroups.map((subGroup) => (
                       <div
                         key={subGroup.id}
-                        className="bg-[#F5F8F6] rounded-3xl p-6 sm:p-8 border border-[#0B6B4F]/20 space-y-8 relative shadow-2xs"
+                        className="bg-[#F5F8F6] rounded-3xl p-6 sm:p-8 border border-[#0B4F26]/20 space-y-8 relative shadow-2xs"
                       >
                         {/* Sub-Group Branch Title */}
                         <div className="flex items-center justify-center gap-2.5 text-center">
-                          <SubBranchIcon className="w-5 h-5 text-[#0B6B4F] shrink-0" />
-                          <h3 className="text-xl sm:text-2xl font-bold text-[#0B6B4F] tracking-tight">
+                          <SubBranchIcon className="w-5 h-5 text-[#0B4F26] shrink-0" />
+                          <h3 className="text-xl sm:text-2xl font-bold text-[#0B4F26] tracking-tight">
                             {locale === 'ar' ? subGroup.titleAr : subGroup.titleEn}
                           </h3>
                         </div>
@@ -573,7 +573,7 @@ export const GovernancePage: React.FC = () => {
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B6B4F] hover:bg-[#074734] text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B4F26] hover:bg-[#074734] text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>{locale === 'ar' ? 'عرض كافة الوثائق' : 'Show All Documents'}</span>

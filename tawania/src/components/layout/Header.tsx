@@ -39,8 +39,8 @@ export const Header: React.FC = () => {
       <header
         id="main-header"
         className={`sticky top-0 z-40 w-full h-[70px] flex items-center transition-all duration-300 ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#12332B]/10'
-            : 'bg-white/95 backdrop-blur-xs border-b border-[#12332B]/5'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#0F172A]/10'
+            : 'bg-white/95 backdrop-blur-xs border-b border-[#0F172A]/5'
           }`}
       >
         <div className="w-full max-w-full xl:max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-4 xl:px-6">
@@ -48,10 +48,10 @@ export const Header: React.FC = () => {
             {/* Logo Section */}
             <Link
               to={getLocalizedPath('/')}
-              className="flex items-center gap-2 group shrink-0 focus-visible:outline-2 focus-visible:outline-[#0B6B4F] rounded-lg"
+              className="flex items-center gap-2 group shrink-0 focus-visible:outline-2 focus-visible:outline-[#0B4F26] rounded-lg"
               aria-label={t.common.siteName}
             >
-              <AlShamelLogo size="md" textColor="#0A4D38" />
+              <AlShamelLogo size="md" textColor="#0B4F26" />
             </Link>
 
             {/* Desktop Center Navigation (Mega Menu) */}
@@ -64,10 +64,10 @@ export const Header: React.FC = () => {
                 type="button"
                 id="search-trigger-btn"
                 onClick={() => setIsSearchOpen(true)}
-                className="h-8 w-8 text-xs font-medium text-[#17211E] bg-[#F7F8F6] hover:bg-[#EBF4F0] rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs group"
+                className="h-8 w-8 text-xs font-medium text-[#17211E] bg-[#F7F8F6] hover:bg-[#E8F7F0] rounded-full transition-all flex items-center justify-center cursor-pointer shadow-2xs group"
                 aria-label={t.common.search}
               >
-                <Search className="w-3.5 h-3.5 text-[#0B6B4F] group-hover:scale-110 transition-transform" />
+                <Search className="w-3.5 h-3.5 text-[#0B4F26] group-hover:scale-110 transition-transform" />
               </button>
 
               {/* Combined Language & Admin Dropdown */}
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 type="button"
                 id="mobile-drawer-toggle"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#12332B] hover:bg-[#EBF4F0] rounded-full transition-colors cursor-pointer border border-transparent hover:border-[#12332B]/10"
+                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0F172A] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer border border-transparent hover:border-[#0F172A]/10"
                 aria-label={t.nav.openMenu}
               >
                 <Menu className="w-4 h-4" />

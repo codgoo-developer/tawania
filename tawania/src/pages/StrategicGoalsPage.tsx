@@ -11,14 +11,14 @@ export const StrategicGoalsPage: React.FC = () => {
 
   const getGoalIcon = (iconName: string) => {
     switch (iconName) {
-      case 'TrendingUp': return <TrendingUp className="w-6 h-6 text-[#0B6B4F]" />;
-      case 'Award': return <Award className="w-6 h-6 text-[#C9A45C]" />;
-      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-[#0B6B4F]" />;
-      case 'Layers': return <Layers className="w-6 h-6 text-[#C9A45C]" />;
-      case 'Sparkles': return <Sparkles className="w-6 h-6 text-[#0B6B4F]" />;
-      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6 text-[#C9A45C]" />;
-      case 'Leaf': return <Leaf className="w-6 h-6 text-[#0B6B4F]" />;
-      default: return <Users className="w-6 h-6 text-[#C9A45C]" />;
+      case 'TrendingUp': return <TrendingUp className="w-6 h-6 text-[#0B4F26]" />;
+      case 'Award': return <Award className="w-6 h-6 text-[#F59E0B]" />;
+      case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-[#0B4F26]" />;
+      case 'Layers': return <Layers className="w-6 h-6 text-[#F59E0B]" />;
+      case 'Sparkles': return <Sparkles className="w-6 h-6 text-[#0B4F26]" />;
+      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6 text-[#F59E0B]" />;
+      case 'Leaf': return <Leaf className="w-6 h-6 text-[#0B4F26]" />;
+      default: return <Users className="w-6 h-6 text-[#F59E0B]" />;
     }
   };
 
@@ -43,15 +43,15 @@ export const StrategicGoalsPage: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#EBF4F0] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] flex items-center justify-center">
                     {getGoalIcon(goal.iconName)}
                   </div>
-                  <span className="text-sm font-black text-[#12332B] bg-[#C9A45C]/20 px-3 py-1 rounded-lg font-mono">
+                  <span className="text-sm font-black text-[#0F172A] bg-[#F59E0B]/20 px-3 py-1 rounded-lg font-mono">
                     {locale === 'ar' ? `الهدف #${goal.number}` : `Goal #${goal.number}`}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#12332B] mb-3 leading-snug">
+                <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-snug">
                   {getLocalized(goal.title)}
                 </h3>
 
@@ -61,17 +61,17 @@ export const StrategicGoalsPage: React.FC = () => {
               </div>
 
               {/* Focus Pillars */}
-              <div className="pt-4 border-t border-[#12332B]/5 space-y-2">
-                <span className="text-xs font-semibold text-[#0B6B4F] block">
+              <div className="pt-4 border-t border-[#0F172A]/5 space-y-2">
+                <span className="text-xs font-semibold text-[#0B4F26] block">
                   {locale === 'ar' ? 'مؤشرات التنفيذ والأثر' : 'Execution & Impact Indicators'}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-[11px] px-2.5 py-1 rounded-md bg-[#F7F8F6] text-[#17211E] border border-gray-100 flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 text-[#0B6B4F]" />
+                    <CheckCircle2 className="w-3 h-3 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'متوافق مع رؤية 2030' : 'Vision 2030 Aligned'}</span>
                   </span>
                   <span className="text-[11px] px-2.5 py-1 rounded-md bg-[#F7F8F6] text-[#17211E] border border-gray-100 flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 text-[#0B6B4F]" />
+                    <CheckCircle2 className="w-3 h-3 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'مستدام اقتصادياً' : 'Economically Sustainable'}</span>
                   </span>
                 </div>

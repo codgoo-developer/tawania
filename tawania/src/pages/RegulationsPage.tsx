@@ -65,8 +65,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('all')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'all'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'كافة الوثائق (الكل)' : 'All Documents'}
@@ -75,8 +75,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('foundation')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'foundation'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'اللائحة الأساسية والشهادات' : 'Bylaws & Certificates'}
@@ -85,8 +85,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('financial')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'financial'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'الملفات واللوائح المالية' : 'Financial Files'}
@@ -95,8 +95,8 @@ export const RegulationsPage: React.FC = () => {
               type="button"
               onClick={() => setSelectedSection('laws')}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedSection === 'laws'
-                ? 'bg-[#0B6B4F] text-white shadow-xs'
-                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0]'
+                ? 'bg-[#0B4F26] text-white shadow-xs'
+                : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0]'
                 }`}
             >
               {locale === 'ar' ? 'الأنظمة والتشريعات' : 'Statutory Laws'}
@@ -110,7 +110,7 @@ export const RegulationsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في اللوائح والملفات...' : 'Search files...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xlfocus:border-[#0B6B4F] outline-none"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xlfocus:border-[#0B4F26] outline-none"
             />
           </div>
         </div>
@@ -124,7 +124,7 @@ export const RegulationsPage: React.FC = () => {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-[#EBF4F0] text-[#0B6B4F]">
+                  <span className="text-[11px] font-bold font-mono px-2.5 py-1 rounded-lg bg-[#E8F7F0] text-[#0B4F26]">
                     {doc.num}
                   </span>
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
@@ -132,7 +132,7 @@ export const RegulationsPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#12332B] group-hover:text-[#0B6B4F] transition-colors leading-snug">
+                <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
                   {locale === 'ar' ? doc.titleAr : doc.titleEn}
                 </h3>
 
@@ -144,7 +144,7 @@ export const RegulationsPage: React.FC = () => {
               <div className="pt-6 mt-4 border-t border-gray-100 flex items-center justify-between gap-2">
                 <Link
                   to={getLocalizedPath(`/regulations/${doc.id}`)}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#EBF4F0] hover:bg-[#0B6B4F] text-[#0B6B4F] hover:text-white text-xs font-bold transition-all"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#E8F7F0] hover:bg-[#0B4F26] text-[#0B4F26] hover:text-white text-xs font-bold transition-all"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'عرض الوثيقة' : 'View'}</span>
@@ -153,7 +153,7 @@ export const RegulationsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleDownload(doc)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xlhover:border-[#0B6B4F] text-gray-700 hover:text-[#0B6B4F] text-xs font-bold transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xlhover:border-[#0B4F26] text-gray-700 hover:text-[#0B4F26] text-xs font-bold transition-all cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PDF</span>

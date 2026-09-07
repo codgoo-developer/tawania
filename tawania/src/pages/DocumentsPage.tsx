@@ -111,8 +111,8 @@ export const DocumentsPage: React.FC = () => {
                 type="button"
                 onClick={() => setSelectedCategory(cat.key)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCategory === cat.key
-                    ? 'bg-[#0B6B4F] text-white shadow-xs'
-                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-[#12332B]/5'
+                    ? 'bg-[#0B4F26] text-white shadow-xs'
+                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-[#0F172A]/5'
                   }`}
               >
                 {cat.label}
@@ -127,7 +127,7 @@ export const DocumentsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في اللوائح والنماذج...' : 'Search bylaws and forms...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#12332B]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#0F172A]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
             />
           </div>
         </div>
@@ -137,23 +137,23 @@ export const DocumentsPage: React.FC = () => {
           {filteredDocs.map((doc) => (
             <div
               key={doc.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xs hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 sm:p-7 shadow-xs hover:border-[#0B4F26]/30 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-3 text-start">
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-2xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-2xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center font-bold">
                     <FileText className="w-5 h-5" />
                   </div>
-                  <span className="text-[11px] font-mono text-[#0B6B4F] bg-[#EBF4F0] px-2.5 py-0.5 rounded-md font-bold">
+                  <span className="text-[11px] font-mono text-[#0B4F26] bg-[#E8F7F0] px-2.5 py-0.5 rounded-md font-bold">
                     {doc.documentNumber}
                   </span>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[10px] font-bold text-[#0B6B4F] block">
+                  <span className="text-[10px] font-bold text-[#0B4F26] block">
                     {getLocalized(doc.categoryName)}
                   </span>
-                  <h3 className="text-base font-bold text-[#12332B] leading-snug">
+                  <h3 className="text-base font-bold text-[#0F172A] leading-snug">
                     {getLocalized(doc.title)}
                   </h3>
                 </div>
@@ -169,11 +169,11 @@ export const DocumentsPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#12332B]/5 flex items-center justify-between gap-2">
+              <div className="mt-6 pt-4 border-t border-[#0F172A]/5 flex items-center justify-between gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedDocForView(doc)}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold transition-all cursor-pointer shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold transition-all cursor-pointer shadow-2xs"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>{locale === 'ar' ? 'معاينة (PDF)' : 'View PDF'}</span>
@@ -192,7 +192,7 @@ export const DocumentsPage: React.FC = () => {
           ))}
 
           {filteredDocs.length === 0 && (
-            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#12332B]/10">
+            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0F172A]/10">
               <p className="text-sm">{t.common.noResults}</p>
             </div>
           )}
@@ -202,7 +202,7 @@ export const DocumentsPage: React.FC = () => {
       {/* PDF Document Preview Modal using PdfDocumentViewer */}
       {selectedDocForView && (
         <div
-          className="fixed inset-0 z-50 bg-[#12332B]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-[#0F172A]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedDocForView(null)}
         >
           <div
@@ -212,7 +212,7 @@ export const DocumentsPage: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-3.5 bg-[#222] text-white border-b border-gray-700 text-xs">
               <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-[#C9A45C]" />
+                <FileText className="w-4 h-4 text-[#F59E0B]" />
                 <span className="font-bold">{getLocalized(selectedDocForView.title)}</span>
                 <span className="text-gray-400 font-mono">({selectedDocForView.documentNumber})</span>
               </div>

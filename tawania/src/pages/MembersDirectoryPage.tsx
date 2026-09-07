@@ -131,7 +131,7 @@ export const MembersDirectoryPage: React.FC = () => {
             <Link
               to={getLocalizedPath('/members/register')}
               id="hero-register-member-btn"
-              className="inline-flex items-center justify-center gap-2.5 px-4 py-2 rounded-lg  bg-[#0B6B4F] hover:bg-[#08523C] text-white font-bold text-sm sm:text-sm  hover:shadow-md transition-all duration-200 border border-[#0B6B4F]/10 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-4 py-2 rounded-lg  bg-[#0B4F26] hover:bg-[#08523C] text-white font-bold text-sm sm:text-sm  hover:shadow-md transition-all duration-200 border border-[#0B4F26]/10 cursor-pointer"
             >
               <UserPlus className="w-4 h-4 text-[#84CC16] shrink-0" />
               <span>{locale === 'ar' ? 'تسجيل عضو جديد' : 'New Member Registration'}</span>
@@ -154,7 +154,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 setCurrentPage(1);
               }}
               placeholder={locale === 'ar' ? 'ابحث باسم العضو، المدينة، أو رقم السهم...' : 'Search by member name, city or ID...'}
-              className="w-full ps-10 pe-4 py-2.5 rounded-xl bg-gray-50text-xs sm:text-sm font-medium text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all"
+              className="w-full ps-10 pe-4 py-2.5 rounded-xl bg-gray-50text-xs sm:text-sm font-medium text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white transition-all"
             />
           </div>
 
@@ -165,7 +165,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 type="button"
                 onClick={() => setViewMode('poster')}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'poster'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
+                  ? 'bg-[#0B4F26] text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
@@ -176,7 +176,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 type="button"
                 onClick={() => setViewMode('table')}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${viewMode === 'table'
-                  ? 'bg-[#0B6B4F] text-white shadow-xs'
+                  ? 'bg-[#0B4F26] text-white shadow-xs'
                   : 'text-gray-600 hover:text-gray-900'
                   }`}
               >
@@ -188,7 +188,7 @@ export const MembersDirectoryPage: React.FC = () => {
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold transition-colors cursor-pointer shadow-xs"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>{locale === 'ar' ? 'طباعة كامل السجل' : 'Print All Members'}</span>
@@ -210,20 +210,20 @@ export const MembersDirectoryPage: React.FC = () => {
                 />
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-black text-[#12332B] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
                 سجل أعضاء الجمعية العمومية
               </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-[#84CC16] to-[#0B6B4F] mx-auto rounded-full" />
+              <div className="w-16 h-1 bg-gradient-to-r from-[#84CC16] to-[#0B4F26] mx-auto rounded-full" />
               <p className="text-xs sm:text-sm text-gray-500 font-medium">
                 سجل معتمد وموثق يضم مساهمي الجمعية العمومية لتعاونية الرضا
               </p>
             </div>
 
             {/* Luxury Roster Table */}
-            <div className="max-w-6xl mx-auto border border-[#0B6B4F]/20 rounded-2xl overflow-hidden shadow-md mb-8">
+            <div className="max-w-6xl mx-auto border border-[#0B4F26]/20 rounded-2xl overflow-hidden shadow-md mb-8">
               <table className="w-full text-center border-collapse">
                 <thead>
-                  <tr className="bg-gradient-to-r from-[#0B6B4F] via-[#095B42] to-[#0B6B4F] text-white font-bold text-xs sm:text-sm">
+                  <tr className="bg-gradient-to-r from-[#0B4F26] via-[#0B4F26] to-[#0B4F26] text-white font-bold text-xs sm:text-sm">
                     <th className="py-3 px-4 text-center font-black w-24 border-e border-white/20">
                       رقم العضو
                     </th>
@@ -241,10 +241,10 @@ export const MembersDirectoryPage: React.FC = () => {
                     return (
                       <tr
                         key={member.id}
-                        className={`transition-colors hover:bg-[#EBF4F0]/70 ${isEven ? 'bg-[#FAFBFA]' : 'bg-white'
+                        className={`transition-colors hover:bg-[#E8F7F0]/70 ${isEven ? 'bg-[#FAFBFA]' : 'bg-white'
                           }`}
                       >
-                        <td className="py-2.5 px-4 font-mono font-bold text-[#0B6B4F] bg-gray-50/50 border-e border-gray-100">
+                        <td className="py-2.5 px-4 font-mono font-bold text-[#0B4F26] bg-gray-50/50 border-e border-gray-100">
                           {member.id}
                         </td>
                         <td className="py-2.5 px-6 text-start font-bold text-[#17211E]">
@@ -264,18 +264,18 @@ export const MembersDirectoryPage: React.FC = () => {
             </div>
 
             {/* Bottom Certificate Footer Ribbon */}
-            <div className="bg-[#05241C] text-white rounded-2xl px-6 py-4 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold shadow-md">
+            <div className="bg-[#073519] text-white rounded-2xl px-6 py-4 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold shadow-md">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#84CC16]" />
                 <span>سجل معتمد وموثق صادر عن تعاونية الرضا</span>
               </div>
               <div className="flex items-center gap-6 flex-wrap">
                 <div className="flex items-center gap-1.5 text-white/90">
-                  <Phone className="w-3.5 h-3.5 text-[#C9A45C]" />
+                  <Phone className="w-3.5 h-3.5 text-[#F59E0B]" />
                   <span className="font-mono dir-ltr">{phoneNum}</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-white/90">
-                  <Send className="w-3.5 h-3.5 text-[#C9A45C]" />
+                  <Send className="w-3.5 h-3.5 text-[#F59E0B]" />
                   <span>{emailAddr}</span>
                 </div>
               </div>
@@ -285,7 +285,7 @@ export const MembersDirectoryPage: React.FC = () => {
           /* TABLE VIEW: Comprehensive Sortable & Filterable Table */
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-md space-y-6">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <h3 className="text-lg font-bold text-[#12332B]">
+              <h3 className="text-lg font-bold text-[#0F172A]">
                 قائمة أعضاء الجمعية العمومية ({filteredMembers.length} عضو)
               </h3>
               <span className="text-xs text-gray-500 font-semibold bg-gray-100 px-3 py-1 rounded-full">
@@ -307,11 +307,11 @@ export const MembersDirectoryPage: React.FC = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-100 font-medium">
                   {paginatedMembers.map((member) => (
-                    <tr key={member.id} className="hover:bg-[#EBF4F0]/50 transition-colors">
-                      <td className="py-3 px-4 text-center font-bold text-[#0B6B4F] font-mono whitespace-nowrap">
+                    <tr key={member.id} className="hover:bg-[#E8F7F0]/50 transition-colors">
+                      <td className="py-3 px-4 text-center font-bold text-[#0B4F26] font-mono whitespace-nowrap">
                         {member.id}
                       </td>
-                      <td className="py-3 px-4 font-bold text-[#12332B]">
+                      <td className="py-3 px-4 font-bold text-[#0F172A]">
                         {member.name}
                       </td>
                       <td className="py-3 px-4 text-center text-gray-600 whitespace-nowrap">
@@ -320,7 +320,7 @@ export const MembersDirectoryPage: React.FC = () => {
                       <td className="py-3 px-4 text-center text-gray-600 font-mono whitespace-nowrap">
                         {member.joinYear || '1440'} هـ
                       </td>
-                      <td className="py-3 px-4 text-center font-mono font-bold text-[#0B6B4F] whitespace-nowrap">
+                      <td className="py-3 px-4 text-center font-mono font-bold text-[#0B4F26] whitespace-nowrap">
                         {member.sharesCount || 100} سهم
                       </td>
                       <td className="py-3 px-4 text-center whitespace-nowrap">
@@ -365,7 +365,7 @@ export const MembersDirectoryPage: React.FC = () => {
                   type="button"
                   onClick={() => setCurrentPage(pageNum)}
                   className={`w-9 h-9 rounded-xl text-xs font-bold transition-all shadow-2xs ${isActive
-                    ? 'bg-[#0B6B4F] text-white shadow-xs scale-105'
+                    ? 'bg-[#0B4F26] text-white shadow-xs scale-105'
                     : 'bg-whitetext-gray-700 hover:bg-gray-50'
                     }`}
                 >
@@ -392,9 +392,9 @@ export const MembersDirectoryPage: React.FC = () => {
           ───────────────────────────────────────────────────────────── */}
       <div className="hidden print:block w-full bg-white text-black p-4 font-sans dir-rtl">
         {/* Print Header */}
-        <div className="flex items-center justify-between border-b-2 border-[#0B6B4F] pb-4 mb-4">
+        <div className="flex items-center justify-between border-b-2 border-[#0B4F26] pb-4 mb-4">
           <div className="text-start space-y-1">
-            <h1 className="text-xl font-black text-[#0B6B4F]">
+            <h1 className="text-xl font-black text-[#0B4F26]">
               جمعية الرضا التعاونية
             </h1>
             <p className="text-xs text-gray-700 font-bold">
@@ -412,7 +412,7 @@ export const MembersDirectoryPage: React.FC = () => {
         {/* Print Table with ALL Members */}
         <table className="w-full text-center border-collapse text-xs print-table">
           <thead>
-            <tr className="bg-[#0B6B4F] text-white font-bold">
+            <tr className="bg-[#0B4F26] text-white font-bold">
               <th className="py-2 px-2 border border-gray-400 w-14 text-center">#</th>
               <th className="py-2 px-4 border border-gray-400 text-start">اسم العضو المساهم</th>
               <th className="py-2 px-3 border border-gray-400 w-28 text-center">المدينة</th>
@@ -428,7 +428,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 <td className="py-1.5 px-4 border border-gray-300 text-start font-bold text-gray-900">{member.name}</td>
                 <td className="py-1.5 px-3 border border-gray-300 text-center text-gray-700">{member.city || 'الجموم'}</td>
                 <td className="py-1.5 px-3 border border-gray-300 text-center font-mono">{member.joinYear || '1440'} هـ</td>
-                <td className="py-1.5 px-3 border border-gray-300 text-center font-mono font-bold text-[#0B6B4F]">{member.sharesCount || 100} سهم</td>
+                <td className="py-1.5 px-3 border border-gray-300 text-center font-mono font-bold text-[#0B4F26]">{member.sharesCount || 100} سهم</td>
                 <td className="py-1.5 px-3 border border-gray-300 text-center font-bold text-emerald-800">مساهم نشط</td>
               </tr>
             ))}

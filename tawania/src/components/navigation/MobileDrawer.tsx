@@ -82,7 +82,7 @@ export const MobileDrawer: React.FC<{
   return (
     <div
       id="mobile-nav-drawer"
-      className="fixed inset-0 z-50 flex bg-[#12332B]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex bg-[#0F172A]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -91,7 +91,7 @@ export const MobileDrawer: React.FC<{
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drawer Header */}
-        <div className="p-4 border-b border-[#12332B]/10 flex items-center justify-between bg-[#05241C] text-white">
+        <div className="p-4 border-b border-[#0F172A]/10 flex items-center justify-between bg-[#073519] text-white">
           <AlShamelLogo size="xs" textColor="#FFFFFF" />
           <button
             type="button"
@@ -104,16 +104,16 @@ export const MobileDrawer: React.FC<{
         </div>
 
         {/* Quick Search Action */}
-        <div className="p-3 border-b border-[#12332B]/10 bg-[#F7F8F6]">
+        <div className="p-3 border-b border-[#0F172A]/10 bg-[#F7F8F6]">
           <button
             type="button"
             onClick={() => {
               onClose();
               onOpenSearch();
             }}
-            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-medium bg-white rounded-xl border border-[#12332B]/15 text-[#68736F] shadow-2xs text-start hover:border-[#0B6B4F] transition-colors cursor-pointer"
+            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-medium bg-white rounded-xl border border-[#0F172A]/15 text-[#68736F] shadow-2xs text-start hover:border-[#0B4F26] transition-colors cursor-pointer"
           >
-            <Search className="w-4 h-4 text-[#0B6B4F]" />
+            <Search className="w-4 h-4 text-[#0B4F26]" />
             <span>{t.common.search}</span>
           </button>
         </div>
@@ -125,11 +125,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Home className="w-4 h-4 text-[#0B6B4F]" />
+            <Home className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'الرئيسية' : 'Home'}</span>
           </Link>
 
@@ -138,11 +138,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/members/directory')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/members/directory') || isCurrent('/members')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Users className="w-4 h-4 text-[#0B6B4F]" />
+            <Users className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'الأعضاء' : 'Members'}</span>
           </Link>
 
@@ -151,11 +151,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/board')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/board')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Award className="w-4 h-4 text-[#C9A45C]" />
+            <Award className="w-4 h-4 text-[#F59E0B]" />
             <span>{locale === 'ar' ? 'مجلس الإدارة' : 'Board of Directors'}</span>
           </Link>
 
@@ -164,11 +164,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/projects')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/projects')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Briefcase className="w-4 h-4 text-[#0B6B4F]" />
+            <Briefcase className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'مشاريعنا' : 'Our Projects'}</span>
           </Link>
 
@@ -177,11 +177,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/governance')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/governance') || isCurrent('/policies') || isCurrent('/regulations')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <ShieldCheck className="w-4 h-4 text-[#0B6B4F]" />
+            <ShieldCheck className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'الحوكمة والسياسات' : 'Governance & Policies'}</span>
           </Link>
 
@@ -190,11 +190,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/gallery')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/gallery')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Image className="w-4 h-4 text-[#0B6B4F]" />
+            <Image className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'الجمعية في صور' : 'Society in Photos'}</span>
           </Link>
 
@@ -203,11 +203,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/whistleblowing')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/whistleblowing')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <AlertTriangle className="w-4 h-4 text-[#0B6B4F]" />
+            <AlertTriangle className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'الشكاوى' : 'Complaints'}</span>
           </Link>
 
@@ -216,11 +216,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/surveys')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/surveys')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Smile className="w-4 h-4 text-[#0B6B4F]" />
+            <Smile className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'قياس الرضا' : 'Satisfaction Surveys'}</span>
           </Link>
 
@@ -229,11 +229,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/feedback')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/feedback')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <MessageSquareQuote className="w-4 h-4 text-[#0B6B4F]" />
+            <MessageSquareQuote className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'التغذية الراجعة' : 'Feedback'}</span>
           </Link>
 
@@ -242,11 +242,11 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/contact')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/contact')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <Phone className="w-4 h-4 text-[#0B6B4F]" />
+            <Phone className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'قنوات التواصل' : 'Contact Channels'}</span>
           </Link>
 
@@ -255,17 +255,17 @@ export const MobileDrawer: React.FC<{
             to={getLocalizedPath('/executive-director')}
             onClick={handleLinkClick}
             className={`flex items-center gap-3 px-3 py-2.5 text-sm font-semibold rounded-xl transition-colors ${isCurrent('/executive-director')
-                ? 'text-[#0B6B4F] bg-[#EBF4F0] font-bold'
+                ? 'text-[#0B4F26] bg-[#E8F7F0] font-bold'
                 : 'text-[#17211E] hover:bg-[#F7F8F6]'
               }`}
           >
-            <UserCog className="w-4 h-4 text-[#0B6B4F]" />
+            <UserCog className="w-4 h-4 text-[#0B4F26]" />
             <span>{locale === 'ar' ? 'المدير التنفيذي' : 'Executive Director'}</span>
           </Link>
         </div>
 
         {/* Drawer Footer with Complete Contact Info */}
-        <div className="p-3.5 border-t border-[#12332B]/10 bg-[#F7F8F6] space-y-2.5">
+        <div className="p-3.5 border-t border-[#0F172A]/10 bg-[#F7F8F6] space-y-2.5">
           {/* Quick Action Buttons: WhatsApp & Phone */}
           <div className="grid grid-cols-2 gap-2">
             <a
@@ -279,10 +279,10 @@ export const MobileDrawer: React.FC<{
             </a>
             <a
               href={`tel:${phoneNum}`}
-              className="flex items-center justify-center gap-1.5 py-2 px-2.5 bg-white border border-[#12332B]/15 text-[#12332B] rounded-xl text-xs font-mono font-bold hover:text-[#0B6B4F]"
+              className="flex items-center justify-center gap-1.5 py-2 px-2.5 bg-white border border-[#0F172A]/15 text-[#0F172A] rounded-xl text-xs font-mono font-bold hover:text-[#0B4F26]"
               dir="ltr"
             >
-              <Phone className="w-3.5 h-3.5 text-[#C9A45C]" />
+              <Phone className="w-3.5 h-3.5 text-[#F59E0B]" />
               <span>{phoneNum}</span>
             </a>
           </div>
@@ -291,9 +291,9 @@ export const MobileDrawer: React.FC<{
           <div className="flex items-center justify-between pt-1 border-t border-gray-200/60 text-xs">
             <a
               href="mailto:info@shamil.org.sa"
-              className="flex items-center gap-1.5 text-[#68736F] hover:text-[#0B6B4F] text-[11px] font-mono"
+              className="flex items-center gap-1.5 text-[#68736F] hover:text-[#0B4F26] text-[11px] font-mono"
             >
-              <Mail className="w-3.5 h-3.5 text-[#0B6B4F]" />
+              <Mail className="w-3.5 h-3.5 text-[#0B4F26]" />
               <span>info@shamil.org.sa</span>
             </a>
 
@@ -335,7 +335,7 @@ export const MobileDrawer: React.FC<{
                 setLocale(locale === 'ar' ? 'en' : 'ar');
                 onClose();
               }}
-              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 bg-white border border-[#12332B]/15 rounded-lg text-[#0B6B4F] cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 bg-white border border-[#0F172A]/15 rounded-lg text-[#0B4F26] cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5" />
               <span>{locale === 'ar' ? 'English' : 'العربية'}</span>

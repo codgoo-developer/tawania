@@ -109,11 +109,11 @@ export const TestimonialsSection: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header Centered */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B6B4F]/10 text-[#0B6B4F] text-xs font-bold mb-3">
-            <MessageSquareQuote className="w-3.5 h-3.5 text-[#C9A45C]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B4F26]/10 text-[#0B4F26] text-xs font-bold mb-3">
+            <MessageSquareQuote className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{locale === 'ar' ? 'كلمات نفخر بها' : 'Words of Pride'}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
             {locale === 'ar' ? 'قالوا عنا' : 'What They Said About Us'}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] mx-auto my-3 rounded-full" />
@@ -144,9 +144,9 @@ export const TestimonialsSection: React.FC = () => {
                   key={`${item.id}-${idx}`}
                   className="w-[320px] sm:w-[380px] shrink-0 transition-all duration-300"
                 >
-                  <div className="h-full bg-white rounded-3xl p-7  hover:shadow-xl hover:border-[#0B6B4F]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                  <div className="h-full bg-white rounded-3xl p-7  hover:shadow-xl hover:border-[#0B4F26]/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
                     {/* Decorative Background Large Quote */}
-                    <div className="absolute top-3 end-4 text-[#0B6B4F]/5 group-hover:text-[#0B6B4F]/10 transition-colors pointer-events-none select-none">
+                    <div className="absolute top-3 end-4 text-[#0B4F26]/5 group-hover:text-[#0B4F26]/10 transition-colors pointer-events-none select-none">
                       <Quote className="w-20 h-20" />
                     </div>
 
@@ -165,7 +165,7 @@ export const TestimonialsSection: React.FC = () => {
 
                         {/* Project / Sector Badge */}
                         {item.projectRelated && (
-                          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#EBF4F0] text-[#0B6B4F] border border-[#0B6B4F]/15 truncate max-w-[150px]">
+                          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#E8F7F0] text-[#0B4F26] border border-[#0B4F26]/15 truncate max-w-[150px]">
                             {getLocalized(item.projectRelated)}
                           </span>
                         )}
@@ -178,19 +178,19 @@ export const TestimonialsSection: React.FC = () => {
                     </div>
 
                     {/* Bottom Row: User Avatar and Info */}
-                    <div className="relative z-10 pt-5 mt-6 border-t border-[#12332B]/5 flex items-center gap-3.5">
-                      <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-[#C9A45C] to-[#0B6B4F] shrink-0 shadow-xs">
-                        <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B6B4F] to-[#063325] flex items-center justify-center text-amber-200 font-bold text-xs font-serif border border-white">
+                    <div className="relative z-10 pt-5 mt-6 border-t border-[#0F172A]/5 flex items-center gap-3.5">
+                      <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-[#F59E0B] to-[#0B4F26] shrink-0 shadow-xs">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B4F26] to-[#063325] flex items-center justify-center text-amber-200 font-bold text-xs font-serif border border-white">
                           {initials}
                         </div>
                       </div>
 
                       <div className="min-w-0 text-start">
                         <div className="flex items-center gap-1.5">
-                          <h4 className="text-sm font-bold text-[#12332B] truncate group-hover:text-[#0B6B4F] transition-colors">
+                          <h4 className="text-sm font-bold text-[#0F172A] truncate group-hover:text-[#0B4F26] transition-colors">
                             {getLocalized(item.name)}
                           </h4>
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#0B6B4F] shrink-0" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
                         </div>
                         <p className="text-[11px] text-[#68736F] truncate">
                           {getLocalized(item.role)} • {getLocalized(item.organization)}

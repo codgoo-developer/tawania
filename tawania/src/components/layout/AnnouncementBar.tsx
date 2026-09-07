@@ -22,33 +22,32 @@ export const AnnouncementBar: React.FC = () => {
   return (
     <div
       id="top-announcement-bar"
-      className="w-full text-white text-[12.5px] py-2 px-4 sm:px-6 lg:px-8 border-b border-black/10 z-50 relative"
-      style={{ backgroundColor: '#0B6B4F' }}
+      className="w-full text-white text-[12.5px] py-2 px-4 sm:px-6 lg:px-8 border-b border-white/10 z-50 relative bg-gradient-to-r from-[#0B4F26] via-[#0B4F26] to-[#10B981]"
     >
       <div className="w-full max-w-[1720px] mx-auto flex items-center justify-between gap-4">
         {/* Contact Info & Date */}
         <div className="flex items-center gap-5 sm:gap-6 flex-wrap font-medium">
           {/* Today's Date */}
           <div className="flex items-center gap-1.5 text-white/95">
-            <Calendar className="w-3.5 h-3.5 text-[#C9A45C] shrink-0" />
+            <Calendar className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
             <span className="font-mono tracking-wide">{formattedDate}</span>
           </div>
 
           {/* Phone */}
           <a
             href={`tel:${phoneNum}`}
-            className="flex items-center gap-1.5 text-white/95 hover:text-[#C9A45C] transition-colors dir-ltr"
+            className="flex items-center gap-1.5 text-white/95 hover:text-[#FACC15] transition-colors dir-ltr"
           >
-            <Phone className="w-3.5 h-3.5 text-[#C9A45C] shrink-0" />
+            <Phone className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
             <span className="font-mono">{phoneNum}</span>
           </a>
 
           {/* Email */}
           <a
             href={`mailto:${emailAddr}`}
-            className="hidden sm:flex items-center gap-1.5 text-white/95 hover:text-[#C9A45C] transition-colors"
+            className="hidden sm:flex items-center gap-1.5 text-white/95 hover:text-[#FACC15] transition-colors"
           >
-            <Send className="w-3.5 h-3.5 text-[#C9A45C] shrink-0" />
+            <Send className="w-3.5 h-3.5 text-[#FACC15] shrink-0" />
             <span>{emailAddr}</span>
           </a>
         </div>
@@ -59,7 +58,7 @@ export const AnnouncementBar: React.FC = () => {
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/25 hover:text-[#C9A45C] transition-all flex items-center justify-center cursor-pointer"
+            className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/25 hover:text-[#FACC15] transition-all flex items-center justify-center cursor-pointer"
             aria-label="Twitter / X"
           >
             <Twitter className="w-3.5 h-3.5" />
@@ -68,7 +67,7 @@ export const AnnouncementBar: React.FC = () => {
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/25 hover:text-[#C9A45C] transition-all flex items-center justify-center cursor-pointer"
+            className="w-6 h-6 rounded-full bg-white/10 hover:bg-white/25 hover:text-[#FACC15] transition-all flex items-center justify-center cursor-pointer"
             aria-label="Instagram"
           >
             <Instagram className="w-3.5 h-3.5" />

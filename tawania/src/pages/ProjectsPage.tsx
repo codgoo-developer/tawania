@@ -38,7 +38,7 @@ export const ProjectsPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'البحث في مشاريع الجمعية...' : 'Search cooperative projects...'}
-                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 transition-all text-start"
+                className="w-full ps-10 pe-9 py-2.5 text-xs sm:text-sm rounded-2xl bg-whitetext-[#17211E] shadow-2xs outline-none focus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 transition-all text-start"
               />
               {searchQuery && (
                 <button
@@ -63,13 +63,13 @@ export const ProjectsPage: React.FC = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-3xl border border-[#0B6B4F]/15 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group text-start relative"
+                className="bg-white rounded-3xl border border-[#0B4F26]/15 overflow-hidden shadow-xs hover:shadow-xl hover:border-[#0B4F26]/40 transition-all duration-300 flex flex-col justify-between group text-start relative"
               >
                 {/* Top Green Accent Line */}
                 <div className="h-1.5 w-full bg-gradient-to-r from-[#0B4F26] via-[#10B981] to-[#0B4F26]" />
 
                 {/* Project Image / Branded Default Fallback Banner */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] flex items-center justify-center">
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#E8F7F0] via-[#D8EFE7] to-[#C9E7DC] flex items-center justify-center">
                   {project.image ? (
                     <img
                       src={project.image}
@@ -92,22 +92,22 @@ export const ProjectsPage: React.FC = () => {
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">
                   {/* Project Name (Required) - prominent text-start */}
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#41861E] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#0B4F26] transition-colors">
                       {project.name}
                     </h3>
                   </div>
 
                   {/* Description (Optional) */}
                   {project.description && (
-                    <p className="text-xs sm:text-sm font-medium text-[#2E473F] leading-relaxed text-start">
+                    <p className="text-xs sm:text-sm font-medium text-[#0F172A] leading-relaxed text-start">
                       {project.description}
                     </p>
                   )}
 
                   {/* Sub Description / Dates (Optional) - styled callout box */}
                   {project.subDescription && (
-                    <div className="p-3.5 rounded-2xl bg-[#F4FAF7] border border-[#0B6B4F]/15 text-start">
-                      <p className="text-xs font-semibold text-[#1F4539] leading-relaxed whitespace-pre-line text-start">
+                    <div className="p-3.5 rounded-2xl bg-[#F4FAF7] border border-[#0B4F26]/15 text-start">
+                      <p className="text-xs font-semibold text-[#0F172A] leading-relaxed whitespace-pre-line text-start">
                         {project.subDescription}
                       </p>
                     </div>
@@ -115,15 +115,15 @@ export const ProjectsPage: React.FC = () => {
 
                   {/* Features List (Optional) */}
                   {project.features && project.features.length > 0 && (
-                    <div className="pt-3 border-t border-[#0B6B4F]/10 space-y-2.5">
-                      <span className="text-[11px] font-black text-[#0B6B4F] uppercase tracking-wider block text-start">
+                    <div className="pt-3 border-t border-[#0B4F26]/10 space-y-2.5">
+                      <span className="text-[11px] font-black text-[#0B4F26] uppercase tracking-wider block text-start">
                         {locale === 'ar' ? 'أبرز مميزات المشروع:' : 'Key Highlights:'}
                       </span>
                       <div className="space-y-2">
                         {project.features.map((feat, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start gap-2.5 text-xs font-semibold text-[#1C3A32] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100 group-hover:border-[#0B6B4F]/15 transition-colors"
+                            className="flex items-start gap-2.5 text-xs font-semibold text-[#0F172A] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100 group-hover:border-[#0B4F26]/15 transition-colors"
                           >
                             <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                             <span className="leading-snug text-start flex-1">{feat}</span>
@@ -135,14 +135,14 @@ export const ProjectsPage: React.FC = () => {
                 </div>
 
                 {/* Card Footer Society Banner (Fixed at the bottom of each card) */}
-                <div className="p-4 sm:p-5 bg-gradient-to-b from-[#F2F8F5] to-[#E8F4EF] border-t border-[#0B6B4F]/15 text-start">
+                <div className="p-4 sm:p-5 bg-gradient-to-b from-[#F2F8F5] to-[#E8F4EF] border-t border-[#0B4F26]/15 text-start">
                   <div className="flex items-center gap-2 mb-1">
-                    <Building2 className="w-3.5 h-3.5 text-[#0B6B4F] shrink-0" />
-                    <p className="text-xs sm:text-[12px] font-bold text-[#12332B] tracking-tight leading-tight text-start">
+                    <Building2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
+                    <p className="text-xs sm:text-[12px] font-bold text-[#0F172A] tracking-tight leading-tight text-start">
                       {project.societyNameAr || 'الجمعية التعاونية متعددة اغراض رضا بمحافظة الجموم'}
                     </p>
                   </div>
-                  <p className="text-[10px] font-bold text-[#0B6B4F]/80 tracking-wider uppercase dir-ltr text-start ps-5">
+                  <p className="text-[10px] font-bold text-[#0B4F26]/80 tracking-wider uppercase dir-ltr text-start ps-5">
                     {project.societyNameEn || 'THE MULTI-PURPOSE COOPERATIVE SOCIETY, REDA, IN JAMOUM GOVERNORATE'}
                   </p>
                 </div>

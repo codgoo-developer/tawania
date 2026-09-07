@@ -22,7 +22,7 @@ export const StrategicGoalsSection: React.FC = () => {
         {/* Section Header with Line Badge matching screen.png */}
         <div className="flex items-center justify-end rtl:justify-start gap-3 mb-12 text-start">
           <span className="w-10 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] rounded-full" />
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#12332B] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] tracking-tight">
             {locale === 'ar' ? 'الأهداف الاستراتيجية' : 'Strategic Objectives'}
           </h2>
         </div>
@@ -36,7 +36,7 @@ export const StrategicGoalsSection: React.FC = () => {
             return (
               <div
                 key={goal.id || idx}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#12332B]/5 shadow-xs hover:shadow-lg hover:border-[#095B42]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group min-h-[220px]"
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#0F172A]/5 shadow-xs hover:shadow-lg hover:border-[#0B4F26]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center group min-h-[220px]"
               >
                 {/* Number (1 - 7) in soft emerald font */}
                 <div className="text-3xl sm:text-4xl font-black text-[#5EA88F] font-sans tracking-tight mb-3 group-hover:scale-105 transition-transform">
@@ -45,7 +45,7 @@ export const StrategicGoalsSection: React.FC = () => {
 
                 {/* Title & Description */}
                 <div className="flex flex-col gap-2 flex-grow justify-start w-full">
-                  <h3 className="text-base sm:text-lg font-bold text-[#12332B] group-hover:text-[#095B42] transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
                     {title}
                   </h3>
                   {desc && (

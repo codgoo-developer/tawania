@@ -178,7 +178,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
       <div className="bg-[#12161C] text-white px-3 sm:px-6 py-3 flex items-center justify-between border-b border-gray-800 shrink-0 gap-3 z-20 flex-wrap">
         {/* Left: Document Identity Info */}
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-9 h-9 rounded-xl bg-[#0B6B4F]/25 border border-[#0B6B4F]/50 flex items-center justify-center text-[#C9A45C] shrink-0 shadow-inner">
+          <div className="w-9 h-9 rounded-xl bg-[#0B4F26]/25 border border-[#0B4F26]/50 flex items-center justify-center text-[#F59E0B] shrink-0 shadow-inner">
             <FileText className="w-5 h-5" />
           </div>
           <div className="min-w-0">
@@ -187,7 +187,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
                 {title}
               </h3>
               {codeOrNum && (
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-[#0B6B4F]/40 text-emerald-300 border border-[#0B6B4F]/60 shrink-0">
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-[#0B4F26]/40 text-emerald-300 border border-[#0B4F26]/60 shrink-0">
                   {codeOrNum}
                 </span>
               )}
@@ -212,7 +212,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
             title={isAr ? 'فتح في علامة تبويب جديدة' : 'Open in New Tab'}
             className="p-2 sm:px-3 sm:py-2 rounded-xl bg-gray-800/80 hover:bg-gray-700 text-gray-200 hover:text-white border border-gray-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-medium"
           >
-            <ExternalLink className="w-4 h-4 text-[#C9A45C]" />
+            <ExternalLink className="w-4 h-4 text-[#F59E0B]" />
             <span className="hidden md:inline">{isAr ? 'فتح بصفحة كاملة' : 'Open Tab'}</span>
           </button>
 
@@ -231,7 +231,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
             type="button"
             onClick={handleDownload}
             title={isAr ? 'تحميل ملف PDF' : 'Download PDF'}
-            className="px-3 sm:px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white transition-all cursor-pointer font-bold flex items-center gap-1.5 text-xs shadow-md hover:shadow-emerald-900/30"
+            className="px-3 sm:px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white transition-all cursor-pointer font-bold flex items-center gap-1.5 text-xs shadow-md hover:shadow-emerald-900/30"
           >
             <Download className="w-4 h-4" />
             <span className="hidden sm:inline">{isAr ? 'تحميل PDF' : 'Download'}</span>
@@ -253,7 +253,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
       <div className="flex-1 min-h-0 w-full bg-[#1e232a] relative">
         {loading && (
           <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 bg-[#1e232a] z-10">
-            <div className="w-10 h-10 rounded-full border-3 border-[#0B6B4F] border-t-transparent animate-spin mb-3" />
+            <div className="w-10 h-10 rounded-full border-3 border-[#0B4F26] border-t-transparent animate-spin mb-3" />
             <p className="text-sm font-bold text-white">
               {isAr ? 'جاري تجهيز الوثيقة بدقتها الأصلية...' : 'Preparing high-definition document...'}
             </p>
@@ -275,7 +275,7 @@ export const PdfDocumentViewer: React.FC<PdfDocumentViewerProps> = ({
               <button
                 type="button"
                 onClick={handleOpenNewTab}
-                className="px-4 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold text-xs shadow hover:bg-[#095B42] flex items-center gap-2"
+                className="px-4 py-2 rounded-xl bg-[#0B4F26] text-white font-bold text-xs shadow hover:bg-[#0B4F26] flex items-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
                 {isAr ? 'فتح في نافذة جديدة' : 'Open in New Tab'}

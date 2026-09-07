@@ -35,11 +35,11 @@ export const PartnershipsPage: React.FC = () => {
           {partnershipsData.map((partner) => (
             <div
               key={partner.id}
-              className="bg-white rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-[#0B6B4F]/30 transition-all duration-300 flex flex-col justify-between space-y-6"
+              className="bg-white rounded-3xl p-8 shadow-xs hover:shadow-md hover:border-[#0B4F26]/30 transition-all duration-300 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-2xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center font-bold">
+                  <div className="w-12 h-12 rounded-2xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center font-bold">
                     <Building className="w-6 h-6" />
                   </div>
                   <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
@@ -48,10 +48,10 @@ export const PartnershipsPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold text-[#C9A45C] block mb-1">
+                  <span className="text-xs font-bold text-[#F59E0B] block mb-1">
                     {getLocalized(partner.type)}
                   </span>
-                  <h3 className="text-lg font-bold text-[#12332B]">
+                  <h3 className="text-lg font-bold text-[#0F172A]">
                     {getLocalized(partner.partnerName)}
                   </h3>
                 </div>
@@ -62,10 +62,10 @@ export const PartnershipsPage: React.FC = () => {
 
                 {/* Scope list */}
                 {partner.scope && partner.scope.length > 0 && (
-                  <div className="space-y-2 pt-2 border-t border-[#12332B]/5">
+                  <div className="space-y-2 pt-2 border-t border-[#0F172A]/5">
                     {partner.scope.map((sc, scIdx) => (
                       <div key={scIdx} className="flex items-start gap-2 text-xs text-[#17211E]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0B6B4F] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0 mt-0.5" />
                         <span>{getLocalized(sc)}</span>
                       </div>
                     ))}
@@ -73,9 +73,9 @@ export const PartnershipsPage: React.FC = () => {
                 )}
               </div>
 
-              <div className="pt-4 border-t border-[#12332B]/5 flex items-center justify-between text-xs text-[#68736F]">
+              <div className="pt-4 border-t border-[#0F172A]/5 flex items-center justify-between text-xs text-[#68736F]">
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                  <Calendar className="w-3.5 h-3.5 text-[#0B4F26]" />
                   <span>{locale === 'ar' ? 'سنة التوقيع:' : 'Year:'} {partner.year}</span>
                 </div>
 
@@ -91,7 +91,7 @@ export const PartnershipsPage: React.FC = () => {
 
       {/* Call for Partnership */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-[#12332B] to-[#0B211C] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0F172A] to-[#0B211C] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-geo-dark opacity-30 pointer-events-none" />
           <div className="relative max-w-2xl mx-auto space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold text-white">

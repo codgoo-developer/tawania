@@ -22,28 +22,28 @@ export const GovernanceHighlightsSection: React.FC = () => {
 
   const pillars = [
     {
-      icon: <FileCheck className="w-6 h-6 text-[#0B6B4F]" />,
+      icon: <FileCheck className="w-6 h-6 text-[#0B4F26]" />,
       title: locale === 'ar' ? 'القوائم والتقارير المالية المدققة' : 'Audited Financial Reports',
       desc: locale === 'ar' ? 'إفصاح مالي منتظم يغطي الأعوام من 2019 وحتى 2024 بمصادقة مراجع حسابات خارجي مرخص.' : 'Continuous disclosures from 2019 through 2024 validated by certified independent auditors.',
       link: '/reports',
       count: '2019-2024'
     },
     {
-      icon: <FileText className="w-6 h-6 text-[#C9A45C]" />,
+      icon: <FileText className="w-6 h-6 text-[#F59E0B]" />,
       title: locale === 'ar' ? 'اللوائح والسياسات المعتمدة' : 'Accredited Policies & Bylaws',
       desc: locale === 'ar' ? 'اللائحة الأساسية، سياسة تعارض المصالح، ومصفوفة الصلاحيات المالية والإدارية المحدثة.' : 'Foundational bylaws, conflict of interest rules, and executive delegation matrices.',
       link: '/documents',
       count: '15+ ' + (locale === 'ar' ? 'وثيقة' : 'Docs')
     },
     {
-      icon: <Calendar className="w-6 h-6 text-[#0B6B4F]" />,
+      icon: <Calendar className="w-6 h-6 text-[#0B4F26]" />,
       title: locale === 'ar' ? 'محاضر اجتماعات المجلس والجمعية' : 'Meeting Minutes & Records',
       desc: locale === 'ar' ? 'سجلات موثقة لكافة دورات اجتماعات مجلس الإدارة وانعقاد الجمعيات العمومية العادية وغير العادية.' : 'Documented records of ordinary/extraordinary general assemblies and board deliberations.',
       link: '/meetings/general-assembly',
       count: '100% ' + (locale === 'ar' ? 'توثيق' : 'Documented')
     },
     {
-      icon: <Users className="w-6 h-6 text-[#C9A45C]" />,
+      icon: <Users className="w-6 h-6 text-[#F59E0B]" />,
       title: locale === 'ar' ? 'شؤون المساهمين وحفظ الحقوق' : 'Shareholder Rights & Equity',
       desc: locale === 'ar' ? 'سجل مساهمين منظم، توزيع دوري للأرباح وعائد المعاملات، والتصويت الديمقراطي للجمعية العمومية.' : 'Equitable dividend distribution, transparent shareholder roster, and democratic voting.',
       link: '/members',
@@ -57,10 +57,10 @@ export const GovernanceHighlightsSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-14">
           <div className="lg:col-span-8 text-start space-y-3">
             <Badge variant="primary">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#C9A45C]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[#F59E0B]" />
               <span>{t.governanceSection.badge}</span>
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#12332B] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
               {t.governanceSection.title}
             </h2>
             <p className="text-base sm:text-lg text-[#68736F] max-w-2xl leading-relaxed">
@@ -86,19 +86,19 @@ export const GovernanceHighlightsSection: React.FC = () => {
             <Link
               key={idx}
               to={getLocalizedPath(pillar.link)}
-              className="bg-[#F7F8F6] rounded-2xl p-6 hover:bg-[#EBF4F0]/50 hover:border-[#0B6B4F]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
+              className="bg-[#F7F8F6] rounded-2xl p-6 hover:bg-[#E8F7F0]/50 hover:border-[#0B4F26]/40 transition-all duration-300 flex flex-col justify-between group shadow-2xs"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-3 rounded-xl bg-white shadow-xs group-hover:scale-105 transition-transform">
                     {pillar.icon}
                   </div>
-                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white text-[#0B6B4F]">
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-white text-[#0B4F26]">
                     {pillar.count}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#12332B] mb-2 group-hover:text-[#0B6B4F] transition-colors">
+                <h3 className="text-base font-bold text-[#0F172A] mb-2 group-hover:text-[#0B4F26] transition-colors">
                   {pillar.title}
                 </h3>
 
@@ -107,7 +107,7 @@ export const GovernanceHighlightsSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[#12332B]/10 flex items-center justify-between text-xs font-bold text-[#0B6B4F]">
+              <div className="mt-5 pt-3 border-t border-[#0F172A]/10 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
                 <span>{locale === 'ar' ? 'تصفح الوثائق والسجلات' : 'Browse Disclosures'}</span>
                 <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
               </div>

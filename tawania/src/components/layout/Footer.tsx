@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
   const addressText = locale === 'ar' ? (contactSettings?.addressAr || 'جدة، المملكة العربية السعودية') : (contactSettings?.addressEn || 'Jeddah, Saudi Arabia');
 
   return (
-    <footer id="main-footer" className="bg-[#05241C] text-white pt-20 pb-10 border-t border-[#095B42]/30 relative overflow-hidden">
+    <footer id="main-footer" className="bg-[#073519] text-white pt-20 pb-10 border-t border-[#0B4F26]/30 relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Top Big Callout matching screen.png */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-14 border-b border-white/10">

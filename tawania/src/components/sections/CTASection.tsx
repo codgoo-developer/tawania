@@ -9,14 +9,14 @@ export const CTASection: React.FC = () => {
   const Arrow = dir === 'rtl' ? ArrowLeft : ArrowRight;
 
   return (
-    <section id="cta-section" className="py-20 sm:py-28 bg-gradient-to-br from-[#12332B] to-[#0B211C] text-white relative overflow-hidden">
+    <section id="cta-section" className="py-20 sm:py-28 bg-gradient-to-br from-[#0F172A] to-[#0B211C] text-white relative overflow-hidden">
       {/* Background Shapes */}
       <div className="absolute inset-0 bg-geo-dark opacity-40 pointer-events-none" />
-      <div className="absolute top-0 end-0 w-96 h-96 bg-[#0B6B4F]/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 end-0 w-96 h-96 bg-[#0B4F26]/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
         <div className="max-w-4xl mx-auto space-y-6">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#C9A45C] bg-white/10 px-4 py-1.5 rounded-full border border-white/10 inline-block">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#F59E0B] bg-white/10 px-4 py-1.5 rounded-full border border-white/10 inline-block">
             {locale === 'ar' ? 'معاً نبني تنمية مستدامة بجدة' : 'Building Sustainable Cooperation Together'}
           </span>
 
@@ -47,7 +47,7 @@ export const CTASection: React.FC = () => {
               variant="outline"
               size="lg"
               className="border-white/30 text-white hover:bg-white/10 hover:text-white"
-              leftIcon={<Phone className="w-4 h-4 text-[#C9A45C]" />}
+              leftIcon={<Phone className="w-4 h-4 text-[#F59E0B]" />}
             >
               {t.common.contactUs}
             </Button>

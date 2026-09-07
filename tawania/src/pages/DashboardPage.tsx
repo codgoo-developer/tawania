@@ -2190,7 +2190,7 @@ export const DashboardPage: React.FC = () => {
           {/* Logo & Column Divider (Matches sidebar width lg:w-64 xl:w-68) */}
           <div className="flex items-center gap-3 px-4 lg:px-0 lg:w-64 xl:w-68 shrink-0 lg:border-e lg:border-gray-200/90 h-full justify-start lg:justify-center">
             <Link to={getLocalizedPath('/')} className="flex items-center justify-center">
-              <AlShamelLogo size="sm" textColor="#0A4D38" />
+              <AlShamelLogo size="sm" textColor="#0B4F26" />
             </Link>
           </div>
 
@@ -2204,7 +2204,7 @@ export const DashboardPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث سريع في المستندات واللوائح والقرارات...' : 'Search anything...'}
-                className="w-full ps-10 pe-12 py-2 rounded-full bg-gray-50/80 hover:bg-gray-100/80 focus:bg-white   focus:border-[#0B6B4F] focus:ring-2 focus:ring-[#0B6B4F]/10 text-xs text-gray-800 placeholder-gray-400 transition-all outline-none"
+                className="w-full ps-10 pe-12 py-2 rounded-full bg-gray-50/80 hover:bg-gray-100/80 focus:bg-white   focus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 text-xs text-gray-800 placeholder-gray-400 transition-all outline-none"
               />
               <kbd className="absolute end-3 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded text-[10px] font-mono text-gray-400 bg-white">
                 ⌘K
@@ -2217,7 +2217,7 @@ export const DashboardPage: React.FC = () => {
               <Link
                 to={getLocalizedPath('/')}
                 target="_blank"
-                className="hidden md:flex h-8 w-8 rounded-full bg-gray-50 hover:bg-[#EBF4F0]   text-gray-600 hover:text-[#0B6B4F] transition-all items-center justify-center cursor-pointer shadow-2xs"
+                className="hidden md:flex h-8 w-8 rounded-full bg-gray-50 hover:bg-[#E8F7F0]   text-gray-600 hover:text-[#0B4F26] transition-all items-center justify-center cursor-pointer shadow-2xs"
                 title={locale === 'ar' ? 'معاينة الموقع' : 'Public Site'}
               >
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -2228,7 +2228,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsNotificationOpen(!isNotificationOpen)}
-                  className={`h-8 w-8 rounded-full ${isNotificationOpen ? 'bg-[#0B6B4F] text-white shadow-md' : 'bg-gray-50 hover:bg-[#EBF4F0] text-gray-600 hover:text-[#0B6B4F]'} relative transition-all flex items-center justify-center cursor-pointer shadow-2xs`}
+                  className={`h-8 w-8 rounded-full ${isNotificationOpen ? 'bg-[#0B4F26] text-white shadow-md' : 'bg-gray-50 hover:bg-[#E8F7F0] text-gray-600 hover:text-[#0B4F26]'} relative transition-all flex items-center justify-center cursor-pointer shadow-2xs`}
                   title={locale === 'ar' ? 'الإشعارات والتنبيهات' : 'Notifications'}
                   aria-expanded={isNotificationOpen}
                 >
@@ -2244,9 +2244,9 @@ export const DashboardPage: React.FC = () => {
                 {isNotificationOpen && (
                   <div className="absolute top-full end-0 mt-2.5 w-[360px] sm:w-[420px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-gray-100/90 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[520px]">
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-[#12332B] to-[#0B6B4F] text-white p-3.5 px-4 flex items-center justify-between shrink-0 shadow-sm">
+                    <div className="bg-gradient-to-r from-[#0F172A] to-[#0B4F26] text-white p-3.5 px-4 flex items-center justify-between shrink-0 shadow-sm">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#C9A45C]">
+                        <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#F59E0B]">
                           <Bell className="w-4 h-4" />
                         </div>
                         <div>
@@ -2275,7 +2275,7 @@ export const DashboardPage: React.FC = () => {
                             className="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[10px] font-semibold flex items-center gap-1 transition-colors cursor-pointer"
                             title={locale === 'ar' ? 'تحديد الكل كمقروء' : 'Mark all read'}
                           >
-                            <CheckCheck className="w-3 h-3 text-[#C9A45C]" />
+                            <CheckCheck className="w-3 h-3 text-[#F59E0B]" />
                             <span>{locale === 'ar' ? 'تمييز الكل' : 'Mark All'}</span>
                           </button>
                         )}
@@ -2305,7 +2305,7 @@ export const DashboardPage: React.FC = () => {
                           onClick={() => setNotificationCategoryFilter(cat.id as any)}
                           className={`px-2.5 py-1 rounded-full text-[10.5px] font-bold transition-all shrink-0 cursor-pointer flex items-center gap-1 ${
                             notificationCategoryFilter === cat.id
-                              ? 'bg-[#0B6B4F] text-white shadow-xs'
+                              ? 'bg-[#0B4F26] text-white shadow-xs'
                               : cat.id === 'unread' && safeUnreadCount > 0
                               ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
                               : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200/60'
@@ -2339,7 +2339,7 @@ export const DashboardPage: React.FC = () => {
                         if (filteredNotifs.length === 0) {
                           return (
                             <div className="py-12 px-4 text-center flex flex-col items-center justify-center text-gray-400">
-                              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mb-2.5 shadow-inner">
+                              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B4F26] flex items-center justify-center mb-2.5 shadow-inner">
                                 <Inbox className="w-6 h-6" />
                               </div>
                               <p className="text-xs font-bold text-gray-700">
@@ -2462,7 +2462,7 @@ export const DashboardPage: React.FC = () => {
                           setActiveTab('submissions');
                           setSubmissionFilter('all');
                         }}
-                        className="text-[11px] font-bold text-[#0B6B4F] hover:text-[#08523C] hover:underline flex items-center gap-1 transition-colors cursor-pointer"
+                        className="text-[11px] font-bold text-[#0B4F26] hover:text-[#08523C] hover:underline flex items-center gap-1 transition-colors cursor-pointer"
                       >
                         <span>{locale === 'ar' ? 'عرض كافة الواردات والطلبات' : 'View all submissions'}</span>
                         <ExternalLink className="w-3 h-3" />
@@ -2478,12 +2478,12 @@ export const DashboardPage: React.FC = () => {
               {/* User Avatar & Info */}
               {isAuthenticated ? (
                 <div className="flex items-center gap-2 ps-2 border-s border-gray-200">
-                  <div className="w-8 h-8 rounded-full bg-[#0B6B4F] text-white flex items-center justify-center text-xs font-black shadow-xs ring-2 ring-[#0B6B4F]/20">
+                  <div className="w-8 h-8 rounded-full bg-[#0B4F26] text-white flex items-center justify-center text-xs font-black shadow-xs ring-2 ring-[#0B4F26]/20">
                     {user?.name ? user.name.charAt(0).toUpperCase() : 'A'}
                   </div>
                   <div className="hidden md:flex flex-col text-start leading-tight">
                     <span className="text-xs font-bold text-gray-800">{user?.name}</span>
-                    <span className="text-[10px] text-[#0B6B4F] font-semibold">
+                    <span className="text-[10px] text-[#0B4F26] font-semibold">
                       {locale === 'ar' ? user?.roleTitleAr || 'مدير النظام' : user?.roleTitleEn || 'System Admin'}
                     </span>
                   </div>
@@ -2500,7 +2500,7 @@ export const DashboardPage: React.FC = () => {
               ) : (
                 <Link
                   to={getLocalizedPath('/login')}
-                  className="px-3.5 py-1.5 rounded-full bg-[#0B6B4F] text-white text-xs font-bold shadow-xs hover:bg-[#08523C] transition-colors"
+                  className="px-3.5 py-1.5 rounded-full bg-[#0B4F26] text-white text-xs font-bold shadow-xs hover:bg-[#08523C] transition-colors"
                 >
                   {locale === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
                 </Link>
@@ -2511,10 +2511,10 @@ export const DashboardPage: React.FC = () => {
                 type="button"
                 id="dashboard-mobile-drawer-toggle"
                 onClick={() => setIsMobileNavOpen(true)}
-                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#12332B] hover:bg-[#EBF4F0] rounded-full transition-colors cursor-pointer   hover:border-[#12332B]/20 shadow-2xs ms-1"
+                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0F172A] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer   hover:border-[#0F172A]/20 shadow-2xs ms-1"
                 aria-label="Open Menu"
               >
-                <Menu className="w-4 h-4 text-[#0B6B4F]" />
+                <Menu className="w-4 h-4 text-[#0B4F26]" />
               </button>
             </div>
           </div>
@@ -2523,8 +2523,8 @@ export const DashboardPage: React.FC = () => {
 
       {/* Floating Notification */}
       {notification && (
-        <div className="fixed bottom-6 end-6 z-50 bg-[#0A3D2F] text-white px-5 py-3 rounded-2xl shadow-xl border border-[#C9A45C]/40 flex items-center gap-3 animate-in fade-in slide-in-from-bottom duration-300 text-xs font-bold">
-          <CheckCircle2 className="w-4 h-4 text-[#C9A45C]" />
+        <div className="fixed bottom-6 end-6 z-50 bg-[#0A3D2F] text-white px-5 py-3 rounded-2xl shadow-xl border border-[#F59E0B]/40 flex items-center gap-3 animate-in fade-in slide-in-from-bottom duration-300 text-xs font-bold">
+          <CheckCircle2 className="w-4 h-4 text-[#F59E0B]" />
           <span>{notification}</span>
         </div>
       )}
@@ -2534,7 +2534,7 @@ export const DashboardPage: React.FC = () => {
         {/* Mobile Slide-Out Drawer (Styled exactly like website MobileDrawer.tsx) */}
         {isMobileNavOpen && (
           <div
-            className="fixed inset-0 z-50 flex bg-[#12332B]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex bg-[#0F172A]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
             onClick={() => setIsMobileNavOpen(false)}
           >
             <div
@@ -2543,7 +2543,7 @@ export const DashboardPage: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile Drawer Header */}
-              <div className="p-4 border-b border-[#12332B]/10 flex items-center justify-between bg-[#05241C] text-white">
+              <div className="p-4 border-b border-[#0F172A]/10 flex items-center justify-between bg-[#073519] text-white">
                 <AlShamelLogo size="xs" textColor="#FFFFFF" />
                 <button
                   type="button"
@@ -2564,7 +2564,7 @@ export const DashboardPage: React.FC = () => {
                 {navSections.map((group) => (
                   <div key={group.groupKey} className="space-y-1.5">
                     {group.groupKey !== 'home' && (
-                      <div className="px-2 pt-2 pb-1 text-[10px] font-black text-[#0B6B4F] uppercase tracking-wider border-t border-gray-100">
+                      <div className="px-2 pt-2 pb-1 text-[10px] font-black text-[#0B4F26] uppercase tracking-wider border-t border-gray-100">
                         {locale === 'ar' ? group.groupTitleAr : group.groupTitleEn}
                       </div>
                     )}
@@ -2580,11 +2580,11 @@ export const DashboardPage: React.FC = () => {
                             onClick={() => handleTabChange(tab.id as TabType)}
                             className={`w-full flex items-center justify-between p-3 rounded-xl text-xs font-bold transition-all text-start cursor-pointer ${isActive
                               ? 'bg-gradient-to-r from-[#0B4F26] to-[#10B981] text-white shadow-xs'
-                              : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
+                              : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26]'
                               }`}
                           >
                             <div className="flex items-center gap-2.5">
-                              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#0B6B4F]'}`} />
+                              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-[#0B4F26]'}`} />
                               <span>{locale === 'ar' ? tab.labelAr : tab.labelEn}</span>
                             </div>
 
@@ -2592,7 +2592,7 @@ export const DashboardPage: React.FC = () => {
                               <span
                                 className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full ${isActive
                                   ? 'bg-white/20 text-white'
-                                  : 'bg-white text-[#0B6B4F] border border-gray-200'
+                                  : 'bg-white text-[#0B4F26] border border-gray-200'
                                   }`}
                               >
                                 {tab.count}
@@ -2612,7 +2612,7 @@ export const DashboardPage: React.FC = () => {
                   to={getLocalizedPath('/')}
                   target="_blank"
                   onClick={() => setIsMobileNavOpen(false)}
-                  className="flex items-center gap-1.5 text-[#0B6B4F]"
+                  className="flex items-center gap-1.5 text-[#0B4F26]"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>معاينة الموقع</span>
@@ -2651,18 +2651,18 @@ export const DashboardPage: React.FC = () => {
                         type="button"
                         onClick={() => handleTabChange(tab.id as TabType)}
                         className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs transition-all text-start cursor-pointer group ${isActive
-                          ? 'bg-[#EBF4F0] text-[#0B6B4F] font-bold'
+                          ? 'bg-[#E8F7F0] text-[#0B4F26] font-bold'
                           : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80 font-medium'
                           }`}
                       >
                         {/* Active vertical edge indicator */}
                         {isActive && (
-                          <span className="absolute start-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded-e-full bg-[#0B6B4F]" />
+                          <span className="absolute start-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded-e-full bg-[#0B4F26]" />
                         )}
 
                         <div className="flex items-center gap-2.5 min-w-0">
                           <Icon
-                            className={`w-4 h-4 shrink-0 transition-colors ${isActive ? 'text-[#0B6B4F]' : 'text-gray-400 group-hover:text-gray-600'
+                            className={`w-4 h-4 shrink-0 transition-colors ${isActive ? 'text-[#0B4F26]' : 'text-gray-400 group-hover:text-gray-600'
                               }`}
                           />
                           <span className="truncate">{locale === 'ar' ? tab.labelAr : tab.labelEn}</span>
@@ -2671,7 +2671,7 @@ export const DashboardPage: React.FC = () => {
                         {tab.count !== null && (
                           <span
                             className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded-full shrink-0 ms-2 ${isActive
-                              ? 'bg-[#0B6B4F]/15 text-[#0B6B4F]'
+                              ? 'bg-[#0B4F26]/15 text-[#0B4F26]'
                               : tab.alert
                                 ? 'bg-amber-100 text-amber-800'
                                 : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200/70'
@@ -2695,7 +2695,7 @@ export const DashboardPage: React.FC = () => {
           {activeTab === 'overview' && (
             <div className="space-y-6 text-start">
               {/* Header Hero Banner */}
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B6B4F] via-[#095B42] to-[#064230] p-6 sm:p-8 text-white shadow-lg">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B4F26] via-[#0B4F26] to-[#073519] p-6 sm:p-8 text-white shadow-lg">
                 <div className="relative z-10 max-w-3xl space-y-2">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-bold backdrop-blur-xs border border-white/10">
                     <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -2718,10 +2718,10 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('policies')}
-                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B4F26]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-[#0B4F26] flex items-center justify-center group-hover:scale-105 transition-transform">
                       <FileText className="w-5 h-5" />
                     </div>
                     <span className="text-xl font-black text-gray-900 font-mono">
@@ -2740,7 +2740,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('regulations')}
-                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B4F26]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2762,7 +2762,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('workshops')}
-                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B4F26]/40 hover:shadow-md transition-all text-start cursor-pointer group"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2806,7 +2806,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('members')}
-                  className="p-4 rounded-3xl bg-white hover:border-[#0B6B4F]/40 hover:shadow-md transition-all text-start cursor-pointer group col-span-2 sm:col-span-1"
+                  className="p-4 rounded-3xl bg-white hover:border-[#0B4F26]/40 hover:shadow-md transition-all text-start cursor-pointer group col-span-2 sm:col-span-1"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform">
@@ -2829,7 +2829,7 @@ export const DashboardPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-4 sm:p-5 space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                   <h3 className="font-black text-sm text-gray-900 flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-[#0B6B4F]" />
+                    <Layers className="w-4 h-4 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'دليل الأقسام والمجموعات الفرعية للحوكمة' : 'Governance Sub-groups Matrix'}</span>
                   </h3>
                 </div>
@@ -2839,7 +2839,7 @@ export const DashboardPage: React.FC = () => {
                   <div className="p-3.5 rounded-2xl bg-gray-50 border border-gray-100 space-y-2">
                     <div className="font-bold text-gray-800 flex items-center justify-between">
                       <span>{locale === 'ar' ? 'السياسات ومكافحة غسل الأموال' : 'Policies & AML'}</span>
-                      <span className="text-[10px] bg-emerald-100 text-[#0B6B4F] px-2 py-0.5 rounded-full font-mono font-bold">{policies.length}</span>
+                      <span className="text-[10px] bg-emerald-100 text-[#0B4F26] px-2 py-0.5 rounded-full font-mono font-bold">{policies.length}</span>
                     </div>
                     <p className="text-[11px] text-gray-500 leading-relaxed">
                       {locale === 'ar' ? 'تعارض المصالح، الإبلاغ، حفظ الوثائق، الهبات، خصوصية البيانات، ودليل وسياسات مكافحة غسل الأموال والاشتباه.' : 'Conflict, Whistleblowing, Privacy, Gifts, Member relations, and AML due diligence manual.'}
@@ -2847,7 +2847,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('policies')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة السياسات' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2866,7 +2866,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('regulations')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة اللوائح' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2885,7 +2885,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('workshops')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة الورش' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2904,7 +2904,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('financials')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة القوائم' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2923,7 +2923,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('meetings')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة المحاضر' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2942,7 +2942,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('ethics')}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? 'إدارة الميثاق' : 'Manage'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2957,13 +2957,13 @@ export const DashboardPage: React.FC = () => {
                 <div className="bg-white rounded-3xl p-5 space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                     <h3 className="font-black text-sm text-gray-900 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-[#0B6B4F]" />
+                      <Users className="w-4 h-4 text-[#0B4F26]" />
                       <span>{locale === 'ar' ? 'أحدث الأعضاء المسجلين بالجمعية العمومية' : 'Latest Registered Members'}</span>
                     </h3>
                     <button
                       type="button"
                       onClick={() => setActiveTab('members')}
-                      className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? `عرض الكل (${overviewApiData?.stats?.members?.count ?? (generalAssemblyMembers || []).length})` : 'View All'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -2986,7 +2986,7 @@ export const DashboardPage: React.FC = () => {
                         </div>
 
                         <div className="text-end">
-                          <span className="px-2.5 py-1 rounded-lg bg-[#EBF4F0] text-[#0B6B4F] font-mono font-bold text-xs block">
+                          <span className="px-2.5 py-1 rounded-lg bg-[#E8F7F0] text-[#0B4F26] font-mono font-bold text-xs block">
                             {Number(member.sharesCount || member.shares_count || 0).toLocaleString()} سهم
                           </span>
                           <span className="text-[10px] text-gray-400 font-mono mt-0.5 block">
@@ -3008,7 +3008,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setActiveTab('submissions')}
-                      className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
+                      className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
                     >
                       <span>{locale === 'ar' ? `عرض الكل (${overviewApiData?.stats?.submissions?.count ?? submissions.length})` : 'View All'}</span>
                       {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -3043,7 +3043,7 @@ export const DashboardPage: React.FC = () => {
                             const foundSub = submissions.find((s) => String(s.id) === String(sub.id)) || sub;
                             setViewingSubmission(foundSub);
                           }}
-                          className="px-2.5 py-1 rounded-xl bg-gray-100 hover:bg-[#0B6B4F] hover:text-white text-gray-700 font-bold text-xs transition-colors shrink-0 cursor-pointer"
+                          className="px-2.5 py-1 rounded-xl bg-gray-100 hover:bg-[#0B4F26] hover:text-white text-gray-700 font-bold text-xs transition-colors shrink-0 cursor-pointer"
                         >
                           معالجة
                         </button>
@@ -3061,7 +3061,7 @@ export const DashboardPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <Crown className="w-5 h-5 text-[#0B6B4F]" />
+                    <Crown className="w-5 h-5 text-[#0B4F26]" />
                     <h3 className="font-black text-xl text-gray-900">
                       أعضاء مجلس الإدارة
                     </h3>
@@ -3085,7 +3085,7 @@ export const DashboardPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 border border-emerald-500/20 shadow-2xs space-y-4">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-[#0B6B4F]/10 flex items-center justify-center text-[#0B6B4F]">
+                    <div className="w-10 h-10 rounded-2xl bg-[#0B4F26]/10 flex items-center justify-center text-[#0B4F26]">
                       <Crown className="w-5 h-5" />
                     </div>
                     <div>
@@ -3101,7 +3101,7 @@ export const DashboardPage: React.FC = () => {
                     type="button"
                     onClick={handleSaveBoardIntro}
                     disabled={savingBoardIntro}
-                    className="px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
+                    className="px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>{savingBoardIntro ? (locale === 'ar' ? 'جاري الحفظ...' : 'Saving...') : (locale === 'ar' ? 'حفظ إعدادات الدورة' : 'Save Cycle Settings')}</span>
@@ -3117,7 +3117,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={boardIntroForm.cycleBadgeAr || ''}
                       onChange={(e) => setBoardIntroForm({ ...boardIntroForm, cycleBadgeAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none font-bold"
                       placeholder="مثال: الدورة الانتخابية الثانية"
                     />
                   </div>
@@ -3129,7 +3129,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={boardIntroForm.titleAr || ''}
                       onChange={(e) => setBoardIntroForm({ ...boardIntroForm, titleAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none font-bold"
                       placeholder="مثال: أعضاء مجلس الإدارة"
                     />
                   </div>
@@ -3143,7 +3143,7 @@ export const DashboardPage: React.FC = () => {
                     rows={3}
                     value={boardIntroForm.descAr || ''}
                     onChange={(e) => setBoardIntroForm({ ...boardIntroForm, descAr: e.target.value })}
-                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed font-medium"
+                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none leading-relaxed font-medium"
                     placeholder="أدخل النص التعريفي للدورة..."
                   />
                 </div>
@@ -3157,7 +3157,7 @@ export const DashboardPage: React.FC = () => {
                     <div
                       key={member.id}
                       className={`w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-16px)] max-w-[320px] bg-white rounded-3xl p-5 border flex flex-col justify-between transition-all duration-300 relative group ${member.isChairman
-                        ? 'border-[#0B6B4F]/40 bg-gradient-to-b from-[#F3F8F5] via-white to-white shadow-md'
+                        ? 'border-[#0B4F26]/40 bg-gradient-to-b from-[#F3F8F5] via-white to-white shadow-md'
                         : 'border-gray-200 shadow-2xs hover:shadow-md'
                         }`}
                     >
@@ -3166,14 +3166,14 @@ export const DashboardPage: React.FC = () => {
                         <span
                           className={`inline-block text-[11px] font-bold px-3 py-1 rounded-full ${member.isChairman
                             ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                            : 'bg-[#EBF4F0] text-[#0B6B4F]'
+                            : 'bg-[#E8F7F0] text-[#0B4F26]'
                             }`}
                         >
                           {member.roleAr}
                         </span>
 
                         {/* Avatar Initials / Photo */}
-                        <div className="w-20 h-20 rounded-full mx-auto bg-gradient-to-br from-[#0B6B4F] to-[#063325] text-amber-200 font-bold font-serif text-xl flex items-center justify-center border-2 border-white shadow-inner overflow-hidden">
+                        <div className="w-20 h-20 rounded-full mx-auto bg-gradient-to-br from-[#0B4F26] to-[#063325] text-amber-200 font-bold font-serif text-xl flex items-center justify-center border-2 border-white shadow-inner overflow-hidden">
                           {member.image ? (
                             <img src={member.image} alt={member.nameAr} className="w-full h-full object-cover" />
                           ) : (
@@ -3241,7 +3241,7 @@ export const DashboardPage: React.FC = () => {
                           value={boardForm.nameAr}
                           onChange={(e) => setBoardForm({ ...boardForm, nameAr: e.target.value })}
                           placeholder="أ / علي إبراهيم السليمي"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                       </div>
 
@@ -3253,7 +3253,7 @@ export const DashboardPage: React.FC = () => {
                             value={boardForm.roleAr}
                             onChange={(e) => setBoardForm({ ...boardForm, roleAr: e.target.value })}
                             placeholder="رئيس مجلس الإدارة / نائب رئيس..."
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                           />
                         </div>
                         <div>
@@ -3275,7 +3275,7 @@ export const DashboardPage: React.FC = () => {
                                   reader.readAsDataURL(file);
                                 }
                               }}
-                              className="w-full text-[11px] text-gray-500 file:me-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-emerald-50 file:text-[#095B42] hover:file:bg-emerald-100 cursor-pointer"
+                              className="w-full text-[11px] text-gray-500 file:me-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[11px] file:font-bold file:bg-emerald-50 file:text-[#0B4F26] hover:file:bg-emerald-100 cursor-pointer"
                             />
                           </div>
                         </div>
@@ -3289,7 +3289,7 @@ export const DashboardPage: React.FC = () => {
                             value={boardForm.email}
                             onChange={(e) => setBoardForm({ ...boardForm, email: e.target.value })}
                             placeholder="info@shamil.org.sa"
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none dir-ltr"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none dir-ltr"
                           />
                         </div>
                         <div>
@@ -3299,7 +3299,7 @@ export const DashboardPage: React.FC = () => {
                             min={1}
                             value={boardForm.order}
                             onChange={(e) => setBoardForm({ ...boardForm, order: parseInt(e.target.value) || 1 })}
-                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                           />
                         </div>
                       </div>
@@ -3311,7 +3311,7 @@ export const DashboardPage: React.FC = () => {
                           value={boardForm.bioAr}
                           onChange={(e) => setBoardForm({ ...boardForm, bioAr: e.target.value })}
                           placeholder="يرأس مجلس إدارة تعاونية الشامل..."
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none"
                         />
                       </div>
 
@@ -3321,7 +3321,7 @@ export const DashboardPage: React.FC = () => {
                           id="isChairmanCheck"
                           checked={boardForm.isChairman}
                           onChange={(e) => setBoardForm({ ...boardForm, isChairman: e.target.checked })}
-                          className="w-4 h-4 text-[#095B42] rounded border-gray-300 focus:ring-0 cursor-pointer"
+                          className="w-4 h-4 text-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
                         />
                         <label htmlFor="isChairmanCheck" className="font-bold text-gray-800 cursor-pointer">
                           تمبيز العضو كرئيس لمجلس الإدارة (تاج وشارة خاصة)
@@ -3359,7 +3359,7 @@ export const DashboardPage: React.FC = () => {
               <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <ImageIcon className="w-5 h-5 text-[#0B6B4F]" />
+                    <ImageIcon className="w-5 h-5 text-[#0B4F26]" />
                     <h3 className="font-black text-xl text-gray-900">
                       معرض الصور والفعاليات الميدانية
                     </h3>
@@ -3463,7 +3463,7 @@ export const DashboardPage: React.FC = () => {
                           value={galleryForm.titleAr}
                           onChange={(e) => setGalleryForm({ ...galleryForm, titleAr: e.target.value })}
                           placeholder="اجتماع الجمعية العمومية السنوي..."
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                       </div>
 
@@ -3473,7 +3473,7 @@ export const DashboardPage: React.FC = () => {
                           type="date"
                           value={galleryForm.date}
                           onChange={(e) => setGalleryForm({ ...galleryForm, date: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                       </div>
 
@@ -3493,7 +3493,7 @@ export const DashboardPage: React.FC = () => {
                                 reader.readAsDataURL(file);
                               }
                             }}
-                            className="w-full text-xs text-gray-500 file:me-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#095B42] hover:file:bg-emerald-100 cursor-pointer border border-gray-300 rounded-xl p-1"
+                            className="w-full text-xs text-gray-500 file:me-3 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#0B4F26] hover:file:bg-emerald-100 cursor-pointer border border-gray-300 rounded-xl p-1"
                           />
                           {galleryForm.imageUrl && (
                             <div className="relative h-32 rounded-xl overflow-hidden border border-emerald-200 bg-gray-50 shadow-2xs">
@@ -3517,7 +3517,7 @@ export const DashboardPage: React.FC = () => {
                           value={galleryForm.locationAr}
                           onChange={(e) => setGalleryForm({ ...galleryForm, locationAr: e.target.value })}
                           placeholder="قاعة الاجتماعات الرئيسية - جدة"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                       </div>
 
@@ -3528,7 +3528,7 @@ export const DashboardPage: React.FC = () => {
                           value={galleryForm.captionAr}
                           onChange={(e) => setGalleryForm({ ...galleryForm, captionAr: e.target.value })}
                           placeholder="جانب من حضور وتصويت المساهمين..."
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none"
                         />
                       </div>
 
@@ -3758,7 +3758,7 @@ export const DashboardPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleOpenAddFeedbackCard}
-                        className="px-4 py-2 rounded-xl bg-[#095B42] text-white font-bold text-xs inline-flex items-center gap-2 cursor-pointer"
+                        className="px-4 py-2 rounded-xl bg-[#0B4F26] text-white font-bold text-xs inline-flex items-center gap-2 cursor-pointer"
                       >
                         <Plus className="w-4 h-4" />
                         <span>إضافة أول منصة</span>
@@ -3809,7 +3809,7 @@ export const DashboardPage: React.FC = () => {
                           value={feedbackCardForm.titleAr || ''}
                           onChange={(e) => setFeedbackCardForm({ ...feedbackCardForm, titleAr: e.target.value })}
                           placeholder="مثال: التغذيه الراجعة لاصحاب العلاقه"
-                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                         />
                       </div>
 
@@ -3830,7 +3830,7 @@ export const DashboardPage: React.FC = () => {
                                 accentColor: plat === 'drive' ? 'emerald' : plat === 'maps' ? 'amber' : 'purple'
                               });
                             }}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs bg-white"
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs bg-white"
                           >
                             <option value="drive">Google Drive</option>
                             <option value="maps">Google Maps</option>
@@ -3847,7 +3847,7 @@ export const DashboardPage: React.FC = () => {
                             value={feedbackCardForm.badgeAr || ''}
                             onChange={(e) => setFeedbackCardForm({ ...feedbackCardForm, badgeAr: e.target.value })}
                             placeholder="مثال: Google Drive PDF"
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           />
                         </div>
                       </div>
@@ -3862,7 +3862,7 @@ export const DashboardPage: React.FC = () => {
                           value={feedbackCardForm.url || ''}
                           onChange={(e) => setFeedbackCardForm({ ...feedbackCardForm, url: e.target.value })}
                           placeholder="https://drive.google.com/... أو https://maps.app.goo.gl/..."
-                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
                         />
                       </div>
 
@@ -3875,7 +3875,7 @@ export const DashboardPage: React.FC = () => {
                           value={feedbackCardForm.descriptionAr || ''}
                           onChange={(e) => setFeedbackCardForm({ ...feedbackCardForm, descriptionAr: e.target.value })}
                           placeholder="وصف مختصر لمحتوى المستند أو تقييمات المنصة..."
-                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs resize-none"
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs resize-none"
                         />
                       </div>
 
@@ -3887,7 +3887,7 @@ export const DashboardPage: React.FC = () => {
                           <select
                             value={feedbackCardForm.accentColor || 'emerald'}
                             onChange={(e) => setFeedbackCardForm({ ...feedbackCardForm, accentColor: e.target.value as any })}
-                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs bg-white"
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs bg-white"
                           >
                             <option value="emerald">أخضر زمردي (Emerald)</option>
                             <option value="amber">أصفر كهرماني (Amber)</option>
@@ -4020,7 +4020,7 @@ export const DashboardPage: React.FC = () => {
                           <select
                             value={sub.status}
                             onChange={(e) => updateSubmissionStatus(sub.id, e.target.value as SubmissionItem['status'])}
-                            className="bg-gray-50rounded-lg px-2 py-1 text-[10px] font-bold text-gray-700 focus:ring-1 focus:ring-[#0B6B4F] cursor-pointer"
+                            className="bg-gray-50rounded-lg px-2 py-1 text-[10px] font-bold text-gray-700 focus:ring-1 focus:ring-[#0B4F26] cursor-pointer"
                           >
                             <option value="pending">جديد</option>
                             <option value="in_progress">قيد المعالجة</option>
@@ -4085,7 +4085,7 @@ export const DashboardPage: React.FC = () => {
               {/* Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl   shadow-2xs">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B4F26]/20 flex items-center justify-center text-[#0B4F26] shadow-xs">
                     <UserCog className="w-6 h-6" />
                   </div>
                   <div>
@@ -4127,11 +4127,11 @@ export const DashboardPage: React.FC = () => {
                 return (
                   <div className=" max-w-2xl mx-auto bg-white rounded-3xl p-4  text-center space-y-6 relative overflow-hidden">
                     {/* Top Accent Ribbon */}
-                    <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B6B4F] via-[#84CC16] to-[#0B6B4F]" />
+                    <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-[#0B4F26] via-[#84CC16] to-[#0B4F26]" />
 
                     {/* Luxury Avatar / Photo */}
                     <div className="relative inline-block mx-auto mt-2">
-                      <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#095B42] via-[#0B6B4F] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+                      <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#0B4F26] via-[#0B4F26] to-[#042B1F] text-amber-200 font-bold font-serif text-3xl flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
                         {ceo.image ? (
                           <img src={ceo.image} alt={ceo.nameAr} className="w-full h-full object-cover" />
                         ) : (
@@ -4143,7 +4143,7 @@ export const DashboardPage: React.FC = () => {
 
                     <div className="space-y-2">
                       <h3 className="text-2xl font-black text-gray-900 leading-snug">{ceo.nameAr}</h3>
-                      <p className="text-xs font-bold text-[#095B42] bg-[#EBF4F0] px-4 py-1 rounded-full inline-block border border-[#095B42]/15">
+                      <p className="text-xs font-bold text-[#0B4F26] bg-[#E8F7F0] px-4 py-1 rounded-full inline-block border border-[#0B4F26]/15">
                         {ceo.roleAr}
                       </p>
                       {ceo.email && (
@@ -4160,10 +4160,10 @@ export const DashboardPage: React.FC = () => {
                       <div className=" flex flex-wrap items-center justify-center gap-3 text-xs">
                         <a
                           href={`tel:${ceo.phone}`}
-                          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#095B42] font-bold transition-all border border-gray-200/60"
+                          className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-[#0B4F26] font-bold transition-all border border-gray-200/60"
                           dir="ltr"
                         >
-                          <Phone className="w-4 h-4 text-[#095B42]" />
+                          <Phone className="w-4 h-4 text-[#0B4F26]" />
                           <span className="font-mono text-xs">{ceo.phone}</span>
                         </a>
                         <a
@@ -4182,7 +4182,7 @@ export const DashboardPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleOpenEditExecDirector}
-                        className="w-full py-3.5 rounded-2xl bg-[#095B42] hover:bg-[#074633] text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+                        className="w-full py-3.5 rounded-2xl bg-[#0B4F26] hover:bg-[#074633] text-white text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <Edit2 className="w-4 h-4" />
                         <span>تعديل بيانات المدير التنفيذي</span>
@@ -4202,7 +4202,7 @@ export const DashboardPage: React.FC = () => {
               {/* Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl   shadow-2xs">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#EBF5F0] to-[#D5EFE7] border border-[#0B4F26]/20 flex items-center justify-center text-[#0B4F26] shadow-xs">
                     <UserCheck className="w-6 h-6" />
                   </div>
                   <div>
@@ -4221,7 +4221,7 @@ export const DashboardPage: React.FC = () => {
                   <Link
                     to={getLocalizedPath('/members/register')}
                     target="_blank"
-                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0]text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#E8F7F0]text-xs font-bold text-gray-700 hover:text-[#0B4F26] transition-colors flex items-center gap-1.5"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>معاينة نموذج التسجيل</span>
@@ -4305,7 +4305,7 @@ export const DashboardPage: React.FC = () => {
                               </span>
                             </div>
 
-                            <p className="font-bold text-xs text-[#0B6B4F]">{sub.title}</p>
+                            <p className="font-bold text-xs text-[#0B4F26]">{sub.title}</p>
                             <p className="text-xs text-gray-600 leading-relaxed font-mono dir-ltr text-end sm:text-start">
                               {sub.senderContact}
                             </p>
@@ -4362,7 +4362,7 @@ export const DashboardPage: React.FC = () => {
                   <Link
                     to={getLocalizedPath('/members/directory')}
                     target="_blank"
-                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#EBF4F0]text-xs font-bold text-gray-700 hover:text-[#0B6B4F] transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-2.5 rounded-xl bg-gray-50 hover:bg-[#E8F7F0]text-xs font-bold text-gray-700 hover:text-[#0B4F26] transition-colors flex items-center gap-1.5"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                     <span>معاينة السجل</span>
@@ -4382,7 +4382,7 @@ export const DashboardPage: React.FC = () => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">إجمالي الأعضاء</span>
-                  <span className="text-xl font-black text-[#0B6B4F] font-mono">{(generalAssemblyMembers || []).length} عضو</span>
+                  <span className="text-xl font-black text-[#0B4F26] font-mono">{(generalAssemblyMembers || []).length} عضو</span>
                 </div>
                 <div className="bg-white p-4 rounded-xl  ">
                   <span className="text-[11px] font-bold text-gray-400 block mb-1">إجمالي الأسهم</span>
@@ -4451,7 +4451,7 @@ export const DashboardPage: React.FC = () => {
                             setMembersCurrentPage(1);
                           }}
                           placeholder={locale === 'ar' ? 'بحث باسم العضو، رقم العضوية، أو المدينة...' : 'Search by member name, ID, or city...'}
-                          className="w-full ps-9 pe-4 py-2.5 rounded-xltext-xs focus:border-[#0B6B4F] outline-none"
+                          className="w-full ps-9 pe-4 py-2.5 rounded-xltext-xs focus:border-[#0B4F26] outline-none"
                         />
                       </div>
 
@@ -4464,7 +4464,7 @@ export const DashboardPage: React.FC = () => {
                               setMembersPerPage(Number(e.target.value));
                               setMembersCurrentPage(1);
                             }}
-                            className="bg-[#F8FAF8]rounded-lg px-2.5 py-1.5 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B6B4F] cursor-pointer"
+                            className="bg-[#F8FAF8]rounded-lg px-2.5 py-1.5 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B4F26] cursor-pointer"
                           >
                             <option value={10}>10 أعضاء</option>
                             <option value={20}>20 عضو</option>
@@ -4519,7 +4519,7 @@ export const DashboardPage: React.FC = () => {
                                       </div>
                                     </div>
                                   </td>
-                                  <td className="p-4 text-center font-mono font-bold text-[#0B6B4F] whitespace-nowrap">
+                                  <td className="p-4 text-center font-mono font-bold text-[#0B4F26] whitespace-nowrap">
                                     {(member.sharesCount ?? (member as any).shares_count ?? 0).toLocaleString()} سهم
                                   </td>
                                   <td className="p-4 text-center font-mono text-gray-600 whitespace-nowrap">
@@ -4604,7 +4604,7 @@ export const DashboardPage: React.FC = () => {
                                     type="button"
                                     onClick={() => setMembersCurrentPage(pageNum)}
                                     className={`min-w-[32px] h-8 rounded-xl text-xs font-bold font-mono transition-all cursor-pointer flex items-center justify-center ${isActive
-                                      ? 'bg-[#0B6B4F] text-white shadow-sm ring-2 ring-[#0B6B4F]/20'
+                                      ? 'bg-[#0B4F26] text-white shadow-sm ring-2 ring-[#0B4F26]/20'
                                       : 'bg-white text-gray-700 hover:bg-gray-100   shadow-2xs'
                                       }`}
                                   >
@@ -4655,7 +4655,7 @@ export const DashboardPage: React.FC = () => {
                     type="button"
                     onClick={handleSaveProjectsHeader}
                     disabled={savingProjectsHeader}
-                    className="px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
+                    className="px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold shadow-xs transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 shrink-0"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>{savingProjectsHeader ? (locale === 'ar' ? 'جاري الحفظ...' : 'Saving...') : (locale === 'ar' ? 'حفظ إعدادات القسم' : 'Save Header')}</span>
@@ -4671,7 +4671,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={projectsHeaderForm.badgeAr || ''}
                       onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, badgeAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none"
                     />
                   </div>
                   <div>
@@ -4682,7 +4682,7 @@ export const DashboardPage: React.FC = () => {
                       type="text"
                       value={projectsHeaderForm.titleAr || ''}
                       onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, titleAr: e.target.value })}
-                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none font-bold"
+                      className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none font-bold"
                     />
                   </div>
                 </div>
@@ -4695,7 +4695,7 @@ export const DashboardPage: React.FC = () => {
                     rows={3}
                     value={projectsHeaderForm.descAr || ''}
                     onChange={(e) => setProjectsHeaderForm({ ...projectsHeaderForm, descAr: e.target.value })}
-                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B6B4F] outline-none leading-relaxed"
+                    className="w-full px-3 py-2 text-xsrounded-xl focus:ring-2 focus:ring-[#0B4F26] outline-none leading-relaxed"
                     placeholder="أدخل وصف قسم المشاريع..."
                   />
                 </div>
@@ -4727,7 +4727,7 @@ export const DashboardPage: React.FC = () => {
                 {(projects || []).map((project) => (
                   <div
                     key={project.id}
-                    className="bg-white rounded-2xl border border-gray-200/90 p-5 shadow-2xs flex flex-col justify-between space-y-4 hover:border-[#0B6B4F]/30 transition-all"
+                    className="bg-white rounded-2xl border border-gray-200/90 p-5 shadow-2xs flex flex-col justify-between space-y-4 hover:border-[#0B4F26]/30 transition-all"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between gap-2 border-b border-gray-100 pb-3">
@@ -4753,7 +4753,7 @@ export const DashboardPage: React.FC = () => {
                       </div>
 
 
-                      <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] border border-gray-200 flex items-center justify-center relative">
+                      <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-to-br from-[#E8F7F0] via-[#D8EFE7] to-[#C9E7DC] border border-gray-200 flex items-center justify-center relative">
                         {project.image ? (
                           <img
                             src={project.image}
@@ -4764,9 +4764,9 @@ export const DashboardPage: React.FC = () => {
                             }}
                           />
                         ) : null}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-[#0B6B4F]/70 z-0 p-2">
-                          <Building2 className="w-6 h-6 mb-1 text-[#0B6B4F]" />
-                          <span className="text-[10px] font-bold text-[#0B6B4F] line-clamp-1">{project.name}</span>
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-[#0B4F26]/70 z-0 p-2">
+                          <Building2 className="w-6 h-6 mb-1 text-[#0B4F26]" />
+                          <span className="text-[10px] font-bold text-[#0B4F26] line-clamp-1">{project.name}</span>
                         </div>
                       </div>
 
@@ -4788,7 +4788,7 @@ export const DashboardPage: React.FC = () => {
 
                       {project.features && project.features.length > 0 && (
                         <div className="pt-2 space-y-1">
-                          <span className="text-[10px] font-bold text-[#0B6B4F] uppercase">المميزات ({project.features.length}):</span>
+                          <span className="text-[10px] font-bold text-[#0B4F26] uppercase">المميزات ({project.features.length}):</span>
                           <div className="flex flex-wrap gap-1">
                             {project.features.map((f, idx) => (
                               <span key={idx} className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md border border-emerald-200">
@@ -4814,7 +4814,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-[#0B6B4F]" />
+                    <FileText className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة السياسات المؤسسية ومكافحة غسل الأموال' : 'Manage Governance & AML Policies'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -4854,7 +4854,7 @@ export const DashboardPage: React.FC = () => {
                       });
                       setIsPolicyModalOpen(true);
                     }}
-                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة سياسة جديدة' : 'Add Policy'}</span>
@@ -4865,7 +4865,7 @@ export const DashboardPage: React.FC = () => {
               {/* Policies Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {policies.map((policy) => (
-                  <div key={policy.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={policy.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -4889,7 +4889,7 @@ export const DashboardPage: React.FC = () => {
                       <Link
                         to={getLocalizedPath(`/policies/${(policy as any).slug_id || policy.id}`)}
                         target="_blank"
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
+                        className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         <span>معاينة</span>
@@ -4924,7 +4924,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-[#0B6B4F]" />
+                    <BookOpen className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة اللوائح والأنظمة والشهادات والملفات المالية' : 'Manage Regulations & Bylaws'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -4944,7 +4944,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleOpenAddRegulation}
-                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة لائحة / نظام' : 'Add Regulation'}</span>
@@ -4955,7 +4955,7 @@ export const DashboardPage: React.FC = () => {
               {/* Regulations Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {regulations.map((reg) => (
-                  <div key={reg.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={reg.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
@@ -4979,7 +4979,7 @@ export const DashboardPage: React.FC = () => {
                       <Link
                         to={getLocalizedPath(`/regulations/${(reg as any).slug_id || reg.id}`)}
                         target="_blank"
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
+                        className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         <span>معاينة</span>
@@ -5014,7 +5014,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-[#0B6B4F]" />
+                    <DollarSign className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة القوائم والتقارير المالية المدققة' : 'Manage Audited Financial Statements'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -5052,7 +5052,7 @@ export const DashboardPage: React.FC = () => {
                       });
                       setIsFinancialModalOpen(true);
                     }}
-                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة قائمة مالية' : 'Add Financial Statement'}</span>
@@ -5063,10 +5063,10 @@ export const DashboardPage: React.FC = () => {
               {/* Financials Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {financials.map((fin) => (
-                  <div key={fin.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={fin.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-mono font-black px-3 py-1 rounded-xl bg-[#0B6B4F] text-white">
+                        <span className="text-xs font-mono font-black px-3 py-1 rounded-xl bg-[#0B4F26] text-white">
                           عام {fin.year}م
                         </span>
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -5092,7 +5092,7 @@ export const DashboardPage: React.FC = () => {
                       <Link
                         to={getLocalizedPath('/financial-statements')}
                         target="_blank"
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
+                        className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         <span>معاينة التقرير</span>
@@ -5127,7 +5127,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-[#0B6B4F]" />
+                    <Sparkles className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة الورش المقامة والشراكات المجتمعية' : 'Manage Workshops & Partnerships'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -5147,7 +5147,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleOpenAddWorkshop}
-                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-colors cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة ورشة عمل' : 'Add Workshop'}</span>
@@ -5158,7 +5158,7 @@ export const DashboardPage: React.FC = () => {
               {/* Workshops Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {workshops.map((w) => (
-                  <div key={w.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={w.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -5182,7 +5182,7 @@ export const DashboardPage: React.FC = () => {
                       <Link
                         to={getLocalizedPath(`/workshops/${(w as any).slug_id || w.id}`)}
                         target="_blank"
-                        className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1"
+                        className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         <span>معاينة</span>
@@ -5217,7 +5217,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <ShieldCheck className="w-5 h-5 text-[#0B6B4F]" />
+                    <ShieldCheck className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة الميثاق الأخلاقي وقواعد السلوك المؤسسي' : 'Manage Ethical Charter'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -5229,7 +5229,7 @@ export const DashboardPage: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleOpenAddEthics}
-                    className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                   >
                     <Plus className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'إضافة وثيقة / بند ميثاق جديد' : 'Add Ethics Document'}</span>
@@ -5248,7 +5248,7 @@ export const DashboardPage: React.FC = () => {
               {/* Ethics Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {ethics.map((eth) => (
-                  <div key={eth.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-4">
+                  <div key={eth.id} className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-4">
                     <div className="space-y-2.5">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -5273,7 +5273,7 @@ export const DashboardPage: React.FC = () => {
                         <Link
                           to={getLocalizedPath('/ethics')}
                           target="_blank"
-                          className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] text-xs font-bold transition-colors inline-flex items-center gap-1"
+                          className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B4F26] text-xs font-bold transition-colors inline-flex items-center gap-1"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>معاينة الصفحة</span>
@@ -5286,7 +5286,7 @@ export const DashboardPage: React.FC = () => {
                             className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition-colors inline-flex items-center gap-1"
                             title="فتح ملف PDF المرفوع مباشرة"
                           >
-                            <FileText className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                            <FileText className="w-3.5 h-3.5 text-[#0B4F26]" />
                             <span className="max-w-[120px] truncate">{eth.fileName || 'ملف PDF'}</span>
                           </a>
                         )}
@@ -5322,7 +5322,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-base sm:text-lg font-black text-gray-900 flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-[#0B6B4F]" />
+                    <Calendar className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة محاضر الاجتماعات والقرارات الرسمية' : 'Manage Meetings & Minutes'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -5333,7 +5333,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleOpenAddMeeting}
-                  className="px-4 py-2.5 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm transition-all cursor-pointer hover:shadow-md"
+                  className="px-4 py-2.5 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm transition-all cursor-pointer hover:shadow-md"
                 >
                   <Plus className="w-4 h-4" />
                   <span>{locale === 'ar' ? 'إضافة محضر اجتماع جديد' : 'Add New Meeting'}</span>
@@ -5355,7 +5355,7 @@ export const DashboardPage: React.FC = () => {
                       onClick={() => setMeetingTypeFilter(tab.id as any)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${
                         meetingTypeFilter === tab.id
-                          ? 'bg-[#0B6B4F] text-white shadow-sm'
+                          ? 'bg-[#0B4F26] text-white shadow-sm'
                           : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200/80'
                       }`}
                     >
@@ -5377,7 +5377,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingSearchQuery}
                     onChange={(e) => setMeetingSearchQuery(e.target.value)}
                     placeholder={locale === 'ar' ? 'بحث برقم المحضر أو العنوان...' : 'Search by code or title...'}
-                    className="w-full ps-9 pe-3 py-2 bg-white border border-gray-200 rounded-xl text-xs outline-none focus:border-[#0B6B4F] text-gray-800 transition-colors shadow-2xs"
+                    className="w-full ps-9 pe-3 py-2 bg-white border border-gray-200 rounded-xl text-xs outline-none focus:border-[#0B4F26] text-gray-800 transition-colors shadow-2xs"
                   />
                   {meetingSearchQuery && (
                     <button
@@ -5411,7 +5411,7 @@ export const DashboardPage: React.FC = () => {
                 if (filteredMeetings.length === 0) {
                   return (
                     <div className="py-16 text-center bg-[#F9FAF9] rounded-2xl border border-dashed border-gray-300 space-y-3">
-                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B6B4F] flex items-center justify-center mx-auto shadow-inner">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B4F26] flex items-center justify-center mx-auto shadow-inner">
                         <Calendar className="w-6 h-6" />
                       </div>
                       <p className="text-sm font-bold text-gray-700">
@@ -5420,7 +5420,7 @@ export const DashboardPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleOpenAddMeeting}
-                        className="px-4 py-2 rounded-xl bg-[#0B6B4F] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
+                        className="px-4 py-2 rounded-xl bg-[#0B4F26] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
                       >
                         <Plus className="w-4 h-4" />
                         <span>{locale === 'ar' ? 'إضافة محضر جديد الآن' : 'Add New Meeting'}</span>
@@ -5437,7 +5437,7 @@ export const DashboardPage: React.FC = () => {
                       return (
                         <div
                           key={mtg.id}
-                          className="p-5 rounded-2xl bg-[#F7F8F6] hover:bg-white border border-gray-200/80 hover:border-[#0B6B4F]/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-4 group"
+                          className="p-5 rounded-2xl bg-[#F7F8F6] hover:bg-white border border-gray-200/80 hover:border-[#0B4F26]/40 hover:shadow-lg transition-all flex flex-col justify-between space-y-4 group"
                         >
                           <div className="space-y-3">
                             {/* Top Badges: Type + Code + Date */}
@@ -5465,7 +5465,7 @@ export const DashboardPage: React.FC = () => {
                             </div>
 
                             {/* Meeting Title */}
-                            <h4 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#0B6B4F] transition-colors line-clamp-2">
+                            <h4 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#0B4F26] transition-colors line-clamp-2">
                               {mtg.titleAr}
                             </h4>
 
@@ -5488,7 +5488,7 @@ export const DashboardPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => handleOpenEditMeeting(mtg)}
-                              className="text-xs text-[#0B6B4F] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
+                              className="text-xs text-[#0B4F26] font-bold hover:underline inline-flex items-center gap-1 cursor-pointer"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
                               <span>تعديل المحضر</span>
@@ -5552,7 +5552,7 @@ export const DashboardPage: React.FC = () => {
                       title: locale === 'ar' ? 'استبيانات قياس رضا الجهات الداعمة' : 'Supporters Satisfaction Surveys',
                       desc: locale === 'ar' ? 'معاينة ومتابعة استجابات وتقييمات المؤسسات المانحة والجهات الداعمة' : 'Review responses and ratings from funding organizations and donors',
                       icon: HeartHandshake,
-                      color: 'text-[#095B42]',
+                      color: 'text-[#0B4F26]',
                       bg: 'bg-emerald-50 border-emerald-200'
                     };
                   }
@@ -5587,8 +5587,8 @@ export const DashboardPage: React.FC = () => {
                     title: locale === 'ar' ? 'الشكاوى وقياس الرضا والطلبات التفاعلية' : 'Complaints, Surveys & Applications',
                     desc: locale === 'ar' ? 'معاينة ومتابعة ردود واستجابات جميع النماذج التفاعلية والمستفيدين بالجمعية' : 'View, manage, and print official responses for interactive website forms',
                     icon: MessageSquareQuote,
-                    color: 'text-[#0B6B4F]',
-                    bg: 'bg-[#EBF4F0] border-[#095B42]/20'
+                    color: 'text-[#0B4F26]',
+                    bg: 'bg-[#E8F7F0] border-[#0B4F26]/20'
                   };
                 };
 
@@ -5639,7 +5639,7 @@ export const DashboardPage: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder={locale === 'ar' ? 'ابحث باسم المرسل، رقم الهاتف، أو تفاصيل الرد...' : 'Search by name, contact, or response details...'}
-                    className="w-full ps-9 pe-4 py-2 bg-white rounded-xl text-xsfont-medium text-gray-800 outline-none focus:ring-2 focus:ring-[#0B6B4F]"
+                    className="w-full ps-9 pe-4 py-2 bg-white rounded-xl text-xsfont-medium text-gray-800 outline-none focus:ring-2 focus:ring-[#0B4F26]"
                   />
                 </div>
 
@@ -5649,7 +5649,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setSubmissionViewMode('cards')}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${submissionViewMode === 'cards' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'text-gray-600 hover:text-gray-900'}`}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${submissionViewMode === 'cards' ? 'bg-[#0B4F26] text-white shadow-xs' : 'text-gray-600 hover:text-gray-900'}`}
                       title="عرض كبطاقات"
                     >
                       <LayoutGrid className="w-3.5 h-3.5" />
@@ -5657,7 +5657,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setSubmissionViewMode('table')}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${submissionViewMode === 'table' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'text-gray-600 hover:text-gray-900'}`}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${submissionViewMode === 'table' ? 'bg-[#0B4F26] text-white shadow-xs' : 'text-gray-600 hover:text-gray-900'}`}
                       title="عرض كجدول"
                     >
                       <TableIcon className="w-3.5 h-3.5" />
@@ -5698,8 +5698,8 @@ export const DashboardPage: React.FC = () => {
                   type="button"
                   onClick={() => setSubmissionFilter('survey_supporters')}
                   className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer shadow-2xs flex items-center gap-1.5 ${submissionFilter === 'survey_supporters'
-                    ? 'bg-[#095B42] text-white shadow-md ring-2 ring-[#095B42]/20'
-                    : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#095B42] border border-gray-200'
+                    ? 'bg-[#0B4F26] text-white shadow-md ring-2 ring-[#0B4F26]/20'
+                    : 'bg-white text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-gray-200'
                     }`}
                 >
                   <HeartHandshake className="w-3.5 h-3.5" />
@@ -5864,7 +5864,7 @@ export const DashboardPage: React.FC = () => {
                                 <select
                                   value={sub.status}
                                   onChange={(e) => updateSubmissionStatus(sub.id, e.target.value as SubmissionItem['status'])}
-                                  className="bg-white border border-gray-300 rounded-lg px-2 py-1 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B6B4F] cursor-pointer"
+                                  className="bg-white border border-gray-300 rounded-lg px-2 py-1 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B4F26] cursor-pointer"
                                 >
                                   <option value="pending">جديد</option>
                                   <option value="in_progress">قيد المعالجة</option>
@@ -5888,7 +5888,7 @@ export const DashboardPage: React.FC = () => {
                                   <button
                                     type="button"
                                     onClick={() => setViewingSubmission(sub)}
-                                    className="p-1.5 rounded-lg text-[#0B6B4F] hover:bg-emerald-50 cursor-pointer"
+                                    className="p-1.5 rounded-lg text-[#0B4F26] hover:bg-emerald-50 cursor-pointer"
                                     title="معاينة الرد"
                                   >
                                     <Eye className="w-4 h-4" />
@@ -5921,7 +5921,7 @@ export const DashboardPage: React.FC = () => {
                     {filtered.map((sub) => (
                       <div
                         key={sub.id}
-                        className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B6B4F]/30 transition-all space-y-3.5 text-xs shadow-2xs flex flex-col justify-between"
+                        className="p-5 rounded-2xl bg-[#F7F8F6]   hover:border-[#0B4F26]/30 transition-all space-y-3.5 text-xs shadow-2xs flex flex-col justify-between"
                       >
                         <div className="space-y-2.5">
                           <div className="flex items-center justify-between gap-2">
@@ -6002,7 +6002,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-gray-100">
                 <div>
                   <h2 className="text-lg font-black text-gray-900 flex items-center gap-2">
-                    <Layout className="w-5 h-5 text-[#0B6B4F]" />
+                    <Layout className="w-5 h-5 text-[#0B4F26]" />
                     <span>{locale === 'ar' ? 'إدارة محتوى الواجهة الرئيسية (Home Page)' : 'Home Page Management'}</span>
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
@@ -6014,7 +6014,7 @@ export const DashboardPage: React.FC = () => {
                   <Link
                     to={getLocalizedPath('/')}
                     target="_blank"
-                    className="px-3.5 py-2 rounded-xl bg-[#EBF4F0] hover:bg-[#0B6B4F] text-[#0B6B4F] hover:text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-[#E8F7F0] hover:bg-[#0B4F26] text-[#0B4F26] hover:text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'معاينة الواجهة الرئيسية' : 'Preview Home Page'}</span>
@@ -6027,7 +6027,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setHomeSubTab('about')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'about' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'about' ? 'bg-[#0B4F26] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                   <Eye className="w-4 h-4" />
@@ -6037,7 +6037,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setHomeSubTab('hero')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'hero' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'hero' ? 'bg-[#0B4F26] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                   <Sparkles className="w-4 h-4" />
@@ -6047,7 +6047,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setHomeSubTab('stats')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'stats' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'stats' ? 'bg-[#0B4F26] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                   <Activity className="w-4 h-4" />
@@ -6057,7 +6057,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setHomeSubTab('goals')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'goals' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'goals' ? 'bg-[#0B4F26] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                   <Target className="w-4 h-4" />
@@ -6067,7 +6067,7 @@ export const DashboardPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setHomeSubTab('testimonials')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'testimonials' ? 'bg-[#0B6B4F] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 shrink-0 ${homeSubTab === 'testimonials' ? 'bg-[#0B4F26] text-white shadow-xs' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                     }`}
                 >
                   <MessageSquareQuote className="w-4 h-4" />
@@ -6079,8 +6079,8 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'about' && (
                 <form onSubmit={handleSaveAbout} className="space-y-6 pt-2">
                   <div className="bg-[#F7F8F6] p-5 rounded-2xl border border-gray-200/70 space-y-4">
-                    <h3 className="text-sm font-bold text-[#12332B] flex items-center gap-2 border-b border-gray-200 pb-2">
-                      <Eye className="w-4 h-4 text-[#0B6B4F]" />
+                    <h3 className="text-sm font-bold text-[#0F172A] flex items-center gap-2 border-b border-gray-200 pb-2">
+                      <Eye className="w-4 h-4 text-[#0B4F26]" />
                       <span>{locale === 'ar' ? 'العناوين والوصف الرئيسي لقسم من نحن' : 'Main About Headline & Description'}</span>
                     </h3>
 
@@ -6091,7 +6091,7 @@ export const DashboardPage: React.FC = () => {
                           type="text"
                           value={aboutForm.badgeAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, badgeAr: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="من نحن"
                         />
                       </div>
@@ -6101,7 +6101,7 @@ export const DashboardPage: React.FC = () => {
                           type="text"
                           value={aboutForm.titleModelAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, titleModelAr: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="نموذج رائد في"
                         />
                       </div>
@@ -6111,7 +6111,7 @@ export const DashboardPage: React.FC = () => {
                           type="text"
                           value={aboutForm.titleHighlightAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, titleHighlightAr: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs font-bold text-[#0B6B4F]"
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-bold text-[#0B4F26]"
                           placeholder="العمل التعاوني"
                         />
                       </div>
@@ -6123,7 +6123,7 @@ export const DashboardPage: React.FC = () => {
                         rows={3}
                         value={aboutForm.descriptionAr || ''}
                         onChange={(e) => setAboutForm({ ...aboutForm, descriptionAr: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs leading-relaxed"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs leading-relaxed"
                         placeholder="نحن كيان اقتصادي واجتماعي يهدف إلى تحقيق التنمية المستدامة..."
                       />
                     </div>
@@ -6131,8 +6131,8 @@ export const DashboardPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Vision Card Edit */}
-                    <div className="bg-[#EBF4F0]/60 p-5 rounded-2xl border border-[#0B6B4F]/15 space-y-3">
-                      <h4 className="text-xs font-black text-[#0B6B4F] flex items-center gap-1.5">
+                    <div className="bg-[#E8F7F0]/60 p-5 rounded-2xl border border-[#0B4F26]/15 space-y-3">
+                      <h4 className="text-xs font-black text-[#0B4F26] flex items-center gap-1.5">
                         <Eye className="w-4 h-4" />
                         <span>بطاقة رؤيتنا (Vision Card)</span>
                       </h4>
@@ -6142,7 +6142,7 @@ export const DashboardPage: React.FC = () => {
                           type="text"
                           value={aboutForm.visionTitleAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, visionTitleAr: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="رؤيتنا"
                         />
                       </div>
@@ -6152,15 +6152,15 @@ export const DashboardPage: React.FC = () => {
                           rows={3}
                           value={aboutForm.visionDescAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, visionDescAr: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="تقديم حلول تعاونية رائدة تعزز التنمية المستدامة..."
                         />
                       </div>
                     </div>
 
                     {/* Mission Card Edit */}
-                    <div className="bg-[#EBF4F0]/60 p-5 rounded-2xl border border-[#0B6B4F]/15 space-y-3">
-                      <h4 className="text-xs font-black text-[#0B6B4F] flex items-center gap-1.5">
+                    <div className="bg-[#E8F7F0]/60 p-5 rounded-2xl border border-[#0B4F26]/15 space-y-3">
+                      <h4 className="text-xs font-black text-[#0B4F26] flex items-center gap-1.5">
                         <Target className="w-4 h-4" />
                         <span>بطاقة رسالتنا (Mission Card)</span>
                       </h4>
@@ -6170,7 +6170,7 @@ export const DashboardPage: React.FC = () => {
                           type="text"
                           value={aboutForm.missionTitleAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, missionTitleAr: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="رسالتنا"
                         />
                       </div>
@@ -6180,7 +6180,7 @@ export const DashboardPage: React.FC = () => {
                           rows={3}
                           value={aboutForm.missionDescAr || ''}
                           onChange={(e) => setAboutForm({ ...aboutForm, missionDescAr: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                          className="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                           placeholder="تحقيق التنمية المستدامة والتمكين الاقتصادي والاجتماعي..."
                         />
                       </div>
@@ -6194,14 +6194,14 @@ export const DashboardPage: React.FC = () => {
                         type="text"
                         value={aboutForm.sloganAr || ''}
                         onChange={(e) => setAboutForm({ ...aboutForm, sloganAr: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs font-bold"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-bold"
                         placeholder="جذور راسخة، رؤية طموحة."
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-gray-700 mb-1 flex items-center justify-between">
                         <span>صورة قسم من نحن (Portrait Image)</span>
-                        <span className="text-[10px] text-[#0B6B4F] font-semibold">رفع صورة أو رابط</span>
+                        <span className="text-[10px] text-[#0B4F26] font-semibold">رفع صورة أو رابط</span>
                       </label>
                       <div className="flex gap-2">
                         <input
@@ -6210,10 +6210,10 @@ export const DashboardPage: React.FC = () => {
                           onChange={(e) => setAboutForm({ ...aboutForm, imageUrl: e.target.value })}
                           readOnly={aboutForm.imageUrl?.startsWith('data:image')}
                           placeholder="/about.jpg أو اختر صورة"
-                          className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${aboutForm.imageUrl?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B6B4F]'
+                          className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${aboutForm.imageUrl?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B4F26]'
                             }`}
                         />
-                        <label className="px-3.5 py-2.5 bg-[#0B6B4F] hover:bg-[#08523C] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                        <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#08523C] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                           <Upload className="w-4 h-4 text-white" />
                           <span>{aboutForm.imageUrl?.startsWith('data:image') ? 'تغيير' : 'رفع صورة'}</span>
                           <input
@@ -6233,7 +6233,7 @@ export const DashboardPage: React.FC = () => {
                   <div className="flex justify-end pt-2">
                     <button
                       type="submit"
-                      className="px-6 py-3 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold shadow-md transition-colors cursor-pointer flex items-center gap-2"
+                      className="px-6 py-3 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold shadow-md transition-colors cursor-pointer flex items-center gap-2"
                     >
                       <CheckCircle2 className="w-4 h-4" />
                       <span>{locale === 'ar' ? 'حفظ وتحديث قسم من نحن' : 'Save About Us Data'}</span>
@@ -6246,13 +6246,13 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'hero' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#12332B]">
+                    <h3 className="text-sm font-bold text-[#0F172A]">
                       {locale === 'ar' ? 'شرائح البانر الرئيسي (Hero Slider)' : 'Hero Banner Slides'} ({homeHeroSlides.length})
                     </h3>
                     <button
                       type="button"
                       onClick={handleOpenAddHeroSlide}
-                      className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
+                      className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                       <span>{locale === 'ar' ? 'إضافة شريحة هيرو جديدة' : 'Add Hero Slide'}</span>
@@ -6263,7 +6263,7 @@ export const DashboardPage: React.FC = () => {
                     {homeHeroSlides.map((slide, idx) => (
                       <div
                         key={slide.id}
-                        className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/70 hover:border-[#0B6B4F]/30 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
+                        className="p-5 rounded-2xl bg-[#F7F8F6] border border-gray-200/70 hover:border-[#0B4F26]/30 transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
                       >
                         <div className="flex items-start gap-4">
                           <img
@@ -6272,11 +6272,11 @@ export const DashboardPage: React.FC = () => {
                             className="w-20 h-16 rounded-xl object-covershrink-0"
                           />
                           <div className="space-y-1 text-xs">
-                            <span className="inline-block px-2 py-0.5 rounded-full bg-[#EBF4F0] text-[#0B6B4F] text-[10px] font-bold">
+                            <span className="inline-block px-2 py-0.5 rounded-full bg-[#E8F7F0] text-[#0B4F26] text-[10px] font-bold">
                               شريحة #{idx + 1} • {slide.badgeAr}
                             </span>
                             <h4 className="font-bold text-sm text-gray-900">
-                              {slide.titleAr} <span className="text-[#0B6B4F]">{slide.highlightAr}</span>
+                              {slide.titleAr} <span className="text-[#0B4F26]">{slide.highlightAr}</span>
                             </h4>
                             <p className="text-gray-500 line-clamp-1">{slide.subtitleAr}</p>
                           </div>
@@ -6286,7 +6286,7 @@ export const DashboardPage: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => handleOpenEditHeroSlide(slide)}
-                            className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] cursor-pointer"
+                            className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#0B4F26] cursor-pointer"
                             title="تعديل"
                           >
                             <Edit2 className="w-4 h-4" />
@@ -6326,7 +6326,7 @@ export const DashboardPage: React.FC = () => {
                     {statsForm.map((stat, idx) => (
                       <div key={stat.id || idx} className="bg-[#F7F8F6] p-5 rounded-2xl   space-y-3">
                         <div className="flex items-center justify-between border-b border-gray-200 pb-2">
-                          <span className="font-mono font-bold text-xs text-[#0B6B4F]">إحصائية #{idx + 1}</span>
+                          <span className="font-mono font-bold text-xs text-[#0B4F26]">إحصائية #{idx + 1}</span>
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
@@ -6339,7 +6339,7 @@ export const DashboardPage: React.FC = () => {
                                 newStats[idx].valueAr = e.target.value;
                                 setStatsForm(newStats);
                               }}
-                              className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs font-bold"
+                              className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-bold"
                             />
                           </div>
                           <div>
@@ -6352,7 +6352,7 @@ export const DashboardPage: React.FC = () => {
                                 newStats[idx].labelAr = e.target.value;
                                 setStatsForm(newStats);
                               }}
-                              className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none text-xs"
+                              className="w-full px-3 py-2 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
                             />
                           </div>
                         </div>
@@ -6363,7 +6363,7 @@ export const DashboardPage: React.FC = () => {
                   <div className="flex justify-end pt-2">
                     <button
                       type="submit"
-                      className="px-6 py-3 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold shadow-md transition-colors cursor-pointer flex items-center gap-2"
+                      className="px-6 py-3 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold shadow-md transition-colors cursor-pointer flex items-center gap-2"
                     >
                       <CheckCircle2 className="w-4 h-4" />
                       <span>{locale === 'ar' ? 'حفظ وتحديث الإحصائيات' : 'Save Live Stats'}</span>
@@ -6376,13 +6376,13 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'goals' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#12332B]">
+                    <h3 className="text-sm font-bold text-[#0F172A]">
                       {locale === 'ar' ? 'قائمة الأهداف الاستراتيجية' : 'Strategic Objectives List'} ({strategicGoals.length})
                     </h3>
                     <button
                       type="button"
                       onClick={handleOpenAddGoal}
-                      className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
+                      className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                       <span>{locale === 'ar' ? 'إضافة هدف استراتيجي جديد' : 'Add Strategic Goal'}</span>
@@ -6393,13 +6393,13 @@ export const DashboardPage: React.FC = () => {
                     {strategicGoals.map((goal) => (
                       <div
                         key={goal.id}
-                        className="bg-[#F7F8F6] rounded-2xl p-5   hover:border-[#0B6B4F]/30 transition-all flex flex-col justify-between space-y-3 relative group"
+                        className="bg-[#F7F8F6] rounded-2xl p-5   hover:border-[#0B4F26]/30 transition-all flex flex-col justify-between space-y-3 relative group"
                       >
                         <div>
                           <div className="text-2xl font-black text-[#5EA88F] font-sans mb-1">
                             0{goal.number}
                           </div>
-                          <h4 className="font-bold text-sm text-[#12332B] leading-snug">
+                          <h4 className="font-bold text-sm text-[#0F172A] leading-snug">
                             {goal.titleAr}
                           </h4>
                           {goal.descriptionAr && (
@@ -6411,7 +6411,7 @@ export const DashboardPage: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => handleOpenEditGoal(goal)}
-                            className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] cursor-pointer"
+                            className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B4F26] cursor-pointer"
                             title="تعديل"
                           >
                             <Edit2 className="w-3.5 h-3.5" />
@@ -6440,13 +6440,13 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'testimonials' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#12332B]">
+                    <h3 className="text-sm font-bold text-[#0F172A]">
                       {locale === 'ar' ? 'آراء وشهادات الشركاء والملاّك (قالوا عنا)' : 'Shareholder & Client Testimonials'} ({testimonials.length})
                     </h3>
                     <button
                       type="button"
                       onClick={handleOpenAddTestimonial}
-                      className="px-3.5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
+                      className="px-3.5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs cursor-pointer"
                     >
                       <Plus className="w-4 h-4" />
                       <span>{locale === 'ar' ? 'إضافة رأي/شهادة جديدة' : 'Add Testimonial'}</span>
@@ -6464,7 +6464,7 @@ export const DashboardPage: React.FC = () => {
                             <div className="flex items-center gap-1 bg-amber-100 px-2 py-0.5 rounded-full text-amber-900 font-bold text-[10px]">
                               <span>★ {t.rating}.0</span>
                             </div>
-                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#EBF4F0] text-[#0B6B4F]">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#E8F7F0] text-[#0B4F26]">
                               {t.projectRelatedAr}
                             </span>
                           </div>
@@ -6487,7 +6487,7 @@ export const DashboardPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => handleOpenEditTestimonial(t)}
-                              className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B6B4F] cursor-pointer"
+                              className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-[#0B4F26] cursor-pointer"
                               title="تعديل"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
@@ -6530,36 +6530,36 @@ export const DashboardPage: React.FC = () => {
             <form onSubmit={handleSaveHeroSlide} className="space-y-4 text-xs">
               <div>
                 <label className="block font-bold text-gray-700 mb-1">شارة البادج العلوي (Badge Text) *</label>
-                <input type="text" required value={heroSlideForm.badgeAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, badgeAr: e.target.value })} placeholder="تعاونية الشامل متعددة الأغراض" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                <input type="text" required value={heroSlideForm.badgeAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, badgeAr: e.target.value })} placeholder="تعاونية الشامل متعددة الأغراض" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">العنوان الرئيسي *</label>
-                  <input type="text" required value={heroSlideForm.titleAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, titleAr: e.target.value })} placeholder="تأبى الرياحُ إذا اجتمعن تكسّرا.." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" required value={heroSlideForm.titleAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, titleAr: e.target.value })} placeholder="تأبى الرياحُ إذا اجتمعن تكسّرا.." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">الكلمة المبرزة (Highlight Text)</label>
-                  <input type="text" value={heroSlideForm.highlightAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, highlightAr: e.target.value })} placeholder="وإذا افترقنَ تكسّرت آحادا..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-bold text-[#095B42]" />
+                  <input type="text" value={heroSlideForm.highlightAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, highlightAr: e.target.value })} placeholder="وإذا افترقنَ تكسّرت آحادا..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-bold text-[#0B4F26]" />
                 </div>
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">الوصف الفرعي (Subtitle Description)</label>
-                <textarea rows={3} value={heroSlideForm.subtitleAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, subtitleAr: e.target.value })} placeholder="رسالتنا: تحقيق التنمية المستدامة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={3} value={heroSlideForm.subtitleAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, subtitleAr: e.target.value })} placeholder="رسالتنا: تحقيق التنمية المستدامة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">نص زر التفاعل (CTA Button Text)</label>
-                  <input type="text" value={heroSlideForm.ctaTextAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, ctaTextAr: e.target.value })} placeholder="اكتشف مشاريعنا" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" value={heroSlideForm.ctaTextAr || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, ctaTextAr: e.target.value })} placeholder="اكتشف مشاريعنا" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">رابط زر التفاعل (CTA Link)</label>
-                  <input type="text" value={heroSlideForm.ctaLink || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, ctaLink: e.target.value })} placeholder="/projects" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono" />
+                  <input type="text" value={heroSlideForm.ctaLink || ''} onChange={(e) => setHeroSlideForm({ ...heroSlideForm, ctaLink: e.target.value })} placeholder="/projects" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono" />
                 </div>
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>صورة الخلفية (Background Image)</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع صورة أو رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع صورة أو رابط</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -6568,10 +6568,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setHeroSlideForm({ ...heroSlideForm, bgImage: e.target.value })}
                     readOnly={heroSlideForm.bgImage?.startsWith('data:image')}
                     placeholder="https://images.unsplash.com/... أو اختر صورة"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${heroSlideForm.bgImage?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${heroSlideForm.bgImage?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{heroSlideForm.bgImage?.startsWith('data:image') ? 'تغيير' : 'رفع صورة'}</span>
                     <input
@@ -6607,16 +6607,16 @@ export const DashboardPage: React.FC = () => {
               <div className="grid grid-cols-3 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">الرقم *</label>
-                  <input type="number" required value={goalForm.number || ''} onChange={(e) => setGoalForm({ ...goalForm, number: Number(e.target.value) })} placeholder="1" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-bold" />
+                  <input type="number" required value={goalForm.number || ''} onChange={(e) => setGoalForm({ ...goalForm, number: Number(e.target.value) })} placeholder="1" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-bold" />
                 </div>
                 <div className="col-span-2">
                   <label className="block font-bold text-gray-700 mb-1">عنوان الهدف الاستراتيجي *</label>
-                  <input type="text" required value={goalForm.titleAr || ''} onChange={(e) => setGoalForm({ ...goalForm, titleAr: e.target.value })} placeholder="تعزيز الاستدامة المالية..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" required value={goalForm.titleAr || ''} onChange={(e) => setGoalForm({ ...goalForm, titleAr: e.target.value })} placeholder="تعزيز الاستدامة المالية..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">وصف تفصيلي للهدف</label>
-                <textarea rows={3} value={goalForm.descriptionAr || ''} onChange={(e) => setGoalForm({ ...goalForm, descriptionAr: e.target.value })} placeholder="رفع كفاءة تنمية الموارد..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={3} value={goalForm.descriptionAr || ''} onChange={(e) => setGoalForm({ ...goalForm, descriptionAr: e.target.value })} placeholder="رفع كفاءة تنمية الموارد..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
                 <button type="button" onClick={() => setIsGoalModalOpen(false)} className="px-4 py-2 font-bold text-gray-600 hover:bg-gray-100 rounded-xl cursor-pointer">إلغاء</button>
@@ -6639,31 +6639,31 @@ export const DashboardPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">اسم صاحب الرأي *</label>
-                  <input type="text" required value={testimonialForm.nameAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, nameAr: e.target.value })} placeholder="أ. فهد الحربي" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" required value={testimonialForm.nameAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, nameAr: e.target.value })} placeholder="أ. فهد الحربي" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">الصفة / الوظيفة</label>
-                  <input type="text" value={testimonialForm.roleAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, roleAr: e.target.value })} placeholder="عميل دائم" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" value={testimonialForm.roleAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, roleAr: e.target.value })} placeholder="عميل دائم" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">الجهة / المدينة</label>
-                  <input type="text" value={testimonialForm.organizationAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, organizationAr: e.target.value })} placeholder="جدة" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" value={testimonialForm.organizationAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, organizationAr: e.target.value })} placeholder="جدة" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">المشروع المرتبط</label>
-                  <input type="text" value={testimonialForm.projectRelatedAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, projectRelatedAr: e.target.value })} placeholder="استهلاكية الشامل" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" value={testimonialForm.projectRelatedAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, projectRelatedAr: e.target.value })} placeholder="استهلاكية الشامل" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">نص الشهادة / الرأي (الافتخار) *</label>
-                <textarea rows={3} required value={testimonialForm.quoteAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, quoteAr: e.target.value })} placeholder="استهلاكية الشامل توفر لنا كافة مستلزمات الأسرة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={3} required value={testimonialForm.quoteAr || ''} onChange={(e) => setTestimonialForm({ ...testimonialForm, quoteAr: e.target.value })} placeholder="استهلاكية الشامل توفر لنا كافة مستلزمات الأسرة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>صورة الشخص (Avatar Image)</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع صورة من جهازك أو إدخال رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع صورة من جهازك أو إدخال رابط</span>
                 </label>
 
                 <div className="space-y-3">
@@ -6674,11 +6674,11 @@ export const DashboardPage: React.FC = () => {
                       onChange={(e) => setTestimonialForm({ ...testimonialForm, avatar: e.target.value })}
                       readOnly={testimonialForm.avatar?.startsWith('data:image')}
                       placeholder="https://images.unsplash.com/... أو اختر صورة من جهازك"
-                      className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${testimonialForm.avatar?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
+                      className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs outline-none ${testimonialForm.avatar?.startsWith('data:image') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B4F26]'
                         }`}
                     />
 
-                    <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                    <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                       <Upload className="w-4 h-4 text-white" />
                       <span>{testimonialForm.avatar?.startsWith('data:image') ? 'تغيير' : 'رفع صورة'}</span>
                       <input
@@ -6774,7 +6774,7 @@ export const DashboardPage: React.FC = () => {
                   value={memberName}
                   onChange={(e) => setMemberName(e.target.value)}
                   placeholder="مثال: أحمد عبد الله"
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                 />
               </div>
 
@@ -6787,7 +6787,7 @@ export const DashboardPage: React.FC = () => {
                   value={memberNameEn}
                   onChange={(e) => setMemberNameEn(e.target.value)}
                   placeholder="Ahmed Abdullah"
-                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none dir-ltr"
+                  className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none dir-ltr"
                 />
               </div>
 
@@ -6800,7 +6800,7 @@ export const DashboardPage: React.FC = () => {
                     type="number"
                     value={memberShares}
                     onChange={(e) => setMemberShares(Number(e.target.value))}
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -6812,7 +6812,7 @@ export const DashboardPage: React.FC = () => {
                     value={memberJoinYear}
                     onChange={(e) => setMemberJoinYear(e.target.value)}
                     placeholder="1440"
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -6824,7 +6824,7 @@ export const DashboardPage: React.FC = () => {
                     value={memberCity}
                     onChange={(e) => setMemberCity(e.target.value)}
                     placeholder="الجموم"
-                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
               </div>
@@ -6879,7 +6879,7 @@ export const DashboardPage: React.FC = () => {
                     value={projName}
                     onChange={(e) => setProjName(e.target.value)}
                     placeholder="مثال: ثلاجة الرضا"
-                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
 
@@ -6902,7 +6902,7 @@ export const DashboardPage: React.FC = () => {
                           reader.readAsDataURL(file);
                         }
                       }}
-                      className="w-full text-xs text-gray-500 file:me-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#095B42] hover:file:bg-emerald-100 cursor-pointer border border-gray-300 rounded-xl p-1"
+                      className="w-full text-xs text-gray-500 file:me-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#0B4F26] hover:file:bg-emerald-100 cursor-pointer border border-gray-300 rounded-xl p-1"
                     />
 
                     <input
@@ -6910,7 +6910,7 @@ export const DashboardPage: React.FC = () => {
                       value={projImage}
                       onChange={(e) => setProjImage(e.target.value)}
                       placeholder="أو ضع رابط الصورة هنا: https://..."
-                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     />
 
                     {projImage && (
@@ -6945,7 +6945,7 @@ export const DashboardPage: React.FC = () => {
                     value={projDesc}
                     onChange={(e) => setProjDesc(e.target.value)}
                     placeholder="مثال: بدأنا بتجهيز أول مشروع وهو ثلاجة الرضا وانطلقنا لتجهيز محل العرض..."
-                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
 
@@ -6959,7 +6959,7 @@ export const DashboardPage: React.FC = () => {
                     value={projSubDesc}
                     onChange={(e) => setProjSubDesc(e.target.value)}
                     placeholder="مثال: من 1440/10/15 هـ إلى 1440/12/25 هـ وكان الافتتاح في 1441/1/1 هـ"
-                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                    className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
 
@@ -6972,7 +6972,7 @@ export const DashboardPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={addFeatureInput}
-                      className="text-[11px] font-bold text-[#0B6B4F] hover:underline flex items-center gap-1 cursor-pointer"
+                      className="text-[11px] font-bold text-[#0B4F26] hover:underline flex items-center gap-1 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       إضافة ميزة جديدة
@@ -6987,7 +6987,7 @@ export const DashboardPage: React.FC = () => {
                           value={feat}
                           onChange={(e) => updateFeatureInput(fIdx, e.target.value)}
                           placeholder={'ميزة ' + (fIdx + 1) + ' (مثال: خدمة التوصيل السريع)'}
-                          className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                          className="flex-1 px-3 py-1.5 text-xs rounded-lg border border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                         <button
                           type="button"
@@ -7007,7 +7007,7 @@ export const DashboardPage: React.FC = () => {
 
                 {/* Society Name Override (Arabic & English) */}
                 <div className="pt-3 border-t border-gray-100 space-y-3">
-                  <span className="text-[11px] font-black text-[#0B6B4F] uppercase tracking-wider block">
+                  <span className="text-[11px] font-black text-[#0B4F26] uppercase tracking-wider block">
                     عنوان وشعار الجمعية أسفل البطاقة (قابل للتعديل):
                   </span>
 
@@ -7020,7 +7020,7 @@ export const DashboardPage: React.FC = () => {
                       value={projSocietyAr}
                       onChange={(e) => setProjSocietyAr(e.target.value)}
                       placeholder="الجمعية التعاونية متعددة اغراض رضا بمحافظة الجموم"
-                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none"
+                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     />
                   </div>
 
@@ -7033,7 +7033,7 @@ export const DashboardPage: React.FC = () => {
                       value={projSocietyEn}
                       onChange={(e) => setProjSocietyEn(e.target.value)}
                       placeholder="THE MULTI-PURPOSE COOPERATIVE SOCIETY, REDA, IN JAMOUM GOVERNORATE"
-                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B6B4F] outline-none dir-ltr"
+                      className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none dir-ltr"
                     />
                   </div>
                 </div>
@@ -7071,11 +7071,11 @@ export const DashboardPage: React.FC = () => {
             <form onSubmit={handleSavePolicy} className="space-y-4 text-xs">
               <div>
                 <label className="block font-bold text-gray-700 mb-1">عنوان السياسة *</label>
-                <input type="text" required value={policyForm.titleAr || ''} onChange={(e) => setPolicyForm({ ...policyForm, titleAr: e.target.value })} placeholder="سياسة تعارض المصالح..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                <input type="text" required value={policyForm.titleAr || ''} onChange={(e) => setPolicyForm({ ...policyForm, titleAr: e.target.value })} placeholder="سياسة تعارض المصالح..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">التصنيف</label>
-                <select value={policyForm.category || 'general'} onChange={(e) => setPolicyForm({ ...policyForm, category: e.target.value as any })} className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none cursor-pointer">
+                <select value={policyForm.category || 'general'} onChange={(e) => setPolicyForm({ ...policyForm, category: e.target.value as any })} className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none cursor-pointer">
                   <option value="general">سياسة مؤسسية عامة</option>
                   <option value="aml">سياسات مكافحة غسل الأموال والاشتباه</option>
                   <option value="whistleblowing">الإبلاغ وحفظ الوثائق والهبات</option>
@@ -7083,12 +7083,12 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">وصف السياسة</label>
-                <textarea rows={3} value={policyForm.descAr || policyForm.descriptionAr || ''} onChange={(e) => setPolicyForm({ ...policyForm, descAr: e.target.value, descriptionAr: e.target.value })} placeholder="وصف وتفاصيل السياسة المعتمدة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={3} value={policyForm.descAr || policyForm.descriptionAr || ''} onChange={(e) => setPolicyForm({ ...policyForm, descAr: e.target.value, descriptionAr: e.target.value })} placeholder="وصف وتفاصيل السياسة المعتمدة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>رابط أو ملف PDF السياسة</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف أو رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع ملف أو رابط</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -7097,10 +7097,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setPolicyForm({ ...policyForm, pdfUrl: e.target.value, fileUrl: e.target.value })}
                     readOnly={policyForm.pdfUrl?.startsWith('data:application/pdf')}
                     placeholder="https://... أو اختر ملف PDF من جهازك"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${policyForm.pdfUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${policyForm.pdfUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{policyForm.pdfUrl?.startsWith('data:application/pdf') ? 'تغيير' : 'رفع PDF'}</span>
                     <input
@@ -7142,7 +7142,7 @@ export const DashboardPage: React.FC = () => {
                     value={regulationForm.titleAr || ''}
                     onChange={(e) => setRegulationForm({ ...regulationForm, titleAr: e.target.value })}
                     placeholder="اللائحة الأساسية لتعاونية الشامل..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -7152,7 +7152,7 @@ export const DashboardPage: React.FC = () => {
                     value={regulationForm.titleEn || ''}
                     onChange={(e) => setRegulationForm({ ...regulationForm, titleEn: e.target.value })}
                     placeholder="Basic Bylaws of AlShamel..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     dir="ltr"
                   />
                 </div>
@@ -7164,7 +7164,7 @@ export const DashboardPage: React.FC = () => {
                   <select
                     value={regulationForm.sec || 'foundation'}
                     onChange={(e) => setRegulationForm({ ...regulationForm, sec: e.target.value as any })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none cursor-pointer bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none cursor-pointer bg-white"
                   >
                     <option value="foundation">اللائحة الأساسية ومحاضر التأسيس</option>
                     <option value="financial">اللوائح والملفات المالية</option>
@@ -7178,7 +7178,7 @@ export const DashboardPage: React.FC = () => {
                     value={regulationForm.type || ''}
                     onChange={(e) => setRegulationForm({ ...regulationForm, type: e.target.value })}
                     placeholder="وثيقة تأسيسية / لائحة مالية"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -7188,7 +7188,7 @@ export const DashboardPage: React.FC = () => {
                     value={regulationForm.num || ''}
                     onChange={(e) => setRegulationForm({ ...regulationForm, num: e.target.value })}
                     placeholder="REG-001"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                     dir="ltr"
                   />
                 </div>
@@ -7201,7 +7201,7 @@ export const DashboardPage: React.FC = () => {
                   value={regulationForm.descAr || regulationForm.descriptionAr || ''}
                   onChange={(e) => setRegulationForm({ ...regulationForm, descAr: e.target.value, descriptionAr: e.target.value })}
                   placeholder="الوثيقة التأسيسية المعتمدة من وزارة الموارد البشرية..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none leading-relaxed"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none leading-relaxed"
                 />
               </div>
 
@@ -7212,7 +7212,7 @@ export const DashboardPage: React.FC = () => {
                   value={regulationForm.descEn || ''}
                   onChange={(e) => setRegulationForm({ ...regulationForm, descEn: e.target.value })}
                   placeholder="Foundational statutory bylaws ratified by official authorities..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none leading-relaxed"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none leading-relaxed"
                   dir="ltr"
                 />
               </div>
@@ -7220,7 +7220,7 @@ export const DashboardPage: React.FC = () => {
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>ملف وثيقة اللائحة بصيغة PDF (معتمدة ومحفوظة)</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف أو رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع ملف أو رابط</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -7235,10 +7235,10 @@ export const DashboardPage: React.FC = () => {
                     placeholder="https://... أو اختر ملف PDF من جهازك"
                     className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(regulationForm.fileUrl || regulationForm.pdfUrl)?.startsWith('data:application/pdf')
                       ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                      : 'border-gray-300 focus:border-[#095B42]'
+                      : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{(regulationForm.fileUrl || regulationForm.pdfUrl)?.startsWith('data:application/pdf') ? 'تغيير' : 'رفع PDF'}</span>
                     <input
@@ -7290,7 +7290,7 @@ export const DashboardPage: React.FC = () => {
                     value={financialForm.year || ''}
                     onChange={(e) => setFinancialForm({ ...financialForm, year: e.target.value })}
                     placeholder="2023"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                     dir="ltr"
                   />
                 </div>
@@ -7302,7 +7302,7 @@ export const DashboardPage: React.FC = () => {
                     value={financialForm.titleAr || ''}
                     onChange={(e) => setFinancialForm({ ...financialForm, titleAr: e.target.value })}
                     placeholder="القوائم المالية المدققة لعام 2023م"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
               </div>
@@ -7315,7 +7315,7 @@ export const DashboardPage: React.FC = () => {
                     value={financialForm.titleEn || ''}
                     onChange={(e) => setFinancialForm({ ...financialForm, titleEn: e.target.value })}
                     placeholder="Audited Financial Statements for FY 2023"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     dir="ltr"
                   />
                 </div>
@@ -7324,7 +7324,7 @@ export const DashboardPage: React.FC = () => {
                   <select
                     value={financialForm.status || 'معتمد'}
                     onChange={(e) => setFinancialForm({ ...financialForm, status: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none cursor-pointer bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none cursor-pointer bg-white"
                   >
                     <option value="معتمد">معتمد رسمياً</option>
                     <option value="تحت المراجعة">تحت المراجعة</option>
@@ -7341,7 +7341,7 @@ export const DashboardPage: React.FC = () => {
                     value={financialForm.revenue || ''}
                     onChange={(e) => setFinancialForm({ ...financialForm, revenue: e.target.value })}
                     placeholder="4,850,000 ر.س"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                   />
                 </div>
                 <div>
@@ -7351,7 +7351,7 @@ export const DashboardPage: React.FC = () => {
                     value={financialForm.netSurplus || financialForm.surplus || ''}
                     onChange={(e) => setFinancialForm({ ...financialForm, netSurplus: e.target.value, surplus: e.target.value })}
                     placeholder="1,130,000 ر.س"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono font-bold text-emerald-700"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono font-bold text-emerald-700"
                   />
                 </div>
               </div>
@@ -7363,14 +7363,14 @@ export const DashboardPage: React.FC = () => {
                   value={financialForm.auditFirmAr || ''}
                   onChange={(e) => setFinancialForm({ ...financialForm, auditFirmAr: e.target.value })}
                   placeholder="مكتب المحاسب القانوني المعتمد"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                 />
               </div>
 
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>وثيقة القوائم المالية بصيغة PDF (معتمدة ومحفوظة)</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف أو رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع ملف أو رابط</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -7385,10 +7385,10 @@ export const DashboardPage: React.FC = () => {
                     placeholder="https://... أو اختر ملف PDF من جهازك"
                     className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(financialForm.pdfUrl || financialForm.fileUrl)?.startsWith('data:application/pdf')
                       ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                      : 'border-gray-300 focus:border-[#095B42]'
+                      : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{(financialForm.pdfUrl || financialForm.fileUrl)?.startsWith('data:application/pdf') ? 'تغيير' : 'رفع PDF'}</span>
                     <input
@@ -7431,30 +7431,30 @@ export const DashboardPage: React.FC = () => {
             <form onSubmit={handleSaveWorkshop} className="space-y-4 text-xs">
               <div>
                 <label className="block font-bold text-gray-700 mb-1">عنوان الورشة / الشراكة *</label>
-                <input type="text" required value={workshopForm.titleAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, titleAr: e.target.value })} placeholder="ورشة نشر التوعية بالحوكمة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                <input type="text" required value={workshopForm.titleAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, titleAr: e.target.value })} placeholder="ورشة نشر التوعية بالحوكمة..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">تاريخ الورشة</label>
-                  <input type="text" value={workshopForm.date || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, date: e.target.value })} placeholder="2024-05-15م" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="text" value={workshopForm.date || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, date: e.target.value })} placeholder="2024-05-15م" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
                 <div>
                   <label className="block font-bold text-gray-700 mb-1">عدد المستفيدين</label>
-                  <input type="number" value={workshopForm.attendeesCount || 0} onChange={(e) => setWorkshopForm({ ...workshopForm, attendeesCount: parseInt(e.target.value) || 0 })} className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                  <input type="number" value={workshopForm.attendeesCount || 0} onChange={(e) => setWorkshopForm({ ...workshopForm, attendeesCount: parseInt(e.target.value) || 0 })} className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
                 </div>
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">الموقع / الجهة</label>
-                <input type="text" value={workshopForm.locationAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, locationAr: e.target.value })} placeholder="المقر الرئيسي - الجمعية التعاونية" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                <input type="text" value={workshopForm.locationAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, locationAr: e.target.value })} placeholder="المقر الرئيسي - الجمعية التعاونية" className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">تفاصيل الورشة</label>
-                <textarea rows={3} value={workshopForm.descriptionAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, descriptionAr: e.target.value })} placeholder="جانب من محاور وحضور الورشة التوعوية..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={3} value={workshopForm.descriptionAr || ''} onChange={(e) => setWorkshopForm({ ...workshopForm, descriptionAr: e.target.value })} placeholder="جانب من محاور وحضور الورشة التوعوية..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>رابط أو ملف الورشة PDF</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف أو رابط</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع ملف أو رابط</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -7463,10 +7463,10 @@ export const DashboardPage: React.FC = () => {
                     onChange={(e) => setWorkshopForm({ ...workshopForm, fileUrl: e.target.value })}
                     readOnly={workshopForm.fileUrl?.startsWith('data:application/pdf')}
                     placeholder="https://... أو اختر ملف PDF من جهازك"
-                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${workshopForm.fileUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#095B42]'
+                    className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${workshopForm.fileUrl?.startsWith('data:application/pdf') ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold' : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-3.5 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-3.5 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{workshopForm.fileUrl?.startsWith('data:application/pdf') ? 'تغيير' : 'رفع PDF'}</span>
                     <input
@@ -7508,7 +7508,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.titleAr || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, titleAr: e.target.value })}
                     placeholder="محضر اجتماع الجمعية العمومية العادية لعام 2024م..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -7518,7 +7518,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.titleEn || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, titleEn: e.target.value })}
                     placeholder="Ordinary General Assembly Meeting Minutes 2024..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     dir="ltr"
                   />
                 </div>
@@ -7530,7 +7530,7 @@ export const DashboardPage: React.FC = () => {
                   <select
                     value={meetingForm.type === 'board' ? 'board' : 'general_assembly'}
                     onChange={(e) => setMeetingForm({ ...meetingForm, type: e.target.value as any })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none cursor-pointer"
                   >
                     <option value="general_assembly">الجمعية العمومية</option>
                     <option value="board">مجلس الإدارة</option>
@@ -7543,7 +7543,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.meetingNumber || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, meetingNumber: e.target.value })}
                     placeholder="GA-2024/01 أو BM-2024/03"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                     dir="ltr"
                   />
                 </div>
@@ -7554,7 +7554,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.fileSize || '2.0 MB'}
                     onChange={(e) => setMeetingForm({ ...meetingForm, fileSize: e.target.value })}
                     placeholder="2.8 MB"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                     dir="ltr"
                   />
                 </div>
@@ -7568,7 +7568,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.dateAr || meetingForm.date || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, dateAr: e.target.value, date: e.target.value })}
                     placeholder="أبريل 2024م أو 1445/10/22 هـ"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -7578,7 +7578,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.dateEn || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, dateEn: e.target.value })}
                     placeholder="April 2024"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                     dir="ltr"
                   />
                 </div>
@@ -7592,7 +7592,7 @@ export const DashboardPage: React.FC = () => {
                     value={meetingForm.locationAr || ''}
                     onChange={(e) => setMeetingForm({ ...meetingForm, locationAr: e.target.value })}
                     placeholder="المقر الرئيسي للجمعية"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                 </div>
                 <div>
@@ -7602,7 +7602,7 @@ export const DashboardPage: React.FC = () => {
                     min="0"
                     value={meetingForm.attendeesCount || 0}
                     onChange={(e) => setMeetingForm({ ...meetingForm, attendeesCount: parseInt(e.target.value, 10) || 0 })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                   />
                 </div>
                 <div>
@@ -7612,7 +7612,7 @@ export const DashboardPage: React.FC = () => {
                     min="0"
                     value={meetingForm.decisionsCount || 0}
                     onChange={(e) => setMeetingForm({ ...meetingForm, decisionsCount: parseInt(e.target.value, 10) || 0 })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none font-mono"
                   />
                 </div>
               </div>
@@ -7624,7 +7624,7 @@ export const DashboardPage: React.FC = () => {
                   value={meetingForm.descAr || meetingForm.descriptionAr || ''}
                   onChange={(e) => setMeetingForm({ ...meetingForm, descAr: e.target.value, descriptionAr: e.target.value })}
                   placeholder="تضمن مناقشة التقرير السنوي، واعتماد القوائم المالية المدققة لعام 2023، وإبراء ذمة مجلس الإدارة..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none leading-relaxed"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none leading-relaxed"
                 />
               </div>
 
@@ -7635,7 +7635,7 @@ export const DashboardPage: React.FC = () => {
                   value={meetingForm.descEn || ''}
                   onChange={(e) => setMeetingForm({ ...meetingForm, descEn: e.target.value })}
                   placeholder="Discussed annual performance report, approved audited financials..."
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none leading-relaxed"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none leading-relaxed"
                   dir="ltr"
                 />
               </div>
@@ -7643,7 +7643,7 @@ export const DashboardPage: React.FC = () => {
               <div>
                 <label className="block font-bold text-gray-700 mb-1 flex items-center justify-between">
                   <span>وثيقة المحضر بصيغة PDF (معتمدة ومحفوظة بالسيرفر)</span>
-                  <span className="text-[10px] text-[#095B42] font-semibold">رفع ملف PDF أو رابط خارجي</span>
+                  <span className="text-[10px] text-[#0B4F26] font-semibold">رفع ملف PDF أو رابط خارجي</span>
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -7658,10 +7658,10 @@ export const DashboardPage: React.FC = () => {
                     placeholder="/documents/AlShamel-Meeting-Minutes.pdf أو رابط مباشر"
                     className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs font-mono outline-none ${(meetingForm.fileUrl || meetingForm.pdfUrl)?.startsWith('data:application/pdf')
                       ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                      : 'border-gray-300 focus:border-[#095B42]'
+                      : 'border-gray-300 focus:border-[#0B4F26]'
                       }`}
                   />
-                  <label className="px-4 py-2.5 bg-[#095B42] hover:bg-[#064230] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
+                  <label className="px-4 py-2.5 bg-[#0B4F26] hover:bg-[#073519] text-white rounded-xl font-bold flex items-center gap-1.5 cursor-pointer shrink-0 text-xs shadow-xs transition-colors">
                     <Upload className="w-4 h-4 text-white" />
                     <span>{(meetingForm.fileUrl || meetingForm.pdfUrl)?.startsWith('data:application/pdf') ? 'تغيير PDF' : 'رفع PDF'}</span>
                     <input
@@ -7706,16 +7706,16 @@ export const DashboardPage: React.FC = () => {
             <form onSubmit={handleSaveEthics} className="space-y-4 text-xs">
               <div>
                 <label className="block font-bold text-gray-700 mb-1">عنوان الميثاق / المبدأ *</label>
-                <input type="text" required value={ethicsForm.titleAr || ''} onChange={(e) => setEthicsForm({ ...ethicsForm, titleAr: e.target.value })} placeholder="النزاهة والشفافية وحظر تعارض المصالح..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none" />
+                <input type="text" required value={ethicsForm.titleAr || ''} onChange={(e) => setEthicsForm({ ...ethicsForm, titleAr: e.target.value })} placeholder="النزاهة والشفافية وحظر تعارض المصالح..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none" />
               </div>
               <div>
                 <label className="block font-bold text-gray-700 mb-1">تفاصيل القواعد والمبادئ الأخلاقية</label>
-                <textarea rows={4} value={ethicsForm.descAr || ''} onChange={(e) => setEthicsForm({ ...ethicsForm, descAr: e.target.value })} placeholder="المبادئ الأخلاقية والالتزام بقواعد السلوك..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none resize-none" />
+                <textarea rows={4} value={ethicsForm.descAr || ''} onChange={(e) => setEthicsForm({ ...ethicsForm, descAr: e.target.value })} placeholder="المبادئ الأخلاقية والالتزام بقواعد السلوك..." className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none resize-none" />
               </div>
               <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200/80 space-y-3">
                 <div className="flex items-center justify-between">
                   <label className="font-bold text-gray-800 flex items-center gap-1.5">
-                    <FileText className="w-4 h-4 text-[#0B6B4F]" />
+                    <FileText className="w-4 h-4 text-[#0B4F26]" />
                     <span>وثيقة الميثاق الأخلاقي المعتمدة (PDF)</span>
                   </label>
                   <span className="text-[10px] text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full font-bold">
@@ -7726,7 +7726,7 @@ export const DashboardPage: React.FC = () => {
                 {ethicsForm.fileUrl ? (
                   <div className="p-3 rounded-xl bg-white border border-emerald-200 flex items-center justify-between gap-3 shadow-xs">
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-9 h-9 rounded-lg bg-emerald-50 text-[#0B6B4F] flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-lg bg-emerald-50 text-[#0B4F26] flex items-center justify-center shrink-0">
                         <FileText className="w-5 h-5" />
                       </div>
                       <div className="min-w-0">
@@ -7751,7 +7751,7 @@ export const DashboardPage: React.FC = () => {
                           <span>فتح</span>
                         </a>
                       )}
-                      <label className="px-3 py-1.5 bg-[#0B6B4F] hover:bg-[#08523C] text-white rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                      <label className="px-3 py-1.5 bg-[#0B4F26] hover:bg-[#08523C] text-white rounded-lg text-xs font-bold flex items-center gap-1 cursor-pointer transition-colors">
                         <Upload className="w-3.5 h-3.5" />
                         <span>تغيير</span>
                         <input
@@ -7788,8 +7788,8 @@ export const DashboardPage: React.FC = () => {
                     </div>
                   </div>
                 ) : (
-                  <label className="border-2 border-dashed border-gray-300 hover:border-[#0B6B4F] bg-white rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 cursor-pointer transition-colors group">
-                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B6B4F] flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <label className="border-2 border-dashed border-gray-300 hover:border-[#0B4F26] bg-white rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 cursor-pointer transition-colors group">
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 text-[#0B4F26] flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Upload className="w-5 h-5" />
                     </div>
                     <div>
@@ -7836,7 +7836,7 @@ export const DashboardPage: React.FC = () => {
           <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl space-y-6 animate-in fade-in zoom-in-95 duration-200 text-start">
             <div className="flex items-center justify-between border-b border-gray-100 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-[#095B42] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-[#0B4F26] flex items-center justify-center font-bold">
                   <UserCog className="w-5 h-5" />
                 </div>
                 <div>
@@ -7865,7 +7865,7 @@ export const DashboardPage: React.FC = () => {
                   required
                   value={execDirectorForm.nameAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, nameAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 outline-hidden transition-all"
                   placeholder="أ. محمد ذواب مفرح الحربي"
                 />
               </div>
@@ -7877,7 +7877,7 @@ export const DashboardPage: React.FC = () => {
                   required
                   value={execDirectorForm.roleAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, roleAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 outline-hidden transition-all"
                   placeholder="المدير التنفيذي"
                 />
               </div>
@@ -7889,7 +7889,7 @@ export const DashboardPage: React.FC = () => {
                     type="text"
                     value={execDirectorForm.phone}
                     onChange={(e) => setExecDirectorForm({ ...execDirectorForm, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
+                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 outline-hidden transition-all dir-ltr"
                     placeholder="+966531389196"
                   />
                 </div>
@@ -7900,7 +7900,7 @@ export const DashboardPage: React.FC = () => {
                     type="email"
                     value={execDirectorForm.email}
                     onChange={(e) => setExecDirectorForm({ ...execDirectorForm, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all dir-ltr"
+                    className="w-full px-4 py-2.5 rounded-xlfocus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 outline-hidden transition-all dir-ltr"
                     placeholder="mohamad89196@gmail.com"
                   />
                 </div>
@@ -7925,7 +7925,7 @@ export const DashboardPage: React.FC = () => {
                         reader.readAsDataURL(file);
                       }
                     }}
-                    className="w-full text-xs text-gray-500 file:me-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#095B42] hover:file:bg-emerald-100 cursor-pointer"
+                    className="w-full text-xs text-gray-500 file:me-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-50 file:text-[#0B4F26] hover:file:bg-emerald-100 cursor-pointer"
                   />
                   {execDirectorForm.image && (
                     <button
@@ -7945,7 +7945,7 @@ export const DashboardPage: React.FC = () => {
                   rows={3}
                   value={execDirectorForm.descriptionAr}
                   onChange={(e) => setExecDirectorForm({ ...execDirectorForm, descriptionAr: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#095B42] focus:ring-2 focus:ring-[#095B42]/10 outline-hidden transition-all leading-relaxed"
+                  className="w-full px-4 py-2.5 rounded-xlfocus:border-[#0B4F26] focus:ring-2 focus:ring-[#0B4F26]/10 outline-hidden transition-all leading-relaxed"
                   placeholder="يتولى إدارة وتسيير الأعمال التنفيذية اليومية لجمعية الشامل ومتابعة الأهداف التشغيلية والمبادرات التنموية."
                 />
               </div>
@@ -7960,7 +7960,7 @@ export const DashboardPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-xl bg-[#095B42] hover:brightness-110 text-white font-bold shadow-md transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#0B4F26] hover:brightness-110 text-white font-bold shadow-md transition-all cursor-pointer"
                 >
                   حفظ التغييرات
                 </button>
@@ -8033,7 +8033,7 @@ const PdfUploadField: React.FC<PdfUploadFieldProps> = ({
     <div className="space-y-2 text-xs text-start">
       <div className="flex items-center justify-between">
         <label className="block font-bold text-gray-800 text-xs">{label}</label>
-        <span className="text-[11px] text-[#0B6B4F] font-semibold bg-emerald-50 px-2 py-0.5 rounded-md">
+        <span className="text-[11px] text-[#0B4F26] font-semibold bg-emerald-50 px-2 py-0.5 rounded-md">
           صيغة PDF فقط (.pdf)
         </span>
       </div>
@@ -8041,7 +8041,7 @@ const PdfUploadField: React.FC<PdfUploadFieldProps> = ({
       {fileUrl ? (
         <div className="p-4 bg-emerald-50/90 border-2 border-emerald-400/80 rounded-2xl flex items-center justify-between gap-3 shadow-xs">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-11 h-11 rounded-2xl bg-[#0B6B4F] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-11 h-11 rounded-2xl bg-[#0B4F26] text-white flex items-center justify-center shrink-0 shadow-xs">
               <FileText className="w-6 h-6" />
             </div>
             <div className="min-w-0">
@@ -8087,12 +8087,12 @@ const PdfUploadField: React.FC<PdfUploadFieldProps> = ({
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
           className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all duration-200 ${isDragging
-            ? 'border-[#0B6B4F] bg-emerald-50 ring-4 ring-emerald-100 scale-[1.01]'
-            : 'border-gray-300 hover:border-[#0B6B4F] bg-gradient-to-b from-gray-50/80 to-white hover:bg-emerald-50/20'
+            ? 'border-[#0B4F26] bg-emerald-50 ring-4 ring-emerald-100 scale-[1.01]'
+            : 'border-gray-300 hover:border-[#0B4F26] bg-gradient-to-b from-gray-50/80 to-white hover:bg-emerald-50/20'
             }`}
         >
           <div className="flex flex-col items-center justify-center space-y-2">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-[#0B6B4F] flex items-center justify-center shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-[#0B4F26] flex items-center justify-center shadow-xs">
               <FolderOpen className="w-6 h-6" />
             </div>
             <div>
@@ -8158,7 +8158,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
       <div className="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h3 className="font-bold text-base text-gray-900 flex items-center gap-2">
-            <FileText className="w-5 h-5 text-[#0B6B4F]" />
+            <FileText className="w-5 h-5 text-[#0B4F26]" />
             <span>{policy ? 'تعديل السياسة المؤسسية' : 'إضافة سياسة مؤسسية جديدة'}</span>
           </h3>
           <button type="button" onClick={onClose} className="p-1 rounded-lg text-gray-400 hover:text-gray-600 cursor-pointer">
@@ -8175,7 +8175,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 required
                 value={formData.code}
                 onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B4F26]"
               />
             </div>
             <div>
@@ -8183,7 +8183,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as 'general' | 'aml' })}
-                className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-semibold focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-semibold focus:ring-2 focus:ring-[#0B4F26]"
               >
                 <option value="general">سياسة حوكمة عامة</option>
                 <option value="aml">مكافحة غسل الأموال والجرائم المالية</option>
@@ -8196,7 +8196,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
                 required
                 value={formData.id}
                 onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B6B4F]"
+                className="w-full p-2.5 bg-gray-50rounded-xl font-mono text-xs focus:ring-2 focus:ring-[#0B4F26]"
               />
             </div>
           </div>
@@ -8209,7 +8209,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.titleAr}
               onChange={(e) => setFormData({ ...formData, titleAr: e.target.value })}
               placeholder="مثال: سياسة الأمن السيبراني والذكاء الاصطناعي"
-              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B4F26]"
             />
           </div>
 
@@ -8220,7 +8220,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.titleEn}
               onChange={(e) => setFormData({ ...formData, titleEn: e.target.value })}
               placeholder="e.g. Cybersecurity & AI Policy"
-              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B4F26]"
               dir="ltr"
             />
           </div>
@@ -8232,7 +8232,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
               value={formData.descAr}
               onChange={(e) => setFormData({ ...formData, descAr: e.target.value })}
               placeholder="شرح موجز لأهداف السياسة وضوابط تطبيقها..."
-              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B6B4F]"
+              className="w-full p-2.5 bg-gray-50rounded-xl text-xs font-medium focus:ring-2 focus:ring-[#0B4F26]"
             />
           </div>
 
@@ -8289,7 +8289,7 @@ const PolicyModal: React.FC<PolicyModalProps> = ({ policy, onClose, onSave, loca
             </button>
             <button
               type="submit"
-              className="px-5 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#08523C] text-white font-bold transition-colors cursor-pointer"
+              className="px-5 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#08523C] text-white font-bold transition-colors cursor-pointer"
             >
               حفظ السياسة
             </button>
@@ -8334,7 +8334,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
       <div className="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h3 className="font-bold text-base text-gray-900 flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-[#0B6B4F]" />
+            <BookOpen className="w-5 h-5 text-[#0B4F26]" />
             <span>{regulation ? 'تعديل اللائحة / الملف' : 'إضافة لائحة / ملف مالي جديد'}</span>
           </h3>
           <button type="button" onClick={onClose} className="p-1 rounded-lg text-gray-400 hover:text-gray-600 cursor-pointer">
@@ -8426,7 +8426,7 @@ const RegulationModal: React.FC<RegulationModalProps> = ({ regulation, onClose, 
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-bold cursor-pointer">
               إلغاء
             </button>
-            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold cursor-pointer">
+            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B4F26] text-white font-bold cursor-pointer">
               حفظ اللائحة
             </button>
           </div>
@@ -8568,7 +8568,7 @@ const FinancialModal: React.FC<FinancialModalProps> = ({ item, onClose, onSave }
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-bold cursor-pointer">
               إلغاء
             </button>
-            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold cursor-pointer">
+            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B4F26] text-white font-bold cursor-pointer">
               حفظ
             </button>
           </div>
@@ -8754,7 +8754,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({ workshop, onClose, onSave
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-bold cursor-pointer">
               إلغاء
             </button>
-            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold cursor-pointer">
+            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B4F26] text-white font-bold cursor-pointer">
               حفظ الورشة
             </button>
           </div>
@@ -8819,7 +8819,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
       <div className="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h3 className="font-bold text-base text-gray-900 flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-[#0B6B4F]" />
+            <Calendar className="w-5 h-5 text-[#0B4F26]" />
             <span>{meeting ? 'تعديل محضر الاجتماع' : 'إضافة محضر اجتماع رسمي'}</span>
           </h3>
           <button type="button" onClick={onClose} className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer">
@@ -8931,7 +8931,7 @@ const MeetingModal: React.FC<MeetingModalProps> = ({ meeting, onClose, onSave })
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-bold cursor-pointer">
               إلغاء
             </button>
-            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold cursor-pointer">
+            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B4F26] text-white font-bold cursor-pointer">
               حفظ المحضر
             </button>
           </div>
@@ -8972,7 +8972,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
       <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h3 className="font-bold text-base text-gray-900 flex items-center gap-2">
-            <Award className="w-5 h-5 text-[#C9A45C]" />
+            <Award className="w-5 h-5 text-[#F59E0B]" />
             <span>{item ? 'تعديل وثيقة الميثاق الأخلاقي' : 'إضافة وثيقة ميثاق أخلاقي جديدة (PDF)'}</span>
           </h3>
           <button type="button" onClick={onClose} className="p-1 text-gray-400 hover:text-gray-600 cursor-pointer">
@@ -9053,7 +9053,7 @@ const EthicsModal: React.FC<EthicsModalProps> = ({ item, onClose, onSave }) => {
             <button type="button" onClick={onClose} className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 font-bold cursor-pointer">
               إلغاء
             </button>
-            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B6B4F] text-white font-bold cursor-pointer">
+            <button type="submit" className="px-5 py-2 rounded-xl bg-[#0B4F26] text-white font-bold cursor-pointer">
               حفظ
             </button>
           </div>
@@ -9128,7 +9128,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
             </div>
             <div className="min-w-0 space-y-0.5">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-black text-[#0B6B4F] uppercase tracking-wider">
+                <span className="text-[10px] font-black text-[#0B4F26] uppercase tracking-wider">
                   استمارة طلب ومساهمة رسمية
                 </span>
                 <span className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md font-mono">
@@ -9167,7 +9167,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
               <select
                 value={submission.status}
                 onChange={(e) => onUpdateStatus(submission.id, e.target.value as SubmissionItem['status'])}
-                className="bg-white border border-gray-300 rounded-lg px-2.5 py-1 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B6B4F] cursor-pointer"
+                className="bg-white border border-gray-300 rounded-lg px-2.5 py-1 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-[#0B4F26] cursor-pointer"
               >
                 <option value="pending">جديد (قيد الانتظار)</option>
                 <option value="in_progress">قيد المعالجة والمتابعة</option>
@@ -9181,17 +9181,17 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
 
         {/* Membership Confirmation & Add to Members Roster */}
         {submission.module === 'membership' && onConfirmMembership && (
-          <div className="bg-[#F4FAF7] p-4 sm:p-5 rounded-2xl border border-[#0B6B4F]/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
+          <div className="bg-[#F4FAF7] p-4 sm:p-5 rounded-2xl border border-[#0B4F26]/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs">
             <div className="space-y-1 flex-1">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg bg-[#0B6B4F]/10 flex items-center justify-center text-[#0B6B4F]">
+                <div className="w-6 h-6 rounded-lg bg-[#0B4F26]/10 flex items-center justify-center text-[#0B4F26]">
                   <UserCheck className="w-4 h-4" />
                 </div>
-                <h5 className="font-bold text-sm text-[#0B6B4F]">
+                <h5 className="font-bold text-sm text-[#0B4F26]">
                   اعتماد الطلب وترقية المتقدم إلى عضو جمعية عمومية
                 </h5>
               </div>
-              <p className="text-xs text-[#2E473F] leading-relaxed pe-2">
+              <p className="text-xs text-[#0F172A] leading-relaxed pe-2">
                 {isConfirmedMember
                   ? 'تم اعتماد هذا المتقدم وإدراجه رسمياً في سجل أعضاء الجمعية العمومية.'
                   : 'بالنقر على اعتماد، ستتم إضافة المتقدم فورياً إلى سجل الأعضاء الرسمي مع حفظ عدد أسهمه.'}
@@ -9216,7 +9216,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
         {/* Formatted Response Body Cards */}
         <div className="space-y-3">
           <h4 className="font-bold text-xs text-gray-500 uppercase tracking-wider flex items-center gap-1.5">
-            <FileText className="w-4 h-4 text-[#095B42]" />
+            <FileText className="w-4 h-4 text-[#0B4F26]" />
             <span>تفاصيل البيانات والرد المتلقى:</span>
           </h4>
 
@@ -9231,7 +9231,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
 
                 return (
                   <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between p-2.5 bg-white rounded-xl border border-gray-200/60 gap-1">
-                    <span className="font-bold text-[#12332B]">{label}:</span>
+                    <span className="font-bold text-[#0F172A]">{label}:</span>
                     <span className="font-semibold text-gray-700">{value}</span>
                   </div>
                 );
@@ -9247,9 +9247,9 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
         </div>
 
         {/* Direct WhatsApp Response Banner */}
-        <div className="bg-gradient-to-br from-[#EBF4F0] to-[#E2EFE9] p-4 rounded-2xl border border-[#095B42]/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="bg-gradient-to-br from-[#E8F7F0] to-[#E2EFE9] p-4 rounded-2xl border border-[#0B4F26]/20 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
-            <h5 className="font-bold text-xs text-[#095B42] flex items-center gap-1.5">
+            <h5 className="font-bold text-xs text-[#0B4F26] flex items-center gap-1.5">
               <Phone className="w-4 h-4 text-[#25D366]" />
               <span>إرسال رد رسمي عبر الواتساب للمستفيد</span>
             </h5>
@@ -9277,7 +9277,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50text-xs font-bold text-gray-700 transition-colors cursor-pointer"
             >
-              <Printer className="w-4 h-4 text-[#095B42]" />
+              <Printer className="w-4 h-4 text-[#0B4F26]" />
               <span>طباعة الرد</span>
             </button>
 
@@ -9286,7 +9286,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
               onClick={copyDetails}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50text-xs font-bold text-gray-700 transition-colors cursor-pointer"
             >
-              <Copy className="w-4 h-4 text-[#C9A45C]" />
+              <Copy className="w-4 h-4 text-[#F59E0B]" />
               <span>{copied ? 'تم النسخ' : 'نسخ النص'}</span>
             </button>
           </div>
@@ -9360,7 +9360,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
       {/* Header */}
       <div className="bg-white rounded-3xl p-6   shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-[#EBF5F0] border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] shadow-xs">
+          <div className="w-12 h-12 rounded-2xl bg-[#EBF5F0] border border-[#0B4F26]/20 flex items-center justify-center text-[#0B4F26] shadow-xs">
             <Phone className="w-6 h-6" />
           </div>
           <div>
@@ -9396,7 +9396,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         {/* Section 1: Main Contact Info */}
         <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
-            <Building className="w-5 h-5 text-[#0B6B4F]" />
+            <Building className="w-5 h-5 text-[#0B4F26]" />
             <span>بيانات الاتصال والمقر الرئيسي</span>
           </h3>
 
@@ -9410,7 +9410,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.hqTitleAr || ''}
                 onChange={(e) => setForm({ ...form, hqTitleAr: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
 
@@ -9423,7 +9423,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.addressAr || ''}
                 onChange={(e) => setForm({ ...form, addressAr: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
 
@@ -9436,7 +9436,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.regionAr || ''}
                 onChange={(e) => setForm({ ...form, regionAr: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
 
@@ -9457,7 +9457,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                     whatsappPhone: shouldSync ? val : form.whatsappPhone
                   });
                 }}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9470,7 +9470,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.whatsappPhone || ''}
                 onChange={(e) => setForm({ ...form, whatsappPhone: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9483,7 +9483,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.email || ''}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9496,7 +9496,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 required
                 value={form.workingHoursAr || ''}
                 onChange={(e) => setForm({ ...form, workingHoursAr: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
           </div>
@@ -9505,7 +9505,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         {/* Section 1.5: Footer Dynamic Text */}
         <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
-            <Layout className="w-5 h-5 text-[#0B6B4F]" />
+            <Layout className="w-5 h-5 text-[#0B4F26]" />
             <span>نصوص وعناوين ذيل الصفحة (Footer Dynamic Content)</span>
           </h3>
 
@@ -9519,7 +9519,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 value={form.footerCalloutTitleAr || ''}
                 onChange={(e) => setForm({ ...form, footerCalloutTitleAr: e.target.value })}
                 placeholder="نبني أثراً يستمر"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-bold"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-bold"
               />
             </div>
 
@@ -9532,7 +9532,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 value={form.footerCalloutSubAr || ''}
                 onChange={(e) => setForm({ ...form, footerCalloutSubAr: e.target.value })}
                 placeholder="جمعية تعاونية مرخصة تهدف إلى تعزيز الاستدامة وتنمية المجتمع والاقتصاد المحلي بجدة."
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
 
@@ -9545,7 +9545,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 value={form.footerAboutTextAr || ''}
                 onChange={(e) => setForm({ ...form, footerAboutTextAr: e.target.value })}
                 placeholder="تعاونية الشامل متعددة الأغراض - صرح تعاوني واستثماري رائد بجدة، يخضع لإشراف المركز الوطني لتنمية القطاع غير الربحي."
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs"
               />
             </div>
           </div>
@@ -9554,7 +9554,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         {/* Section 2: Social Links & Google Maps Link */}
         <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
-            <Globe className="w-5 h-5 text-[#0B6B4F]" />
+            <Globe className="w-5 h-5 text-[#0B4F26]" />
             <span>حسابات المنصات الاجتماعية ورابط الخريطة</span>
           </h3>
 
@@ -9567,7 +9567,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 type="text"
                 value={form.instagramHandle || ''}
                 onChange={(e) => setForm({ ...form, instagramHandle: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9579,7 +9579,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 type="url"
                 value={form.instagramUrl || ''}
                 onChange={(e) => setForm({ ...form, instagramUrl: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9591,7 +9591,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 type="text"
                 value={form.twitterHandle || ''}
                 onChange={(e) => setForm({ ...form, twitterHandle: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9603,7 +9603,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 type="url"
                 value={form.twitterUrl || ''}
                 onChange={(e) => setForm({ ...form, twitterUrl: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
 
@@ -9615,7 +9615,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 type="url"
                 value={form.mapsUrl || ''}
                 onChange={(e) => setForm({ ...form, mapsUrl: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
             </div>
           </div>
@@ -9624,7 +9624,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
         {/* Section 3: Logos (Light & Dark) */}
         <div className="bg-white rounded-3xl p-6   shadow-2xs space-y-5">
           <h3 className="text-base font-black text-gray-900 flex items-center gap-2 border-b border-gray-100 pb-3">
-            <ImageIcon className="w-5 h-5 text-[#0B6B4F]" />
+            <ImageIcon className="w-5 h-5 text-[#0B4F26]" />
             <span>شعارات الجمعية للموقع (Light & Dark Logos)</span>
           </h3>
 
@@ -9638,7 +9638,7 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 value={form.logoLightUrl || ''}
                 onChange={(e) => setForm({ ...form, logoLightUrl: e.target.value })}
                 placeholder="/logo.png"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
               <div className="p-4 bg-gray-50 rounded-2xlflex items-center justify-center">
                 <img
@@ -9659,9 +9659,9 @@ const ContactSettingsModule: React.FC<ContactSettingsModuleProps> = ({
                 value={form.logoDarkUrl || ''}
                 onChange={(e) => setForm({ ...form, logoDarkUrl: e.target.value })}
                 placeholder="/logo.png"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#095B42] outline-none text-xs font-mono"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:border-[#0B4F26] outline-none text-xs font-mono"
               />
-              <div className="p-4 bg-[#05241C] rounded-2xl border border-gray-800 flex items-center justify-center">
+              <div className="p-4 bg-[#073519] rounded-2xl border border-gray-800 flex items-center justify-center">
                 <img
                   src={form.logoDarkUrl || '/logo.png'}
                   alt="Dark Logo Preview"

@@ -105,7 +105,7 @@ export const ReportsPage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Year Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
-              <span className="text-xs font-bold text-[#12332B] me-2 shrink-0">
+              <span className="text-xs font-bold text-[#0F172A] me-2 shrink-0">
                 {t.reportsPage.filterYear}:
               </span>
               {years.map((yr) => (
@@ -114,8 +114,8 @@ export const ReportsPage: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedYear(yr)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold font-mono whitespace-nowrap transition-all cursor-pointer ${selectedYear === yr
-                    ? 'bg-[#0B6B4F] text-white shadow-xs'
-                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#EBF4F0] hover:text-[#0B6B4F]'
+                    ? 'bg-[#0B4F26] text-white shadow-xs'
+                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26]'
                     }`}
                 >
                   {yr === 'all' ? (locale === 'ar' ? 'كافة الأعوام' : 'All') : yr}
@@ -131,7 +131,7 @@ export const ReportsPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث في التقارير...' : 'Search reports...'}
-                className="w-full ps-9 pe-4 py-2.5 text-xs rounded-xl border border-[#12332B]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white"
+                className="w-full ps-9 pe-4 py-2.5 text-xs rounded-xl border border-[#0F172A]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
               />
             </div>
           </div>
@@ -142,16 +142,16 @@ export const ReportsPage: React.FC = () => {
           {filteredReports.map((report) => (
             <div
               key={report.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 hover:border-[#0B6B4F]/30 hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-6"
+              className="bg-white rounded-3xl p-6 sm:p-7 hover:border-[#0B4F26]/30 hover:shadow-md transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-6"
             >
               {/* Left Side: Report Meta */}
               <div className="flex items-start gap-4 min-w-0">
-                <div className="w-12 h-12 rounded-2xl bg-[#EBF4F0] text-[#0B6B4F] flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                <div className="w-12 h-12 rounded-2xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center shrink-0 mt-0.5 font-bold">
                   <FileCheck className="w-6 h-6" />
                 </div>
                 <div className="min-w-0 space-y-1.5 text-start">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#0B6B4F] text-white">
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#0B4F26] text-white">
                       {report.year}
                     </span>
                     <span className="text-[11px] font-medium px-2 py-0.5 rounded bg-gray-100 text-gray-700">
@@ -162,7 +162,7 @@ export const ReportsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#12332B] leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] leading-snug">
                     {getLocalized(report.title)}
                   </h3>
 
@@ -170,7 +170,7 @@ export const ReportsPage: React.FC = () => {
                     {getLocalized(report.description)}
                   </p>
 
-                  <div className="pt-1 flex items-center gap-2 text-xs text-[#0B6B4F]">
+                  <div className="pt-1 flex items-center gap-2 text-xs text-[#0B4F26]">
                     <ShieldCheck className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'تاريخ النشر:' : 'Published:'} {report.publishDate}</span>
                   </div>
@@ -182,7 +182,7 @@ export const ReportsPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedReportForView(report)}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
                 >
                   <Eye className="w-4 h-4" />
                   <span>{locale === 'ar' ? 'معاينة التقرير (PDF)' : 'View PDF'}</span>
@@ -201,7 +201,7 @@ export const ReportsPage: React.FC = () => {
           ))}
 
           {filteredReports.length === 0 && (
-            <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#12332B]/10">
+            <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0F172A]/10">
               <p className="text-sm">{t.common.noResults}</p>
             </div>
           )}
@@ -211,7 +211,7 @@ export const ReportsPage: React.FC = () => {
       {/* PDF Document Preview Modal using PdfDocumentViewer */}
       {selectedReportForView && (
         <div
-          className="fixed inset-0 z-50 bg-[#12332B]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-[#0F172A]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedReportForView(null)}
         >
           <div
@@ -221,7 +221,7 @@ export const ReportsPage: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-3.5 bg-[#222] text-white border-b border-gray-700 text-xs">
               <div className="flex items-center gap-2">
-                <FileCheck className="w-4 h-4 text-[#C9A45C]" />
+                <FileCheck className="w-4 h-4 text-[#F59E0B]" />
                 <span className="font-bold">{getLocalized(selectedReportForView.title)}</span>
                 <span className="text-gray-400 font-mono">({selectedReportForView.year})</span>
               </div>

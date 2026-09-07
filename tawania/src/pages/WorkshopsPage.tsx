@@ -60,8 +60,8 @@ export const WorkshopsPage: React.FC = () => {
             type="button"
             onClick={() => setSelectedFilter('all')}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'all'
-                ? 'bg-[#0B6B4F] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
+                ? 'bg-[#0B4F26] text-white shadow-sm'
+                : 'bg-white text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-gray-200'
               }`}
           >
             {locale === 'ar' ? 'كافة الورش (الكل)' : 'All Workshops'}
@@ -70,8 +70,8 @@ export const WorkshopsPage: React.FC = () => {
             type="button"
             onClick={() => setSelectedFilter('internal')}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'internal'
-                ? 'bg-[#0B6B4F] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
+                ? 'bg-[#0B4F26] text-white shadow-sm'
+                : 'bg-white text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-gray-200'
               }`}
           >
             {locale === 'ar' ? 'ورش الحوكمة والامتثال' : 'Governance Workshops'}
@@ -80,8 +80,8 @@ export const WorkshopsPage: React.FC = () => {
             type="button"
             onClick={() => setSelectedFilter('community')}
             className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${selectedFilter === 'community'
-                ? 'bg-[#0B6B4F] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-[#EBF4F0] hover:text-[#0B6B4F] border border-gray-200'
+                ? 'bg-[#0B4F26] text-white shadow-sm'
+                : 'bg-white text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-gray-200'
               }`}
           >
             {locale === 'ar' ? 'الورش المقامة بالشركات المجتمعية' : 'Community Partnerships'}
@@ -104,7 +104,7 @@ export const WorkshopsPage: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 start-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#0B6B4F]/90 text-white backdrop-blur-md">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#0B4F26]/90 text-white backdrop-blur-md">
                     {w.type === 'internal'
                       ? locale === 'ar' ? 'ورشة حوكمة' : 'Governance'
                       : locale === 'ar' ? 'شراكة مجتمعية' : 'Community Partnership'}
@@ -115,22 +115,22 @@ export const WorkshopsPage: React.FC = () => {
               {/* Content side */}
               <div className="lg:col-span-8 p-6 sm:p-8 space-y-5 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <h3 className="text-xl sm:text-2xl font-black text-[#12332B] leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] leading-snug">
                     {locale === 'ar' ? w.titleAr : w.titleEn}
                   </h3>
 
                   {/* Metadata Chips */}
                   <div className="flex flex-wrap items-center gap-4 text-xs text-gray-600">
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Calendar className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                      <Calendar className="w-3.5 h-3.5 text-[#0B4F26]" />
                       {locale === 'ar' ? w.dateAr : w.dateEn}
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
-                      <MapPin className="w-3.5 h-3.5 text-[#C9A45C]" />
+                      <MapPin className="w-3.5 h-3.5 text-[#F59E0B]" />
                       {locale === 'ar' ? w.locationAr : w.locationEn}
                     </span>
                     <span className="flex items-center gap-1.5 font-medium">
-                      <Users className="w-3.5 h-3.5 text-[#0B6B4F]" />
+                      <Users className="w-3.5 h-3.5 text-[#0B4F26]" />
                       {locale === 'ar' ? `${w.attendeesCount || 0} مستفيد` : `${w.attendeesCount || 0} Attendees`}
                     </span>
                   </div>
@@ -142,13 +142,13 @@ export const WorkshopsPage: React.FC = () => {
 
                 {/* Key Outcomes */}
                 <div className="bg-[#F7F8F6] rounded-2xl p-4 space-y-2 border border-gray-100">
-                  <span className="text-xs font-bold text-[#0B6B4F] uppercase tracking-wider block">
+                  <span className="text-xs font-bold text-[#0B4F26] uppercase tracking-wider block">
                     {locale === 'ar' ? 'أبرز الأهداف والمخرجات:' : 'Key Objectives & Outcomes:'}
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {((locale === 'ar' ? w.objectivesAr : w.objectivesEn) || []).map((outcome, oIdx) => (
                       <div key={oIdx} className="flex items-center gap-2 text-xs text-gray-700">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0B6B4F] shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
                         <span>{outcome}</span>
                       </div>
                     ))}
@@ -158,7 +158,7 @@ export const WorkshopsPage: React.FC = () => {
                 <div className="pt-2 flex items-center justify-end">
                   <Link
                     to={getLocalizedPath(`/workshops/${w.id}`)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B6B4F] hover:bg-[#095B42] text-white text-xs font-bold transition-all shadow-xs"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0B4F26] hover:bg-[#0B4F26] text-white text-xs font-bold transition-all shadow-xs"
                   >
                     <Eye className="w-4 h-4" />
                     <span>{locale === 'ar' ? 'عرض تفاصيل الورشة والتقرير الكامل' : 'View Full Report & Details'}</span>

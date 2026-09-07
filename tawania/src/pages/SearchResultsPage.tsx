@@ -31,11 +31,11 @@ export const SearchResultsPage: React.FC = () => {
 
   const getResultIcon = (type: SearchResultItem['type']) => {
     switch (type) {
-      case 'project': return <Briefcase className="w-5 h-5 text-[#0B6B4F]" />;
-      case 'report': return <FileCheck className="w-5 h-5 text-[#C9A45C]" />;
-      case 'document': return <FileText className="w-5 h-5 text-[#0B6B4F]" />;
-      case 'news': return <Newspaper className="w-5 h-5 text-[#0B6B4F]" />;
-      default: return <ShieldCheck className="w-5 h-5 text-[#C9A45C]" />;
+      case 'project': return <Briefcase className="w-5 h-5 text-[#0B4F26]" />;
+      case 'report': return <FileCheck className="w-5 h-5 text-[#F59E0B]" />;
+      case 'document': return <FileText className="w-5 h-5 text-[#0B4F26]" />;
+      case 'news': return <Newspaper className="w-5 h-5 text-[#0B4F26]" />;
+      default: return <ShieldCheck className="w-5 h-5 text-[#F59E0B]" />;
     }
   };
 
@@ -60,7 +60,7 @@ export const SearchResultsPage: React.FC = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.search.placeholder}
-            className="w-full ps-12 pe-28 py-3.5 text-sm rounded-2xl border-2 border-[#12332B]/15 bg-white text-[#17211E] outline-none focus:border-[#0B6B4F] shadow-xs"
+            className="w-full ps-12 pe-28 py-3.5 text-sm rounded-2xl border-2 border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26] shadow-xs"
           />
           <Search className="w-5 h-5 text-[#68736F] absolute start-4 top-1/2 -translate-y-1/2" />
           <button
@@ -73,7 +73,7 @@ export const SearchResultsPage: React.FC = () => {
 
         {/* Results List */}
         <div className="space-y-4">
-          <div className="text-xs font-bold text-[#68736F] flex items-center justify-between pb-2 border-b border-[#12332B]/5">
+          <div className="text-xs font-bold text-[#68736F] flex items-center justify-between pb-2 border-b border-[#0F172A]/5">
             <span>
               {locale === 'ar' ? `تم العثور على (${results.length}) نتيجة` : `Found (${results.length}) results`}
             </span>
@@ -83,16 +83,16 @@ export const SearchResultsPage: React.FC = () => {
             <Link
               key={res.id}
               to={res.url}
-              className="block bg-white p-5 rounded-2xl hover:border-[#0B6B4F]/40 hover:shadow-xs transition-all duration-200 group"
+              className="block bg-white p-5 rounded-2xl hover:border-[#0B4F26]/40 hover:shadow-xs transition-all duration-200 group"
             >
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#EBF4F0] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-10 h-10 rounded-xl bg-[#E8F7F0] flex items-center justify-center shrink-0 mt-0.5">
                   {getResultIcon(res.type)}
                 </div>
 
                 <div className="flex-1 min-w-0 space-y-1 text-start">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F7F8F6] text-[#0B6B4F]">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#F7F8F6] text-[#0B4F26]">
                       {res.typeName}
                     </span>
                     {res.category && (
@@ -102,7 +102,7 @@ export const SearchResultsPage: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-bold text-[#12332B] group-hover:text-[#0B6B4F] transition-colors">
+                  <h3 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors">
                     {res.title}
                   </h3>
 
@@ -111,7 +111,7 @@ export const SearchResultsPage: React.FC = () => {
                   </p>
                 </div>
 
-                <Arrow className="w-4 h-4 text-[#68736F] group-hover:text-[#0B6B4F] shrink-0 self-center transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+                <Arrow className="w-4 h-4 text-[#68736F] group-hover:text-[#0B4F26] shrink-0 self-center transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
               </div>
             </Link>
           ))}

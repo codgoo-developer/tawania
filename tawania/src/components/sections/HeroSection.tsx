@@ -123,7 +123,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero-section"
-      className="relative w-full h-[calc(100vh-112px)] min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#05241C] select-none"
+      className="relative w-full h-[calc(100vh-112px)] min-h-[460px] flex flex-col justify-between overflow-hidden bg-[#073519] select-none"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -145,7 +145,7 @@ export const HeroSection: React.FC = () => {
                 referrerPolicy="no-referrer"
               />
               {/* Deep Cinematic Gradient Overlays for Readability & Brand Palette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#05241C] via-[#083024]/30 to-[#0A3D2E]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#073519] via-[#083024]/30 to-[#0A3D2E]/20" />
               <div className="absolute inset-0 bg-black/40" />
               <div
                 className="absolute inset-0 opacity-10 pointer-events-none"
@@ -180,7 +180,7 @@ export const HeroSection: React.FC = () => {
         {/* Action CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
-  to={getLocalizedPath('/projects')}            className="inline-flex items-center justify-center gap-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-[#05241C] font-black text-sm sm:text-base px-8 py-3.5 rounded-full shadow-2xl border border-[#A3E635]/40 transition-all transform hover:scale-105 cursor-pointer"
+  to={getLocalizedPath('/projects')}            className="inline-flex items-center justify-center gap-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-[#073519] font-black text-sm sm:text-base px-8 py-3.5 rounded-full shadow-2xl border border-[#A3E635]/40 transition-all transform hover:scale-105 cursor-pointer"
           >
             <span>{locale === 'ar' ? 'اكتشف المشاريع' : 'View Projects'}</span>
             <Arrow className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
@@ -223,7 +223,7 @@ export const HeroSection: React.FC = () => {
         <button
           type="button"
           onClick={scrollToContent}
-          className="w-12 h-12 rounded-full bg-black/50 hover:bg-[#05241C] backdrop-blur-md text-white border border-white/25 hover:border-[#84CC16] flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(132,204,22,0.4)] hover:scale-110 active:scale-95"
+          className="w-12 h-12 rounded-full bg-black/50 hover:bg-[#073519] backdrop-blur-md text-white border border-white/25 hover:border-[#84CC16] flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(132,204,22,0.4)] hover:scale-110 active:scale-95"
           aria-label={locale === 'ar' ? 'التمرير للأسفل إلى من نحن' : 'Scroll down to about'}
         >
           <div className="flex items-center justify-center w-full h-full transform group-hover:translate-y-0.5 transition-transform duration-300">

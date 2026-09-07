@@ -417,14 +417,14 @@ export const SurveysPage: React.FC = () => {
     highLabel: string = 'راضي'
   ) => (
     <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-      <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+      <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
         {questionText} <span className="text-red-500">*</span>
       </label>
 
       <div className="p-4 sm:p-5 bg-[#F8FAF8] rounded-2xl   space-y-3">
         <div className="flex items-center justify-between text-xs font-bold text-gray-500 px-1">
           <span className="text-red-600">{lowLabel}</span>
-          <span className="text-[#095B42]">{highLabel}</span>
+          <span className="text-[#0B4F26]">{highLabel}</span>
         </div>
 
         <div className="grid grid-cols-5 gap-2 sm:gap-4 items-center text-center">
@@ -434,8 +434,8 @@ export const SurveysPage: React.FC = () => {
               type="button"
               onClick={() => setter(val)}
               className={`p-3 sm:p-4 rounded-2xl border flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer ${currentValue === val
-                ? 'bg-[#095B42] text-white border-[#095B42] shadow-md scale-105'
-                : 'bg-white text-gray-700 border-gray-200 hover:border-[#095B42]/50 hover:bg-emerald-50/50'
+                ? 'bg-[#0B4F26] text-white border-[#0B4F26] shadow-md scale-105'
+                : 'bg-white text-gray-700 border-gray-200 hover:border-[#0B4F26]/50 hover:bg-emerald-50/50'
                 }`}
             >
               <span className="font-mono font-black text-base sm:text-lg">{val}</span>
@@ -478,7 +478,7 @@ export const SurveysPage: React.FC = () => {
             type="button"
             onClick={() => handleTabChange('supporters')}
             className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'supporters'
-              ? 'bg-[#095B42] text-white shadow-md'
+              ? 'bg-[#0B4F26] text-white shadow-md'
               : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               }`}
           >
@@ -490,7 +490,7 @@ export const SurveysPage: React.FC = () => {
             type="button"
             onClick={() => handleTabChange('assembly')}
             className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'assembly'
-              ? 'bg-[#095B42] text-white shadow-md'
+              ? 'bg-[#0B4F26] text-white shadow-md'
               : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               }`}
           >
@@ -502,7 +502,7 @@ export const SurveysPage: React.FC = () => {
             type="button"
             onClick={() => handleTabChange('customers')}
             className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'customers'
-              ? 'bg-[#095B42] text-white shadow-md'
+              ? 'bg-[#0B4F26] text-white shadow-md'
               : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               }`}
           >
@@ -514,7 +514,7 @@ export const SurveysPage: React.FC = () => {
             type="button"
             onClick={() => handleTabChange('staff')}
             className={`flex items-center justify-center gap-2 p-3 sm:p-3.5 rounded-2xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${activeTab === 'staff'
-              ? 'bg-[#095B42] text-white shadow-md'
+              ? 'bg-[#0B4F26] text-white shadow-md'
               : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
               }`}
           >
@@ -524,14 +524,14 @@ export const SurveysPage: React.FC = () => {
         </div>
 
         {/* Google Simulated Header Banner */}
-        <div className="bg-white rounded-3xl p-6 border-t-8 border-t-[#095B42] space-y-3">
+        <div className="bg-white rounded-3xl p-6 border-t-8 border-t-[#0B4F26] space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs border-b border-gray-100 pb-3">
             <div className="flex items-center gap-2 font-bold text-gray-700 dir-ltr">
               <span>{userEmail}</span>
               <button
                 type="button"
                 onClick={() => setIsSwitchAccountOpen(true)}
-                className="text-[#095B42] hover:underline font-semibold cursor-pointer"
+                className="text-[#0B4F26] hover:underline font-semibold cursor-pointer"
               >
                 [تبديل الحساب]
               </button>
@@ -591,7 +591,7 @@ export const SurveysPage: React.FC = () => {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 text-xs font-bold text-white rounded-xl bg-[#095B42] hover:bg-[#064230]"
+                    className="px-5 py-2 text-xs font-bold text-white rounded-xl bg-[#0B4F26] hover:bg-[#073519]"
                   >
                     حفظ التبديل
                   </button>
@@ -603,8 +603,8 @@ export const SurveysPage: React.FC = () => {
 
         {/* Success Confirmation View */}
         {isSubmitted ? (
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#095B42]/20 shadow-xl text-center space-y-6">
-            <div className="w-20 h-20 rounded-full bg-emerald-100 text-[#095B42] flex items-center justify-center mx-auto shadow-inner">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#0B4F26]/20 shadow-xl text-center space-y-6">
+            <div className="w-20 h-20 rounded-full bg-emerald-100 text-[#0B4F26] flex items-center justify-center mx-auto shadow-inner">
               <CheckCircle2 className="w-12 h-12" />
             </div>
 
@@ -615,7 +615,7 @@ export const SurveysPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-[#F8FAF8] p-4 rounded-2xlinline-block font-mono text-sm font-bold text-[#095B42]">
+            <div className="bg-[#F8FAF8] p-4 rounded-2xlinline-block font-mono text-sm font-bold text-[#0B4F26]">
               رقم المرجع: {referenceCode}
             </div>
 
@@ -623,7 +623,7 @@ export const SurveysPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsSubmitted(false)}
-                className="px-8 py-3 bg-[#095B42] text-white text-xs sm:text-sm font-bold rounded-2xl hover:bg-[#064230] shadow-md transition-all cursor-pointer"
+                className="px-8 py-3 bg-[#0B4F26] text-white text-xs sm:text-sm font-bold rounded-2xl hover:bg-[#073519] shadow-md transition-all cursor-pointer"
               >
                 إرسال رد آخر
               </button>
@@ -641,7 +641,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.selectedEntities}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     حدد الجهة : <span className="text-red-500">*</span>
                   </label>
 
@@ -661,7 +661,7 @@ export const SurveysPage: React.FC = () => {
                           type="checkbox"
                           checked={selectedEntities.includes(entity)}
                           onChange={() => toggleEntityCheckbox(entity)}
-                          className="w-5 h-5 text-[#095B42] rounded border-gray-300 focus:ring-0 cursor-pointer"
+                          className="w-5 h-5 text-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
                         />
                         <span className="text-xs sm:text-sm font-bold text-gray-800">{entity}</span>
                       </label>
@@ -674,7 +674,7 @@ export const SurveysPage: React.FC = () => {
                           value={otherEntityText}
                           onChange={(e) => setOtherEntityText(e.target.value)}
                           placeholder="اكتب اسم الجهة الأخرى..."
-                          className="w-full text-xs google-form-input py-2 text-gray-900 font-medium border-b border-gray-300 focus:border-[#095B42] outline-none"
+                          className="w-full text-xs google-form-input py-2 text-gray-900 font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                         />
                       </div>
                     )}
@@ -692,7 +692,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.position}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     المنصب الوظيفي : <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -700,7 +700,7 @@ export const SurveysPage: React.FC = () => {
                     value={position}
                     onChange={(e) => setPosition(e.target.value)}
                     placeholder="مثال: مدير الشراكات / مسؤول المسؤولية المجتمعية"
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#12332B] font-medium border-b border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.position && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -714,14 +714,14 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.howDiscovered}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     كيف تعرفت على الجمعية ؟ <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <select
                       value={howDiscovered}
                       onChange={(e) => setHowDiscovered(e.target.value)}
-                      className="w-full text-xs sm:text-sm google-form-input py-2.5 text-[#12332B] font-medium bg-transparent cursor-pointer appearance-none pe-8"
+                      className="w-full text-xs sm:text-sm google-form-input py-2.5 text-[#0F172A] font-medium bg-transparent cursor-pointer appearance-none pe-8"
                     >
                       <option value="الحملات الدعائية">الحملات الدعائية</option>
                       <option value="التلفزيون">التلفزيون</option>
@@ -739,7 +739,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.communicationMethod}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     ماهي طريقة التواصل مع الجمعية : <span className="text-red-500">*</span>
                   </label>
 
@@ -755,7 +755,7 @@ export const SurveysPage: React.FC = () => {
                           value={method}
                           checked={communicationMethod === method}
                           onChange={(e) => setCommunicationMethod(e.target.value)}
-                          className="w-5 h-5 text-[#095B42] focus:ring-0 cursor-pointer"
+                          className="w-5 h-5 text-[#0B4F26] focus:ring-0 cursor-pointer"
                         />
                         <span className="text-xs sm:text-sm font-bold text-gray-800">{method}</span>
                       </label>
@@ -791,7 +791,7 @@ export const SurveysPage: React.FC = () => {
               <form onSubmit={handleAssemblySubmit} className="space-y-6">
                 {/* Member Name */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     اسم عضو الجمعية العمومية <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -799,7 +799,7 @@ export const SurveysPage: React.FC = () => {
                     value={assemblyMemberName}
                     onChange={(e) => setAssemblyMemberName(e.target.value)}
                     placeholder="أدخل الاسم الثلاثي أو الرباعي..."
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#12332B] font-medium border-b border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.assemblyMemberName && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -869,7 +869,7 @@ export const SurveysPage: React.FC = () => {
               <form onSubmit={handleStaffSubmit} className="space-y-6">
                 {/* Department Name */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     اسم المؤسسة او الإدارة التابع لها الموظف <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -877,7 +877,7 @@ export const SurveysPage: React.FC = () => {
                     value={departmentName}
                     onChange={(e) => setDepartmentName(e.target.value)}
                     placeholder="مثال: إدارة التشغيل / الموارد البشرية / المالية..."
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#12332B] font-medium border-b border-gray-300 focus:border-[#095B42] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.departmentName && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -901,7 +901,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Morale Status Question */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     كيف تصف معنوياتك في العمل في هذا الوقت <span className="text-red-500">*</span>
                   </label>
                   <div className="space-y-2.5">
@@ -916,7 +916,7 @@ export const SurveysPage: React.FC = () => {
                           value={opt}
                           checked={moraleState === opt}
                           onChange={(e) => setMoraleState(e.target.value)}
-                          className="w-5 h-5 text-[#095B42] focus:ring-0 cursor-pointer"
+                          className="w-5 h-5 text-[#0B4F26] focus:ring-0 cursor-pointer"
                         />
                         <span className="text-xs sm:text-sm font-bold text-gray-800">{opt}</span>
                       </label>
@@ -926,7 +926,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Planned Duration Question */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     كم المدة التي تخطط للاستمرار بالعمل بالجمعية ( بنفس ظروف العمل الحالية ) <span className="text-red-500">*</span>
                   </label>
                   <div className="space-y-2.5">
@@ -947,7 +947,7 @@ export const SurveysPage: React.FC = () => {
                           value={opt}
                           checked={plannedDuration === opt}
                           onChange={(e) => setPlannedDuration(e.target.value)}
-                          className="w-5 h-5 text-[#095B42] focus:ring-0 cursor-pointer"
+                          className="w-5 h-5 text-[#0B4F26] focus:ring-0 cursor-pointer"
                         />
                         <span className="text-xs sm:text-sm font-bold text-gray-800">{opt}</span>
                       </label>
@@ -957,7 +957,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Additional Notes */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#12332B]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
                     أي ملاحظات اخرى
                   </label>
                   <textarea
@@ -965,7 +965,7 @@ export const SurveysPage: React.FC = () => {
                     value={staffNotes}
                     onChange={(e) => setStaffNotes(e.target.value)}
                     placeholder="اكتب أي مقترحات أو ملاحظات تود مشاركتها مع الإدارة..."
-                    className="w-full text-xs sm:text-sm p-3.5rounded-2xl text-gray-900 font-medium outline-none focus:ring-2 focus:ring-[#095B42]"
+                    className="w-full text-xs sm:text-sm p-3.5rounded-2xl text-gray-900 font-medium outline-none focus:ring-2 focus:ring-[#0B4F26]"
                   />
                 </div>
 

@@ -48,7 +48,7 @@ export const GalleryPage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                  <span className="text-white text-xs font-bold flex items-center gap-1.5 bg-[#095B42]/80 backdrop-blur-xs px-3 py-1 rounded-full">
+                  <span className="text-white text-xs font-bold flex items-center gap-1.5 bg-[#0B4F26]/80 backdrop-blur-xs px-3 py-1 rounded-full">
                     <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                     عرض التفاصيل الصورة
                   </span>
@@ -58,7 +58,7 @@ export const GalleryPage: React.FC = () => {
               {/* Info Body */}
               <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
                 <div className="space-y-2">
-                  <h3 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#095B42] transition-colors line-clamp-2">
+                  <h3 className="font-bold text-sm text-gray-900 leading-snug group-hover:text-[#0B4F26] transition-colors line-clamp-2">
                     {locale === 'ar' ? photo.titleAr : photo.titleEn || photo.titleAr}
                   </h3>
                   {photo.captionAr && (
@@ -71,12 +71,12 @@ export const GalleryPage: React.FC = () => {
                 {/* Date & Location Footer */}
                 <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400 gap-2">
                   <div className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-[#C9A45C]" />
+                    <Calendar className="w-3.5 h-3.5 text-[#F59E0B]" />
                     <span>{photo.date}</span>
                   </div>
                   {photo.locationAr && (
                     <div className="flex items-center gap-1 truncate max-w-[150px]">
-                      <MapPin className="w-3.5 h-3.5 text-[#095B42] shrink-0" />
+                      <MapPin className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
                       <span className="truncate">
                         {locale === 'ar' ? photo.locationAr : photo.locationEn || photo.locationAr}
                       </span>
@@ -111,7 +111,7 @@ export const GalleryPage: React.FC = () => {
             <div className="p-6 space-y-3 bg-white">
               <div className="flex items-center justify-between gap-3">
                 <span className="text-xs text-gray-500 font-mono flex items-center gap-1">
-                  <Calendar className="w-3.5 h-3.5 text-[#C9A45C]" />
+                  <Calendar className="w-3.5 h-3.5 text-[#F59E0B]" />
                   {activePhoto.date}
                 </span>
               </div>
@@ -127,8 +127,8 @@ export const GalleryPage: React.FC = () => {
               )}
 
               {activePhoto.locationAr && (
-                <div className="flex items-center gap-1.5 text-xs text-[#095B42] font-semibold pt-2 border-t border-gray-100">
-                  <MapPin className="w-4 h-4 text-[#095B42]" />
+                <div className="flex items-center gap-1.5 text-xs text-[#0B4F26] font-semibold pt-2 border-t border-gray-100">
+                  <MapPin className="w-4 h-4 text-[#0B4F26]" />
                   <span>
                     {locale === 'ar' ? activePhoto.locationAr : activePhoto.locationEn || activePhoto.locationAr}
                   </span>

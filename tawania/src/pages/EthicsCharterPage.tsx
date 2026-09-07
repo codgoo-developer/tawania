@@ -44,7 +44,7 @@ export const EthicsCharterPage: React.FC = () => {
         <div className="pt-6 flex items-center justify-between">
           <Link
             to={getLocalizedPath('/')}
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#0B6B4F] hover:underline"
+            className="inline-flex items-center gap-2 text-xs font-bold text-[#0B4F26] hover:underline"
           >
             {locale === 'ar' ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
             <span>{locale === 'ar' ? 'العودة إلى الصفحة الرئيسية' : 'Back to Home'}</span>

@@ -20,7 +20,7 @@ export const Breadcrumbs: React.FC<{ items: BreadcrumbItem[] }> = ({ items }) =>
     >
       <Link
         to={getLocalizedPath('/')}
-        className="flex items-center gap-1 hover:text-[#0B6B4F] transition-colors"
+        className="flex items-center gap-1 hover:text-[#0B4F26] transition-colors"
       >
         <Home className="w-3.5 h-3.5" />
         <span>{t.nav.home}</span>
@@ -32,13 +32,13 @@ export const Breadcrumbs: React.FC<{ items: BreadcrumbItem[] }> = ({ items }) =>
           <React.Fragment key={idx}>
             <Arrow className="w-3.5 h-3.5 text-gray-400 shrink-0" />
             {isLast || !item.url ? (
-              <span className="font-medium text-[#12332B] truncate max-w-[240px]">
+              <span className="font-medium text-[#0F172A] truncate max-w-[240px]">
                 {item.label}
               </span>
             ) : (
               <Link
                 to={getLocalizedPath(item.url)}
-                className="hover:text-[#0B6B4F] transition-colors truncate max-w-[180px]"
+                className="hover:text-[#0B4F26] transition-colors truncate max-w-[180px]"
               >
                 {item.label}
               </Link>

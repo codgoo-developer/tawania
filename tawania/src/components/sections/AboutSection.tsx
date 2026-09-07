@@ -20,7 +20,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Headline with dual-color typography */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#12332B] tracking-tight leading-[1.15]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#0F172A] tracking-tight leading-[1.15]">
               {locale === 'ar' ? (
                 <>
                   {homeAboutData?.titleModelAr || 'نموذج رائد في'}
@@ -46,12 +46,12 @@ export const AboutSection: React.FC = () => {
             {/* Two Side-by-Side Cards (Vision & Mission) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {/* Card 1: Vision */}
-              <div className="p-6 rounded-2xl bg-[#EBF4F0]/70 border border-[#12332B]/5 flex flex-col justify-between space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white text-[#0B6B4F] shadow-xs flex items-center justify-center">
+              <div className="p-6 rounded-2xl bg-[#E8F7F0]/70 border border-[#0F172A]/5 flex flex-col justify-between space-y-4">
+                <div className="w-12 h-12 rounded-full bg-white text-[#0B4F26] shadow-xs flex items-center justify-center">
                   <Eye className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#12332B] mb-1.5">
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-1.5">
                     {locale === 'ar' ? (homeAboutData?.visionTitleAr || 'رؤيتنا') : (homeAboutData?.visionTitleEn || 'Our Vision')}
                   </h3>
                   <p className="text-sm text-[#68736F] leading-relaxed">
@@ -63,12 +63,12 @@ export const AboutSection: React.FC = () => {
               </div>
 
               {/* Card 2: Mission */}
-              <div className="p-6 rounded-2xl bg-[#EBF4F0]/70 border border-[#12332B]/5 flex flex-col justify-between space-y-4">
-                <div className="w-12 h-12 rounded-full bg-white text-[#0B6B4F] shadow-xs flex items-center justify-center">
+              <div className="p-6 rounded-2xl bg-[#E8F7F0]/70 border border-[#0F172A]/5 flex flex-col justify-between space-y-4">
+                <div className="w-12 h-12 rounded-full bg-white text-[#0B4F26] shadow-xs flex items-center justify-center">
                   <Target className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#12332B] mb-1.5">
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-1.5">
                     {locale === 'ar' ? (homeAboutData?.missionTitleAr || 'رسالتنا') : (homeAboutData?.missionTitleEn || 'Our Mission')}
                   </h3>
                   <p className="text-sm text-[#68736F] leading-relaxed">
@@ -83,7 +83,7 @@ export const AboutSection: React.FC = () => {
 
           {/* Visual Portrait Image Column (5 Cols in RTL: left side) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/5 max-w-md mx-auto bg-gradient-to-br from-[#12332B] to-[#0B211C]">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/5 max-w-md mx-auto bg-gradient-to-br from-[#0F172A] to-[#0B211C]">
               <img
                 src={homeAboutData?.imageUrl || '/about.jpg'}
                 alt={locale === 'ar' ? 'تعاونية الشامل - جذور راسخة ورؤية طموحة' : 'AlShamel Cooperative - Deep Roots & Ambitious Vision'}

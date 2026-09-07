@@ -58,12 +58,12 @@ export const FeedbackForm: React.FC = () => {
 
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-8 ">
-      <div className="flex items-center gap-2 text-[#0B6B4F] mb-1 text-xs font-bold">
-        <Sparkles className="w-4 h-4 text-[#C9A45C]" />
+      <div className="flex items-center gap-2 text-[#0B4F26] mb-1 text-xs font-bold">
+        <Sparkles className="w-4 h-4 text-[#F59E0B]" />
         <span>{locale === 'ar' ? 'شاركنا انطباعك' : 'Share Your Experience'}</span>
       </div>
 
-      <h3 className="text-xl sm:text-2xl font-black text-[#12332B] mb-2">
+      <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] mb-2">
         {t.feedbackPage.formTitle}
       </h3>
       <p className="text-xs sm:text-sm text-[#68736F] mb-6 leading-relaxed">
@@ -74,8 +74,8 @@ export const FeedbackForm: React.FC = () => {
 
       {isSuccess ? (
         <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
-          <div className="w-14 h-14 rounded-full bg-emerald-100 text-[#0B6B4F] flex items-center justify-center mx-auto shadow-inner">
-            <CheckCircle2 className="w-8 h-8 text-[#0B6B4F]" />
+          <div className="w-14 h-14 rounded-full bg-emerald-100 text-[#0B4F26] flex items-center justify-center mx-auto shadow-inner">
+            <CheckCircle2 className="w-8 h-8 text-[#0B4F26]" />
           </div>
           <div className="space-y-1">
             <h4 className="text-lg font-bold text-emerald-950">
@@ -108,7 +108,7 @@ export const FeedbackForm: React.FC = () => {
               id="feedback-project"
               value={projectKey}
               onChange={(e) => setProjectKey(e.target.value)}
-              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#12332B]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all font-medium"
+              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#0F172A]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white transition-all font-medium"
             >
               <option value="reeda-consumer">{t.feedbackPage.consumerStore}</option>
               <option value="reeda-gas">{t.feedbackPage.gasService}</option>
@@ -123,7 +123,7 @@ export const FeedbackForm: React.FC = () => {
             <label className="block text-xs font-bold text-[#17211E] mb-1.5 text-start">
               {t.feedbackPage.ratingLabel}
             </label>
-            <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-[#FBFBFA] border border-[#12332B]/10">
+            <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-xl bg-[#FBFBFA] border border-[#0F172A]/10">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
@@ -143,7 +143,7 @@ export const FeedbackForm: React.FC = () => {
                   </button>
                 ))}
               </div>
-              <span className="text-xs font-bold text-[#0B6B4F] bg-emerald-100/70 px-2.5 py-0.5 rounded-full ms-auto">
+              <span className="text-xs font-bold text-[#0B4F26] bg-emerald-100/70 px-2.5 py-0.5 rounded-full ms-auto">
                 {getRatingLabel(hoverRating || rating)}
               </span>
             </div>
@@ -160,7 +160,7 @@ export const FeedbackForm: React.FC = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={locale === 'ar' ? 'مثال: فهد الحربي' : 'e.g. Fahad'}
-              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#12332B]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all font-medium"
+              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#0F172A]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white transition-all font-medium"
             />
           </div>
 
@@ -176,7 +176,7 @@ export const FeedbackForm: React.FC = () => {
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
               placeholder={locale === 'ar' ? 'اكتب تجربتك، ملاحظاتك على جودة الخدمة، أو مقترحات التطوير...' : 'Write your experience and suggestions...'}
-              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#12332B]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B6B4F] focus:bg-white transition-all resize-none font-medium leading-relaxed"
+              className="w-full px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-[#0F172A]/15 bg-[#FBFBFA] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white transition-all resize-none font-medium leading-relaxed"
             />
           </div>
 

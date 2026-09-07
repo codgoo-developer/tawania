@@ -11,7 +11,7 @@ export const Card: React.FC<{
     <div
       id={id}
       onClick={onClick}
-      className={`bg-white rounded-xl p-6 shadow-xs ${hoverEffect ? 'transition-all duration-300 hover:border-[#0B6B4F]/30 hover:shadow-md hover:-translate-y-0.5' : ''
+      className={`bg-white rounded-xl p-6 shadow-xs ${hoverEffect ? 'transition-all duration-300 hover:border-[#0B4F26]/30 hover:shadow-md hover:-translate-y-0.5' : ''
         } ${className}`}
     >
       {children}
@@ -31,7 +31,7 @@ export const Skeleton: React.FC<{
 
   return (
     <div
-      className={`animate-pulse bg-[#12332B]/10 ${variantStyles[variant]} ${className}`}
+      className={`animate-pulse bg-[#0F172A]/10 ${variantStyles[variant]} ${className}`}
     />
   );
 };

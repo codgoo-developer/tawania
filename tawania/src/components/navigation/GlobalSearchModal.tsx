@@ -55,7 +55,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
 
   const getItemIcon = (type: string) => {
     switch (type) {
-      case 'project': return <Briefcase className="w-4 h-4 text-[#0B6B4F]" />;
+      case 'project': return <Briefcase className="w-4 h-4 text-[#0B4F26]" />;
       case 'news': return <Newspaper className="w-4 h-4 text-blue-600" />;
       case 'document': return <FileText className="w-4 h-4 text-amber-600" />;
       case 'report': return <FileCheck className="w-4 h-4 text-emerald-600" />;
@@ -66,7 +66,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
   return (
     <div
       id="global-search-modal"
-      className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 md:p-20 bg-[#12332B]/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 md:p-20 bg-[#0F172A]/60 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -74,8 +74,8 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Header */}
-        <form onSubmit={handleFullSearch} className="p-4 border-b border-[#12332B]/10 flex items-center gap-3">
-          <Search className="w-5 h-5 text-[#0B6B4F] shrink-0" />
+        <form onSubmit={handleFullSearch} className="p-4 border-b border-[#0F172A]/10 flex items-center gap-3">
+          <Search className="w-5 h-5 text-[#0B4F26] shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -96,7 +96,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
           <button
             type="button"
             onClick={onClose}
-            className="text-xs px-2.5 py-1 bg-[#F7F8F6] hover:bg-[#EBF4F0] text-[#68736F] rounded-md font-mono"
+            className="text-xs px-2.5 py-1 bg-[#F7F8F6] hover:bg-[#E8F7F0] text-[#68736F] rounded-md font-mono"
           >
             ESC
           </button>
@@ -106,7 +106,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
         <div className="flex-1 overflow-y-auto p-4 divide-y divide-gray-100">
           {query.trim().length === 0 ? (
             <div className="py-8 text-center text-[#68736F]">
-              <Sparkles className="w-8 h-8 text-[#C9A45C] mx-auto mb-2 opacity-80" />
+              <Sparkles className="w-8 h-8 text-[#F59E0B] mx-auto mb-2 opacity-80" />
               <p className="text-sm font-medium">
                 {locale === 'ar' ? 'ابحث عن المشاريع، التقارير المالية، اللوائح، والأخبار' : 'Search for projects, financial reports, bylaws, and news'}
               </p>
@@ -116,7 +116,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
                     key={tag}
                     type="button"
                     onClick={() => setQuery(tag)}
-                    className="text-xs px-3 py-1 bg-[#F7F8F6] hover:bg-[#EBF4F0] text-[#0B6B4F] rounded-full border border-[#0B6B4F]/15 transition-colors"
+                    className="text-xs px-3 py-1 bg-[#F7F8F6] hover:bg-[#E8F7F0] text-[#0B4F26] rounded-full border border-[#0B4F26]/15 transition-colors"
                   >
                     {tag}
                   </button>
@@ -130,7 +130,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
                 <button
                   type="button"
                   onClick={handleFullSearch}
-                  className="text-[#0B6B4F] hover:underline text-xs flex items-center gap-1"
+                  className="text-[#0B4F26] hover:underline text-xs flex items-center gap-1"
                 >
                   <span>{t.common.viewAll}</span>
                   {dir === 'rtl' ? <ArrowLeft className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
@@ -142,7 +142,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
                   onClick={() => handleSelect(item.url)}
                   className="p-3 rounded-xl hover:bg-[#F7F8F6] cursor-pointer transition-colors flex items-start gap-3 group"
                 >
-                  <div className="p-2 rounded-lg bg-gray-50 border border-gray-100 group-hover:bg-white group-hover:border-[#0B6B4F]/20 mt-0.5">
+                  <div className="p-2 rounded-lg bg-gray-50 border border-gray-100 group-hover:bg-white group-hover:border-[#0B4F26]/20 mt-0.5">
                     {getItemIcon(item.type)}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -150,16 +150,16 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
                       <span className="text-xs font-medium px-2 py-0.5 bg-gray-100 text-gray-700 rounded-sm">
                         {item.typeName}
                       </span>
-                      <h4 className="text-sm font-semibold text-[#17211E] truncate group-hover:text-[#0B6B4F]">
+                      <h4 className="text-sm font-semibold text-[#17211E] truncate group-hover:text-[#0B4F26]">
                         {item.title}
                       </h4>
                     </div>
                     <p className="text-xs text-[#68736F] line-clamp-1">{item.excerpt}</p>
                   </div>
                   {dir === 'rtl' ? (
-                    <ArrowLeft className="w-4 h-4 text-gray-400 group-hover:text-[#0B6B4F] transition-transform group-hover:-translate-x-1" />
+                    <ArrowLeft className="w-4 h-4 text-gray-400 group-hover:text-[#0B4F26] transition-transform group-hover:-translate-x-1" />
                   ) : (
-                    <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#0B6B4F] transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#0B4F26] transition-transform group-hover:translate-x-1" />
                   )}
                 </div>
               ))}
@@ -175,12 +175,12 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
         </div>
 
         {/* Search Footer */}
-        <div className="p-3 bg-[#F7F8F6] border-t border-[#12332B]/10 text-xs text-[#68736F] flex items-center justify-between">
+        <div className="p-3 bg-[#F7F8F6] border-t border-[#0F172A]/10 text-xs text-[#68736F] flex items-center justify-between">
           <span>{locale === 'ar' ? 'اضغط Enter للبحث الشامل' : 'Press Enter for full search results'}</span>
           <button
             type="button"
             onClick={handleFullSearch}
-            className="font-medium text-[#0B6B4F] hover:underline"
+            className="font-medium text-[#0B4F26] hover:underline"
           >
             {locale === 'ar' ? 'صفحة النتائج الكاملة ←' : 'Full Results Page →'}
           </button>
