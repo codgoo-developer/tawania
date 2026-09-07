@@ -68,26 +68,38 @@ export const ProjectsPage: React.FC = () => {
                 {/* Top Green Accent Line */}
                 <div className="h-1.5 w-full bg-gradient-to-r from-[#53A528] via-[#0B6B4F] to-[#53A528]" />
 
-                {/* Optional Project Image */}
-                {project.image && (
-                  <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#EAF6F2] to-[#DDF0EB]">
+                {/* Project Image / Branded Default Fallback Banner */}
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] flex items-center justify-center">
+                  {project.image ? (
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-1"
                       onError={(e) => {
-                        (e.currentTarget.parentElement as HTMLElement).style.display = 'none';
+                        e.currentTarget.style.display = 'none';
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-                    <div className="absolute bottom-3 start-4 end-4">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/90 text-[#0B6B4F] backdrop-blur-xs shadow-xs">
-                        <Sparkles className="w-3 h-3 text-[#53A528]" />
-                        <span>{locale === 'ar' ? 'مشروع معتمد' : 'Verified Project'}</span>
-                      </span>
+                  ) : null}
+
+                  {/* Fallback Graphic (shows when no image or image failed to load) */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-4 pointer-events-none z-0">
+                    <div className="w-14 h-14 rounded-2xl bg-white/80 shadow-xs border border-[#0B6B4F]/20 flex items-center justify-center text-[#0B6B4F] mb-1">
+                      <Building2 className="w-7 h-7 text-[#0B6B4F]" />
                     </div>
+                    <span className="text-[11px] font-bold text-[#0B6B4F] tracking-wide text-center line-clamp-1 px-4">
+                      {project.name}
+                    </span>
                   </div>
-                )}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 pointer-events-none z-2" />
+                  
+                  <div className="absolute bottom-3 start-4 end-4 z-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-[#0B6B4F] backdrop-blur-xs shadow-xs border border-[#0B6B4F]/10">
+                      <Sparkles className="w-3 h-3 text-[#53A528]" />
+                      <span>{locale === 'ar' ? 'مشروع معتمد' : 'Verified Project'}</span>
+                    </span>
+                  </div>
+                </div>
 
                 {/* Card Content Area */}
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">

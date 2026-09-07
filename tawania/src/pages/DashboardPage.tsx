@@ -40,6 +40,7 @@ import {
   Crown,
   Image as ImageIcon,
   Building,
+  Building2,
   Activity,
   Layers,
   ArrowRight,
@@ -4752,11 +4753,22 @@ export const DashboardPage: React.FC = () => {
                       </div>
 
 
-                      {project.image && (
-                        <div className="h-32 w-full rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
-                          <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
+                      <div className="h-32 w-full rounded-xl overflow-hidden bg-gradient-to-br from-[#EAF6F2] via-[#D8EFE7] to-[#C9E7DC] border border-gray-200 flex items-center justify-center relative">
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.name}
+                            className="w-full h-full object-cover z-1"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        ) : null}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-[#0B6B4F]/70 z-0 p-2">
+                          <Building2 className="w-6 h-6 mb-1 text-[#0B6B4F]" />
+                          <span className="text-[10px] font-bold text-[#0B6B4F] line-clamp-1">{project.name}</span>
                         </div>
-                      )}
+                      </div>
 
                       <h3 className="text-xl font-extrabold text-[#4AA01E]">
                         {project.name}
