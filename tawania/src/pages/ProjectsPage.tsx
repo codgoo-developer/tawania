@@ -92,7 +92,7 @@ export const ProjectsPage: React.FC = () => {
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">
                   {/* Project Name (Required) - prominent text-start */}
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#0B4F26] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-[#0B4F26] tracking-tight leading-snug text-start group-hover:text-[#10B981] transition-colors">
                       {project.name}
                     </h3>
                   </div>

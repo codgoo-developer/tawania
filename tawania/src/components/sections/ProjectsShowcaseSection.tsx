@@ -34,7 +34,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
             <span>{badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B4F26] tracking-tight mb-4">
             {title}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0B4F26] to-[#10B981] mx-auto mb-5 rounded-full" />
@@ -85,7 +85,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
               </div>
 
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-start space-y-4">
-                <h3 className="text-2xl sm:text-3xl font-black text-[#10B981] tracking-tight leading-snug text-start group-hover:text-[#0B4F26] transition-colors">
+                <h3 className="text-2xl sm:text-3xl font-black text-[#0B4F26] tracking-tight leading-snug text-start group-hover:text-[#10B981] transition-colors">
                   {project.name}
                 </h3>
 
