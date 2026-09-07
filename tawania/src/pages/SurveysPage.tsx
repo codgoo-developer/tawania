@@ -655,13 +655,13 @@ export const SurveysPage: React.FC = () => {
                     ].map((entity) => (
                       <label
                         key={entity}
-                        className="flex items-center gap-3 p-3.5 rounded-2xlhover:bg-[#F7F8F6] cursor-pointer transition-colors"
+                        className="flex items-center gap-3 p-3.5 rounded-2xl hover:bg-[#F7F8F6] cursor-pointer transition-colors"
                       >
                         <input
                           type="checkbox"
                           checked={selectedEntities.includes(entity)}
                           onChange={() => toggleEntityCheckbox(entity)}
-                          className="w-5 h-5 text-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
+                          className="w-5 h-5 accent-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
                         />
                         <span className="text-xs sm:text-sm font-bold text-gray-800">{entity}</span>
                       </label>

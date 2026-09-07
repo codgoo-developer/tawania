@@ -139,14 +139,18 @@ export const FeedbackPage: React.FC = () => {
       {/* Main Managed Cards Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Control Bar: Search + Filter Pills */}
-        <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
+        <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xs border border-gray-100 space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-[#0B4F26] flex items-center gap-2">
-                <Globe className="w-6 h-6 text-[#0B4F26]" />
-                {locale === 'ar' ? 'منصات التغذية الراجعة والتقييمات المعتمدة' : 'Official Feedback & Review Platforms'}
-              </h2>
-              <p className="text-xs sm:text-sm text-[#68736F] mt-1">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#0F172A] flex items-center justify-center text-white shadow-xs">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <h2 className="text-xl sm:text-2xl font-black text-[#0F172A]">
+                  {locale === 'ar' ? 'منصات التغذية الراجعة والتقييمات المعتمدة' : 'Official Feedback & Review Platforms'}
+                </h2>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-500">
                 {locale === 'ar'
                   ? 'روابط الوصول المباشر والوثائق الخاصة بآراء وملاحظات أصحاب العلاقة والعملاء'
                   : 'Direct access links & documents for stakeholder and customer reviews'}
@@ -154,22 +158,22 @@ export const FeedbackPage: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2 shrink-0">
-              <span className="px-3.5 py-1.5 rounded-full bg-[#0B4F26]/10 text-[#0B4F26] font-bold text-xs">
+              <span className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#2563EB]/10 to-[#0F172A]/10 text-[#0F172A] font-bold text-xs border border-[#2563EB]/15">
                 {filteredCards.length} {locale === 'ar' ? 'منصات معتمدة' : 'Platforms'}
               </span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-gray-100">
-            {/* Filter Pills */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-4 border-t border-gray-100">
+            {/* Filter Pills with matching color branding */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
               <button
                 type="button"
                 onClick={() => setActiveFilter('all')}
                 className={'px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ' + (
                   activeFilter === 'all'
-                    ? 'bg-[#0B4F26] text-white shadow-2xs'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-gradient-to-r from-[#2563EB] to-[#0F172A] text-white shadow-xs'
+                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                 )}
               >
                 {locale === 'ar' ? 'جميع المنصات' : 'All Platforms'}
@@ -179,8 +183,8 @@ export const FeedbackPage: React.FC = () => {
                 onClick={() => setActiveFilter('drive')}
                 className={'px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ' + (
                   activeFilter === 'drive'
-                    ? 'bg-emerald-700 text-white shadow-2xs'
-                    : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100'
+                    ? 'bg-gradient-to-r from-[#84CC16] to-[#EAB308] text-white shadow-xs'
+                    : 'bg-lime-50 text-lime-800 hover:bg-lime-100 border border-lime-200/50'
                 )}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -191,8 +195,8 @@ export const FeedbackPage: React.FC = () => {
                 onClick={() => setActiveFilter('maps')}
                 className={'px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ' + (
                   activeFilter === 'maps'
-                    ? 'bg-amber-600 text-white shadow-2xs'
-                    : 'bg-amber-50 text-amber-800 hover:bg-amber-100'
+                    ? 'bg-gradient-to-r from-[#F97316] to-[#FACC15] text-white shadow-xs'
+                    : 'bg-orange-50 text-orange-800 hover:bg-orange-100 border border-orange-200/50'
                 )}
               >
                 <MapPin className="w-3.5 h-3.5" />
@@ -202,19 +206,19 @@ export const FeedbackPage: React.FC = () => {
 
             {/* Search Input */}
             <div className="relative w-full sm:w-72">
-              <Search className="w-4 h-4 text-gray-400 absolute start-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-4 h-4 text-slate-400 absolute start-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث في المنصات...' : 'Search platforms...'}
-                className="w-full ps-9 pe-4 py-2 bg-gray-50rounded-xl text-xs focus:outline-none focus:border-[#0B4F26] focus:bg-white transition-all"
+                className="w-full ps-9 pe-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-[#0F172A] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 focus:bg-white transition-all"
               />
             </div>
           </div>
         </div>
 
-        {/* Cards Grid */}
+        {/* Cards Grid with The 3 Gradients */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredCards.map((item: any) => {
             const IconComponent = getCardIcon(item);
@@ -222,113 +226,125 @@ export const FeedbackPage: React.FC = () => {
             const title = locale === 'ar' ? (item.titleAr || '') : (item.titleEn || item.titleAr || '');
             const desc = locale === 'ar' ? (item.descriptionAr || item.descAr || '') : (item.descriptionEn || item.descEn || item.descriptionAr || '');
             const badge = locale === 'ar' ? (item.badgeAr || '') : (item.badgeEn || item.badgeAr || '');
-            const accent = (item.accentColor as 'emerald' | 'amber' | 'blue') || (item.platform === 'drive' ? 'emerald' : item.category === 'gas' ? 'blue' : 'amber');
+            
+            // Determine styling theme
+            const isLime = item.platform === 'drive' || item.accentColor === 'lime' || item.accentColor === 'emerald' || item.category === 'stakeholders';
+            const isOrange = item.category === 'consumer' || item.accentColor === 'amber' || item.accentColor === 'orange';
+            const theme = isLime ? 'lime' : isOrange ? 'orange' : 'blue';
 
             const styleMap = {
-              emerald: {
-                border: 'hover:border-emerald-500',
-                badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200/60',
-                iconBg: 'bg-emerald-500/10 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white',
-                btnBg: 'bg-emerald-700 hover:bg-emerald-800 text-white',
-                accentText: 'text-emerald-700'
+              orange: {
+                // 1. البرتقالي الدافئ (#F97316) إلى الأصفر المشرق (#FACC15)
+                topBar: 'bg-gradient-to-r from-[#F97316] to-[#FACC15]',
+                border: 'hover:border-[#F97316]/40',
+                badgeBg: 'bg-orange-50 text-orange-900 border-[#F97316]/25',
+                iconBox: 'bg-gradient-to-br from-[#F97316]/10 to-[#FACC15]/20 text-[#EA580C] group-hover:from-[#F97316] group-hover:to-[#FACC15] group-hover:text-white',
+                btnBg: 'bg-gradient-to-r from-[#F97316] to-[#FACC15] text-white hover:brightness-105 shadow-xs',
+                titleHover: 'group-hover:text-[#F97316]',
+                shield: 'text-[#F97316]'
               },
-              amber: {
-                border: 'hover:border-amber-500',
-                badgeBg: 'bg-amber-50 text-amber-800 border-amber-200/60',
-                iconBg: 'bg-amber-500/10 text-amber-700 group-hover:bg-amber-600 group-hover:text-white',
-                btnBg: 'bg-amber-600 hover:bg-amber-700 text-white',
-                accentText: 'text-amber-700'
+              lime: {
+                // 4. المستقبل والتجدد: الأخضر الفاتح (#84CC16) إلى الأصفر الليموني (#EAB308)
+                topBar: 'bg-gradient-to-r from-[#84CC16] to-[#EAB308]',
+                border: 'hover:border-[#84CC16]/40',
+                badgeBg: 'bg-lime-50 text-lime-900 border-[#84CC16]/25',
+                iconBox: 'bg-gradient-to-br from-[#84CC16]/10 to-[#EAB308]/20 text-[#65A30D] group-hover:from-[#84CC16] group-hover:to-[#EAB308] group-hover:text-white',
+                btnBg: 'bg-gradient-to-r from-[#84CC16] to-[#EAB308] text-white hover:brightness-105 shadow-xs',
+                titleHover: 'group-hover:text-[#65A30D]',
+                shield: 'text-[#84CC16]'
               },
               blue: {
-                border: 'hover:border-blue-500',
-                badgeBg: 'bg-blue-50 text-blue-800 border-blue-200/60',
-                iconBg: 'bg-blue-500/10 text-blue-700 group-hover:bg-blue-600 group-hover:text-white',
-                btnBg: 'bg-blue-600 hover:bg-blue-700 text-white',
-                accentText: 'text-blue-700'
+                // 5. الثقة والاتزان: الأزرق المتوسط (#2563EB) إلى الكحلي الداكن (#0F172A)
+                topBar: 'bg-gradient-to-r from-[#2563EB] to-[#0F172A]',
+                border: 'hover:border-[#2563EB]/40',
+                badgeBg: 'bg-blue-50 text-slate-900 border-[#2563EB]/25',
+                iconBox: 'bg-gradient-to-br from-[#2563EB]/10 to-[#0F172A]/20 text-[#2563EB] group-hover:from-[#2563EB] group-hover:to-[#0F172A] group-hover:text-white',
+                btnBg: 'bg-gradient-to-r from-[#2563EB] to-[#0F172A] text-white hover:brightness-105 shadow-xs',
+                titleHover: 'group-hover:text-[#2563EB]',
+                shield: 'text-[#2563EB]'
               }
-            }[accent] || {
-              border: 'hover:border-emerald-500',
-              badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200/60',
-              iconBg: 'bg-emerald-500/10 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white',
-              btnBg: 'bg-emerald-700 hover:bg-emerald-800 text-white',
-              accentText: 'text-emerald-700'
-            };
+            }[theme];
 
             return (
               <div
                 key={item.id}
-                className={'group bg-white rounded-2xl p-6 shadow-xs ' + styleMap.border + ' transition-all duration-300 flex flex-col justify-between space-y-6 hover:shadow-lg hover:-translate-y-1 relative'}
+                className={'group bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-xs ' + styleMap.border + ' transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 relative'}
               >
-                <div className="space-y-4">
-                  {/* Top Header */}
-                  <div className="flex items-center justify-between gap-2">
-                    <div className={'w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 ' + styleMap.iconBg}>
-                      <IconComponent className="w-6 h-6" />
+                {/* Top Colored Accent Bar */}
+                <div className={'h-1.5 w-full ' + styleMap.topBar} />
+
+                <div className="p-5 sm:p-6 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-3.5">
+                    {/* Top Header */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className={'w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-2xs ' + styleMap.iconBox}>
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+
+                      <span className={'px-3 py-1 rounded-full font-bold text-[11px] border ' + styleMap.badgeBg}>
+                        {badge}
+                      </span>
                     </div>
 
-                    <span className={'px-3 py-1 rounded-full font-bold text-[11px] border ' + styleMap.badgeBg}>
-                      {badge}
-                    </span>
-                  </div>
-
-                  {/* Title & Platform Tag */}
-                  <div>
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-gray-400 mb-1">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#0B4F26]" />
-                      <span>{item.platformName}</span>
+                    {/* Title & Platform Tag */}
+                    <div>
+                      <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-400 mb-1">
+                        <ShieldCheck className={'w-3.5 h-3.5 ' + styleMap.shield} />
+                        <span>{item.platformName}</span>
+                      </div>
+                      <h3 className={'font-black text-base text-[#0F172A] transition-colors leading-snug ' + styleMap.titleHover}>
+                        {title}
+                      </h3>
                     </div>
-                    <h3 className="font-black text-base text-[#0B4F26] group-hover:text-[#0B4F26] transition-colors leading-snug">
-                      {title}
-                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                      {desc}
+                    </p>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-xs text-[#68736F] leading-relaxed">
-                    {desc}
-                  </p>
-                </div>
-
-                {/* Actions Footer */}
-                <div className="pt-4 border-t border-gray-100 space-y-3">
-                  {/* Main Open Link Button */}
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={'w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-2xs ' + styleMap.btnBg}
-                  >
-                    <span>{item.platform === 'drive' ? (locale === 'ar' ? 'فتح المستند' : 'Open Document') : (locale === 'ar' ? 'تصفح التقييمات' : 'View Reviews')}</span>
-                    <ExternalLink className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                  </a>
-
-                  {/* Secondary Quick Action Buttons */}
-                  <div className="flex items-center justify-between gap-2 text-xs">
-                    <button
-                      type="button"
-                      onClick={() => handleCopyLink(item.id, item.url)}
-                      className="flex-1 py-1.5 px-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-700 font-semibold flex items-center justify-center gap-1.5 transition-colors text-[11px] cursor-pointer"
+                  {/* Actions Footer */}
+                  <div className="pt-4 border-t border-slate-100 space-y-2.5">
+                    {/* Main Open Link Button */}
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={'w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all ' + styleMap.btnBg}
                     >
-                      {isCopied ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          <span className="text-emerald-700">{locale === 'ar' ? 'تم النسخ' : 'Copied'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5 text-gray-500" />
-                          <span>{locale === 'ar' ? 'نسخ الرابط' : 'Copy Link'}</span>
-                        </>
-                      )}
-                    </button>
+                      <span>{item.platform === 'drive' ? (locale === 'ar' ? 'فتح المستند المعتمد' : 'Open Official Document') : (locale === 'ar' ? 'تصفح التقييمات المعتمدة' : 'View Verified Reviews')}</span>
+                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform" />
+                    </a>
 
-                    <button
-                      type="button"
-                      onClick={() => handleShare(title, item.url)}
-                      className="py-1.5 px-3 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-700 font-semibold flex items-center justify-center gap-1.5 transition-colors text-[11px] cursor-pointer"
-                    >
-                      <Share2 className="w-3.5 h-3.5 text-gray-500" />
-                      <span>{locale === 'ar' ? 'مشاركة' : 'Share'}</span>
-                    </button>
+                    {/* Secondary Quick Action Buttons */}
+                    <div className="flex items-center justify-between gap-2 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => handleCopyLink(item.id, item.url)}
+                        className="flex-1 py-1.5 px-3 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold flex items-center justify-center gap-1.5 transition-colors text-[11px] cursor-pointer border border-slate-100"
+                      >
+                        {isCopied ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-emerald-600" />
+                            <span className="text-emerald-700 font-bold">{locale === 'ar' ? 'تم النسخ' : 'Copied'}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5 text-slate-500" />
+                            <span>{locale === 'ar' ? 'نسخ الرابط' : 'Copy Link'}</span>
+                          </>
+                        )}
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleShare(title, item.url)}
+                        className="py-1.5 px-3 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold flex items-center justify-center gap-1.5 transition-colors text-[11px] cursor-pointer border border-slate-100"
+                      >
+                        <Share2 className="w-3.5 h-3.5 text-slate-500" />
+                        <span>{locale === 'ar' ? 'مشاركة' : 'Share'}</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -337,9 +353,9 @@ export const FeedbackPage: React.FC = () => {
         </div>
 
         {filteredCards.length === 0 && (
-          <div className="p-12 rounded-2xl bg-whitetext-center space-y-3">
-            <Sparkles className="w-8 h-8 text-gray-300 mx-auto" />
-            <p className="text-sm font-bold text-gray-600">
+          <div className="p-12 rounded-3xl bg-white text-center space-y-3 border border-slate-100 shadow-xs">
+            <Sparkles className="w-8 h-8 text-slate-300 mx-auto" />
+            <p className="text-sm font-bold text-slate-600">
               {locale === 'ar' ? 'لم يتم العثور على منصات تطابق البحث' : 'No matching platforms found'}
             </p>
           </div>

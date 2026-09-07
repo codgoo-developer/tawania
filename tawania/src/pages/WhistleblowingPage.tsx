@@ -224,7 +224,7 @@ export const WhistleblowingPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Google Form Simulation Header Banner */}
-        <div className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden mb-6 border border-[#0B4F26]">
+        <div className="bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white rounded-3xl p-6 sm:p-8 relative overflow-hidden mb-6 ">
           <div className="relative z-10 space-y-3 text-center sm:text-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/60 border border-emerald-500/30 text-amber-300 text-xs font-bold">
               <ShieldCheck className="w-4 h-4" />
@@ -887,7 +887,7 @@ export const WhistleblowingPage: React.FC = () => {
                         type="checkbox"
                         checked={declarationAgreed}
                         onChange={(e) => setDeclarationAgreed(e.target.checked)}
-                        className="w-4 h-4 text-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
+                        className="w-4 h-4 accent-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
                       />
                       <span className="text-xs sm:text-sm font-bold text-[#0B4F26]">
                         اقر بصحة البيانات الواردة في هذا النموذج (موافق) <span className="text-red-500">*</span>

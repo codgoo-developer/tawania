@@ -87,8 +87,8 @@
     --grad-future-h: linear-gradient(90deg, #84CC16 0%, #EAB308 100%);
 
     /* 5. الثقة والاتزان (Trust & Stability) */
-    --grad-trust: linear-gradient(135deg, #2563EB 0%, #073519 100%);
-    --grad-trust-h: linear-gradient(90deg, #2563EB 0%, #073519 100%);
+    --grad-trust: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
+    --grad-trust-h: linear-gradient(90deg, #2563EB 0%, #0F172A 100%);
 
     --bg-base: #F7F8F6;
     --text-main: #17211E;
@@ -107,6 +107,11 @@
     background-color: var(--bg-base);
     color: var(--text-main);
     overflow-x: hidden;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--primary);
   }
 
   /* Custom scrollbar */
@@ -144,6 +149,7 @@
 .text-grad-growth {
   background: linear-gradient(135deg, #0B4F26 0%, #10B981 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .border-grad-growth {
@@ -161,6 +167,7 @@
 .text-grad-energy {
   background: linear-gradient(135deg, #8B0000 0%, #EF4444 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -175,6 +182,7 @@
 .text-grad-progress {
   background: linear-gradient(135deg, #F97316 0%, #FACC15 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -189,20 +197,22 @@
 .text-grad-future {
   background: linear-gradient(135deg, #84CC16 0%, #EAB308 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* 5. التدرج الخامس: الثقة والاتزان (#2563EB -> #073519) */
+/* 5. التدرج الخامس: الثقة والاتزان (#2563EB -> #0F172A) */
 .grad-trust,
 .bg-grad-trust {
-  background: linear-gradient(135deg, #2563EB 0%, #073519 100%) !important;
+  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%) !important;
 }
 .bg-grad-trust-h {
-  background: linear-gradient(90deg, #2563EB 0%, #073519 100%) !important;
+  background: linear-gradient(90deg, #2563EB 0%, #0F172A 100%) !important;
 }
 .text-grad-trust {
-  background: linear-gradient(135deg, #2563EB 0%, #073519 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
