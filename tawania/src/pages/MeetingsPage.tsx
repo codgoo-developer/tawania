@@ -120,34 +120,35 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         {/* Navigation & Year Switchers Panel */}
-        <div className="bg-white p-5 rounded-3xl shadow-xs space-y-4">
+        <div className="bg-white p-5 sm:p-6 rounded-3xl shadow-xs space-y-5 border border-emerald-900/10">
           {/* Top Row: Main Section Switcher (GA vs Board) */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-3 border-b border-gray-100">
-            <div className="flex items-center gap-2 bg-[#F7F8F6] p-1.5 rounded-2xl   w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pb-4 border-b border-gray-100">
+            <div className="flex items-center gap-2 bg-[#F7F8F6] p-1.5 rounded-2xl w-full sm:w-auto border border-gray-200/60">
               <Link
                 to={getLocalizedPath('/meetings/general-assembly')}
                 className={`flex-1 sm:flex-none py-2.5 px-5 text-xs sm:text-sm font-bold text-center rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 ${activeType === 'general-assembly'
-                  ? 'bg-[#0B4F26] text-white shadow-xs'
+                  ? 'bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] text-white shadow-md'
                   : 'text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26]'
                   }`}
               >
-                <Users className="w-4 h-4" />
+                <Users className={`w-4 h-4 ${activeType === 'general-assembly' ? 'text-[#84CC16]' : ''}`} />
                 <span>{locale === 'ar' ? 'محاضر الجمعية العمومية' : 'General Assembly Minutes'}</span>
               </Link>
               <Link
                 to={getLocalizedPath('/meetings/board')}
                 className={`flex-1 sm:flex-none py-2.5 px-5 text-xs sm:text-sm font-bold text-center rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 ${activeType === 'board'
-                  ? 'bg-[#0B4F26] text-white shadow-xs'
+                  ? 'bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] text-white shadow-md'
                   : 'text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26]'
                   }`}
               >
-                <Calendar className="w-4 h-4" />
-                <span>{locale === 'ar' ? 'محاضر مجلس الإدارة' : 'Board Meeting Minutes'}</span>
+                <Calendar className={`w-4 h-4 ${activeType === 'board' ? 'text-[#84CC16]' : ''}`} />
+                <span>{locale === 'ar' ? 'محاضر اجتماع مجلس الإدارة' : 'Board Meeting Minutes'}</span>
               </Link>
             </div>
 
-            <div className="text-xs font-bold text-gray-500 hidden sm:block">
-              {locale === 'ar' ? `إجمالي المحاضر: ${rawMeetings.length} محضر` : `Total Meetings: ${rawMeetings.length}`}
+            <div className="text-xs font-bold text-gray-500 hidden sm:flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse" />
+              <span>{locale === 'ar' ? `إجمالي المحاضر: ${rawMeetings.length} محضر` : `Total Meetings: ${rawMeetings.length}`}</span>
             </div>
           </div>
 
@@ -168,13 +169,13 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
                     setSelectedYear(yr);
                     setSelectedMeetingId(null);
                   }}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${isSelected
-                    ? 'bg-[#0B4F26] text-white shadow-sm ring-2 ring-[#0B4F26]/20 scale-102'
-                    : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26]  '
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2 ${isSelected
+                    ? 'bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] text-white shadow-md ring-2 ring-[#84CC16]/40 scale-105'
+                    : 'bg-[#F7F8F6] text-gray-700 hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-gray-200/50'
                     }`}
                 >
                   <span className="font-mono">{locale === 'ar' ? `عام ${yr}م` : yr}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-sans ${isSelected ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-700'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-sans ${isSelected ? 'bg-white/25 text-white font-black' : 'bg-gray-200 text-gray-700'}`}>
                     {yearCount}
                   </span>
                 </button>
@@ -185,18 +186,18 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
 
         {/* If multiple meetings exist in the selected fiscal year, render sub-meeting selector grid */}
         {meetingsInSelectedYear.length > 1 && (
-          <div className="bg-[#F7F8F6] p-4 rounded-3xl space-y-3 animate-in fade-in duration-200">
+          <div className="bg-[#F7F8F6] p-5 rounded-3xl space-y-4 border border-emerald-900/10 animate-in fade-in duration-200">
             <div className="flex items-center justify-between gap-2 text-xs font-bold text-[#0B4F26]">
               <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4" />
-                <span>{locale === 'ar' ? `محاضر اجتماعات عام ${selectedYear}م` : `Meetings in ${selectedYear}`}</span>
+                <Layers className="w-4 h-4 text-[#84CC16]" />
+                <span className="text-sm font-black">{locale === 'ar' ? `محاضر اجتماعات عام ${selectedYear}م` : `Meetings in ${selectedYear}`}</span>
               </div>
-              <span className="text-gray-500 font-normal text-[11px]">
-                ({meetingsInSelectedYear.length} {locale === 'ar' ? 'محاضر' : 'meetings'})
+              <span className="text-gray-500 font-bold text-[11px] px-2.5 py-1 rounded-full bg-white border border-gray-200/60 shadow-2xs">
+                {meetingsInSelectedYear.length} {locale === 'ar' ? 'محاضر متوفرة' : 'minutes available'}
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
               {meetingsInSelectedYear.map((m) => {
                 const isSelected = currentMeeting?.id === m.id;
                 return (
@@ -204,18 +205,32 @@ export const MeetingsPage: React.FC<{ defaultType?: 'board' | 'general-assembly'
                     key={m.id}
                     type="button"
                     onClick={() => setSelectedMeetingId(m.id)}
-                    className={`p-3 rounded-2xl text-xs font-bold transition-all cursor-pointer flex flex-col justify-between gap-2 text-start ${isSelected
-                      ? 'bg-[#0B4F26] text-white shadow-md ring-2 ring-[#0B4F26]/30 scale-[1.01]'
-                      : 'bg-white text-gray-800 hover:bg-gray-100 hover:text-[#0B4F26]  '
+                    className={`p-4 rounded-2xl text-xs font-bold transition-all duration-300 cursor-pointer flex flex-col justify-between gap-3 text-start relative overflow-hidden ${isSelected
+                      ? 'bg-gradient-to-br from-[#0B4F26] via-[#094622] to-[#042419] text-white shadow-lg shadow-[#0B4F26]/20 ring-2 ring-[#84CC16] scale-[1.02]'
+                      : 'bg-white hover:bg-gradient-to-br hover:from-white hover:to-emerald-50 text-gray-800 border border-emerald-900/10 hover:border-[#84CC16]/60 shadow-xs hover:shadow-md hover:-translate-y-0.5'
                       }`}
                   >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className={`font-mono text-[11px] px-2 py-0.5 rounded-md font-bold ${isSelected ? 'bg-white/20 text-white' : 'bg-[#E8F7F0] text-[#0B4F26]'}`}>
+                    <div className="flex items-center justify-between gap-2 w-full">
+                      <span className={`font-mono text-[11px] px-2.5 py-1 rounded-lg font-black shadow-2xs ${isSelected ? 'bg-gradient-to-r from-[#84CC16] to-[#65A30D] text-[#042419]' : 'bg-gradient-to-r from-[#E8F7F0] to-emerald-100 text-[#0B4F26] border border-emerald-200/60'}`}>
                         {m.meetingNumber}
                       </span>
-                      {isSelected && <CheckCircle2 className="w-4 h-4 text-white shrink-0" />}
+                      {isSelected ? (
+                        <CheckCircle2 className="w-4 h-4 text-[#84CC16] shrink-0 drop-shadow-sm" />
+                      ) : (
+                        <FileCheck className="w-4 h-4 text-gray-400 group-hover:text-[#0B4F26] shrink-0" />
+                      )}
                     </div>
-                    <div className="line-clamp-2 text-xs leading-relaxed">{getLocalized(m.title)}</div>
+                    <div className={`line-clamp-2 text-xs leading-relaxed font-bold ${isSelected ? 'text-white' : 'text-gray-800'}`}>
+                      {getLocalized(m.title)}
+                    </div>
+                    <div className="flex items-center justify-between text-[10px] pt-1 border-t border-white/10 w-full">
+                      <span className={isSelected ? 'text-emerald-200/80' : 'text-gray-400'}>
+                        {m.date || selectedYear}
+                      </span>
+                      <span className={`font-bold ${isSelected ? 'text-[#84CC16]' : 'text-[#0B4F26]'}`}>
+                        {locale === 'ar' ? 'عرض المحضر PDF ←' : 'View PDF →'}
+                      </span>
+                    </div>
                   </button>
                 );
               })}

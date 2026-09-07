@@ -424,27 +424,27 @@ export const GovernancePage: React.FC = () => {
     <Link
       key={item.id}
       to={getLocalizedPath(item.path)}
-      className="flex flex-col items-center justify-between p-6 bg-white rounded-2xl border border-gray-100 hover:border-[#0B4F26]/30 shadow-xs hover:shadow-lg transition-all duration-300 group cursor-pointer text-center"
+      className="flex flex-col items-center justify-between p-6 bg-white rounded-3xl border border-gray-100 hover:border-[#84CC16]/50 shadow-xs hover:shadow-xl hover:shadow-[#0B4F26]/10 transition-all duration-300 group cursor-pointer text-center hover:-translate-y-1"
     >
       {/* Clean Document Icon with Shield */}
       <div className="relative mb-5 transform group-hover:scale-110 transition-transform duration-300">
-        <div className="w-14 h-16 bg-white rounded-lg border-2 border-gray-300 group-hover:border-[#0B4F26] shadow-xs flex flex-col p-2.5 justify-between transition-colors">
+        <div className="w-14 h-16 bg-white rounded-xl border-2 border-gray-200 group-hover:border-[#0B4F26] shadow-xs flex flex-col p-2.5 justify-between transition-colors">
           <div className="w-full space-y-1.5">
-            <div className="w-3/4 h-1 bg-gray-400 rounded-full" />
-            <div className="w-full h-1 bg-gray-300 rounded-full" />
-            <div className="w-5/6 h-1 bg-gray-300 rounded-full" />
-            <div className="w-2/3 h-1 bg-gray-300 rounded-full" />
+            <div className="w-3/4 h-1 bg-[#84CC16] rounded-full" />
+            <div className="w-full h-1 bg-gray-200 rounded-full" />
+            <div className="w-5/6 h-1 bg-gray-200 rounded-full" />
+            <div className="w-2/3 h-1 bg-gray-200 rounded-full" />
           </div>
         </div>
         {/* Small Emerald Shield Badge */}
-        <div className="absolute -bottom-1.5 -start-1.5 w-6 h-6 rounded-full bg-[#0B4F26] text-white flex items-center justify-center border-2 border-white shadow-xs">
+        <div className="absolute -bottom-1.5 -start-1.5 w-6 h-6 rounded-full bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white flex items-center justify-center border-2 border-white shadow-xs">
           <ShieldCheck className="w-3.5 h-3.5 text-[#84CC16]" />
         </div>
       </div>
 
       {/* Primary System Colored Pill Button */}
       <span
-        className="w-full text-center py-2.5 px-4 rounded-full bg-[#0B4F26] group-hover:bg-[#074734] text-white font-bold text-xs sm:text-[13px] shadow-sm group-hover:shadow-md transition-all duration-200 block truncate"
+        className="w-full text-center py-2.5 px-4 rounded-full bg-gradient-to-r from-[#0B4F26] via-[#0d5f2e] to-[#10B981] group-hover:brightness-110 text-white font-bold text-xs sm:text-[13px] shadow-sm group-hover:shadow-md transition-all duration-200 block truncate"
         title={locale === 'ar' ? item.titleAr : item.titleEn}
       >
         {locale === 'ar' ? item.titleAr : item.titleEn}
