@@ -2,73 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Sparkles, Compass } from 'lucide-react';
 import { useI18n } from '../../i18n';
-
-interface HeroSlide {
-  id: string;
-  bgImage: string;
-  titleAr: string;
-  titleEn: string;
-  subtitleAr: string;
-  subtitleEn: string;
-  highlightAr: string;
-  highlightEn: string;
-  ctaTextAr: string;
-  ctaTextEn: string;
-  ctaLink: string;
-  badgeAr: string;
-  badgeEn: string;
-}
-
-const HERO_SLIDES: HeroSlide[] = [
-  {
-    id: 'welcome-slide',
-    bgImage: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=2000&q=80',
-    titleAr: 'تأبى الرِّماحُ إذا اجتمعن تكسّراً..',
-    titleEn: 'United, The Winds Cannot Break Us..',
-    highlightAr: 'وإذا افترقنَ تكسّرت آحادا',
-    highlightEn: 'Apart, They Break One By One',
-    subtitleAr: 'رسالتنا: تحقيق التنمية المستدامة والتمكين الاقتصادي والاجتماعي من خلال تعزيز العمل التعاوني وفق رؤية 2030.',
-    subtitleEn: 'Our Mission: Achieving sustainable development and economic empowerment through cooperative excellence under Vision 2030.',
-    ctaTextAr: 'اكتشف مشاريعنا',
-    ctaTextEn: 'Discover Our Projects',
-    ctaLink: '/projects',
-    badgeAr: 'الجمعية التعاونية متعددة الأغراض',
-    badgeEn: 'Multi-Purpose Cooperative Society'
-  },
-  {
-    id: 'sustainability-slide',
-    bgImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=2000&q=80',
-    titleAr: 'مشاريع تنموية رائدة..',
-    titleEn: 'Pioneering Development Projects..',
-    highlightAr: 'تصنع أثراً مجتمعياً واقتصادياً مستداماً',
-    highlightEn: 'Creating Sustainable Socio-Economic Impact',
-    subtitleAr: 'استثمارات وشراكات استراتيجية تدعم القطاعات الحيوية وتسهم في بناء مستقبل واعد.',
-    subtitleEn: 'Strategic investments and partnerships driving vital sectors for a prosperous future.',
-    ctaTextAr: 'استعرض المبادرات',
-    ctaTextEn: 'Explore Initiatives',
-    ctaLink: '/governance',
-    badgeAr: 'الاستدامة والتمكين الاقتصادي',
-    badgeEn: 'Sustainability & Economic Empowerment'
-  },
-  {
-    id: 'governance-slide',
-    bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80',
-    titleAr: 'حوكمة مؤسسية رصينة..',
-    titleEn: 'Institutional Governance Excellence..',
-    highlightAr: 'بأعلى معايير الشفافية والمسؤولية',
-    highlightEn: 'With Highest Standards of Transparency',
-    subtitleAr: 'نلتزم بالشفافية الكاملة والإفصاح المؤسسي لتعزيز الثقة وتحقيق التميز القيادي.',
-    subtitleEn: 'Committed to complete transparency and ethical governance for leadership excellence.',
-    ctaTextAr: 'لوائح وسياسات الحوكمة',
-    ctaTextEn: 'Governance & Regulations',
-    ctaLink: '/governance',
-    badgeAr: 'الامتثال والشفافية المؤسسية',
-    badgeEn: 'Compliance & Institutional Transparency'
-  }
-];
+import { useGovernanceData, initialHomeHeroSlides } from '../../context/GovernanceDataContext';
 
 export const HeroSection: React.FC = () => {
   const { locale, dir, getLocalizedPath } = useI18n();
+  const { homeHeroSlides } = useGovernanceData();
+
+  // Use dynamic slides from backend / context, with initial fallback
+  const slides = (homeHeroSlides && homeHeroSlides.length > 0) ? homeHeroSlides : initialHomeHeroSlides;
+
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -77,12 +19,19 @@ export const HeroSection: React.FC = () => {
   const NextArrow = dir === 'rtl' ? ChevronLeft : ChevronRight;
 
   const nextSlide = useCallback(() => {
-    setCurrentSlideIndex((prev) => (prev + 1) % HERO_SLIDES.length);
-  }, []);
+    setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlideIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
+    setCurrentSlideIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  // Keep index within bounds if slides array length changes
+  useEffect(() => {
+    if (currentSlideIndex >= slides.length) {
+      setCurrentSlideIndex(0);
+    }
+  }, [slides.length, currentSlideIndex]);
 
   // Auto-scroll images every 6.5 seconds
   useEffect(() => {
@@ -98,7 +47,7 @@ export const HeroSection: React.FC = () => {
     }
   };
 
-  const currentSlide = HERO_SLIDES[currentSlideIndex] || HERO_SLIDES[0];
+  const currentSlide = slides[currentSlideIndex] || slides[0];
 
   return (
     <section
@@ -107,13 +56,13 @@ export const HeroSection: React.FC = () => {
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      {/* 1. Background Slides Layer */}
-      {HERO_SLIDES.map((slide, index) => {
+      {/* 1. Background Slides Layer (Photography & Cinematic Gradients) */}
+      {slides.map((slide, index) => {
         const isActive = index === currentSlideIndex;
 
         return (
           <div
-            key={slide.id}
+            key={slide.id || index}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out pointer-events-none ${
               isActive ? 'opacity-100 z-0' : 'opacity-0 -z-10'
             }`}
@@ -143,50 +92,62 @@ export const HeroSection: React.FC = () => {
         );
       })}
 
-      {/* 2. Main Center Slide Content */}
+      {/* 2. Main Center Dynamic Slide Content (Loaded directly from backend) */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 flex flex-col justify-center items-center text-center py-8">
-        {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 text-[#FACC15] border border-white/20 backdrop-blur-md shadow-md mb-5 animate-in fade-in duration-500">
-          <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
-          <span>{locale === 'ar' ? currentSlide.badgeAr : currentSlide.badgeEn}</span>
-        </div>
+        {/* Top Dynamic Badge */}
+        {(currentSlide.badgeAr || currentSlide.badgeEn) && (
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 text-[#FACC15] border border-white/20 backdrop-blur-md shadow-md mb-5 animate-in fade-in duration-500">
+            <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
+            <span>{locale === 'ar' ? currentSlide.badgeAr : currentSlide.badgeEn}</span>
+          </div>
+        )}
 
-        {/* Headline */}
+        {/* Dynamic Headline with Gradient Highlight */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.2] mb-6 drop-shadow-xl font-sans max-w-4xl">
           {locale === 'ar' ? (
             <>
               {currentSlide.titleAr} <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#FACC15] bg-clip-text text-transparent">
-                {currentSlide.highlightAr}
-              </span>
+              {currentSlide.highlightAr && (
+                <span className="bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#FACC15] bg-clip-text text-transparent">
+                  {currentSlide.highlightAr}
+                </span>
+              )}
             </>
           ) : (
             <>
               {currentSlide.titleEn} <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#FACC15] bg-clip-text text-transparent">
-                {currentSlide.highlightEn}
-              </span>
+              {currentSlide.highlightEn && (
+                <span className="bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#FACC15] bg-clip-text text-transparent">
+                  {currentSlide.highlightEn}
+                </span>
+              )}
             </>
           )}
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-8 font-medium drop-shadow-md">
-          {locale === 'ar' ? currentSlide.subtitleAr : currentSlide.subtitleEn}
-        </p>
+        {/* Dynamic Subtitle */}
+        {(currentSlide.subtitleAr || currentSlide.subtitleEn) && (
+          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-8 font-medium drop-shadow-md">
+            {locale === 'ar' ? currentSlide.subtitleAr : currentSlide.subtitleEn}
+          </p>
+        )}
 
-        {/* Action CTAs */}
+        {/* Dynamic Action CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
           {/* Primary CTA (Growth Gradient) */}
           <Link
             to={getLocalizedPath(currentSlide.ctaLink || '/projects')}
             className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_4px_25px_rgba(16,185,129,0.35)] border border-[#10B981]/50 transition-all transform hover:scale-105 cursor-pointer group"
           >
-            <span>{locale === 'ar' ? currentSlide.ctaTextAr : currentSlide.ctaTextEn}</span>
+            <span>
+              {locale === 'ar'
+                ? (currentSlide.ctaTextAr || 'اكتشف مشاريعنا')
+                : (currentSlide.ctaTextEn || 'Discover Our Projects')}
+            </span>
             <Arrow className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
           </Link>
 
-          {/* Secondary CTA (Glassmorphic) */}
+          {/* Secondary CTA (Governance) */}
           <Link
             to={getLocalizedPath('/governance')}
             className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/60 text-sm sm:text-base font-bold px-7 py-3.5 rounded-full backdrop-blur-md transition-all cursor-pointer hover:scale-105"
@@ -198,27 +159,31 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 3. Left / Right Floating Navigation Arrows */}
-      <div className="absolute inset-y-0 start-4 sm:start-8 z-20 flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={prevSlide}
-          className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
-          aria-label={locale === 'ar' ? 'الشريحة السابقة' : 'Previous Slide'}
-        >
-          <PrevArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0.5" />
-        </button>
-      </div>
+      {slides.length > 1 && (
+        <>
+          <div className="absolute inset-y-0 start-4 sm:start-8 z-20 flex items-center pointer-events-none">
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
+              aria-label={locale === 'ar' ? 'الشريحة السابقة' : 'Previous Slide'}
+            >
+              <PrevArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0.5" />
+            </button>
+          </div>
 
-      <div className="absolute inset-y-0 end-4 sm:end-8 z-20 flex items-center pointer-events-none">
-        <button
-          type="button"
-          onClick={nextSlide}
-          className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
-          aria-label={locale === 'ar' ? 'الشريحة التالية' : 'Next Slide'}
-        >
-          <NextArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
-        </button>
-      </div>
+          <div className="absolute inset-y-0 end-4 sm:end-8 z-20 flex items-center pointer-events-none">
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
+              aria-label={locale === 'ar' ? 'الشريحة التالية' : 'Next Slide'}
+            >
+              <NextArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
+            </button>
+          </div>
+        </>
+      )}
 
       {/* 4. Centered Scroll Down Anchor Button */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center justify-center pointer-events-auto">
@@ -233,21 +198,23 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* 5. Slide Pagination Indicators */}
-      <div className="absolute bottom-6 end-6 sm:end-10 z-20 flex items-center gap-2">
-        {HERO_SLIDES.map((_, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onClick={() => setCurrentSlideIndex(idx)}
-            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              idx === currentSlideIndex
-                ? 'w-9 bg-gradient-to-r from-[#0B4F26] to-[#10B981] border border-white/30 shadow-md'
-                : 'w-2.5 bg-white/35 hover:bg-white/70'
-            }`}
-            aria-label={`Slide ${idx + 1}`}
-          />
-        ))}
-      </div>
+      {slides.length > 1 && (
+        <div className="absolute bottom-6 end-6 sm:end-10 z-20 flex items-center gap-2">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setCurrentSlideIndex(idx)}
+              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                idx === currentSlideIndex
+                  ? 'w-9 bg-gradient-to-r from-[#0B4F26] to-[#10B981] border border-white/30 shadow-md'
+                  : 'w-2.5 bg-white/35 hover:bg-white/70'
+              }`}
+              aria-label={`Slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };
