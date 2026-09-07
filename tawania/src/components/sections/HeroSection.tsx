@@ -56,7 +56,7 @@ export const HeroSection: React.FC = () => {
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
-      {/* 1. Background Slides Layer (Photography & Cinematic Gradients) */}
+      {/* 1. Background Slides Layer (Photography & Soft Overlays with Reduced Shadow) */}
       {slides.map((slide, index) => {
         const isActive = index === currentSlideIndex;
 
@@ -74,13 +74,13 @@ export const HeroSection: React.FC = () => {
                 className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 ease-out"
                 referrerPolicy="no-referrer"
               />
-              {/* Deep Luxury Cinematic Gradient Overlay from Official Palette (#073519 & #0B4F26) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#073519] via-[#073519]/70 to-[#0B4F26]/40" />
-              <div className="absolute inset-0 bg-black/35" />
+              {/* Soft Luxury Gradient Overlay with Reduced Darkness */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#073519]/90 via-[#073519]/50 to-[#0B4F26]/20" />
+              <div className="absolute inset-0 bg-black/20" />
               
               {/* Subtle Geometric Pattern Overlay */}
               <div
-                className="absolute inset-0 opacity-15 pointer-events-none"
+                className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{
                   backgroundImage: `radial-gradient(#10B981 1.5px, transparent 1.5px), radial-gradient(#FACC15 1px, transparent 1px)`,
                   backgroundSize: '48px 48px',
@@ -92,18 +92,18 @@ export const HeroSection: React.FC = () => {
         );
       })}
 
-      {/* 2. Main Center Dynamic Slide Content (Loaded directly from backend) */}
+      {/* 2. Main Center Dynamic Slide Content (Clean Typography, No Heavy Shadows) */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 flex flex-col justify-center items-center text-center py-8">
         {/* Top Dynamic Badge */}
         {(currentSlide.badgeAr || currentSlide.badgeEn) && (
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 text-[#FACC15] border border-white/20 backdrop-blur-md shadow-md mb-5 animate-in fade-in duration-500">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 text-[#FACC15] border border-white/20 backdrop-blur-xs mb-5 animate-in fade-in duration-500">
             <Sparkles className="w-3.5 h-3.5 text-[#FACC15]" />
             <span>{locale === 'ar' ? currentSlide.badgeAr : currentSlide.badgeEn}</span>
           </div>
         )}
 
-        {/* Dynamic Headline with Gradient Highlight */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.2] mb-6 drop-shadow-xl font-sans max-w-4xl">
+        {/* Dynamic Headline with Clean Contrast */}
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.2] mb-6 font-sans max-w-4xl">
           {locale === 'ar' ? (
             <>
               {currentSlide.titleAr} <br className="hidden sm:block" />
@@ -127,17 +127,17 @@ export const HeroSection: React.FC = () => {
 
         {/* Dynamic Subtitle */}
         {(currentSlide.subtitleAr || currentSlide.subtitleEn) && (
-          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl leading-relaxed mb-8 font-medium drop-shadow-md">
+          <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-2xl leading-relaxed mb-8 font-medium">
             {locale === 'ar' ? currentSlide.subtitleAr : currentSlide.subtitleEn}
           </p>
         )}
 
-        {/* Dynamic Action CTAs */}
+        {/* Dynamic Action CTAs (Minimal Soft Shadow) */}
         <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
-          {/* Primary CTA (Growth Gradient) */}
+          {/* Primary CTA */}
           <Link
             to={getLocalizedPath(currentSlide.ctaLink || '/projects')}
-            className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_4px_25px_rgba(16,185,129,0.35)] border border-[#10B981]/50 transition-all transform hover:scale-105 cursor-pointer group"
+            className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#0B4F26] to-[#10B981] hover:brightness-110 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-xs hover:shadow-md border border-[#10B981]/50 transition-all transform hover:scale-105 cursor-pointer group"
           >
             <span>
               {locale === 'ar'
@@ -147,10 +147,10 @@ export const HeroSection: React.FC = () => {
             <Arrow className="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
           </Link>
 
-          {/* Secondary CTA (Governance) */}
+          {/* Secondary CTA */}
           <Link
             to={getLocalizedPath('/governance')}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/60 text-sm sm:text-base font-bold px-7 py-3.5 rounded-full backdrop-blur-md transition-all cursor-pointer hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 hover:border-white/60 text-sm sm:text-base font-bold px-7 py-3.5 rounded-full backdrop-blur-xs transition-all cursor-pointer hover:scale-105"
           >
             <Compass className="w-4 h-4 text-[#FACC15]" />
             <span>{locale === 'ar' ? 'لوائح الحوكمة' : 'Governance'}</span>
@@ -158,14 +158,14 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Left / Right Floating Navigation Arrows */}
+      {/* 3. Left / Right Floating Navigation Arrows (Soft Shadow) */}
       {slides.length > 1 && (
         <>
           <div className="absolute inset-y-0 start-4 sm:start-8 z-20 flex items-center pointer-events-none">
             <button
               type="button"
               onClick={prevSlide}
-              className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
+              className="p-3 sm:p-3.5 rounded-full bg-black/30 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-xs transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-xs"
               aria-label={locale === 'ar' ? 'الشريحة السابقة' : 'Previous Slide'}
             >
               <PrevArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0.5" />
@@ -176,7 +176,7 @@ export const HeroSection: React.FC = () => {
             <button
               type="button"
               onClick={nextSlide}
-              className="p-3 sm:p-3.5 rounded-full bg-black/40 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-md transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-lg"
+              className="p-3 sm:p-3.5 rounded-full bg-black/30 hover:bg-[#0B4F26] text-white/90 hover:text-white border border-white/20 hover:border-[#10B981] backdrop-blur-xs transition-all pointer-events-auto cursor-pointer group hover:scale-110 shadow-xs"
               aria-label={locale === 'ar' ? 'الشريحة التالية' : 'Next Slide'}
             >
               <NextArrow className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
@@ -190,7 +190,7 @@ export const HeroSection: React.FC = () => {
         <button
           type="button"
           onClick={scrollToContent}
-          className="w-11 h-11 rounded-full bg-black/40 hover:bg-[#0B4F26] backdrop-blur-md text-white border border-white/20 hover:border-[#10B981] flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-110 active:scale-95"
+          className="w-11 h-11 rounded-full bg-black/30 hover:bg-[#0B4F26] backdrop-blur-xs text-white border border-white/20 hover:border-[#10B981] flex items-center justify-center transition-all duration-300 cursor-pointer group shadow-2xs hover:scale-110 active:scale-95"
           aria-label={locale === 'ar' ? 'التمرير للأسفل' : 'Scroll down'}
         >
           <ChevronDown className="w-5 h-5 text-[#10B981] stroke-[2.5] group-hover:translate-y-0.5 transition-transform duration-300" />
@@ -207,7 +207,7 @@ export const HeroSection: React.FC = () => {
               onClick={() => setCurrentSlideIndex(idx)}
               className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                 idx === currentSlideIndex
-                  ? 'w-9 bg-gradient-to-r from-[#0B4F26] to-[#10B981] border border-white/30 shadow-md'
+                  ? 'w-9 bg-gradient-to-r from-[#0B4F26] to-[#10B981] border border-white/30 shadow-2xs'
                   : 'w-2.5 bg-white/35 hover:bg-white/70'
               }`}
               aria-label={`Slide ${idx + 1}`}
