@@ -30,7 +30,7 @@ export const ShareholderInquiryForm: React.FC = () => {
 
   return (
     <div className="bg-white rounded-2xl p-6 sm:p-8 ">
-      <h3 className="text-xl font-bold text-[#0F172A] mb-2">
+      <h3 className="text-xl font-bold text-[#0B4F26] mb-2">
         {t.membersPage.inquiryFormTitle}
       </h3>
       <p className="text-xs text-[#68736F] mb-6">
@@ -74,7 +74,7 @@ export const ShareholderInquiryForm: React.FC = () => {
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 placeholder={locale === 'ar' ? 'الاسم كما هو مدون بالهوية الوطنية' : 'Name per National ID'}
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
               />
             </div>
 
@@ -91,7 +91,7 @@ export const ShareholderInquiryForm: React.FC = () => {
                 value={formData.nationalId}
                 onChange={(e) => setFormData({ ...formData, nationalId: e.target.value })}
                 placeholder="10XXXXXXXX"
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ export const ShareholderInquiryForm: React.FC = () => {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="05XXXXXXXX"
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
               />
             </div>
 
@@ -121,7 +121,7 @@ export const ShareholderInquiryForm: React.FC = () => {
                 id="sh-type"
                 value={formData.inquiryType}
                 onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
+                className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26]"
               >
                 <option value="dividends">{locale === 'ar' ? 'استفسار عن صرف الأرباح' : 'Dividend Payout Status'}</option>
                 <option value="certificate">{locale === 'ar' ? 'طلب شهادة مساهمة رسمية' : 'Share Certificate Request'}</option>
@@ -142,7 +142,7 @@ export const ShareholderInquiryForm: React.FC = () => {
               value={formData.notes}
               onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               placeholder={locale === 'ar' ? 'اكتب تفاصيل طلبك مع ذكر رقم العضوية إن وجد...' : 'Provide details including member number if available...'}
-              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26] resize-none"
+              className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26] resize-none"
             />
           </div>
 

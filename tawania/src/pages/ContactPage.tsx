@@ -38,7 +38,7 @@ export const ContactPage: React.FC = () => {
           {/* Contact Details & Map Card (5 cols) */}
           <div className="lg:col-span-5 space-y-6 text-start">
             <div className="bg-white rounded-3xl p-8 shadow-xs space-y-6">
-              <h2 className="text-xl font-bold text-[#0F172A]">
+              <h2 className="text-xl font-bold text-[#0B4F26]">
                 {locale === 'ar' ? (contactSettings?.hqTitleAr || 'المقر الرئيسي للإدارة') : (contactSettings?.hqTitleEn || 'Headquarters & Main Office')}
               </h2>
 
@@ -48,7 +48,7 @@ export const ContactPage: React.FC = () => {
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#0F172A] block mb-0.5">
+                    <span className="font-bold text-[#0B4F26] block mb-0.5">
                       {locale === 'ar' ? 'العنوان والمقر' : 'Address & Location'}
                     </span>
                     <p className="text-[#68736F] leading-relaxed">
@@ -62,7 +62,7 @@ export const ContactPage: React.FC = () => {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#0F172A] block mb-0.5">
+                    <span className="font-bold text-[#0B4F26] block mb-0.5">
                       {locale === 'ar' ? 'الهاتف المباشر' : 'Direct Phone'}
                     </span>
                     <a
@@ -79,7 +79,7 @@ export const ContactPage: React.FC = () => {
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#0F172A] block mb-0.5">
+                    <span className="font-bold text-[#0B4F26] block mb-0.5">
                       {locale === 'ar' ? 'البريد الإلكتروني' : 'Email Address'}
                     </span>
                     <a
@@ -96,7 +96,7 @@ export const ContactPage: React.FC = () => {
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="font-bold text-[#0F172A] block mb-0.5">
+                    <span className="font-bold text-[#0B4F26] block mb-0.5">
                       {locale === 'ar' ? 'ساعات العمل الرسمية' : 'Working Hours'}
                     </span>
                     <p className="text-[#68736F] leading-relaxed">
@@ -124,7 +124,7 @@ export const ContactPage: React.FC = () => {
                     href={contactSettings?.instagramUrl || 'https://instagram.com/shamel_coo'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B4F26] hover:bg-[#E8F7F0] text-xs font-semibold text-[#0F172A] transition-colors"
+                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B4F26] hover:bg-[#E8F7F0] text-xs font-semibold text-[#0B4F26] transition-colors"
                   >
                     <Instagram className="w-4 h-4 text-[#E1306C]" />
                     <span>{contactSettings?.instagramHandle || '@shamel_coo'}</span>
@@ -133,7 +133,7 @@ export const ContactPage: React.FC = () => {
                     href={contactSettings?.twitterUrl || 'https://x.com/shamel_coo'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B4F26] hover:bg-[#E8F7F0] text-xs font-semibold text-[#0F172A] transition-colors"
+                    className="flex items-center justify-center gap-2 p-2.5 rounded-xl bg-[#F7F8F6] hover:border-[#0B4F26] hover:bg-[#E8F7F0] text-xs font-semibold text-[#0B4F26] transition-colors"
                   >
                     <Twitter className="w-4 h-4 text-[#1DA1F2]" />
                     <span>{contactSettings?.twitterHandle || '@shamel_coo'}</span>
@@ -144,7 +144,7 @@ export const ContactPage: React.FC = () => {
 
             {/* Map Preview Card */}
             <div className="bg-white rounded-3xl overflow-hidden shadow-xs">
-              <div className="p-4 bg-[#F7F8F6] border-b border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0F172A]">
+              <div className="p-4 bg-[#F7F8F6] border-b border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-[#0B4F26]" />
                   <span>{locale === 'ar' ? 'موقع الجمعية على الخريطة' : 'Map Coordinates'}</span>
@@ -158,7 +158,7 @@ export const ContactPage: React.FC = () => {
                   {locale === 'ar' ? 'فتح في خرائط Google' : 'Google Maps'} →
                 </a>
               </div>
-              <div className="h-48 bg-gradient-to-br from-[#0F172A] to-[#0B211C] relative overflow-hidden flex items-center justify-center text-center p-4">
+              <div className="h-48 bg-gradient-to-br from-[#0B4F26] to-[#0B211C] relative overflow-hidden flex items-center justify-center text-center p-4">
                 <img
                   src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80"
                   alt="Jeddah Satellite"

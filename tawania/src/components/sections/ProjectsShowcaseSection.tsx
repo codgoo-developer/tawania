@@ -25,7 +25,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
     : (projectsHeader?.descEn || 'AlShamel Cooperative has established diverse impactful projects across various sectors since inception, including marketing, consumer markets, distribution, packaging facilities, and feed & agricultural development.');
 
   return (
-    <section id="projects-overview-section" className="py-20 sm:py-28 bg-[#FBFDFB] relative border-t border-[#0F172A]/5">
+    <section id="projects-overview-section" className="py-20 sm:py-28 bg-[#FBFDFB] relative border-t border-[#0B4F26]/5">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header with dynamic description */}
@@ -90,14 +90,14 @@ export const ProjectsShowcaseSection: React.FC = () => {
                 </h3>
 
                 {project.description && (
-                  <p className="text-xs sm:text-sm font-medium text-[#0F172A] leading-relaxed text-start">
+                  <p className="text-xs sm:text-sm font-medium text-[#0B4F26] leading-relaxed text-start">
                     {project.description}
                   </p>
                 )}
 
                 {project.subDescription && (
                   <div className="p-3.5 rounded-2xl bg-[#F4FAF7] border border-[#0B4F26]/15 text-start">
-                    <p className="text-xs font-semibold text-[#0F172A] leading-relaxed whitespace-pre-line text-start">
+                    <p className="text-xs font-semibold text-[#0B4F26] leading-relaxed whitespace-pre-line text-start">
                       {project.subDescription}
                     </p>
                   </div>
@@ -108,7 +108,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
                     {project.features.map((feat, idx) => (
                       <div
                         key={idx}
-                        className="flex items-start gap-2.5 text-xs font-semibold text-[#0F172A] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100"
+                        className="flex items-start gap-2.5 text-xs font-semibold text-[#0B4F26] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100"
                       >
                         <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                         <span className="leading-snug text-start flex-1">{feat}</span>
@@ -121,7 +121,7 @@ export const ProjectsShowcaseSection: React.FC = () => {
               <div className="p-4 sm:p-5 bg-gradient-to-b from-[#F2F8F5] to-[#E8F4EF] border-t border-[#0B4F26]/15 text-start">
                 <div className="flex items-center gap-2 mb-1">
                   <Building2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
-                  <p className="text-xs font-bold text-[#0F172A] tracking-tight leading-tight text-start">
+                  <p className="text-xs font-bold text-[#0B4F26] tracking-tight leading-tight text-start">
                     {project.societyNameAr || 'الجمعية التعاونية متعددة اغراض رضا بمحافظة الجموم'}
                   </p>
                 </div>

@@ -58,7 +58,7 @@ export const NewsPage: React.FC = () => {
                 onClick={() => setSelectedCat(cat.key)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCat === cat.key
                     ? 'bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white shadow-xs'
-                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-[#0F172A]/5'
+                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-[#0B4F26]/5'
                   }`}
               >
                 {cat.label}
@@ -73,7 +73,7 @@ export const NewsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في الأخبار...' : 'Search news...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#0F172A]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#0B4F26]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
             />
           </div>
         </div>
@@ -85,14 +85,14 @@ export const NewsPage: React.FC = () => {
               key={item.slug}
               className="bg-white rounded-2xl overflow-hidden shadow-xs hover:shadow-md hover:border-[#0B4F26]/30 transition-all duration-300 flex flex-col group"
             >
-              <div className="relative h-52 bg-gradient-to-br from-[#0F172A] to-[#0B211C] overflow-hidden">
+              <div className="relative h-52 bg-gradient-to-br from-[#0B4F26] to-[#0B211C] overflow-hidden">
                 <img
                   src={item.image}
                   alt={getLocalized(item.title)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B4F26]/80 via-transparent to-transparent" />
                 <div className="absolute top-3 start-3">
                   <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-gradient-to-br from-[#0B4F26] to-[#10B981] text-white">
                     {getLocalized(item.category)}
@@ -114,7 +114,7 @@ export const NewsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] transition-colors leading-snug line-clamp-2">
                     {getLocalized(item.title)}
                   </h3>
 
@@ -125,7 +125,7 @@ export const NewsPage: React.FC = () => {
 
                 <Link
                   to={getLocalizedPath(`/news/${item.slug}`)}
-                  className="pt-3 border-t border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26] group-hover:underline"
+                  className="pt-3 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26] group-hover:underline"
                 >
                   <span>{t.common.readMore}</span>
                   <Arrow className="w-4 h-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
@@ -135,7 +135,7 @@ export const NewsPage: React.FC = () => {
           ))}
 
           {filteredNews.length === 0 && (
-            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-2xl border border-[#0F172A]/10">
+            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-2xl border border-[#0B4F26]/10">
               <p className="text-sm">{t.common.noResults}</p>
             </div>
           )}

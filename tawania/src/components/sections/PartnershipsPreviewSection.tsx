@@ -18,7 +18,7 @@ export const PartnershipsPreviewSection: React.FC = () => {
               <Handshake className="w-3.5 h-3.5 text-[#F59E0B]" />
               <span>{t.partnershipsSection.badge}</span>
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B4F26] tracking-tight">
               {t.partnershipsSection.title}
             </h2>
             <p className="text-base sm:text-lg text-[#68736F] mt-2">
@@ -52,7 +52,7 @@ export const PartnershipsPreviewSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-sm font-bold text-[#0F172A] mb-2 leading-snug">
+                <h3 className="text-sm font-bold text-[#0B4F26] mb-2 leading-snug">
                   {getLocalized(partner.partnerName)}
                 </h3>
 
@@ -61,7 +61,7 @@ export const PartnershipsPreviewSection: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#0F172A]/10 text-[11px] font-medium text-[#0B4F26] flex items-center gap-1.5">
+              <div className="mt-4 pt-3 border-t border-[#0B4F26]/10 text-[11px] font-medium text-[#0B4F26] flex items-center gap-1.5">
                 <CheckCircle className="w-3.5 h-3.5" />
                 <span>{getLocalized(partner.type)}</span>
               </div>

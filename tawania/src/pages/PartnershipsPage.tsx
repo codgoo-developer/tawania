@@ -51,7 +51,7 @@ export const PartnershipsPage: React.FC = () => {
                   <span className="text-xs font-bold text-[#F59E0B] block mb-1">
                     {getLocalized(partner.type)}
                   </span>
-                  <h3 className="text-lg font-bold text-[#0F172A]">
+                  <h3 className="text-lg font-bold text-[#0B4F26]">
                     {getLocalized(partner.partnerName)}
                   </h3>
                 </div>
@@ -62,7 +62,7 @@ export const PartnershipsPage: React.FC = () => {
 
                 {/* Scope list */}
                 {partner.scope && partner.scope.length > 0 && (
-                  <div className="space-y-2 pt-2 border-t border-[#0F172A]/5">
+                  <div className="space-y-2 pt-2 border-t border-[#0B4F26]/5">
                     {partner.scope.map((sc, scIdx) => (
                       <div key={scIdx} className="flex items-start gap-2 text-xs text-[#17211E]">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0 mt-0.5" />
@@ -73,7 +73,7 @@ export const PartnershipsPage: React.FC = () => {
                 )}
               </div>
 
-              <div className="pt-4 border-t border-[#0F172A]/5 flex items-center justify-between text-xs text-[#68736F]">
+              <div className="pt-4 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs text-[#68736F]">
                 <div className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-[#0B4F26]" />
                   <span>{locale === 'ar' ? 'سنة التوقيع:' : 'Year:'} {partner.year}</span>
@@ -91,7 +91,7 @@ export const PartnershipsPage: React.FC = () => {
 
       {/* Call for Partnership */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-[#0F172A] to-[#0B211C] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0B4F26] to-[#0B211C] text-white rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-geo-dark opacity-30 pointer-events-none" />
           <div className="relative max-w-2xl mx-auto space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold text-white">

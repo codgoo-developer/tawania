@@ -142,7 +142,7 @@ export const LoginPage: React.FC = () => {
           
           {/* Title & Welcome */}
           <div className="text-start space-y-1.5">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0F172A] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0B4F26] tracking-tight">
               {locale === 'ar' ? 'تسجيل الدخول' : 'Sign In'}
             </h1>
             <p className="text-sm text-gray-500 leading-relaxed font-medium">

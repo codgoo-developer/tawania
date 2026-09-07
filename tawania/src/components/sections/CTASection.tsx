@@ -9,7 +9,7 @@ export const CTASection: React.FC = () => {
   const Arrow = dir === 'rtl' ? ArrowLeft : ArrowRight;
 
   return (
-    <section id="cta-section" className="py-20 sm:py-28 bg-gradient-to-br from-[#0F172A] to-[#0B211C] text-white relative overflow-hidden">
+    <section id="cta-section" className="py-20 sm:py-28 bg-gradient-to-br from-[#0B4F26] to-[#0B211C] text-white relative overflow-hidden">
       {/* Background Shapes */}
       <div className="absolute inset-0 bg-geo-dark opacity-40 pointer-events-none" />
       <div className="absolute top-0 end-0 w-96 h-96 bg-[#0B4F26]/30 rounded-full blur-3xl pointer-events-none" />

@@ -46,12 +46,12 @@ export const StrategicGoalsPage: React.FC = () => {
                   <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] flex items-center justify-center">
                     {getGoalIcon(goal.iconName)}
                   </div>
-                  <span className="text-sm font-black text-[#0F172A] bg-[#F59E0B]/20 px-3 py-1 rounded-lg font-mono">
+                  <span className="text-sm font-black text-[#0B4F26] bg-[#F59E0B]/20 px-3 py-1 rounded-lg font-mono">
                     {locale === 'ar' ? `الهدف #${goal.number}` : `Goal #${goal.number}`}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-snug">
+                <h3 className="text-xl font-bold text-[#0B4F26] mb-3 leading-snug">
                   {getLocalized(goal.title)}
                 </h3>
 
@@ -61,7 +61,7 @@ export const StrategicGoalsPage: React.FC = () => {
               </div>
 
               {/* Focus Pillars */}
-              <div className="pt-4 border-t border-[#0F172A]/5 space-y-2">
+              <div className="pt-4 border-t border-[#0B4F26]/5 space-y-2">
                 <span className="text-xs font-semibold text-[#0B4F26] block">
                   {locale === 'ar' ? 'مؤشرات التنفيذ والأثر' : 'Execution & Impact Indicators'}
                 </span>

@@ -142,7 +142,7 @@ export const FeedbackPage: React.FC = () => {
         <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xs space-y-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-[#0F172A] flex items-center gap-2">
+              <h2 className="text-xl sm:text-2xl font-black text-[#0B4F26] flex items-center gap-2">
                 <Globe className="w-6 h-6 text-[#0B4F26]" />
                 {locale === 'ar' ? 'منصات التغذية الراجعة والتقييمات المعتمدة' : 'Official Feedback & Review Platforms'}
               </h2>
@@ -277,7 +277,7 @@ export const FeedbackPage: React.FC = () => {
                       <ShieldCheck className="w-3.5 h-3.5 text-[#0B4F26]" />
                       <span>{item.platformName}</span>
                     </div>
-                    <h3 className="font-black text-base text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
+                    <h3 className="font-black text-base text-[#0B4F26] group-hover:text-[#0B4F26] transition-colors leading-snug">
                       {title}
                     </h3>
                   </div>

@@ -110,7 +110,7 @@ export const AlShamelHeroBanner: React.FC<AlShamelHeroBannerProps> = ({
       <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
         {/* Left Side (in RTL: right side): AlShamel Cooperative Logo */}
         <div className="flex items-center justify-center shrink-0">
-          <AlShamelLogo size={isCompact ? 'md' : 'lg'} variant="full" textColor="#0F172A" />
+          <AlShamelLogo size={isCompact ? 'md' : 'lg'} variant="full" textColor="#0B4F26" />
         </div>
 
         {/* Center Vertical Divider (on desktop) */}

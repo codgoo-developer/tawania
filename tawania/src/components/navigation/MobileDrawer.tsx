@@ -82,7 +82,7 @@ export const MobileDrawer: React.FC<{
   return (
     <div
       id="mobile-nav-drawer"
-      className="fixed inset-0 z-50 flex bg-[#0F172A]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex bg-[#0B4F26]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -91,7 +91,7 @@ export const MobileDrawer: React.FC<{
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drawer Header */}
-        <div className="p-4 border-b border-[#0F172A]/10 flex items-center justify-between bg-[#073519] text-white">
+        <div className="p-4 border-b border-[#0B4F26]/10 flex items-center justify-between bg-[#073519] text-white">
           <AlShamelLogo size="xs" textColor="#FFFFFF" />
           <button
             type="button"
@@ -104,14 +104,14 @@ export const MobileDrawer: React.FC<{
         </div>
 
         {/* Quick Search Action */}
-        <div className="p-3 border-b border-[#0F172A]/10 bg-[#F7F8F6]">
+        <div className="p-3 border-b border-[#0B4F26]/10 bg-[#F7F8F6]">
           <button
             type="button"
             onClick={() => {
               onClose();
               onOpenSearch();
             }}
-            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-medium bg-white rounded-xl border border-[#0F172A]/15 text-[#68736F] shadow-2xs text-start hover:border-[#0B4F26] transition-colors cursor-pointer"
+            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-medium bg-white rounded-xl border border-[#0B4F26]/15 text-[#68736F] shadow-2xs text-start hover:border-[#0B4F26] transition-colors cursor-pointer"
           >
             <Search className="w-4 h-4 text-[#0B4F26]" />
             <span>{t.common.search}</span>
@@ -265,7 +265,7 @@ export const MobileDrawer: React.FC<{
         </div>
 
         {/* Drawer Footer with Complete Contact Info */}
-        <div className="p-3.5 border-t border-[#0F172A]/10 bg-[#F7F8F6] space-y-2.5">
+        <div className="p-3.5 border-t border-[#0B4F26]/10 bg-[#F7F8F6] space-y-2.5">
           {/* Quick Action Buttons: WhatsApp & Phone */}
           <div className="grid grid-cols-2 gap-2">
             <a
@@ -279,7 +279,7 @@ export const MobileDrawer: React.FC<{
             </a>
             <a
               href={`tel:${phoneNum}`}
-              className="flex items-center justify-center gap-1.5 py-2 px-2.5 bg-white border border-[#0F172A]/15 text-[#0F172A] rounded-xl text-xs font-mono font-bold hover:text-[#0B4F26]"
+              className="flex items-center justify-center gap-1.5 py-2 px-2.5 bg-white border border-[#0B4F26]/15 text-[#0B4F26] rounded-xl text-xs font-mono font-bold hover:text-[#0B4F26]"
               dir="ltr"
             >
               <Phone className="w-3.5 h-3.5 text-[#F59E0B]" />
@@ -335,7 +335,7 @@ export const MobileDrawer: React.FC<{
                 setLocale(locale === 'ar' ? 'en' : 'ar');
                 onClose();
               }}
-              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 bg-white border border-[#0F172A]/15 rounded-lg text-[#0B4F26] cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 bg-white border border-[#0B4F26]/15 rounded-lg text-[#0B4F26] cursor-pointer"
             >
               <Globe className="w-3.5 h-3.5" />
               <span>{locale === 'ar' ? 'English' : 'العربية'}</span>

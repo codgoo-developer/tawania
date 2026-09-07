@@ -105,7 +105,7 @@ export const ReportsPage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Year Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
-              <span className="text-xs font-bold text-[#0F172A] me-2 shrink-0">
+              <span className="text-xs font-bold text-[#0B4F26] me-2 shrink-0">
                 {t.reportsPage.filterYear}:
               </span>
               {years.map((yr) => (
@@ -131,7 +131,7 @@ export const ReportsPage: React.FC = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={locale === 'ar' ? 'بحث في التقارير...' : 'Search reports...'}
-                className="w-full ps-9 pe-4 py-2.5 text-xs rounded-xl border border-[#0F172A]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
+                className="w-full ps-9 pe-4 py-2.5 text-xs rounded-xl border border-[#0B4F26]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
               />
             </div>
           </div>
@@ -162,7 +162,7 @@ export const ReportsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-[#0F172A] leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-[#0B4F26] leading-snug">
                     {getLocalized(report.title)}
                   </h3>
 
@@ -201,7 +201,7 @@ export const ReportsPage: React.FC = () => {
           ))}
 
           {filteredReports.length === 0 && (
-            <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0F172A]/10">
+            <div className="py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0B4F26]/10">
               <p className="text-sm">{t.common.noResults}</p>
             </div>
           )}
@@ -211,7 +211,7 @@ export const ReportsPage: React.FC = () => {
       {/* PDF Document Preview Modal using PdfDocumentViewer */}
       {selectedReportForView && (
         <div
-          className="fixed inset-0 z-50 bg-[#0F172A]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-[#0B4F26]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedReportForView(null)}
         >
           <div

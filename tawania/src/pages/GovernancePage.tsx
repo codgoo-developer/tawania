@@ -515,7 +515,7 @@ export const GovernancePage: React.FC = () => {
               <div key={section.id} className="space-y-10">
                 {/* Main Parent Section Title */}
                 <div className="text-center space-y-2">
-                  <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#0B4F26] tracking-tight">
                     {locale === 'ar' ? section.titleAr : section.titleEn}
                   </h2>
                   <div className="w-16 h-1 bg-[#0B4F26] mx-auto rounded-full" />

@@ -66,7 +66,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
   return (
     <div
       id="global-search-modal"
-      className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 md:p-20 bg-[#0F172A]/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-6 md:p-20 bg-[#0B4F26]/60 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -74,7 +74,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Header */}
-        <form onSubmit={handleFullSearch} className="p-4 border-b border-[#0F172A]/10 flex items-center gap-3">
+        <form onSubmit={handleFullSearch} className="p-4 border-b border-[#0B4F26]/10 flex items-center gap-3">
           <Search className="w-5 h-5 text-[#0B4F26] shrink-0" />
           <input
             ref={inputRef}
@@ -175,7 +175,7 @@ export const GlobalSearchModal: React.FC<{ isOpen: boolean; onClose: () => void 
         </div>
 
         {/* Search Footer */}
-        <div className="p-3 bg-[#F7F8F6] border-t border-[#0F172A]/10 text-xs text-[#68736F] flex items-center justify-between">
+        <div className="p-3 bg-[#F7F8F6] border-t border-[#0B4F26]/10 text-xs text-[#68736F] flex items-center justify-between">
           <span>{locale === 'ar' ? 'اضغط Enter للبحث الشامل' : 'Press Enter for full search results'}</span>
           <button
             type="button"

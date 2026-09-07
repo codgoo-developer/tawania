@@ -112,7 +112,7 @@ export const DocumentsPage: React.FC = () => {
                 onClick={() => setSelectedCategory(cat.key)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${selectedCategory === cat.key
                     ? 'bg-[#0B4F26] text-white shadow-xs'
-                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-[#0F172A]/5'
+                    : 'bg-[#F7F8F6] text-[#68736F] hover:bg-[#E8F7F0] hover:text-[#0B4F26] border border-[#0B4F26]/5'
                   }`}
               >
                 {cat.label}
@@ -127,7 +127,7 @@ export const DocumentsPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={locale === 'ar' ? 'بحث في اللوائح والنماذج...' : 'Search bylaws and forms...'}
-              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#0F172A]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
+              className="w-full ps-9 pe-4 py-2 text-xs rounded-xl border border-[#0B4F26]/15 bg-[#F7F8F6] text-[#17211E] outline-none focus:border-[#0B4F26] focus:bg-white"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export const DocumentsPage: React.FC = () => {
                   <span className="text-[10px] font-bold text-[#0B4F26] block">
                     {getLocalized(doc.categoryName)}
                   </span>
-                  <h3 className="text-base font-bold text-[#0F172A] leading-snug">
+                  <h3 className="text-base font-bold text-[#0B4F26] leading-snug">
                     {getLocalized(doc.title)}
                   </h3>
                 </div>
@@ -169,7 +169,7 @@ export const DocumentsPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#0F172A]/5 flex items-center justify-between gap-2">
+              <div className="mt-6 pt-4 border-t border-[#0B4F26]/5 flex items-center justify-between gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedDocForView(doc)}
@@ -192,7 +192,7 @@ export const DocumentsPage: React.FC = () => {
           ))}
 
           {filteredDocs.length === 0 && (
-            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0F172A]/10">
+            <div className="col-span-full py-16 text-center text-[#68736F] bg-white rounded-3xl border border-[#0B4F26]/10">
               <p className="text-sm">{t.common.noResults}</p>
             </div>
           )}
@@ -202,7 +202,7 @@ export const DocumentsPage: React.FC = () => {
       {/* PDF Document Preview Modal using PdfDocumentViewer */}
       {selectedDocForView && (
         <div
-          className="fixed inset-0 z-50 bg-[#0F172A]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-[#0B4F26]/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 animate-in fade-in duration-200"
           onClick={() => setSelectedDocForView(null)}
         >
           <div

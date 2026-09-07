@@ -99,7 +99,7 @@ export const ProjectsPage: React.FC = () => {
 
                   {/* Description (Optional) */}
                   {project.description && (
-                    <p className="text-xs sm:text-sm font-medium text-[#0F172A] leading-relaxed text-start">
+                    <p className="text-xs sm:text-sm font-medium text-[#0B4F26] leading-relaxed text-start">
                       {project.description}
                     </p>
                   )}
@@ -107,7 +107,7 @@ export const ProjectsPage: React.FC = () => {
                   {/* Sub Description / Dates (Optional) - styled callout box */}
                   {project.subDescription && (
                     <div className="p-3.5 rounded-2xl bg-[#F4FAF7] border border-[#0B4F26]/15 text-start">
-                      <p className="text-xs font-semibold text-[#0F172A] leading-relaxed whitespace-pre-line text-start">
+                      <p className="text-xs font-semibold text-[#0B4F26] leading-relaxed whitespace-pre-line text-start">
                         {project.subDescription}
                       </p>
                     </div>
@@ -123,7 +123,7 @@ export const ProjectsPage: React.FC = () => {
                         {project.features.map((feat, idx) => (
                           <div
                             key={idx}
-                            className="flex items-start gap-2.5 text-xs font-semibold text-[#0F172A] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100 group-hover:border-[#0B4F26]/15 transition-colors"
+                            className="flex items-start gap-2.5 text-xs font-semibold text-[#0B4F26] text-start bg-gray-50/70 p-2 rounded-xl border border-gray-100 group-hover:border-[#0B4F26]/15 transition-colors"
                           >
                             <CheckCircle2 className="w-4 h-4 text-[#10B981] shrink-0 mt-0.5" />
                             <span className="leading-snug text-start flex-1">{feat}</span>
@@ -138,7 +138,7 @@ export const ProjectsPage: React.FC = () => {
                 <div className="p-4 sm:p-5 bg-gradient-to-b from-[#F2F8F5] to-[#E8F4EF] border-t border-[#0B4F26]/15 text-start">
                   <div className="flex items-center gap-2 mb-1">
                     <Building2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />
-                    <p className="text-xs sm:text-[12px] font-bold text-[#0F172A] tracking-tight leading-tight text-start">
+                    <p className="text-xs sm:text-[12px] font-bold text-[#0B4F26] tracking-tight leading-tight text-start">
                       {project.societyNameAr || 'الجمعية التعاونية متعددة اغراض رضا بمحافظة الجموم'}
                     </p>
                   </div>

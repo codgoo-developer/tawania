@@ -246,7 +246,7 @@ export const WhistleblowingPage: React.FC = () => {
               {userEmail ? userEmail.slice(0, 2) : 'AS'}
             </div>
             <div>
-              <span className="font-semibold text-[#0F172A]">{userEmail}</span>
+              <span className="font-semibold text-[#0B4F26]">{userEmail}</span>
               <button
                 type="button"
                 onClick={() => {
@@ -382,7 +382,7 @@ export const WhistleblowingPage: React.FC = () => {
               <span className="text-xs font-bold text-[#0B4F26] uppercase tracking-wider">
                 تم حفظ وإرسال البلاغ بنجاح
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A]">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0B4F26]">
                 شكراً لمشاركتك وتعاونك
               </h2>
               <p className="text-sm text-[#68736F] max-w-lg mx-auto leading-relaxed">
@@ -392,17 +392,17 @@ export const WhistleblowingPage: React.FC = () => {
 
             {/* Reference Box */}
             <div className="bg-[#F8FAF8] rounded-2xl p-6 max-w-lg mx-auto text-start space-y-3 text-sm">
-              <div className="flex justify-between items-center pb-3 border-b border-[#0F172A]/10">
+              <div className="flex justify-between items-center pb-3 border-b border-[#0B4F26]/10">
                 <span className="text-xs text-gray-500 font-bold">الرقم المرجعي للبلاغ:</span>
                 <span className="font-mono font-black text-[#0B4F26] text-lg">{referenceCode}</span>
               </div>
               <div className="flex justify-between items-center text-xs">
                 <span className="text-gray-600">نوع المخالفة:</span>
-                <span className="font-bold text-[#0F172A]">{violationType}</span>
+                <span className="font-bold text-[#0B4F26]">{violationType}</span>
               </div>
               <div className="flex justify-between items-center text-xs">
                 <span className="text-gray-600">المرتكب المسجل:</span>
-                <span className="font-bold text-[#0F172A]">{offenderName}</span>
+                <span className="font-bold text-[#0B4F26]">{offenderName}</span>
               </div>
             </div>
 
@@ -432,7 +432,7 @@ export const WhistleblowingPage: React.FC = () => {
                 {/* SECTION 1: معلومات مقدم البلاغ */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
-                    <h2 className="text-lg font-black text-[#0F172A] flex items-center gap-2">
+                    <h2 className="text-lg font-black text-[#0B4F26] flex items-center gap-2">
                       <User className="w-5 h-5 text-[#0B4F26]" />
                       <span>معلومات مقدم البلاغ</span>
                     </h2>
@@ -443,7 +443,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الاسم
                       </label>
                       <input
@@ -451,11 +451,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterName}
                         onChange={(e) => setReporterName(e.target.value)}
                         placeholder="اختياري (مثال: محمد العمري)"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الدور الوظيفي
                       </label>
                       <input
@@ -463,11 +463,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterRole}
                         onChange={(e) => setReporterRole(e.target.value)}
                         placeholder="اختياري (مثال: موظف / مساهم)"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الإدارة
                       </label>
                       <input
@@ -475,11 +475,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterDept}
                         onChange={(e) => setReporterDept(e.target.value)}
                         placeholder="اختياري (مثال: المبيعات)"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         معلومات صندوق البريد
                       </label>
                       <input
@@ -487,11 +487,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterPoBox}
                         onChange={(e) => setReporterPoBox(e.target.value)}
                         placeholder="اختياري"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div data-error={!!errors.reporterPhone}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         رقم الهاتف <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -499,7 +499,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterPhone}
                         onChange={(e) => setReporterPhone(e.target.value)}
                         placeholder="05xxxxxxxx"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-mono font-bold"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-mono font-bold"
                       />
                       {errors.reporterPhone && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -508,7 +508,7 @@ export const WhistleblowingPage: React.FC = () => {
                       )}
                     </div>
                     <div data-error={!!errors.reporterEmail}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         البريد الالكتروني <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -516,7 +516,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={reporterEmail}
                         onChange={(e) => setReporterEmail(e.target.value)}
                         placeholder="example@gmail.com"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-mono dir-ltr"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-mono dir-ltr"
                       />
                       {errors.reporterEmail && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -530,7 +530,7 @@ export const WhistleblowingPage: React.FC = () => {
                 {/* SECTION 2: معلومات مرتكب المخالفة */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
-                    <h2 className="text-lg font-black text-[#0F172A] flex items-center gap-2">
+                    <h2 className="text-lg font-black text-[#0B4F26] flex items-center gap-2">
                       <AlertCircle className="w-5 h-5 text-red-600" />
                       <span>معلومات مرتكب المخالفة</span>
                     </h2>
@@ -538,7 +538,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div data-error={!!errors.offenderName}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الاسم <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -546,7 +546,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={offenderName}
                         onChange={(e) => setOffenderName(e.target.value)}
                         placeholder="اسم الشخص المشتبه به"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                       {errors.offenderName && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -556,7 +556,7 @@ export const WhistleblowingPage: React.FC = () => {
                     </div>
 
                     <div data-error={!!errors.offenderRole}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الدور الوظيفي <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -564,7 +564,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={offenderRole}
                         onChange={(e) => setOffenderRole(e.target.value)}
                         placeholder="مثال: مدير مشتريات / محاسب"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                       {errors.offenderRole && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -574,7 +574,7 @@ export const WhistleblowingPage: React.FC = () => {
                     </div>
 
                     <div data-error={!!errors.offenderDept}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الإدارة <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -582,7 +582,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={offenderDept}
                         onChange={(e) => setOffenderDept(e.target.value)}
                         placeholder="مثال: الإدارة المالية"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                       {errors.offenderDept && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -592,7 +592,7 @@ export const WhistleblowingPage: React.FC = () => {
                     </div>
 
                     <div data-error={!!errors.offenderPhone}>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         رقم الهاتف <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -600,7 +600,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={offenderPhone}
                         onChange={(e) => setOffenderPhone(e.target.value)}
                         placeholder="05xxxxxxxx"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-mono font-bold"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-mono font-bold"
                       />
                       {errors.offenderPhone && (
                         <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -614,7 +614,7 @@ export const WhistleblowingPage: React.FC = () => {
                 {/* SECTION 3: معلومات الشهود إن وجدوا */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
-                    <h2 className="text-lg font-black text-[#0F172A] flex items-center gap-2">
+                    <h2 className="text-lg font-black text-[#0B4F26] flex items-center gap-2">
                       <UserCheck className="w-5 h-5 text-[#0B4F26]" />
                       <span>معلومات الشهود إن وجدوا</span>
                     </h2>
@@ -623,7 +623,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الاسم
                       </label>
                       <input
@@ -631,11 +631,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={witnessName}
                         onChange={(e) => setWitnessName(e.target.value)}
                         placeholder="اسم الشاهد إن وجد"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الدور الوظيفي
                       </label>
                       <input
@@ -643,11 +643,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={witnessRole}
                         onChange={(e) => setWitnessRole(e.target.value)}
                         placeholder="الوظيفة"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         الإدارة
                       </label>
                       <input
@@ -655,11 +655,11 @@ export const WhistleblowingPage: React.FC = () => {
                         value={witnessDept}
                         onChange={(e) => setWitnessDept(e.target.value)}
                         placeholder="الإدارة"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                      <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                         رقم الهاتف
                       </label>
                       <input
@@ -667,7 +667,7 @@ export const WhistleblowingPage: React.FC = () => {
                         value={witnessPhone}
                         onChange={(e) => setWitnessPhone(e.target.value)}
                         placeholder="05xxxxxxxx"
-                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-mono"
+                        className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-mono"
                       />
                     </div>
                   </div>
@@ -692,7 +692,7 @@ export const WhistleblowingPage: React.FC = () => {
               <div className="space-y-6">
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-5">
                   <div className="border-b border-gray-100 pb-4">
-                    <h2 className="text-lg font-black text-[#0F172A] flex items-center gap-2">
+                    <h2 className="text-lg font-black text-[#0B4F26] flex items-center gap-2">
                       <FileText className="w-5 h-5 text-[#0B4F26]" />
                       <span>تفاصيل المخالفة</span>
                     </h2>
@@ -700,7 +700,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 1. طبيعة ونوع المخالفة */}
                   <div data-error={!!errors.violationType}>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       طبيعة و نوع المخالفة <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -708,7 +708,7 @@ export const WhistleblowingPage: React.FC = () => {
                       value={violationType}
                       onChange={(e) => setViolationType(e.target.value)}
                       placeholder="إجابتك (مثال: مخالفات مالية / تعارض مصالح / رشوة / فساد إداري)"
-                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                     />
                     {errors.violationType && (
                       <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -720,7 +720,7 @@ export const WhistleblowingPage: React.FC = () => {
                   {/* 2. تاريخ ارتكاب المخالفة وتاريخ العلم بها (مع التقسيم التلقائي والتقويم) */}
                   <div data-error={!!errors.violationDate}>
                     <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-bold text-[#0F172A]">
+                      <label className="block text-xs font-bold text-[#0B4F26]">
                         تاريخ ارتكاب المخالفة و تاريخ العلم بها <span className="text-red-500">*</span>
                       </label>
                       <span className="text-[11px] text-[#0B4F26] font-bold">هجري أو ميلادي</span>
@@ -760,7 +760,7 @@ export const WhistleblowingPage: React.FC = () => {
                             setViolationDate(formatted + suffix);
                           }}
                           placeholder="DD / MM / YYYY (أدخل الأرقام وتظهر الفواصل آلياً)"
-                          className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-mono font-medium tracking-wider"
+                          className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-mono font-medium tracking-wider"
                         />
                       </div>
 
@@ -788,7 +788,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 3. مكان حدوث المخالفة */}
                   <div data-error={!!errors.violationLocation}>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       مكان حدوث المخالفة <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -796,7 +796,7 @@ export const WhistleblowingPage: React.FC = () => {
                       value={violationLocation}
                       onChange={(e) => setViolationLocation(e.target.value)}
                       placeholder="مثال: الإدارة المالية / الفرع الرئيسي / مجمع الثلاجة"
-                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                     />
                     {errors.violationLocation && (
                       <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -807,7 +807,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 4. بيانات أو مستندات تثبيت ارتكاب المخالفة */}
                   <div data-error={!!errors.violationEvidences}>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       بيانات او مستندات تثبيت ارتكاب المخالفة <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -826,7 +826,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 5. أسماء أشخاص آخرين اشتركوا في ارتكاب المخالفة */}
                   <div data-error={!!errors.accomplices}>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       أسماء أشخاص آخرين اشتركوا في ارتكاب المخالفة <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -834,7 +834,7 @@ export const WhistleblowingPage: React.FC = () => {
                       value={accomplices}
                       onChange={(e) => setAccomplices(e.target.value)}
                       placeholder="اذكر الأسماء أو اكتب لا يوجد"
-                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium"
+                      className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium"
                     />
                     {errors.accomplices && (
                       <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -845,7 +845,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 6. معلومات أو تفاصيل أخرى */}
                   <div>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       معلومات أو تفاصيل أخرى
                     </label>
                     <textarea
@@ -859,7 +859,7 @@ export const WhistleblowingPage: React.FC = () => {
 
                   {/* 7. ما هي النتائج المتوقعة من هذا البلاغ */}
                   <div data-error={!!errors.expectedOutcomes}>
-                    <label className="block text-xs font-bold text-[#0F172A] mb-2">
+                    <label className="block text-xs font-bold text-[#0B4F26] mb-2">
                       ماهي النتائج المتوقعة من هذا البلاغ <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -889,7 +889,7 @@ export const WhistleblowingPage: React.FC = () => {
                         onChange={(e) => setDeclarationAgreed(e.target.checked)}
                         className="w-4 h-4 text-[#0B4F26] rounded border-gray-300 focus:ring-0 cursor-pointer"
                       />
-                      <span className="text-xs sm:text-sm font-bold text-[#0F172A]">
+                      <span className="text-xs sm:text-sm font-bold text-[#0B4F26]">
                         اقر بصحة البيانات الواردة في هذا النموذج (موافق) <span className="text-red-500">*</span>
                       </span>
                     </label>

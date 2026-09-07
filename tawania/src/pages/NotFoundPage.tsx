@@ -16,8 +16,8 @@ export const NotFoundPage: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-4xl font-black text-[#0F172A] font-mono">404</h1>
-          <h2 className="text-xl font-bold text-[#0F172A]">
+          <h1 className="text-4xl font-black text-[#0B4F26] font-mono">404</h1>
+          <h2 className="text-xl font-bold text-[#0B4F26]">
             {locale === 'ar' ? 'الصفحة غير موجودة' : 'Page Not Found'}
           </h2>
           <p className="text-xs text-[#68736F] leading-relaxed">

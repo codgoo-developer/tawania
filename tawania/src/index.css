@@ -87,8 +87,8 @@
     --grad-future-h: linear-gradient(90deg, #84CC16 0%, #EAB308 100%);
 
     /* 5. الثقة والاتزان (Trust & Stability) */
-    --grad-trust: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
-    --grad-trust-h: linear-gradient(90deg, #2563EB 0%, #0F172A 100%);
+    --grad-trust: linear-gradient(135deg, #2563EB 0%, #073519 100%);
+    --grad-trust-h: linear-gradient(90deg, #2563EB 0%, #073519 100%);
 
     --bg-base: #F7F8F6;
     --text-main: #17211E;
@@ -192,16 +192,16 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* 5. التدرج الخامس: الثقة والاتزان (#2563EB -> #0F172A) */
+/* 5. التدرج الخامس: الثقة والاتزان (#2563EB -> #073519) */
 .grad-trust,
 .bg-grad-trust {
-  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%) !important;
+  background: linear-gradient(135deg, #2563EB 0%, #073519 100%) !important;
 }
 .bg-grad-trust-h {
-  background: linear-gradient(90deg, #2563EB 0%, #0F172A 100%) !important;
+  background: linear-gradient(90deg, #2563EB 0%, #073519 100%) !important;
 }
 .text-grad-trust {
-  background: linear-gradient(135deg, #2563EB 0%, #0F172A 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #073519 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

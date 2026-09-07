@@ -113,7 +113,7 @@ export const TestimonialsSection: React.FC = () => {
             <MessageSquareQuote className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{locale === 'ar' ? 'كلمات نفخر بها' : 'Words of Pride'}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B4F26] tracking-tight">
             {locale === 'ar' ? 'قالوا عنا' : 'What They Said About Us'}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] mx-auto my-3 rounded-full" />
@@ -178,7 +178,7 @@ export const TestimonialsSection: React.FC = () => {
                     </div>
 
                     {/* Bottom Row: User Avatar and Info */}
-                    <div className="relative z-10 pt-5 mt-6 border-t border-[#0F172A]/5 flex items-center gap-3.5">
+                    <div className="relative z-10 pt-5 mt-6 border-t border-[#0B4F26]/5 flex items-center gap-3.5">
                       <div className="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-[#F59E0B] to-[#0B4F26] shrink-0 shadow-xs">
                         <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0B4F26] to-[#063325] flex items-center justify-center text-amber-200 font-bold text-xs font-serif border border-white">
                           {initials}
@@ -187,7 +187,7 @@ export const TestimonialsSection: React.FC = () => {
 
                       <div className="min-w-0 text-start">
                         <div className="flex items-center gap-1.5">
-                          <h4 className="text-sm font-bold text-[#0F172A] truncate group-hover:text-[#0B4F26] transition-colors">
+                          <h4 className="text-sm font-bold text-[#0B4F26] truncate group-hover:text-[#0B4F26] transition-colors">
                             {getLocalized(item.name)}
                           </h4>
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#0B4F26] shrink-0" />

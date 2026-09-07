@@ -39,8 +39,8 @@ export const Header: React.FC = () => {
       <header
         id="main-header"
         className={`sticky top-0 z-40 w-full h-[70px] flex items-center transition-all duration-300 ${isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#0F172A]/10'
-            : 'bg-white/95 backdrop-blur-xs border-b border-[#0F172A]/5'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#0B4F26]/10'
+            : 'bg-white/95 backdrop-blur-xs border-b border-[#0B4F26]/5'
           }`}
       >
         <div className="w-full max-w-full xl:max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-4 xl:px-6">
@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 type="button"
                 id="mobile-drawer-toggle"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0F172A] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer border border-transparent hover:border-[#0F172A]/10"
+                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0B4F26] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer border border-transparent hover:border-[#0B4F26]/10"
                 aria-label={t.nav.openMenu}
               >
                 <Menu className="w-4 h-4" />

@@ -132,7 +132,7 @@ export const RegulationsPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors leading-snug">
+                <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] transition-colors leading-snug">
                   {locale === 'ar' ? doc.titleAr : doc.titleEn}
                 </h3>
 

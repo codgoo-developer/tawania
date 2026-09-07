@@ -32,7 +32,7 @@ export const Breadcrumbs: React.FC<{ items: BreadcrumbItem[] }> = ({ items }) =>
           <React.Fragment key={idx}>
             <Arrow className="w-3.5 h-3.5 text-gray-400 shrink-0" />
             {isLast || !item.url ? (
-              <span className="font-medium text-[#0F172A] truncate max-w-[240px]">
+              <span className="font-medium text-[#0B4F26] truncate max-w-[240px]">
                 {item.label}
               </span>
             ) : (

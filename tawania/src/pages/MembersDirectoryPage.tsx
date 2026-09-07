@@ -210,7 +210,7 @@ export const MembersDirectoryPage: React.FC = () => {
                 />
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0B4F26] tracking-tight">
                 سجل أعضاء الجمعية العمومية
               </h2>
               <div className="w-16 h-1 bg-gradient-to-r from-[#84CC16] to-[#0B4F26] mx-auto rounded-full" />
@@ -285,7 +285,7 @@ export const MembersDirectoryPage: React.FC = () => {
           /* TABLE VIEW: Comprehensive Sortable & Filterable Table */
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-md space-y-6">
             <div className="flex items-center justify-between flex-wrap gap-2">
-              <h3 className="text-lg font-bold text-[#0F172A]">
+              <h3 className="text-lg font-bold text-[#0B4F26]">
                 قائمة أعضاء الجمعية العمومية ({filteredMembers.length} عضو)
               </h3>
               <span className="text-xs text-gray-500 font-semibold bg-gray-100 px-3 py-1 rounded-full">
@@ -311,7 +311,7 @@ export const MembersDirectoryPage: React.FC = () => {
                       <td className="py-3 px-4 text-center font-bold text-[#0B4F26] font-mono whitespace-nowrap">
                         {member.id}
                       </td>
-                      <td className="py-3 px-4 font-bold text-[#0F172A]">
+                      <td className="py-3 px-4 font-bold text-[#0B4F26]">
                         {member.name}
                       </td>
                       <td className="py-3 px-4 text-center text-gray-600 whitespace-nowrap">

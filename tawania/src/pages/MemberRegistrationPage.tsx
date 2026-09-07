@@ -224,7 +224,7 @@ export const MemberRegistrationPage: React.FC = () => {
               {userEmail ? userEmail.slice(0, 2) : 'AS'}
             </div>
             <div>
-              <span className="font-semibold text-[#0F172A]">{userEmail}</span>
+              <span className="font-semibold text-[#0B4F26]">{userEmail}</span>
               <button
                 type="button"
                 onClick={() => {
@@ -329,7 +329,7 @@ export const MemberRegistrationPage: React.FC = () => {
               <span className="text-xs font-bold text-[#0B4F26] uppercase tracking-wider">
                 تم تسجيل طلب المساهمة بنجاح
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A]">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0B4F26]">
                 شكراً لك، {fullName}
               </h2>
               <p className="text-sm text-[#68736F] max-w-lg mx-auto">
@@ -339,23 +339,23 @@ export const MemberRegistrationPage: React.FC = () => {
 
             {/* Reference & Breakdown Box */}
             <div className="bg-[#F8FAF8] rounded-2xl p-6 max-w-lg mx-auto text-start space-y-3 text-sm">
-              <div className="flex justify-between items-center pb-3 border-b border-[#0F172A]/10">
+              <div className="flex justify-between items-center pb-3 border-b border-[#0B4F26]/10">
                 <span className="text-xs text-gray-500 font-bold">رقم الطلب المرجعي:</span>
                 <span className="font-mono font-black text-[#0B4F26] text-base">{referenceCode}</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-600">عدد الأسهم المطلوبة:</span>
-                <span className="font-bold text-[#0F172A]">{sharesCount} سهم</span>
+                <span className="font-bold text-[#0B4F26]">{sharesCount} سهم</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-600">قيمة الأسهم (100 ريال/سهم):</span>
-                <span className="font-bold text-[#0F172A]">{sharesValue.toLocaleString()} ريال</span>
+                <span className="font-bold text-[#0B4F26]">{sharesValue.toLocaleString()} ريال</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-xs text-gray-600">رسوم العضوية 10% (غير مستردة):</span>
                 <span className="font-bold text-[#F59E0B]">{membershipFee.toLocaleString()} ريال</span>
               </div>
-              <div className="flex justify-between items-center pt-3 border-t border-[#0F172A]/10 text-base font-black text-[#0B4F26]">
+              <div className="flex justify-between items-center pt-3 border-t border-[#0B4F26]/10 text-base font-black text-[#0B4F26]">
                 <span>إجمالي المبلغ المطلوب تحويله:</span>
                 <span className="font-mono text-lg">{totalAmount.toLocaleString()} ريال</span>
               </div>
@@ -376,7 +376,7 @@ export const MemberRegistrationPage: React.FC = () => {
               <button
                 type="button"
                 onClick={copyToClipboard}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#0F172A] font-bold text-sm px-6 py-3.5 rounded-full border border-[#0F172A]/15 shadow-xs transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#0B4F26] font-bold text-sm px-6 py-3.5 rounded-full border border-[#0B4F26]/15 shadow-xs transition-colors"
               >
                 {copied ? <Check className="w-4 h-4 text-[#0B4F26]" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? 'تم نسخ البيانات' : 'نسخ ملخص الطلب'}</span>
@@ -385,7 +385,7 @@ export const MemberRegistrationPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => window.print()}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#0F172A] font-bold text-sm px-5 py-3.5 rounded-full border border-[#0F172A]/15 shadow-xs transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-[#0B4F26] font-bold text-sm px-5 py-3.5 rounded-full border border-[#0B4F26]/15 shadow-xs transition-colors"
               >
                 <Printer className="w-4 h-4 text-[#0B4F26]" />
                 <span>طباعة النموذج</span>
@@ -412,10 +412,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 1: الاسم الرباعي */}
             <div
               data-error={!!errors.fullName}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.fullName ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.fullName ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 الاسم الرباعي <span className="text-red-500">*</span>
               </label>
               <input
@@ -423,7 +423,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="إجابتك (مثال: عبدالله بن مساعد بن محمد البركاتي)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium"
               />
               {errors.fullName && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -435,10 +435,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 2: رقم الهوية */}
             <div
               data-error={!!errors.nationalId}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.nationalId ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.nationalId ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 رقم الهوية الوطنية <span className="text-red-500">*</span>
               </label>
               <input
@@ -447,7 +447,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={nationalId}
                 onChange={(e) => setNationalId(e.target.value.replace(/\D/g, ''))}
                 placeholder="إجابتك (10 أرقام تبدأ بـ 1)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium font-mono"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium font-mono"
               />
               {errors.nationalId && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -459,10 +459,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 3: مصدر الهوية الوطنية */}
             <div
               data-error={!!errors.idSource}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.idSource ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.idSource ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 مصدر الهوية الوطنية <span className="text-red-500">*</span>
               </label>
               <input
@@ -470,7 +470,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={idSource}
                 onChange={(e) => setIdSource(e.target.value)}
                 placeholder="إجابتك (مثال: أحوال محافظة جدة / أحوال مكة المكرمة / أحوال جدة)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium"
               />
               {errors.idSource && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -482,11 +482,11 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 4: تاريخ الميلاد */}
             <div
               data-error={!!errors.birthDate}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.birthDate ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.birthDate ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                   تاريخ الميلاد <span className="text-red-500">*</span>
                 </label>
                 <span className="text-[11px] text-[#0B4F26] font-bold">هجري أو ميلادي</span>
@@ -531,7 +531,7 @@ export const MemberRegistrationPage: React.FC = () => {
                       setBirthDate(formatted + suffix);
                     }}
                     placeholder="DD / MM / YYYY (أدخل الأرقام وستظهر الفواصل آلياً)"
-                    className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium font-mono tracking-wider"
+                    className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium font-mono tracking-wider"
                   />
                 </div>
 
@@ -560,10 +560,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 5: رقم الجوال */}
             <div
               data-error={!!errors.phone}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.phone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.phone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 رقم الجوال <span className="text-red-500">*</span>
               </label>
               <input
@@ -571,7 +571,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="إجابتك (مثال: 0504284861)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium font-mono"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium font-mono"
               />
               {errors.phone && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -583,10 +583,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 6: رقم قريب للطوارى */}
             <div
               data-error={!!errors.emergencyPhone}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.emergencyPhone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.emergencyPhone ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 رقم قريب للطوارى <span className="text-red-500">*</span>
               </label>
               <input
@@ -594,7 +594,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={emergencyPhone}
                 onChange={(e) => setEmergencyPhone(e.target.value)}
                 placeholder="إجابتك (رقم جوال أحد الأقارب للطوارئ)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium font-mono"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium font-mono"
               />
               {errors.emergencyPhone && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -606,10 +606,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 7: عنوان السكن */}
             <div
               data-error={!!errors.residenceAddress}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.residenceAddress ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.residenceAddress ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 عنوان السكن <span className="text-red-500">*</span>
               </label>
               <input
@@ -617,7 +617,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={residenceAddress}
                 onChange={(e) => setResidenceAddress(e.target.value)}
                 placeholder="إجابتك (المدينة / المحافظة / الحي / الشارع)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium"
               />
               {errors.residenceAddress && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -629,10 +629,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 8: المؤهل */}
             <div
               data-error={!!errors.qualification}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.qualification ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.qualification ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 المؤهل <span className="text-red-500">*</span>
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
@@ -665,10 +665,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 9: المهنة */}
             <div
               data-error={!!errors.occupation}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.occupation ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.occupation ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 المهنة <span className="text-red-500">*</span>
               </label>
               <input
@@ -676,7 +676,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={occupation}
                 onChange={(e) => setOccupation(e.target.value)}
                 placeholder="إجابتك (مثال: موظف حكومي / قطاع خاص / أعمال حرة / متقاعد / طالب)"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium"
               />
               {errors.occupation && (
                 <span className="text-xs text-red-500 font-semibold mt-2 flex items-center gap-1">
@@ -688,16 +688,16 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 10: كم عدد الاسهم المطلوبة ؟ وقيمتها ؟ WITH EXACT USER TEXT */}
             <div
               data-error={!!errors.sharesCount}
-              className={`bg-white rounded-2xl p-6 sm:p-8 border transition-all ${errors.sharesCount ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 sm:p-8 border transition-all ${errors.sharesCount ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-3">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-3">
                 كم عدد الاسهم المطلوبة ؟ وقيمتها ؟ <span className="text-red-500">*</span>
               </label>
 
               {/* Exact user text note */}
               <div className="bg-[#FAF7EE] border border-[#E5C170]/40 rounded-2xl p-5 mb-6 text-xs sm:text-sm text-[#4A4535] leading-relaxed space-y-3">
-                <div className="space-y-1 font-bold text-[#0F172A]">
+                <div className="space-y-1 font-bold text-[#0B4F26]">
                   <p>قيمة السهم 100 ريال</p>
                   <p>أقل مساهمة 50سهم بمبلغ 5000خمسة ألاف ريال</p>
                   <p className="text-[#A36D00]">
@@ -769,10 +769,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 11: كم نسبة الأرباح المتوقعة ؟ */}
             <div
               data-error={!!errors.expectedProfitResponse}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.expectedProfitResponse ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.expectedProfitResponse ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-2">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-2">
                 كم نسبة الأرباح المتوقعة ؟ <span className="text-red-500">*</span>
               </label>
               <input
@@ -780,7 +780,7 @@ export const MemberRegistrationPage: React.FC = () => {
                 value={expectedProfitResponse}
                 onChange={(e) => setExpectedProfitResponse(e.target.value)}
                 placeholder="إجابتك"
-                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0F172A] font-medium"
+                className="w-full text-sm sm:text-base google-form-input py-2.5 text-[#0B4F26] font-medium"
               />
               <span className="text-[11px] text-gray-500 mt-2 block">
                 توزع الأرباح سنوياً وفق نتائج القوائم المالية المعتمدة وعائد المعاملات وتصويت الجمعية العمومية.
@@ -795,10 +795,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 12: التعهد بالشراء والتعامل */}
             <div
               data-error={!!errors.pledgePurchasing}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.pledgePurchasing ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.pledgePurchasing ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-4 leading-relaxed">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-4 leading-relaxed">
                 اتعهد بالتعامل والشراء من التعاونية وذلك لانجاح التعاونية وتحقيق الفائدة من المساهمة. <span className="text-red-500">*</span>
               </label>
               <label className="flex items-center gap-3 p-3 rounded-xl border border-[#0B4F26]/30 bg-[#E8F7F0]/40 hover:bg-[#E8F7F0] cursor-pointer transition-colors">
@@ -808,7 +808,7 @@ export const MemberRegistrationPage: React.FC = () => {
                   onChange={(e) => setPledgePurchasing(e.target.checked)}
                   className="w-5 h-5 accent-[#0B4F26] rounded"
                 />
-                <span className="text-xs sm:text-sm font-bold text-[#0F172A]">
+                <span className="text-xs sm:text-sm font-bold text-[#0B4F26]">
                   تم الاطلاع واتعهد على ذلك
                 </span>
               </label>
@@ -822,10 +822,10 @@ export const MemberRegistrationPage: React.FC = () => {
             {/* Field 13: الاطلاع على اللوائح والأنظمة */}
             <div
               data-error={!!errors.viewedBylaws}
-              className={`bg-white rounded-2xl p-6 border transition-all ${errors.viewedBylaws ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0F172A]/10 shadow-2xs'
+              className={`bg-white rounded-2xl p-6 border transition-all ${errors.viewedBylaws ? 'border-red-400 ring-2 ring-red-100' : 'border-[#0B4F26]/10 shadow-2xs'
                 }`}
             >
-              <label className="block text-sm sm:text-base font-bold text-[#0F172A] mb-4 leading-relaxed">
+              <label className="block text-sm sm:text-base font-bold text-[#0B4F26] mb-4 leading-relaxed">
                 هل تم الاطلاع على اللوائح والانظمة الخاصة بالجمعيات التعاونية <span className="text-red-500">*</span>
               </label>
               <label className="flex items-center gap-3 p-3 rounded-xl border border-[#0B4F26]/30 bg-[#E8F7F0]/40 hover:bg-[#E8F7F0] cursor-pointer transition-colors">
@@ -835,7 +835,7 @@ export const MemberRegistrationPage: React.FC = () => {
                   onChange={(e) => setViewedBylaws(e.target.checked)}
                   className="w-5 h-5 accent-[#0B4F26] rounded"
                 />
-                <span className="text-xs sm:text-sm font-bold text-[#0F172A]">
+                <span className="text-xs sm:text-sm font-bold text-[#0B4F26]">
                   نعم لقد اطلعت على اللوائح والانمظة الخاصة بالجمعيات التعاونية
                 </span>
               </label>

@@ -115,7 +115,7 @@ export const WorkshopsPage: React.FC = () => {
               {/* Content side */}
               <div className="lg:col-span-8 p-6 sm:p-8 space-y-5 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <h3 className="text-xl sm:text-2xl font-black text-[#0F172A] leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-black text-[#0B4F26] leading-snug">
                     {locale === 'ar' ? w.titleAr : w.titleEn}
                   </h3>
 

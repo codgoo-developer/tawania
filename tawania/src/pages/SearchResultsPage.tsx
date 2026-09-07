@@ -60,7 +60,7 @@ export const SearchResultsPage: React.FC = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t.search.placeholder}
-            className="w-full ps-12 pe-28 py-3.5 text-sm rounded-2xl border-2 border-[#0F172A]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26] shadow-xs"
+            className="w-full ps-12 pe-28 py-3.5 text-sm rounded-2xl border-2 border-[#0B4F26]/15 bg-white text-[#17211E] outline-none focus:border-[#0B4F26] shadow-xs"
           />
           <Search className="w-5 h-5 text-[#68736F] absolute start-4 top-1/2 -translate-y-1/2" />
           <button
@@ -73,7 +73,7 @@ export const SearchResultsPage: React.FC = () => {
 
         {/* Results List */}
         <div className="space-y-4">
-          <div className="text-xs font-bold text-[#68736F] flex items-center justify-between pb-2 border-b border-[#0F172A]/5">
+          <div className="text-xs font-bold text-[#68736F] flex items-center justify-between pb-2 border-b border-[#0B4F26]/5">
             <span>
               {locale === 'ar' ? `تم العثور على (${results.length}) نتيجة` : `Found (${results.length}) results`}
             </span>
@@ -102,7 +102,7 @@ export const SearchResultsPage: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] transition-colors">
+                  <h3 className="text-sm sm:text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] transition-colors">
                     {res.title}
                   </h3>
 

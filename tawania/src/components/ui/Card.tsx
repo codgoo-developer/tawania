@@ -31,7 +31,7 @@ export const Skeleton: React.FC<{
 
   return (
     <div
-      className={`animate-pulse bg-[#0F172A]/10 ${variantStyles[variant]} ${className}`}
+      className={`animate-pulse bg-[#0B4F26]/10 ${variantStyles[variant]} ${className}`}
     />
   );
 };

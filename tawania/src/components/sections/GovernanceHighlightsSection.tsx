@@ -32,7 +32,7 @@ export const GovernanceHighlightsSection: React.FC = () => {
       count: `${(financials || []).length} ${locale === 'ar' ? 'قوائم مدققة' : 'Statements'}`,
       link: '/financial-statements',
       icon: <DollarSign className="w-5 h-5 text-white" />,
-      gradient: 'from-[#2563EB] to-[#0F172A]',
+      gradient: 'from-[#2563EB] to-[#0B4F26]',
       borderHover: 'hover:border-[#2563EB]/50',
       accentText: 'text-[#2563EB]'
     },
@@ -73,7 +73,7 @@ export const GovernanceHighlightsSection: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5 text-[#10B981]" />
             <span>{locale === 'ar' ? 'الحوكمة والشفافية' : 'Governance & Disclosure'}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B4F26] tracking-tight mb-4">
             {locale === 'ar' ? 'ركائز الحوكمة والامتثال المؤسسي' : 'Pillars of Governance Excellence'}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#0B4F26] via-[#F97316] to-[#2563EB] mx-auto mb-5 rounded-full" />
@@ -90,7 +90,7 @@ export const GovernanceHighlightsSection: React.FC = () => {
             <Link
               key={pillar.id}
               to={getLocalizedPath(pillar.link)}
-              className={`p-6 rounded-2xl bg-white border border-[#0F172A]/8 shadow-xs hover:shadow-xl ${pillar.borderHover} hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-start relative overflow-hidden`}
+              className={`p-6 rounded-2xl bg-white border border-[#0B4F26]/8 shadow-xs hover:shadow-xl ${pillar.borderHover} hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group text-start relative overflow-hidden`}
             >
               {/* Top Accent Gradient Strip */}
               <div className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r ${pillar.gradient}`} />
@@ -105,7 +105,7 @@ export const GovernanceHighlightsSection: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className={`text-base font-bold text-[#0F172A] mb-2 group-hover:${pillar.accentText} transition-colors`}>
+                <h3 className={`text-base font-bold text-[#0B4F26] mb-2 group-hover:${pillar.accentText} transition-colors`}>
                   {pillar.title}
                 </h3>
 

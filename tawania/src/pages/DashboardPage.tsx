@@ -2244,7 +2244,7 @@ export const DashboardPage: React.FC = () => {
                 {isNotificationOpen && (
                   <div className="absolute top-full end-0 mt-2.5 w-[360px] sm:w-[420px] max-w-[92vw] bg-white rounded-2xl shadow-2xl border border-gray-100/90 z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[520px]">
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-[#0F172A] to-[#0B4F26] text-white p-3.5 px-4 flex items-center justify-between shrink-0 shadow-sm">
+                    <div className="bg-gradient-to-r from-[#0B4F26] to-[#0B4F26] text-white p-3.5 px-4 flex items-center justify-between shrink-0 shadow-sm">
                       <div className="flex items-center gap-2">
                         <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#F59E0B]">
                           <Bell className="w-4 h-4" />
@@ -2511,7 +2511,7 @@ export const DashboardPage: React.FC = () => {
                 type="button"
                 id="dashboard-mobile-drawer-toggle"
                 onClick={() => setIsMobileNavOpen(true)}
-                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0F172A] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer   hover:border-[#0F172A]/20 shadow-2xs ms-1"
+                className="lg:hidden h-8 w-8 flex items-center justify-center text-[#0B4F26] hover:bg-[#E8F7F0] rounded-full transition-colors cursor-pointer   hover:border-[#0B4F26]/20 shadow-2xs ms-1"
                 aria-label="Open Menu"
               >
                 <Menu className="w-4 h-4 text-[#0B4F26]" />
@@ -2534,7 +2534,7 @@ export const DashboardPage: React.FC = () => {
         {/* Mobile Slide-Out Drawer (Styled exactly like website MobileDrawer.tsx) */}
         {isMobileNavOpen && (
           <div
-            className="fixed inset-0 z-50 flex bg-[#0F172A]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
+            className="fixed inset-0 z-50 flex bg-[#0B4F26]/60 backdrop-blur-xs lg:hidden animate-in fade-in duration-200"
             onClick={() => setIsMobileNavOpen(false)}
           >
             <div
@@ -2543,7 +2543,7 @@ export const DashboardPage: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Mobile Drawer Header */}
-              <div className="p-4 border-b border-[#0F172A]/10 flex items-center justify-between bg-[#073519] text-white">
+              <div className="p-4 border-b border-[#0B4F26]/10 flex items-center justify-between bg-[#073519] text-white">
                 <AlShamelLogo size="xs" textColor="#FFFFFF" />
                 <button
                   type="button"
@@ -6079,7 +6079,7 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'about' && (
                 <form onSubmit={handleSaveAbout} className="space-y-6 pt-2">
                   <div className="bg-[#F7F8F6] p-5 rounded-2xl border border-gray-200/70 space-y-4">
-                    <h3 className="text-sm font-bold text-[#0F172A] flex items-center gap-2 border-b border-gray-200 pb-2">
+                    <h3 className="text-sm font-bold text-[#0B4F26] flex items-center gap-2 border-b border-gray-200 pb-2">
                       <Eye className="w-4 h-4 text-[#0B4F26]" />
                       <span>{locale === 'ar' ? 'العناوين والوصف الرئيسي لقسم من نحن' : 'Main About Headline & Description'}</span>
                     </h3>
@@ -6246,7 +6246,7 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'hero' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#0F172A]">
+                    <h3 className="text-sm font-bold text-[#0B4F26]">
                       {locale === 'ar' ? 'شرائح البانر الرئيسي (Hero Slider)' : 'Hero Banner Slides'} ({homeHeroSlides.length})
                     </h3>
                     <button
@@ -6376,7 +6376,7 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'goals' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#0F172A]">
+                    <h3 className="text-sm font-bold text-[#0B4F26]">
                       {locale === 'ar' ? 'قائمة الأهداف الاستراتيجية' : 'Strategic Objectives List'} ({strategicGoals.length})
                     </h3>
                     <button
@@ -6399,7 +6399,7 @@ export const DashboardPage: React.FC = () => {
                           <div className="text-2xl font-black text-[#5EA88F] font-sans mb-1">
                             0{goal.number}
                           </div>
-                          <h4 className="font-bold text-sm text-[#0F172A] leading-snug">
+                          <h4 className="font-bold text-sm text-[#0B4F26] leading-snug">
                             {goal.titleAr}
                           </h4>
                           {goal.descriptionAr && (
@@ -6440,7 +6440,7 @@ export const DashboardPage: React.FC = () => {
               {homeSubTab === 'testimonials' && (
                 <div className="space-y-4 pt-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-sm font-bold text-[#0F172A]">
+                    <h3 className="text-sm font-bold text-[#0B4F26]">
                       {locale === 'ar' ? 'آراء وشهادات الشركاء والملاّك (قالوا عنا)' : 'Shareholder & Client Testimonials'} ({testimonials.length})
                     </h3>
                     <button
@@ -9191,7 +9191,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
                   اعتماد الطلب وترقية المتقدم إلى عضو جمعية عمومية
                 </h5>
               </div>
-              <p className="text-xs text-[#0F172A] leading-relaxed pe-2">
+              <p className="text-xs text-[#0B4F26] leading-relaxed pe-2">
                 {isConfirmedMember
                   ? 'تم اعتماد هذا المتقدم وإدراجه رسمياً في سجل أعضاء الجمعية العمومية.'
                   : 'بالنقر على اعتماد، ستتم إضافة المتقدم فورياً إلى سجل الأعضاء الرسمي مع حفظ عدد أسهمه.'}
@@ -9231,7 +9231,7 @@ const SubmissionDetailModal: React.FC<SubmissionDetailModalProps> = ({
 
                 return (
                   <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between p-2.5 bg-white rounded-xl border border-gray-200/60 gap-1">
-                    <span className="font-bold text-[#0F172A]">{label}:</span>
+                    <span className="font-bold text-[#0B4F26]">{label}:</span>
                     <span className="font-semibold text-gray-700">{value}</span>
                   </div>
                 );

@@ -59,7 +59,7 @@ export const MembersPage: React.FC = () => {
             <span className="text-xs text-[#68736F] font-bold">
               {locale === 'ar' ? 'إجمالي الأسهم' : 'Total Issued Shares'}
             </span>
-            <div className="text-2xl font-black text-[#0F172A] font-mono">
+            <div className="text-2xl font-black text-[#0B4F26] font-mono">
               {membersOverview.totalSharesCount}
             </div>
             <span className="text-[10px] text-gray-500 block">
@@ -114,7 +114,7 @@ export const MembersPage: React.FC = () => {
             <div className="pt-6 relative z-10">
               <Link
                 to={getLocalizedPath('/members/register')}
-                className="inline-flex items-center gap-2 bg-[#E5C170] hover:bg-[#d4ae58] text-[#0F172A] font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-transform hover:scale-105 shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#E5C170] hover:bg-[#d4ae58] text-[#0B4F26] font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-transform hover:scale-105 shadow-sm"
               >
                 <span>{locale === 'ar' ? 'تعبئة نموذج المساهمة الآن' : 'Fill Registration Form'}</span>
                 <Arrow className="w-4 h-4" />
@@ -128,7 +128,7 @@ export const MembersPage: React.FC = () => {
               <span className="inline-block px-3 py-1 rounded-full bg-[#E8F7F0] text-xs font-bold text-[#0B4F26]">
                 {locale === 'ar' ? 'السجل الرسمي' : 'Official Roster'}
               </span>
-              <h3 className="text-2xl font-black tracking-tight text-[#0F172A]">
+              <h3 className="text-2xl font-black tracking-tight text-[#0B4F26]">
                 {locale === 'ar' ? 'بيانات الأعضاء' : 'Members Directory'}
               </h3>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -151,13 +151,13 @@ export const MembersPage: React.FC = () => {
       </section>
 
       {/* Subscription 4-Steps Process */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#F7F8F6] p-8 sm:p-12 rounded-3xl border border-[#0F172A]/10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#F7F8F6] p-8 sm:p-12 rounded-3xl border border-[#0B4F26]/10">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <Badge variant="primary" className="mb-3">
             <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{locale === 'ar' ? 'خطوات ميسرة' : 'Simple Steps'}</span>
           </Badge>
-          <h2 className="text-2xl font-bold text-[#0F172A]">
+          <h2 className="text-2xl font-bold text-[#0B4F26]">
             {locale === 'ar' ? 'آلية الاكتتاب والانضمام لعضوية الجمعية' : 'Equity Subscription & Enrollment Process'}
           </h2>
           <p className="text-xs text-[#68736F] mt-1">
@@ -174,7 +174,7 @@ export const MembersPage: React.FC = () => {
               <span className="text-2xl font-black text-[#F59E0B] font-mono block">
                 {step.stepNumber}
               </span>
-              <h3 className="text-sm font-bold text-[#0F172A]">
+              <h3 className="text-sm font-bold text-[#0B4F26]">
                 {getLocalized(step.title)}
               </h3>
               <p className="text-xs text-[#68736F] leading-relaxed">
@@ -195,7 +195,7 @@ export const MembersPage: React.FC = () => {
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#0F172A]">
+                <h3 className="text-lg font-bold text-[#0B4F26]">
                   {t.membersPage.rightsTitle}
                 </h3>
                 <span className="text-xs text-[#68736F]">
@@ -206,8 +206,8 @@ export const MembersPage: React.FC = () => {
 
             <div className="space-y-4">
               {memberRightsData.map((r, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-[#F7F8F6] border border-[#0F172A]/5 space-y-1">
-                  <h4 className="text-xs font-bold text-[#0F172A]">
+                <div key={idx} className="p-3.5 rounded-xl bg-[#F7F8F6] border border-[#0B4F26]/5 space-y-1">
+                  <h4 className="text-xs font-bold text-[#0B4F26]">
                     {getLocalized(r.title)}
                   </h4>
                   <p className="text-xs text-[#68736F] leading-relaxed">
@@ -225,7 +225,7 @@ export const MembersPage: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-[#0F172A]">
+                <h3 className="text-lg font-bold text-[#0B4F26]">
                   {t.membersPage.obligationsTitle}
                 </h3>
                 <span className="text-xs text-[#68736F]">
@@ -236,8 +236,8 @@ export const MembersPage: React.FC = () => {
 
             <div className="space-y-4">
               {memberObligationsData.map((o, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-[#F7F8F6] border border-[#0F172A]/5 space-y-1">
-                  <h4 className="text-xs font-bold text-[#0F172A]">
+                <div key={idx} className="p-3.5 rounded-xl bg-[#F7F8F6] border border-[#0B4F26]/5 space-y-1">
+                  <h4 className="text-xs font-bold text-[#0B4F26]">
                     {getLocalized(o.title)}
                   </h4>
                   <p className="text-xs text-[#68736F] leading-relaxed">

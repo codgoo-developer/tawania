@@ -23,8 +23,8 @@ export const Badge: React.FC<BadgeProps> = ({
   const variantClasses = {
     primary: 'bg-[#0B4F26]/10 text-[#0B4F26] border border-[#0B4F26]/20',
     accent: 'bg-[#F59E0B]/15 text-[#8E7033] border border-[#F59E0B]/30',
-    outline: 'bg-transparent text-[#0F172A] border border-[#0F172A]/15',
-    neutral: 'bg-[#F7F8F6] text-[#68736F] border border-[#0F172A]/10',
+    outline: 'bg-transparent text-[#0B4F26] border border-[#0B4F26]/15',
+    neutral: 'bg-[#F7F8F6] text-[#68736F] border border-[#0B4F26]/10',
     success: 'bg-emerald-50 text-emerald-800 border border-emerald-200',
     warning: 'bg-amber-50 text-amber-800 border border-amber-200',
   };

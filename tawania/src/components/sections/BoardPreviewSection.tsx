@@ -64,7 +64,7 @@ export const BoardPreviewSection: React.FC = () => {
             <span className="w-2 h-2 rounded-full bg-[#0B4F26] animate-pulse" />
             <span>{isAr ? (boardIntro?.cycleBadgeAr || 'الدورة الانتخابية الثانية') : (boardIntro?.cycleBadgeEn || 'Second Electoral Term')}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B4F26] tracking-tight mb-3">
             {isAr ? (boardIntro?.titleAr || 'أعضاء مجلس الإدارة') : (boardIntro?.titleEn || 'Board of Directors')}
           </h2>
           <div className="w-20 h-1 bg-gradient-to-br from-[#0B4F26] to-[#10B981] mx-auto rounded-full mb-6" />
@@ -143,12 +143,12 @@ export const BoardPreviewSection: React.FC = () => {
                 </span>
 
                 {/* Name */}
-                <h3 className="text-base font-bold text-[#0F172A] leading-snug mb-3 group-hover:text-[#0B4F26] transition-colors">
+                <h3 className="text-base font-bold text-[#0B4F26] leading-snug mb-3 group-hover:text-[#0B4F26] transition-colors">
                   {isAr ? member.nameAr : (member.nameEn || member.nameAr)}
                 </h3>
 
                 {/* Contact Info (Phone & Email) */}
-                <div className="mt-auto w-full pt-3 border-t border-[#0F172A]/5 space-y-1.5 text-xs text-[#525E59]">
+                <div className="mt-auto w-full pt-3 border-t border-[#0B4F26]/5 space-y-1.5 text-xs text-[#525E59]">
                   {member.phone && (
                     <a
                       href={`tel:${member.phone}`}

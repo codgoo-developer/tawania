@@ -417,7 +417,7 @@ export const SurveysPage: React.FC = () => {
     highLabel: string = 'راضي'
   ) => (
     <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-      <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+      <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
         {questionText} <span className="text-red-500">*</span>
       </label>
 
@@ -641,7 +641,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.selectedEntities}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     حدد الجهة : <span className="text-red-500">*</span>
                   </label>
 
@@ -692,7 +692,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.position}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     المنصب الوظيفي : <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -700,7 +700,7 @@ export const SurveysPage: React.FC = () => {
                     value={position}
                     onChange={(e) => setPosition(e.target.value)}
                     placeholder="مثال: مدير الشراكات / مسؤول المسؤولية المجتمعية"
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.position && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -714,14 +714,14 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.howDiscovered}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     كيف تعرفت على الجمعية ؟ <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <select
                       value={howDiscovered}
                       onChange={(e) => setHowDiscovered(e.target.value)}
-                      className="w-full text-xs sm:text-sm google-form-input py-2.5 text-[#0F172A] font-medium bg-transparent cursor-pointer appearance-none pe-8"
+                      className="w-full text-xs sm:text-sm google-form-input py-2.5 text-[#0B4F26] font-medium bg-transparent cursor-pointer appearance-none pe-8"
                     >
                       <option value="الحملات الدعائية">الحملات الدعائية</option>
                       <option value="التلفزيون">التلفزيون</option>
@@ -739,7 +739,7 @@ export const SurveysPage: React.FC = () => {
                   data-error={!!errors.communicationMethod}
                   className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4"
                 >
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     ماهي طريقة التواصل مع الجمعية : <span className="text-red-500">*</span>
                   </label>
 
@@ -791,7 +791,7 @@ export const SurveysPage: React.FC = () => {
               <form onSubmit={handleAssemblySubmit} className="space-y-6">
                 {/* Member Name */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     اسم عضو الجمعية العمومية <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -799,7 +799,7 @@ export const SurveysPage: React.FC = () => {
                     value={assemblyMemberName}
                     onChange={(e) => setAssemblyMemberName(e.target.value)}
                     placeholder="أدخل الاسم الثلاثي أو الرباعي..."
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.assemblyMemberName && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -869,7 +869,7 @@ export const SurveysPage: React.FC = () => {
               <form onSubmit={handleStaffSubmit} className="space-y-6">
                 {/* Department Name */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     اسم المؤسسة او الإدارة التابع لها الموظف <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -877,7 +877,7 @@ export const SurveysPage: React.FC = () => {
                     value={departmentName}
                     onChange={(e) => setDepartmentName(e.target.value)}
                     placeholder="مثال: إدارة التشغيل / الموارد البشرية / المالية..."
-                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0F172A] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
+                    className="w-full text-xs sm:text-sm google-form-input py-2 text-[#0B4F26] font-medium border-b border-gray-300 focus:border-[#0B4F26] outline-none"
                   />
                   {errors.departmentName && (
                     <span className="text-[11px] text-red-500 font-semibold mt-1 flex items-center gap-1">
@@ -901,7 +901,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Morale Status Question */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     كيف تصف معنوياتك في العمل في هذا الوقت <span className="text-red-500">*</span>
                   </label>
                   <div className="space-y-2.5">
@@ -926,7 +926,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Planned Duration Question */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-4">
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     كم المدة التي تخطط للاستمرار بالعمل بالجمعية ( بنفس ظروف العمل الحالية ) <span className="text-red-500">*</span>
                   </label>
                   <div className="space-y-2.5">
@@ -957,7 +957,7 @@ export const SurveysPage: React.FC = () => {
 
                 {/* Additional Notes */}
                 <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xs space-y-3">
-                  <label className="block text-sm sm:text-base font-bold text-[#0F172A]">
+                  <label className="block text-sm sm:text-base font-bold text-[#0B4F26]">
                     أي ملاحظات اخرى
                   </label>
                   <textarea

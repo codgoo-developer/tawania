@@ -60,7 +60,7 @@ export const MediaHubPage: React.FC = () => {
                   <span>{getLocalized(newsData[0].category)}</span>
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] leading-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#0B4F26] leading-tight">
                   {getLocalized(newsData[0].title)}
                 </h2>
 
@@ -95,14 +95,14 @@ export const MediaHubPage: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center mb-4">
                 <Newspaper className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] mb-2">
+              <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] mb-2">
                 {t.nav.news}
               </h3>
               <p className="text-xs text-[#68736F] leading-relaxed">
                 {locale === 'ar' ? 'أخبار، فعاليات، وبيانات الجمعية الصحفية.' : 'Press releases, event announcements and coverage.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
+            <div className="mt-4 pt-3 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
               <span>{locale === 'ar' ? 'تصفح الأخبار' : 'Browse News'}</span>
               <Arrow className="w-4 h-4" />
             </div>
@@ -116,14 +116,14 @@ export const MediaHubPage: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center mb-4">
                 <Image className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] mb-2">
+              <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] mb-2">
                 {t.nav.gallery}
               </h3>
               <p className="text-xs text-[#68736F] leading-relaxed">
                 {locale === 'ar' ? 'ألبوم صور عالي الدقة للمشاريع والجمعيات.' : 'High-resolution photo gallery of projects and events.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
+            <div className="mt-4 pt-3 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
               <span>{locale === 'ar' ? 'معرض الصور' : 'Photo Gallery'}</span>
               <Arrow className="w-4 h-4" />
             </div>
@@ -137,14 +137,14 @@ export const MediaHubPage: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center mb-4">
                 <Handshake className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] mb-2">
+              <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] mb-2">
                 {t.nav.partnerships}
               </h3>
               <p className="text-xs text-[#68736F] leading-relaxed">
                 {locale === 'ar' ? 'مذكرات التعاون المشترك والتحالفات الاستراتيجية.' : 'Strategic MOUs, chamber alliances, and partnerships.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
+            <div className="mt-4 pt-3 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
               <span>{locale === 'ar' ? 'شركاء النجاح' : 'Partners'}</span>
               <Arrow className="w-4 h-4" />
             </div>
@@ -158,14 +158,14 @@ export const MediaHubPage: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-[#E8F7F0] text-[#0B4F26] flex items-center justify-center mb-4">
                 <MessageSquareQuote className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#0B4F26] mb-2">
+              <h3 className="text-base font-bold text-[#0B4F26] group-hover:text-[#0B4F26] mb-2">
                 {t.nav.feedback}
               </h3>
               <p className="text-xs text-[#68736F] leading-relaxed">
                 {locale === 'ar' ? 'استطلاعات الرأي وتقييم المستفيدين والمساهمين.' : 'Surveys, reviews, and satisfaction ratings.'}
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-[#0F172A]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
+            <div className="mt-4 pt-3 border-t border-[#0B4F26]/5 flex items-center justify-between text-xs font-bold text-[#0B4F26]">
               <span>{locale === 'ar' ? 'استطلاع الرأي' : 'Feedback'}</span>
               <Arrow className="w-4 h-4" />
             </div>

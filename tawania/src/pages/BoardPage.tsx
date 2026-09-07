@@ -55,7 +55,7 @@ export const BoardPage: React.FC = () => {
             <Users className="w-3.5 h-3.5 text-[#F59E0B]" />
             <span>{locale === 'ar' ? (boardIntro?.cycleBadgeAr || 'الدورة الانتخابية الثانية') : (boardIntro?.cycleBadgeEn || 'Second Electoral Term')}</span>
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0B4F26] tracking-tight">
             {locale === 'ar' ? (boardIntro?.titleAr || 'أعضاء مجلس الإدارة') : (boardIntro?.titleEn || 'Board of Directors')}
           </h2>
           <p className="text-sm sm:text-base text-[#4A5550] leading-relaxed font-medium">
@@ -134,7 +134,7 @@ export const BoardPage: React.FC = () => {
                 </span>
 
                 {/* Name */}
-                <h3 className="text-base font-bold text-[#0F172A] leading-snug mb-3 group-hover:text-[#0B4F26] transition-colors">
+                <h3 className="text-base font-bold text-[#0B4F26] leading-snug mb-3 group-hover:text-[#0B4F26] transition-colors">
                   {locale === 'ar' ? member.nameAr : member.nameEn || member.nameAr}
                 </h3>
 
@@ -146,7 +146,7 @@ export const BoardPage: React.FC = () => {
                 )}
 
                 {/* Email Action */}
-                <div className="mt-auto w-full pt-3 border-t border-[#0F172A]/5 space-y-1.5 text-xs text-[#525E59]">
+                <div className="mt-auto w-full pt-3 border-t border-[#0B4F26]/5 space-y-1.5 text-xs text-[#525E59]">
                   <a
                     href={`mailto:${member.email || 'info@shamil.org.sa'}`}
                     className="flex items-center justify-center gap-1.5 p-2 rounded-xl bg-gray-50 hover:bg-[#E8F7F0] text-[#0B4F26] hover:text-[#073F2E] font-medium text-xs border border-gray-100 transition-colors truncate"
